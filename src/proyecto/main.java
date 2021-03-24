@@ -1,6 +1,6 @@
 
 
-package proyecto;
+package ppa.Proyecto_pa.src.proyecto;
 import java.io.* ;
 public class main{
     public static void main(String args[]) throws IOException
@@ -12,14 +12,12 @@ public class main{
         
         String nombre = "Alfredo" ;
         String profecion = "prevencionista de riesgos" ;
-        String maquinaria = "ninguno" ;
         int sueldo = 200000;
         int rut = 800 ;
         x[2] = new Persona(nombre, profecion, sueldo, rut);
         
         nombre = "Samanta" ;
         profecion = "ingeniero en construccion" ;
-        maquinaria = "ninguno" ;
         sueldo = 700000;
         rut = 900 ;
         x[3] = new Persona(nombre, profecion, sueldo, rut);
@@ -44,7 +42,14 @@ public class main{
             System.out.println(x[i].getRut()) ;
         }
         //String prueba = x[0].getNombre() ;
+        String[] nombresObra = {"newñuñoa","newmaipú","newvalparaiso","new puente alto","newsantiago"};
+        String[] nombre_lugar = {"ñuñoa","maipú","valparaiso","puente alto","santiago"};
+        int[] presupuesto = {1000000,100000,100000,100,10000};
+        double[] tiempo = {1.5,1.6,1.8,1.9,1.9};
         
+        for (int pepe = 0 ; pepe < 5;pepe++ ){
+            System.out.println("Nombre Obra: "+nombresObra[pepe]+"Nombre Lugar: "+nombre_lugar[pepe]+"Presupuesto: "+presupuesto[pepe]+"tiempo: "+tiempo[pepe]);
+        }
     }   
 }
 
