@@ -3,7 +3,7 @@ package proyecto;
 
 
 /**
- *Realizar los cambios desde  "Source Packages"
+ *Realizar los cambios desde  "Source Packages", se activa git desde proyecto
  * @author Benjamín
  */
 public class Obra {
