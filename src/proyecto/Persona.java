@@ -13,7 +13,6 @@ public class Persona {
     
     private String nombre;
     private String laborProfecional;
-    private String maquinariaUtilizable;
     private int sueldo;
     private int rut;
 
@@ -21,10 +20,9 @@ public class Persona {
     }
 
     
-    public Persona(String nombre, String laborProfecional, String maquinariaUtilizable, int sueldo, int rut) {
+    public Persona(String nombre, String laborProfecional, int sueldo, int rut) {
         this.nombre = nombre;
         this.laborProfecional = laborProfecional;
-        this.maquinariaUtilizable = maquinariaUtilizable;
         this.sueldo = sueldo;
         this.rut = rut;
     }
@@ -43,14 +41,6 @@ public class Persona {
 
     public void setLaborProfecional(String laborProfecional) {
         this.laborProfecional = laborProfecional;
-    }
-
-    public String getMaquinariaUtilizable() {
-        return maquinariaUtilizable;
-    }
-
-    public void setMaquinariaUtilizable(String maquinariaUtilizable) {
-        this.maquinariaUtilizable = maquinariaUtilizable;
     }
 
     public int getSueldo() {
