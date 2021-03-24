@@ -15,7 +15,6 @@ public class Persona {
     private String laborProfecional;
     private int sueldo;
     private int rut;
-    //private int maquinaria
 
     public Persona() {
     }

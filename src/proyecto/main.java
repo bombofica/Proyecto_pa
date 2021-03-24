@@ -5,7 +5,6 @@ import java.io.* ;
 public class main{
     public static void main(String args[]) throws IOException
     {
-        System.out.println("probando xd primer cambio");
         
         Persona x[] = new Persona[5] ;
         x[0] = new Persona("Patricio","ingeniero Civil",300000,20481905) ;
