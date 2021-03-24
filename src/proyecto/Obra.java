@@ -3,7 +3,7 @@ package proyecto;
 
 
 /**
- *
+ *Realizar los cambios desde  "Source Packages"
  * @author Benjamín
  */
 public class Obra {
