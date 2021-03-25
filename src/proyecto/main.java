@@ -48,8 +48,25 @@ public class main{
         int[] presupuesto = {1000000,100000,100000,100,10000};
         double[] tiempo = {1.5,1.6,1.8,1.9,1.9};
         
-        for (int pepe = 0 ; pepe < 5;pepe++ ){
-            System.out.println("Nombre Obra: "+nombresObra[pepe]+"Nombre Lugar: "+nombre_lugar[pepe]+"Presupuesto: "+presupuesto[pepe]+"tiempo: "+tiempo[pepe]);
+        ListaEnlazada lista = new ListaEnlazada();
+        
+        for (int b = 0 ; b < 5;b++ ){
+            
+            Obra nuevaObra = new Obra(nombresObra[b],nombre_lugar[b],presupuesto[b],tiempo[b]);
+            lista.addList(nuevaObra);
+            
+            //System.out.println("Nombre Obra: "+nombresObra[b]+"Nombre Lugar: "+nombre_lugar[b]+"Presupuesto: "+presupuesto[b]+"tiempo: "+tiempo[b]);
+        }
+        
+        int contado = 0;
+        for (Nodo current = lista.cabeza ; current != null; current = current.getNext()){
+            System.out.println("Obra: "+contado);
+            System.out.println("Nombre Obra: "+((Obra) current.getCurrent()).getNombreObra());
+            System.out.println("Nombre Lugar: "+((Obra) current.getCurrent()).getNombreLugar());
+            System.out.println("Presupuesto: "+((Obra) current.getCurrent()).getPresupuestoObra());
+            System.out.println("Tiempo: "+((Obra) current.getCurrent()).getTiempoParaTerminarObra());
+            contado++;
+            
         }
     }   
 }
