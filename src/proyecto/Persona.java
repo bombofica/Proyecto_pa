@@ -6,7 +6,7 @@
 package proyecto;
 
 /**
- *
+ * Programación Avanzada ICI3241-1
  * @author Benjamín Rojas
  * @author Andrés Vidal
  */
