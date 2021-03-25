@@ -7,7 +7,8 @@ package proyecto;
 
 /**
  *
- * @author Benjamín
+ * @author Benjamín Rojas
+ * @author Andrés Vidal
  */
 public class ListaEnlazada {
     Nodo cabeza;

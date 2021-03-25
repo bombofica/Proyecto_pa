@@ -7,7 +7,8 @@ package proyecto;
 
 /**
  *
- * @author Ceseo
+ * @author Benjamín Rojas
+ * @author Andrés Vidal
  */
 public class Persona {
     

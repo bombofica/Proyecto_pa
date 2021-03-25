@@ -1,4 +1,9 @@
 
+/**
+ *
+ * @author Benjamín Rojas
+ * @author Andrés Vidal
+ */
 
 package proyecto;
 import java.io.* ;

@@ -3,8 +3,9 @@ package proyecto;
 
 
 /**
- *Realizar los cambios desde  "Source Packages", se activa git desde proyecto
- * @author Benjamín
+ *
+ * @author Benjamín Rojas
+ * @author Andrés Vidal
  */
 public class Obra {
 
