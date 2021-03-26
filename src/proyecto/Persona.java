@@ -13,7 +13,7 @@ package proyecto;
 public class Persona {
     
     private String nombre;
-    private String laborProfecional;
+    private String laborProfesional;
     private int sueldo;
     private int rut;
 
@@ -23,7 +23,7 @@ public class Persona {
     
     public Persona(String nombre, String laborProfecional, int sueldo, int rut) {
         this.nombre = nombre;
-        this.laborProfecional = laborProfecional;
+        this.laborProfesional = laborProfecional;
         this.sueldo = sueldo;
         this.rut = rut;
     }
@@ -36,12 +36,12 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    public String getLaborProfecional() {
-        return laborProfecional;
+    public String getLaborProfesional() {
+        return laborProfesional;
     }
 
-    public void setLaborProfecional(String laborProfecional) {
-        this.laborProfecional = laborProfecional;
+    public void setLaborProfesional(String laborProfecional) {
+        this.laborProfesional = laborProfecional;
     }
 
     public int getSueldo() {
