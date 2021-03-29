@@ -5,11 +5,16 @@
  * @author Andrés Vidal
  */
 
+
 package proyecto;
 import java.io.* ;
+
+
+
 public class main{
     public static void main(String args[]) throws IOException
     {
+        
         
         Persona x[] = new Persona[5] ;
         x[0] = new Persona("Patricio","ingeniero Civil",300000,20481905) ;
@@ -73,6 +78,18 @@ public class main{
             contado++;
             
         }
+        
+        //ReadFile.leerArchivo("nada");
+        ListaEnlazada listica = new ListaEnlazada();
+        listica = ReadFile.tomarContenidos(',', 4);
+        for(Nodo nodito=listica.cabeza; nodito != null; nodito = nodito.getNext()){
+            for(int index = 0; index <4 ; index ++){
+                System.out.print(((String[]) nodito.getCurrent())[index]+" ");
+            }
+            System.out.println("");
+        }
+        
+        
     }   
 }
 

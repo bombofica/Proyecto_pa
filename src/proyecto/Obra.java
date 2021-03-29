@@ -8,11 +8,18 @@ package proyecto;
  * @author Andrés Vidal
  */
 public class Obra {
-
+    
     private String nombreObra;
     private String nombreLugar;
     private int presupuestoObra;
     private double tiempoParaTerminarObra;
+   
+    public Obra(String nombreObra, String nombreLugar, int presupuestoObra, double tiempoNecesarioParaTerminarObra) {
+        this.nombreObra = nombreObra;
+        this.nombreLugar = nombreLugar;
+        this.presupuestoObra = presupuestoObra;
+        this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
+    }
     
     public String getNombreObra() {
         return nombreObra;
@@ -46,17 +53,8 @@ public class Obra {
         this.tiempoParaTerminarObra = tiempoParaTerminarObra;
     }
 
-    
-    public Obra(String nombreObra, String nombreLugar, int presupuestoObra, double tiempoNecesarioParaTerminarObra) {
-        this.nombreObra = nombreObra;
-        this.nombreLugar = nombreLugar;
-        this.presupuestoObra = presupuestoObra;
-        this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
-    }
-    
-    
-    
-    
+        
+       
 
     
 }
