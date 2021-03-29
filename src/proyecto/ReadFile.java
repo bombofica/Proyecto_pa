@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package proyecto;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -37,9 +36,8 @@ public class ReadFile {
         
         try{
             FileReader entrada = new FileReader("D:\\Escritorio Real\\ProyectoPA\\proyecto\\proyecto\\src\\proyecto\\csv_proyecto_progra.txt");
-            int c=5;
-            
-                    
+            int c;
+               
             do
             {
                 c=entrada.read();
@@ -61,8 +59,7 @@ public class ReadFile {
                     }
                 }
                 
-                if(caracter == '\n' || c == -1){
-                    
+                if(caracter == '\n' || c == -1){ 
                     lista.addList(valores);
                     valores = new String[num];
                     cont = 0;

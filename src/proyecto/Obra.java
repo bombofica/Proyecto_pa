@@ -13,6 +13,8 @@ public class Obra {
     private String nombreLugar;
     private int presupuestoObra;
     private double tiempoParaTerminarObra;
+    
+    public Obra(){}
    
     public Obra(String nombreObra, String nombreLugar, int presupuestoObra, double tiempoNecesarioParaTerminarObra) {
         this.nombreObra = nombreObra;
@@ -44,6 +46,9 @@ public class Obra {
     public void setPresupuestoObra(int presupuestoObra) {
         this.presupuestoObra = presupuestoObra;
     }
+    public void setPresupuestoObra(double presupuestoObra) {
+        this.presupuestoObra = (int) presupuestoObra;
+    }
 
     public double getTiempoParaTerminarObra() {
         return tiempoParaTerminarObra;
@@ -53,6 +58,9 @@ public class Obra {
         this.tiempoParaTerminarObra = tiempoParaTerminarObra;
     }
 
+    public void setTiempoParaTerminarObra(int tiempoParaTerminarObra) {
+        this.tiempoParaTerminarObra = tiempoParaTerminarObra;
+    }
         
        
 

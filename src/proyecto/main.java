@@ -80,8 +80,7 @@ public class main{
         }
         
         //ReadFile.leerArchivo("nada");
-        ListaEnlazada listica = new ListaEnlazada();
-        listica = ReadFile.tomarContenidos(',', 4);
+        ListaEnlazada listica = ReadFile.tomarContenidos(',', 4);
         for(Nodo nodito=listica.cabeza; nodito != null; nodito = nodito.getNext()){
             for(int index = 0; index <4 ; index ++){
                 System.out.print(((String[]) nodito.getCurrent())[index]+" ");

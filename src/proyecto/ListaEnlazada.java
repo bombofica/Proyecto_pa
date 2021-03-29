@@ -15,8 +15,7 @@ public class ListaEnlazada {
     int size;
     
     public ListaEnlazada(){
-        this.cabeza = null;
-        
+        this.cabeza = null;       
         this.size = 0;
     }
     
