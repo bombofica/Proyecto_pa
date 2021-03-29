@@ -17,7 +17,7 @@ public class ReadFile {
     public static void leerArchivo(String direccion){
         
         try{
-            FileReader entrada = new FileReader("D:\\Escritorio Real\\ProyectoPA\\proyecto\\proyecto\\src\\proyecto\\csv_proyecto_progra.txt");
+            FileReader entrada = new FileReader("D:\\Escritorio Real\\ProyectoPA\\proyecto\\proyecto\\src\\proyecto\\csvProyectoProgra.txt");
             int c=5;
             while(c!=-1){
                 c=entrada.read();

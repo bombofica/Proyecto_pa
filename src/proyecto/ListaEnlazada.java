@@ -51,7 +51,7 @@ public class ListaEnlazada {
         return this.size;
     }
     
-    public boolean estáVacio(){
+    public boolean estaVacio(){
         return (null == this.cabeza)?true:false;
     }
     

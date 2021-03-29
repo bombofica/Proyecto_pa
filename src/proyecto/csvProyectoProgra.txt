@@ -1,0 +1,5 @@
+Andres Vidal,Informatico,1300000,20481905,
+Chino Rios,Tenista,1000000000,32134537,
+Pastor Soto,Pastor,1000,84934843,
+Sebastián Piñera,Presidente,7000000000,83892547,
+Efrain Gonzales,Contador,3000000,90283749,

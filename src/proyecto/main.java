@@ -22,16 +22,16 @@ public class main{
         x[1] = new Persona("Lukas","topografo",100000,300) ;
         
         String nombre = "Alfredo" ;
-        String profesión = "prevencionista de riesgos" ;
+        String profesion = "prevencionista de riesgos" ;
         int sueldo = 200000;
         int rut = 800 ;
-        x[2] = new Persona(nombre, profesión, sueldo, rut);
+        x[2] = new Persona(nombre, profesion, sueldo, rut);
         
         nombre = "Samanta" ;
-        profesión = "ingeniero en construccion" ;
+        profesion = "ingeniero en construccion" ;
         sueldo = 700000;
         rut = 900 ;
-        x[3] = new Persona(nombre, profesión, sueldo, rut);
+        x[3] = new Persona(nombre, profesion, sueldo, rut);
         
         BufferedReader sop = new BufferedReader(new InputStreamReader(System.in)) ;
         x[4] = new Persona() ;
@@ -43,16 +43,15 @@ public class main{
         x[4].setSueldo(Integer.parseInt(sop.readLine()));
         System.out.println("ingrese rut:") ;
         x[4].setRut(Integer.parseInt(sop.readLine()));
-        //x[4] = new Persona(nombre, profesión, maquinaria, sueldo, rut);
+        //x[4] = new Persona(nombre, profesion, maquinaria, sueldo, rut);
         
-        for(int i = 0 ; i < x.length ; i++)
-        {
-            System.out.println(x[i].getNombre()) ;
-            System.out.println(x[i].getLaborProfesional()) ;
-            System.out.println(x[i].getSueldo()) ;
-            System.out.println(x[i].getRut()) ;
+        for (Persona x1 : x) {
+            System.out.println(x1.getNombre());
+            System.out.println(x1.getLaborProfesional());
+            System.out.println(x1.getSueldo());
+            System.out.println(x1.getRut());
         }
-        //String prueba = x[0].getNombre() ;
+        
         String[] nombresObra = {"newñuñoa","newmaipú","newvalparaiso","new puente alto","newsantiago"};
         String[] nombre_lugar = {"ñuñoa","maipú","valparaiso","puente alto","santiago"};
         int[] presupuesto = {1000000,100000,100000,100,10000};
@@ -88,6 +87,7 @@ public class main{
             System.out.println("");
         }
         
+        WriteFile.escribirFichero(5);
         
     }   
 }
