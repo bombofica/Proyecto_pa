@@ -7,12 +7,18 @@ package proyecto;
  * @author Benjamín Rojas
  * @author Andrés Vidal
  */
+
+import java.util.HashMap;
+
 public class Obra {
     
     private String nombreObra;
     private String nombreLugar;
-    private int presupuestoObra;
+    private double presupuestoObra;
     private double tiempoParaTerminarObra;
+    private HashMap<String,Persona> tablaPersonasNombre;
+    private HashMap<Integer,Persona> tablaPersonasRut;
+    
     
     public Obra(){}
    
@@ -21,6 +27,9 @@ public class Obra {
         this.nombreLugar = nombreLugar;
         this.presupuestoObra = presupuestoObra;
         this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
+        this.tablaPersonasNombre = new HashMap();
+        this.tablaPersonasRut = new HashMap();
+
     }
     
     public String getNombreObra() {
@@ -39,7 +48,7 @@ public class Obra {
         this.nombreLugar = nombreLugar;
     }
 
-    public int getPresupuestoObra() {
+    public double getPresupuestoObra() {
         return presupuestoObra;
     }
 
@@ -61,6 +70,37 @@ public class Obra {
     public void setTiempoParaTerminarObra(int tiempoParaTerminarObra) {
         this.tiempoParaTerminarObra = tiempoParaTerminarObra;
     }
+    
+    public void despedirEmpleado(String nombre){
+        
+    }
+   
+    public void despedirEmpleado(int rut){
+        
+    }
+    
+    public void cambiarPresupuesto(double presupuestoObra){
+        this.presupuestoObra = presupuestoObra;
+    }
+    
+    public Persona buscarPersona(int rut){
+        Persona valor = tablaPersonasRut.get(rut);
+        return valor;
+    }
+    
+    public Persona buscarPersona(String nombre){
+        Persona valor = tablaPersonasNombre.get(nombre);
+        return valor;
+    }
+    
+    public void agregarPersona(Persona serHumano){
+        tablaPersonasRut.put(serHumano.getRut(), serHumano);
+        tablaPersonasNombre.put(serHumano.getNombre(), serHumano);
+
+    }
+    
+    
+    
         
        
 

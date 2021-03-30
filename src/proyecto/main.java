@@ -15,8 +15,20 @@ public class main{
     public static void main(String args[]) throws IOException
     {
         
+        Obra obraAmiga = new Obra("Japeninconja","Santiago",500,2);
         
-        Persona x[] = new Persona[5] ;
+        Persona personaje1 = new Persona("Alberto","Ingeniero",3000,3000);
+        Persona personaje2 = new Persona("Pepegrillo","Doctor",5000,4000);
+        Persona personaje3 = new Persona("Huesillo","Pintor",6000,9000);
+        
+        obraAmiga.agregarPersona(personaje1);
+        obraAmiga.agregarPersona(personaje2);
+        obraAmiga.agregarPersona(personaje3);
+        
+        Persona chucheta = obraAmiga.buscarPersona(personaje2.getNombre());
+        System.out.println(chucheta.getNombre());
+        
+       /* Persona x[] = new Persona[5] ;
         x[0] = new Persona("Patricio","ingeniero Civil",300000,20481905) ;
         
         x[1] = new Persona("Lukas","topografo",100000,300) ;
@@ -85,9 +97,9 @@ public class main{
                 System.out.print(((String[]) nodito.getCurrent())[index]+" ");
             }
             System.out.println("");
-        }
+        }*/
         
-        WriteFile.escribirFichero(5);
+        //WriteFile.escribirFichero(5);
         
     }   
 }
