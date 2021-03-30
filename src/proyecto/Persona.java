@@ -7,8 +7,8 @@ package proyecto;
 
 /**
  * Programación Avanzada ICI3241-1
- * @author Benjamín Rojas
- * @author Andrés Vidal
+ * @author Benjamín Rojas Henríquez
+ * @author Andrés Vidal Soto
  */
 public class Persona {
     
@@ -16,6 +16,7 @@ public class Persona {
     private String laborProfesional;
     private int sueldo;
     private int rut;
+    
 
     public Persona() {
     }

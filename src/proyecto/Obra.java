@@ -71,14 +71,6 @@ public class Obra {
         this.tiempoParaTerminarObra = tiempoParaTerminarObra;
     }
     
-    public void despedirEmpleado(String nombre){
-        
-    }
-   
-    public void despedirEmpleado(int rut){
-        
-    }
-    
     public void cambiarPresupuesto(double presupuestoObra){
         this.presupuestoObra = presupuestoObra;
     }
@@ -99,7 +91,19 @@ public class Obra {
 
     }
     
+    public void despedirEmpleado(int rut){
+        Persona personaEliminada = tablaPersonasRut.get(rut);
+        System.out.println("se a despedido a"+personaEliminada.getNombre()) ;
+        tablaPersonasRut.remove(rut);
+        tablaPersonasNombre.remove(personaEliminada.getNombre()) ;
+    }
     
+    public void despedirEmpleado(String nombre){
+        Persona personaEliminada = tablaPersonasNombre.get(nombre);
+        System.out.println("se a despedido a"+nombre) ;
+        tablaPersonasNombre.remove(nombre);
+        tablaPersonasRut.remove(personaEliminada.getRut());
+    }
     
         
        
