@@ -33,7 +33,8 @@ public class main{
         HashMap<String,Persona> mapa1 = cocodrilo[0] ;//(ReadFile.tomarContenidos(',', 4))[0];
         HashMap<Integer,Persona> mapa2 = cocodrilo[1];//((HashMap[])ReadFile.tomarContenidos(',', 4))[1];
         
-        Persona nuevoPersonaje = mapa1.get("Chino Rios");
+        Persona nuevoPersonaje = mapa1.get("Matias Sosorio");
+        
         
         System.out.println(nuevoPersonaje.getNombre());
         
