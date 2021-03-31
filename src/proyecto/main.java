@@ -8,7 +8,7 @@
 
 package proyecto;
 import java.io.* ;
-
+import java.util.HashMap;
 
 
 public class main{
@@ -27,6 +27,16 @@ public class main{
         
         Persona chucheta = obraAmiga.buscarPersona(personaje2.getNombre());
         System.out.println(chucheta.getNombre());
+        
+        HashMap[] cocodrilo = ReadFile.tomarContenidos(',', 4);
+        
+        HashMap<String,Persona> mapa1 = cocodrilo[0] ;//(ReadFile.tomarContenidos(',', 4))[0];
+        HashMap<Integer,Persona> mapa2 = cocodrilo[1];//((HashMap[])ReadFile.tomarContenidos(',', 4))[1];
+        
+        Persona nuevoPersonaje = mapa1.get("Chino Rios");
+        
+        System.out.println(nuevoPersonaje.getNombre());
+        
         
        /* Persona x[] = new Persona[5] ;
         x[0] = new Persona("Patricio","ingeniero Civil",300000,20481905) ;

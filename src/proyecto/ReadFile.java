@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto;
+import java.util.HashMap;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -29,17 +30,21 @@ public class ReadFile {
         }
     }
     
-    public static ListaEnlazada tomarContenidos(char separador, int num){
+    public static HashMap[] tomarContenidos(char separador, int num){
         String[] valores = new String[num];
+        Persona current;
         int cont=0;
-        ListaEnlazada lista = new ListaEnlazada();
+        
+        HashMap[] contenedorDeDatos = new HashMap[2];
+        HashMap<String,Persona> hashPersonaNombre = new HashMap();
+        HashMap<Integer,Persona> hashPersonaRut = new HashMap();
+        
         
         try{
-            FileReader entrada = new FileReader("D:\\Escritorio Real\\ProyectoPA\\proyecto\\proyecto\\src\\proyecto\\csv_proyecto_progra.txt");
+            FileReader entrada = new FileReader("src\\proyecto\\csvProyectoProgra.txt");
             int c;
                
-            do
-            {
+            do{
                 c=entrada.read();
                 char caracter = (char) c;
                 
@@ -59,8 +64,10 @@ public class ReadFile {
                     }
                 }
                 
-                if(caracter == '\n' || c == -1){ 
-                    lista.addList(valores);
+                if(caracter == '\n' || c == -1){
+                    current = new Persona(valores[0],valores[1],Integer.parseInt(valores[2]),Integer.parseInt(valores[3]));
+                    hashPersonaNombre.put(current.getNombre(),current);
+                    hashPersonaRut.put(current.getRut(), current);
                     valores = new String[num];
                     cont = 0;
                 }
@@ -70,7 +77,9 @@ public class ReadFile {
         }catch(IOException e){
             System.out.println("El fichero no existe");
         }
-        return lista;
+        
+        contenedorDeDatos[0] = hashPersonaNombre;
+        contenedorDeDatos[1] = hashPersonaRut;
+        return contenedorDeDatos;
     }
-    
 }
