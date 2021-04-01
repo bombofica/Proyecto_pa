@@ -33,10 +33,10 @@ public class main{
         
         HashMap<String,Persona> mapa1 =(HashMap) cocodrilo[0] ;//(ReadFile.tomarContenidos(',', 4))[0];
         HashMap<Integer,Persona> mapa2 = (HashMap) cocodrilo[1];//((HashMap[])ReadFile.tomarContenidos(',', 4))[1];
-        ArrayList<Persona> lista = (ArrayList) cocodrilo[2];
+        ArrayList<Persona> lista = (ArrayList<Persona>) cocodrilo[2];
         
-        RegistroTrabajadores registro = new  RegistroTrabajadores();
-        registro.setRegistroEmpleados(lista);
+        RegistroTrabajadores registro = new RegistroTrabajadores(lista);//= new  RegistroTrabajadores();
+        
         
         registro.mostrarPersona("Informático");
         

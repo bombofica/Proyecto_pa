@@ -14,20 +14,22 @@ import java.util.ArrayList;
 public class RegistroTrabajadores {
     
     private ArrayList<Persona> registroEmpleados;
-    
-    public void RegistroTrabajadores(){
+
+    public RegistroTrabajadores(ArrayList<Persona> lista){
+                
+        this.registroEmpleados = lista;
+        
+    }
+   
+    public RegistroTrabajadores(Boolean booleano){
                 
         this.registroEmpleados = new ArrayList();
         
     }
+   
+ 
     
-   /* public void RegistroTrabajadores(ArrayList lista){
-                
-        this.registroEmpleados = lista;
-        
-    }*/
-    
-    public void setRegistroEmpleados(ArrayList lista){
+    public void setRegistroEmpleados(ArrayList<Persona> lista){
         this.registroEmpleados = lista;
     }
     
