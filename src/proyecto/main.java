@@ -9,6 +9,7 @@
 package proyecto;
 import java.io.* ;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 
 public class main{
@@ -17,9 +18,9 @@ public class main{
         
         Obra obraAmiga = new Obra("Japeninconja","Santiago",500,2);
         
-        Persona personaje1 = new Persona("Alberto","Ingeniero",3000,3000);
-        Persona personaje2 = new Persona("Pepegrillo","Doctor",5000,4000);
-        Persona personaje3 = new Persona("Huesillo","Pintor",6000,9000);
+        Persona personaje1 = new Persona("Alberto","Ingeniero",3000,3000,true);
+        Persona personaje2 = new Persona("Pepegrillo","Doctor",5000,4000,false);
+        Persona personaje3 = new Persona("Huesillo","Pintor",6000,9000,true);
         
         obraAmiga.agregarPersona(personaje1);
         obraAmiga.agregarPersona(personaje2);
@@ -28,10 +29,16 @@ public class main{
         Persona chucheta = obraAmiga.buscarPersona(personaje2.getNombre());
         System.out.println(chucheta.getNombre());
         
-        HashMap[] cocodrilo = ReadFile.tomarContenidos(',', 4);
+        Object[] cocodrilo = ReadFile.tomarContenidos(',', 5);
         
-        HashMap<String,Persona> mapa1 = cocodrilo[0] ;//(ReadFile.tomarContenidos(',', 4))[0];
-        HashMap<Integer,Persona> mapa2 = cocodrilo[1];//((HashMap[])ReadFile.tomarContenidos(',', 4))[1];
+        HashMap<String,Persona> mapa1 =(HashMap) cocodrilo[0] ;//(ReadFile.tomarContenidos(',', 4))[0];
+        HashMap<Integer,Persona> mapa2 = (HashMap) cocodrilo[1];//((HashMap[])ReadFile.tomarContenidos(',', 4))[1];
+        ArrayList<Persona> lista = (ArrayList) cocodrilo[2];
+        
+        RegistroTrabajadores registro = new  RegistroTrabajadores();
+        registro.setRegistroEmpleados(lista);
+        
+        registro.mostrarPersona("Informático");
         
         Persona nuevoPersonaje = mapa1.get("Matias Sosorio");
         

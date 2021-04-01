@@ -72,11 +72,17 @@ public class Obra {
     }
     
     public void despedirEmpleado(String nombre){
-        
+        Persona sujeto = tablaPersonasNombre.get(nombre);
+        tablaPersonasNombre.remove(nombre);
+        tablaPersonasRut.remove(sujeto.getRut());
+        System.out.println("El sujeto ha sido eliminado");
     }
    
     public void despedirEmpleado(int rut){
-        
+        Persona sujeto = tablaPersonasRut.get(rut);
+        tablaPersonasRut.remove(rut);
+        tablaPersonasNombre.remove(sujeto.getNombre());
+        System.out.println("El sujeto ha sido eliminado");
     }
     
     public void cambiarPresupuesto(double presupuestoObra){
@@ -98,11 +104,5 @@ public class Obra {
         tablaPersonasNombre.put(serHumano.getNombre(), serHumano);
 
     }
-    
-    
-    
-        
-       
-
     
 }

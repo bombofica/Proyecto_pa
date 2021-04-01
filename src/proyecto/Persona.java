@@ -16,16 +16,26 @@ public class Persona {
     private String laborProfesional;
     private int sueldo;
     private int rut;
+    private boolean trabajando;
+
+    public boolean isTrabajando() {
+        return trabajando;
+    }
+
+    public void setTrabajando(boolean trabajando) {
+        this.trabajando = trabajando;
+    }
 
     public Persona() {
     }
 
     
-    public Persona(String nombre, String laborProfecional, int sueldo, int rut) {
+    public Persona(String nombre, String laborProfecional, int sueldo, int rut, boolean estado) {
         this.nombre = nombre;
         this.laborProfesional = laborProfecional;
         this.sueldo = sueldo;
         this.rut = rut;
+        this.trabajando = estado;
     }
 
     public String getNombre() {
