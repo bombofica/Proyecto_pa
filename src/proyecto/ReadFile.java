@@ -39,6 +39,7 @@ public class ReadFile {
         
         //HashMap[] contenedorDeDatos = new HashMap[2];
         Object[] contenedorDatos = new Object[3];
+        
         ArrayList<Persona> lista = new ArrayList();
         HashMap<String,Persona> hashPersonaNombre = new HashMap();
         HashMap<Integer,Persona> hashPersonaRut = new HashMap();

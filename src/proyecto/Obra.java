@@ -21,7 +21,7 @@ public class Obra {
     
     
     public Obra(){}
-   
+    // Este constructor es para cuando se crea una obra desde cero
     public Obra(String nombreObra, String nombreLugar, int presupuestoObra, double tiempoNecesarioParaTerminarObra) {
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
@@ -29,7 +29,17 @@ public class Obra {
         this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
         this.tablaPersonasNombre = new HashMap();
         this.tablaPersonasRut = new HashMap();
-
+    }
+    //Este contructor es para cuando se carga una obra desde un archivo o "base de datos"
+    public Obra(String nombreObra, String nombreLugar, int presupuestoObra, double tiempoNecesarioParaTerminarObra,
+    HashMap<String,Persona> tablaPersonasNombre,HashMap<Integer,Persona> tablaPersonasRut ){
+        
+        this.nombreObra = nombreObra;
+        this.nombreLugar = nombreLugar;
+        this.presupuestoObra = presupuestoObra;
+        this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
+        this.tablaPersonasNombre = tablaPersonasNombre;
+        this.tablaPersonasRut = tablaPersonasRut;
     }
     
     public String getNombreObra() {
