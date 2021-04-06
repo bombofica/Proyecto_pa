@@ -38,20 +38,34 @@ public class main{
                     menu = pupi.nextInt() ;
                     try
                     {
+                        if(menu == 1) // gestion de archivos xdxd
+                        {
+                            
+                        }
                         if(menu == 2)
                         {
                             RegistroObras registro = new RegistroObras() ;
                             registro.mostrarObras() ;
                         }
+                        if(menu == 3)
+                        {
+                            
+                        }
                         if(menu == 4)
                         {
                             String nombre;
+                            int nuevoPresupuesto;
                             RegistroObras registro = new RegistroObras() ;
                             registro.mostrarObras() ;
                             System.out.println("Ingrese el nombre de la obra");
                             nombre = pupi.nextLine() ;
-                            
+                            Obra obraSeleccionada ;
+                            obraSeleccionada = registro.retornarObra(nombre) ;
+                            System.out.println("Ingrese el nuevo presupuesto");
+                            nuevoPresupuesto = pupi.nextInt() ;
+                            obraSeleccionada.cambiarPresupuesto(nuevoPresupuesto) ;
                         }
+                        if(menu == 5) continue;
                     }
                     catch(Exception e)
                     {
