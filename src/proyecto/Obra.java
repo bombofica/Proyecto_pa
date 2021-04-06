@@ -19,7 +19,7 @@ public class Obra {
     public Obra() {
     }
 
-    public Obra(String nombreObra, String nombreLugar, int presupuestoObra, double tiempoNecesarioParaTerminarObra) {
+    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, double tiempoNecesarioParaTerminarObra) {
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
         this.presupuestoObra = presupuestoObra;
@@ -28,7 +28,7 @@ public class Obra {
         this.tablaPersonasRut = new HashMap();
     }
 
-    public Obra(String nombreObra, String nombreLugar, int presupuestoObra, double tiempoNecesarioParaTerminarObra, HashMap<String, Persona> tablaPersonasNombre, HashMap<Integer, Persona> tablaPersonasRut) {
+    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, double tiempoNecesarioParaTerminarObra, HashMap<String, Persona> tablaPersonasNombre, HashMap<Integer, Persona> tablaPersonasRut) {
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
         this.presupuestoObra = presupuestoObra;

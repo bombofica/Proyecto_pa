@@ -21,7 +21,7 @@ public class ReadFile {
         }
     }
 
-    public static Object[] tomarContenidos(char separador, int num) {
+    public static Object[] tomarContenidos(char separador, int num, String direccion) {
         String[] valores = new String[num];
         Persona current;
         int cont = 0;
@@ -30,7 +30,7 @@ public class ReadFile {
         HashMap<String, Persona> hashPersonaNombre = new HashMap();
         HashMap<Integer, Persona> hashPersonaRut = new HashMap();
         try {
-            FileReader entrada = new FileReader("src\\proyecto\\csvProyectoProgra.txt");
+            FileReader entrada = new FileReader(direccion);
             int c;
             do {
                 c = entrada.read();
@@ -63,5 +63,45 @@ public class ReadFile {
         contenedorDatos[1] = hashPersonaRut;
         contenedorDatos[2] = lista;
         return contenedorDatos;
+    }
+    
+    public static void traerObras (char separador, int num, String direccion){
+
+        String[] valores = new String[num];
+        Obra current;
+        int cont = 0;
+        
+        try{
+            FileReader entrada = new FileReader(direccion);
+            int c;
+            do {
+                c = entrada.read();
+                char caracter = (char) c;
+                if ((caracter == separador)) {
+                    cont++;
+                } else {
+                    if (caracter != '\n' && c != -1) {
+                        if (cont < num && valores[cont] == null) {
+                            valores[cont] = String.valueOf(caracter);
+                        } else {
+                            if (cont < num)
+                                valores[cont] += caracter;
+                        }
+                    }
+                }
+                if (caracter == '\n' || c == -1) {
+                    current = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), Double.parseDouble(valores[3]));
+                    
+                    valores = new String[num];
+                    cont = 0;
+                }                
+                
+
+            } while (c != -1);
+        } catch (IOException e) {
+            System.out.println("El fichero no existe");
+        }
+
+        
     }
 }

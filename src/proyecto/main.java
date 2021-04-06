@@ -25,7 +25,9 @@ public class main {
         obraAmiga.agregarPersona(personaje3);
         Persona personaTest = obraAmiga.buscarPersona(personaje2.getNombre());
         System.out.println(personaTest.getNombre());
-        Object[] cocodrilo = ReadFile.tomarContenidos(',', 5);
+        
+        Object[] cocodrilo = ReadFile.tomarContenidos(',', 5,"csvProyectoProgra.txt");
+        
         HashMap<String, Persona> mapa1 = (HashMap) cocodrilo[0];
         HashMap<Integer, Persona> mapa2 = (HashMap) cocodrilo[1];
         ArrayList<Persona> lista = (ArrayList<Persona>) cocodrilo[2];
