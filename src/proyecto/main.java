@@ -1,50 +1,39 @@
-
-/**
- * Programación Avanzada ICI3241-1
- * @author Benjamín Rojas
- * @author Andrés Vidal
- */
-
-
 package proyecto;
-import java.io.* ;
+
+import java.io.*;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Scanner;
 
+public class main {
 
-public class main{
-    public static void main(String args[]) throws IOException
-    {
+    public static void main(String args[]) throws IOException {
+        /*
+        Scanner lector= new Scanner(System.in);
         
-        Obra obraAmiga = new Obra("Obra Maestra","Santiago",500,2);
+        String valor="528";
+        int variable= lector.nextInt();
+        System.out.println(variable);*/
         
-        Persona personaje1 = new Persona("Alberto","Ingeniero",3000,3000,true);
-        Persona personaje2 = new Persona("Pepegrillo","Doctor",5000,4000,false);
-        Persona personaje3 = new Persona("Huesillo","Pintor",6000,9000,true);
         
+        Obra obraAmiga = new Obra("Obra Maestra", "Santiago", 500, 2);
+        Persona personaje1 = new Persona("Alberto", "Ingeniero", 3000, 3000, true);
+        Persona personaje2 = new Persona("Pepegrillo", "Doctor", 5000, 4000, false);
+        Persona personaje3 = new Persona("Huesillo", "Pintor", 6000, 9000, true);
         obraAmiga.agregarPersona(personaje1);
         obraAmiga.agregarPersona(personaje2);
         obraAmiga.agregarPersona(personaje3);
-        
         Persona personaTest = obraAmiga.buscarPersona(personaje2.getNombre());
         System.out.println(personaTest.getNombre());
-        
         Object[] cocodrilo = ReadFile.tomarContenidos(',', 5);
-        
-        HashMap<String,Persona> mapa1 =(HashMap) cocodrilo[0] ;
-        HashMap<Integer,Persona> mapa2 = (HashMap) cocodrilo[1];
-        
+        HashMap<String, Persona> mapa1 = (HashMap) cocodrilo[0];
+        HashMap<Integer, Persona> mapa2 = (HashMap) cocodrilo[1];
         ArrayList<Persona> lista = (ArrayList<Persona>) cocodrilo[2];
-        
         RegistroTrabajadores registro = new RegistroTrabajadores(lista);
-        
         registro.mostrarPersona("Informático");
-        
         Persona nuevoPersonaje = mapa1.get("Matias Sosorio");
-              
         System.out.println(nuevoPersonaje.getNombre());
         
-        // Es el mismo archivo de antes, la entrega parical P1
         
        /* Persona x[] = new Persona[5] ;
         x[0] = new Persona("Patricio","ingeniero Civil",300000,20481905) ;
@@ -80,46 +69,7 @@ public class main{
             System.out.println(x1.getLaborProfesional());
             System.out.println(x1.getSueldo());
             System.out.println(x1.getRut());
-        }
-        
-        String[] nombresObra = {"newñuñoa","newmaipú","newvalparaiso","new puente alto","newsantiago"};
-        String[] nombre_lugar = {"ñuñoa","maipú","valparaiso","puente alto","santiago"};
-        int[] presupuesto = {1000000,100000,100000,100,10000};
-        double[] tiempo = {1.5,1.6,1.8,1.9,1.9};
-        
-        ListaEnlazada lista = new ListaEnlazada();
-        
-        for (int b = 0 ; b < 5;b++ ){
-            
-            Obra nuevaObra = new Obra(nombresObra[b],nombre_lugar[b],presupuesto[b],tiempo[b]);
-            lista.addList(nuevaObra);
-            
-            //System.out.println("Nombre Obra: "+nombresObra[b]+"Nombre Lugar: "+nombre_lugar[b]+"Presupuesto: "+presupuesto[b]+"tiempo: "+tiempo[b]);
-        }
-        
-        int contado = 0;
-        for (Nodo current = lista.cabeza ; current != null; current = current.getNext()){
-            System.out.println("Obra: "+contado);
-            System.out.println("Nombre Obra: "+((Obra) current.getCurrent()).getNombreObra());
-            System.out.println("Nombre Lugar: "+((Obra) current.getCurrent()).getNombreLugar());
-            System.out.println("Presupuesto: "+((Obra) current.getCurrent()).getPresupuestoObra());
-            System.out.println("Tiempo: "+((Obra) current.getCurrent()).getTiempoParaTerminarObra());
-            contado++;
-            
-        }
-        
-        //ReadFile.leerArchivo("nada");
-        ListaEnlazada listica = ReadFile.tomarContenidos(',', 4);
-        for(Nodo nodito=listica.cabeza; nodito != null; nodito = nodito.getNext()){
-            for(int index = 0; index <4 ; index ++){
-                System.out.print(((String[]) nodito.getCurrent())[index]+" ");
-            }
-            System.out.println("");
-        }*/
-        
-        //WriteFile.escribirFichero(5);
-        
-    }   
+    }*/
+
 }
-
-
+}

@@ -1,21 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto;
 
-/**
- * Programación Avanzada ICI3241-1
- * @author Benjamín Rojas
- * @author Andrés Vidal
- */
 public class Persona {
-    
+
     private String nombre;
+
     private String laborProfesional;
+
     private int sueldo;
+
     private int rut;
+
     private boolean trabajando;
 
     public boolean isTrabajando() {
@@ -29,7 +23,6 @@ public class Persona {
     public Persona() {
     }
 
-    
     public Persona(String nombre, String laborProfecional, int sueldo, int rut, boolean estado) {
         this.nombre = nombre;
         this.laborProfesional = laborProfecional;
@@ -69,7 +62,4 @@ public class Persona {
     public void setRut(int rut) {
         this.rut = rut;
     }
-    
-    
-    
 }
