@@ -44,4 +44,10 @@ public class RegistroTrabajadores {
             }
         }
     }
+    
+    
+    // funcion agregada
+    public void agregarPersona(Persona persona){
+        registroEmpleados.add(persona);
+    }
 }
