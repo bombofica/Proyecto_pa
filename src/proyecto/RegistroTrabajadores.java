@@ -44,4 +44,8 @@ public class RegistroTrabajadores {
             }
         }
     }
+    
+    public void agregarPersona(Persona persona){
+        registroEmpleados.add(persona);
+    }
 }
