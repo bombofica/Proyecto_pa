@@ -34,9 +34,7 @@ public class RegistroObras {
     }
     public Obra retornarObra(String nombre)
     {
-        Obra obraRetorno ;
-        obraRetorno = registro.get(nombre);
-        return obraRetorno ;
+        return null;
     }
     
 }
