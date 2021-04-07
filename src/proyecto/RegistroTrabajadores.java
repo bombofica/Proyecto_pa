@@ -10,7 +10,7 @@ public class RegistroTrabajadores {
         this.registroEmpleados = lista;
     }
 
-    public RegistroTrabajadores(Boolean booleano) {
+    public RegistroTrabajadores() {
         this.registroEmpleados = new ArrayList();
     }
 
@@ -35,7 +35,15 @@ public class RegistroTrabajadores {
             }
         }
     }
-
+    
+    public void mostrarPersona()
+    {
+        //Persona actual;
+        for(Persona actual : registroEmpleados)
+        {
+            System.out.println(actual.getNombre());
+        }
+    }
     public void mostrarPersona(String profesion) {
         System.out.println("El/Los Nombre/s son:");
         for (Persona actual : registroEmpleados) {
@@ -43,9 +51,7 @@ public class RegistroTrabajadores {
                 System.out.println(actual.getNombre());
             }
         }
-    }
-    
-    
+    } 
     // funcion agregada
     public void agregarPersona(Persona persona){
         registroEmpleados.add(persona);
