@@ -50,7 +50,6 @@ public class ReadFile {
                 }
                 if ((caracter == '\n' || c == -1)) {
                     current = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]));
-                    
                     lista.add(current);
                     hashPersonaNombre.put(current.getNombre(), current);
                     hashPersonaRut.put(current.getRut(), current);
@@ -106,6 +105,8 @@ public class ReadFile {
                     hashPersonaNombre = (HashMap<String,Persona>)contenedorDatos[0];
                     hashPersonaRut = (HashMap<Integer,Persona>)contenedorDatos[1];
                     //lista = (ArrayList<Persona>)contenedorDatos[3];
+                    
+                    
                     
                     currentObra.setTablaPersonasNombre(hashPersonaNombre);
                     currentObra.setTablaPersonasRut(hashPersonaRut);

@@ -56,4 +56,22 @@ public class RegistroTrabajadores {
     public void agregarPersona(Persona persona){
         registroEmpleados.add(persona);
     }
+    
+    public Persona getPersona(int index){
+        
+        int i = 0;
+        
+        for (Persona actual : registroEmpleados) {
+            if (i == index) {
+                return actual;
+            }
+            i++;
+        }                
+        
+        return null;
+    }
+    
+    public int devolverNumeroPersonas (){
+        return registroEmpleados.size();
+    }
 }
