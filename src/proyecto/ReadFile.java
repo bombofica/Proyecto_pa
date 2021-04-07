@@ -9,8 +9,7 @@ public class ReadFile {
 
     public static void leerArchivo(String direccion) {
         try {
-            FileReader entrada = new FileReader
-        ("D:\\Escritorio Real\\ProyectoPA\\proyecto\\proyecto\\src\\proyecto\\csvProyectoProgra.txt");
+            FileReader entrada = new FileReader(direccion);
             int c = 5;
             while (c != -1) {
                 c = entrada.read();
@@ -30,6 +29,7 @@ public class ReadFile {
         ArrayList<Persona> lista = new ArrayList();
         HashMap<String, Persona> hashPersonaNombre = new HashMap();
         HashMap<Integer, Persona> hashPersonaRut = new HashMap();
+        
         try {
             FileReader entrada = new FileReader(direccion);
             int c;
@@ -48,9 +48,8 @@ public class ReadFile {
                         }
                     }
                 }
-                if (caracter == '\n' || c == -1) {
-                    current = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),
-                            Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]));
+                if ((caracter == '\n' || c == -1)) {
+                    current = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]));
                     
                     lista.add(current);
                     hashPersonaNombre.put(current.getNombre(), current);
@@ -74,11 +73,15 @@ public class ReadFile {
         RegistroObras todasLasObras = new RegistroObras();
         Object[] contenedorDatos;
         
-        Obra current;
+        HashMap<String, Persona> hashPersonaNombre;
+        HashMap<Integer, Persona> hashPersonaRut;
+        ArrayList<Persona> lista = new ArrayList();
+        
+        Obra currentObra;
         int cont = 0;
         
         try{
-            FileReader entrada = new FileReader(direccion);
+            FileReader entrada = new FileReader(direccion+"//RegistroObras.txt");
             int c;
             do {
                 c = entrada.read();
@@ -97,9 +100,18 @@ public class ReadFile {
                 }
                 
                 if (caracter == '\n' || c == -1) {
-                    current = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), Double.parseDouble(valores[3]));
+                    currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), Double.parseDouble(valores[3]));
+                    contenedorDatos = ReadFile.tomarContenidos(',',5,"RegistroObras//"+currentObra.getNombreObra()+"//Empleados.txt");
                     
-                    contenedorDatos = tomarContenidos(',',4,"RegistroObras\\"+current.getNombreObra());
+                    hashPersonaNombre = (HashMap<String,Persona>)contenedorDatos[0];
+                    hashPersonaRut = (HashMap<Integer,Persona>)contenedorDatos[1];
+                    //lista = (ArrayList<Persona>)contenedorDatos[3];
+                    
+                    currentObra.setTablaPersonasNombre(hashPersonaNombre);
+                    currentObra.setTablaPersonasRut(hashPersonaRut);
+                    
+                    todasLasObras.agregarObra(currentObra);
+                    
                     
                     valores = new String[num];
                     cont = 0;
@@ -108,7 +120,7 @@ public class ReadFile {
 
             } while (c != -1);
         } catch (IOException e) {
-            System.out.println("El fichero no existe");
+            System.out.println("El fichero no existe2");
         }
 
         return todasLasObras;

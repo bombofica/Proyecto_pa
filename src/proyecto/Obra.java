@@ -1,6 +1,8 @@
 package proyecto;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Iterator;
 
 public class Obra {
 
@@ -15,6 +17,8 @@ public class Obra {
     private HashMap<String, Persona> tablaPersonasNombre;
 
     private HashMap<Integer, Persona> tablaPersonasRut;
+    
+    private int numeroEmpleados;
 
     public Obra() {
     }
@@ -26,6 +30,7 @@ public class Obra {
         this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
         this.tablaPersonasNombre = new HashMap();
         this.tablaPersonasRut = new HashMap();
+        this.numeroEmpleados = tablaPersonasNombre.size();
     }
 
     public Obra(String nombreObra, String nombreLugar, double presupuestoObra, double tiempoNecesarioParaTerminarObra, HashMap<String, Persona> tablaPersonasNombre, HashMap<Integer, Persona> tablaPersonasRut) {
@@ -35,8 +40,37 @@ public class Obra {
         this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
         this.tablaPersonasNombre = tablaPersonasNombre;
         this.tablaPersonasRut = tablaPersonasRut;
+        this.numeroEmpleados = tablaPersonasNombre.size();
+    }
+    
+    public void setNumeroEmpleados(int valor){
+        this.numeroEmpleados = valor;
+    }
+    
+    public void setNumeroEmpleados(double valor){
+        this.numeroEmpleados =(int) valor;
+    }
+    
+    public void setNumeroEmpleados(float valor){
+        this.numeroEmpleados = (int) valor;
+    }
+    
+    public int getNumeroEmpleados(){
+        return this.numeroEmpleados;
+    }
+    
+    
+    
+    public void setTablaPersonasNombre(HashMap<String,Persona> tablaPersonasNombre){
+        this.tablaPersonasNombre = tablaPersonasNombre;
+        this.numeroEmpleados = this.tablaPersonasNombre.size();
     }
 
+    public void setTablaPersonasRut(HashMap<Integer,Persona> tablaPersonasRut){
+        this.tablaPersonasRut= tablaPersonasRut;
+        this.numeroEmpleados = this.tablaPersonasRut.size();
+    }
+    
     public String getNombreObra() {
         return nombreObra;
     }
@@ -81,6 +115,7 @@ public class Obra {
         Persona sujeto = tablaPersonasNombre.get(nombre);
         tablaPersonasNombre.remove(nombre);
         tablaPersonasRut.remove(sujeto.getRut());
+        this.numeroEmpleados= tablaPersonasNombre.size();
         System.out.println("El sujeto ha sido eliminado");
     }
 
@@ -88,6 +123,7 @@ public class Obra {
         Persona sujeto = tablaPersonasRut.get(rut);
         tablaPersonasRut.remove(rut);
         tablaPersonasNombre.remove(sujeto.getNombre());
+        this.numeroEmpleados= tablaPersonasNombre.size();
         System.out.println("El sujeto ha sido eliminado");
     }
 
@@ -108,5 +144,36 @@ public class Obra {
     public void agregarPersona(Persona serHumano) {
         tablaPersonasRut.put(serHumano.getRut(), serHumano);
         tablaPersonasNombre.put(serHumano.getNombre(), serHumano);
+        this.numeroEmpleados= this.tablaPersonasNombre.size();
+    }
+    
+    public void mostrarEmpleados()
+    {
+        
+        for (Map.Entry me : tablaPersonasRut.entrySet()) {
+              
+          //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
+            Persona current = (Persona) me.getValue();
+            System.out.print("Nombre: "+current.getNombre());
+            System.out.print(" Rut: "+current.getRut());
+            System.out.print(" Sueldo: "+current.getSueldo());
+            System.out.println(" Labor: "+current.getLaborProfesional());
+        }
+    }
+    
+    public Persona devolverPersonaI(int index){
+        
+        Persona current = null;
+        int cont =0;
+        
+        for (Map.Entry me : tablaPersonasNombre.entrySet()) {
+
+          //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
+            current = (Persona) me.getValue();           
+            if(cont == index) break;
+            cont++;
+ 
+        }
+        return current;
     }
 }

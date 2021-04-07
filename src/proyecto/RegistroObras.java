@@ -24,19 +24,33 @@ public class RegistroObras {
     public RegistroObras(){
         this.registro = new HashMap();
         this.listaCompleta = new ArrayList() ;
+        this.contadorObras=0;
     }
     public void mostrarObras(){
         Obra current;
         int i;
-        for(i =0,current=listaCompleta.get(i) ; i < listaCompleta.size(); i++,current=listaCompleta.get(i)){
+        for(i =0; i < listaCompleta.size();i++){
+            current=listaCompleta.get(i);
             System.out.println(current.getNombreObra());
+            current.mostrarEmpleados();
         }
     }
+    
+    public Obra retornarObra(int index){
+        return listaCompleta.get(index);
+    }
+    
     public Obra retornarObra(String nombre)
     {
         Obra obraRetorno ;
         obraRetorno = registro.get(nombre);
         return obraRetorno ;
+    }
+    
+    public void agregarObra(Obra obra1){
+        this.registro.put(obra1.getNombreObra(), obra1);
+        this.listaCompleta.add(obra1);
+        this.contadorObras++;
     }
     
 }

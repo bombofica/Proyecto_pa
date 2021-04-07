@@ -16,6 +16,22 @@ import java.util.Scanner;
 public class main{
     public static void main(String args[]) throws IOException
     {
+        
+        RegistroObras allObras = ReadFile.traerObras(',', 4, "RegistroObras");
+        
+        //allObras.mostrarObras();
+        
+        Obra newObra = new Obra("Obra_Prueba","Valpo",686.5,514.6);
+        
+        allObras.agregarObra(newObra);
+        
+        newObra.agregarPersona(new Persona("Choro Maikol","Flaite",12345,5546215,true));
+        newObra.agregarPersona(new Persona("Agua de uwu","Loco",8445,2125251,true));
+        newObra.mostrarEmpleados();
+        //System.out.println(newObra.getNumeroEmpleados());
+        WriteFile.escribirObras(',',allObras);
+        
+        /*
         Scanner pupi = new Scanner(System.in) ;
         int menu = 0;
         //menu
@@ -89,7 +105,7 @@ public class main{
                 System.out.println("lel") ;
             }
             menu = 0 ;
-        }while(menu != 3);
+        }while(menu != 3);*/
     }
 }
     
