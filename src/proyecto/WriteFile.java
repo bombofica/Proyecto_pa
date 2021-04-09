@@ -53,7 +53,7 @@ public class WriteFile {
                 
                 Persona currentPersona;
                 
-                System.out.println(currentObra.getNumeroEmpleados());
+                //System.out.println(currentObra.getNumeroEmpleados());
                 
                 for(int j=0; j < currentObra.getNumeroEmpleados(); j++){
                     currentPersona = currentObra.devolverPersonaI(j);
@@ -67,7 +67,7 @@ public class WriteFile {
                         +','+currentPersona.getRut()+','+currentPersona.isTrabajando()+','+'\n');                        
                     }
                     
-                    System.out.println(currentPersona.getNombre());
+                    //System.out.println(currentPersona.getNombre());
                 }
                 
                 Escritor.close();
@@ -77,11 +77,11 @@ public class WriteFile {
         }
     }
     
-    public static void existenciaDirectorio(Obra currentObra){
+    public static void existenciaDirectorio(Obra currentObra){ // verifica si existe la carpeta
             File directorio = new File("RegistroObras//"+currentObra.getNombreObra());
             
-            if(!directorio.exists()){
-                if(!directorio.mkdirs())
+            if(!directorio.exists()){ // si no existe, crea una
+                if(!directorio.mkdirs()) // si no se crea, se imprime un error
                 {
                     System.out.println("Error al crear el directorio");
                 }
