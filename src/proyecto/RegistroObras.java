@@ -32,7 +32,7 @@ public class RegistroObras {
         for(i =0; i < listaCompleta.size();i++){
             current=listaCompleta.get(i);
             System.out.println(current.getNombreObra());
-            current.mostrarEmpleados();
+            //current.mostrarEmpleados();
         }
     }
     

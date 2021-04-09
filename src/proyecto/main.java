@@ -17,28 +17,34 @@ public class main{
     public static void main(String args[]) throws IOException
     {
         
-        RegistroObras allObras = ReadFile.traerObras(',', 4, "RegistroObras");
+        Object[] pulpa_de_frutilla = ReadFile.tomarContenidos(',',5,"RegistroTrabajadores.txt");
+        ArrayList <Persona> arrayxd = (ArrayList<Persona>) pulpa_de_frutilla[2];
+        RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd);
         
-        //allObras.mostrarObras();
+        registroPersonas.mostrarPersona();
+                
+        RegistroObras registro = ReadFile.traerObras(',', 4, "RegistroObras");        
         
         Obra newObra = new Obra("Obra_Prueba","Valpo",686.5,514.6);
         
-        allObras.agregarObra(newObra);
+        //allObras.agregarObra(newObra);
         
         newObra.agregarPersona(new Persona("Choro Maikol","Flaite",12345,5546215,true));
         newObra.agregarPersona(new Persona("Agua de uwu","Loco",8445,2125251,true));
-        newObra.mostrarEmpleados();
-        //System.out.println(newObra.getNumeroEmpleados());
-        WriteFile.escribirObras(',',allObras);
         
-        /*
-        Scanner pupi = new Scanner(System.in) ;
-        int menu = 0;
+        //allObras.mostrarObras();
+        //newObra.mostrarEmpleados();
+        //System.out.println(newObra.getNumeroEmpleados());
+        //WriteFile.escribirObras(',',allObras);// separador , registroObras
+        
+        
+        /*Scanner pupi = new Scanner(System.in) ;
+        int menu;
         //menu
         do
         {
             System.out.println("1. Gestion de obras") ;
-            System.out.println("2. Gestion de empreados") ;
+            System.out.println("2. Gestion de empleados") ;
             System.out.println("3. Salir") ;
             
             try
@@ -60,7 +66,7 @@ public class main{
                         }
                         if(menu == 2)
                         {
-                            RegistroObras registro = new RegistroObras() ;
+
                             registro.mostrarObras() ;
                             menu = pupi.nextInt();
                             menu = 0;
@@ -74,7 +80,6 @@ public class main{
                         {
                             String nombre;
                             int nuevoPresupuesto;
-                            RegistroObras registro = new RegistroObras() ;
                             registro.mostrarObras() ;
                             System.out.println("Ingrese el nombre de la obra");
                             nombre = pupi.nextLine() ;
@@ -134,6 +139,8 @@ public class main{
                                     String filtro;
                                     System.out.println("ingrese profecion");
                                     filtro = pupi.nextLine();
+                                    // obra.mostrarEmpleados()
+                                    
                                     RegistroTrabajadores listaPersonas = new RegistroTrabajadores() ;
                                     listaPersonas.mostrarPersona(filtro);
                                     menu = pupi.nextInt() ;
@@ -176,6 +183,8 @@ public class main{
                                 }
                                 if(menu == 4)
                                 {
+                                    
+                                    /*
                                     RegistroTrabajadores listaPersonas = new RegistroTrabajadores() ;
                                     listaPersonas.mostrarPersona();
                                     menu = pupi.nextInt() ;
@@ -206,10 +215,10 @@ public class main{
                 menu = 0;
                 continue;
             }
-            menu = 0 ;
+
 
             
-        }while(menu != 3);
+        }while(menu != 3);*/
     }
 }
     

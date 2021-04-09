@@ -18,47 +18,7 @@ public class WriteFile {
     }
     
     public static void escribirObras(char separador, RegistroObras registroObras) throws IOException{
-        /*try {
-            FileReader entrada = new FileReader("RegistroObras\\RegistroObras.txt");
-            
-            String nombreObra="";
-            Obra obra;
-            int c;
-            int cont =0;
-            
-            
-            
-            do {
-                c = entrada.read();
-                char caracter = (char) c;
-                if ((caracter == separador)) {
-                    cont++;
-                }
                 
-                if(cont < 1){
-                    nombreObra=nombreObra+caracter;
-                }
-                
-                if ((caracter == '\n' || c == -1)) {
-                    obra = registroObras.retornarObra(nombreObra);
-                    if(obra == null){
-                        System.out.println("La obra no existe");
-                    }
-                    else
-                    {
-                        System.out.println("La obra si existe y se llama: "+ nombreObra);
-                    }
-                    //System.out.println(nombreObra);
-                    nombreObra="";
-                    cont =0;
-                }
-            } while (c != -1);
-        } catch (IOException e) {
-            System.out.println("El fichero no existe3");
-        }*/
-        
-        
-        
         try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras2.txt")) { 
 
             Obra current;
@@ -73,8 +33,7 @@ public class WriteFile {
                     Escritor.write(current.getNombreObra()+','+current.getNombreLugar()+','+current.getPresupuestoObra()+','+current.getTiempoParaTerminarObra()+','+'\n');
                     
                 }
-                //System.out.println(current.getNombreObra());
-                //current.mostrarEmpleados();
+
             }
             
             
@@ -107,7 +66,6 @@ public class WriteFile {
                         Escritor.write(currentPersona.getNombre()+','+currentPersona.getLaborProfesional()+','+currentPersona.getSueldo()
                         +','+currentPersona.getRut()+','+currentPersona.isTrabajando()+','+'\n');                        
                     }
-
                     
                     System.out.println(currentPersona.getNombre());
                 }
@@ -130,4 +88,35 @@ public class WriteFile {
             }        
     }
     
+    
+    public static void imprimirTodasLasPersonas(RegistroTrabajadores registroTrabajadores){
+        
+        
+            
+            try (FileWriter Escritor = new FileWriter("RegistroTrabajadores2.txt")) {
+                
+                Persona current;
+                
+                //System.out.println(currentObra.getNumeroEmpleados());
+                
+                for(int j=0; j < registroTrabajadores.devolverNumeroPersonas(); j++){
+                    current = registroTrabajadores.getPersona(j);
+                    
+                    if (j == registroTrabajadores.devolverNumeroPersonas()-1){
+                        Escritor.write(current.getNombre()+','+current.getLaborProfesional()+','+current.getSueldo()
+                        +','+current.getRut()+','+current.isTrabajando()+',');                       
+                    }
+                    else
+                    {
+                        Escritor.write(current.getNombre()+','+current.getLaborProfesional()+','+current.getSueldo()
+                        +','+current.getRut()+','+current.isTrabajando()+','+'\n');                        
+                    }
+                    
+                }
+                
+                Escritor.close();
+            } catch (IOException e) {
+                System.out.println("Error, el fichero no existe 4");
+            }
+    }
 }
