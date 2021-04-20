@@ -94,4 +94,15 @@ public class RegistroTrabajadores {
             valor.setTrabajando(booleano);
         }
     }
+    public void eliminarPersona(String nombre)
+    {
+        for(Persona actual : registroEmpleados)
+        {
+            if(actual.getNombre().equals(nombre))
+            {
+                registroEmpleados.remove(actual) ;
+            }
+        }
+        registroPersonasNombre.remove(nombre);
+    }
 }

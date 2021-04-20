@@ -191,7 +191,6 @@ public class Obra {
             current = (Persona) persona.getValue();        
             if(cont == index) break;
             cont++;
- 
         }
         return current;
     }
