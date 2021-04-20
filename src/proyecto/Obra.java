@@ -2,7 +2,7 @@ package proyecto;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Iterator;
+//import java.util.Iterator;
 
 public class Obra {
 
@@ -60,7 +60,6 @@ public class Obra {
     }
     
     
-    
     public void setTablaPersonasNombre(HashMap<String,Persona> tablaPersonasNombre){
         this.tablaPersonasNombre = tablaPersonasNombre;
         this.numeroEmpleados = this.tablaPersonasNombre.size();
@@ -116,6 +115,7 @@ public class Obra {
         tablaPersonasNombre.remove(nombre);
         tablaPersonasRut.remove(sujeto.getRut());
         this.numeroEmpleados= tablaPersonasNombre.size();
+        sujeto.setTrabajando(false);
         System.out.println("El sujeto ha sido eliminado");
     }
 
@@ -124,6 +124,7 @@ public class Obra {
         tablaPersonasRut.remove(rut);
         tablaPersonasNombre.remove(sujeto.getNombre());
         this.numeroEmpleados= tablaPersonasNombre.size();
+        sujeto.setTrabajando(false);
         System.out.println("El sujeto ha sido eliminado");
     }
 
@@ -145,6 +146,7 @@ public class Obra {
         tablaPersonasRut.put(serHumano.getRut(), serHumano);
         tablaPersonasNombre.put(serHumano.getNombre(), serHumano);
         this.numeroEmpleados= this.tablaPersonasNombre.size();
+        serHumano.setTrabajando(true);
     }
     
     public void mostrarEmpleados()
@@ -154,10 +156,10 @@ public class Obra {
               
           //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
             Persona current = (Persona) me.getValue();
-            System.out.print("Nombre: "+current.getNombre());
-            System.out.print(" Rut: "+current.getRut());
-            System.out.print(" Sueldo: "+current.getSueldo());
-            System.out.println(" Labor: "+current.getLaborProfesional());
+            System.out.print("Nombre: " + current.getNombre());
+            System.out.print(" Rut: " + current.getRut());
+            System.out.print(" Sueldo: " + current.getSueldo());
+            System.out.println(" Labor: " + current.getLaborProfesional());
         }
     }
     
@@ -166,10 +168,10 @@ public class Obra {
         Persona current = null;
         int cont =0;
         
-        for (Map.Entry me : tablaPersonasNombre.entrySet()) {
+        for (Map.Entry persona : tablaPersonasNombre.entrySet()) {
 
           //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
-            current = (Persona) me.getValue();           
+            current = (Persona) persona.getValue();        
             if(cont == index) break;
             cont++;
  
