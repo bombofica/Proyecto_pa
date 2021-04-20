@@ -11,6 +11,7 @@ import java.io.* ;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
 
 
 public class main{
@@ -38,18 +39,19 @@ public class main{
             try
             {
                 menu = scannerEnterosFlotantes.nextInt() ;
-                if(menu == 1)
+                if(menu == 1)//Gestion de obras
                 {
                     //esta previsto que existan mas funciones
                     System.out.println("1. Añadir obra") ;
                     System.out.println("2. Mostrar todas las obras") ;
                     System.out.println("3. Obra terminada") ; // esta opción no está disponible
                     System.out.println("4. Cambiar presupuesto"); // Esta no está terminada
-                    System.out.println("5. Cancelar");
+                    System.out.println("5. Tiempo restante de una obra");
+                    System.out.println("6. Gastos totales");
                     try
                     {
                         menu = scannerEnterosFlotantes.nextInt() ;
-                        if(menu == 1)
+                        if(menu == 1) //Añadir obra
                         {
                             String nombre;
                             String lugar;
@@ -69,7 +71,7 @@ public class main{
                             System.out.println("Obra agregada");
                             menu = 0 ;
                         }
-                        if(menu == 2)
+                        if(menu == 2)//Mostrar todas las obras
                         {
 
                             registroObras.mostrarObras() ;
@@ -77,11 +79,12 @@ public class main{
                             menu = 0;
                             continue;
                         }
-                        if(menu == 3)
+                        if(menu == 3)//Obra terminada
                         {
-                            
+                            menu = 0;
+                            continue;
                         }
-                        if(menu == 4) //no esta verificado que esta opcion funcione
+                        if(menu == 4) //Cambiar presupuesto
                         {
                             String nombre;
                             int nuevoPresupuesto;
@@ -98,7 +101,21 @@ public class main{
                             menu = 0;
                             continue;
                         }
-                        if(menu == 5)
+                        if(menu == 5)//Tiempo restante de una obra
+                        {
+                            /*String formato = "dd-MM-yyyy";
+                            SimpleDateFormat asd = new SimpleDateFormat(formato);
+                            String hoy;*/
+                            String jejeje = "05-06-2022" ;
+                            char[] q = new char[10] ;
+                            q = jejeje.toCharArray();
+                            FechaHoy fecha = new FechaHoy();
+                            fecha.obterFecha(q);
+                            //System.out.println(hoy);
+                            menu = 0;
+                            continue;
+                        }
+                        if(menu == 6)//gastos totales
                         {
                             menu = 0;
                             continue;
@@ -111,17 +128,19 @@ public class main{
                         continue;
                     }
                 }
-                if(menu == 2)
+                if(menu == 2)//Gestion de personas
                 {
                     //esta previsto que existan mas funciones
                     System.out.println("1. Añadir empleado a la plataforma") ;
                     System.out.println("2. Mostrar empleados de una obra") ; // Esta opción no funciona
                     System.out.println("3. Mostrar todos los empleados") ;
-                    System.out.println("4. Despedir empleado"); // Esta opción no funciona
-                    menu = scannerEnterosFlotantes.nextInt() ;
+                    System.out.println("4. mover empleados") ;
+                    System.out.println("5. Despedir empleado"); // Esta opción no funciona
+                    System.out.println("6. Cambiar sueldo de un empleado");
                     try
                     {
-                        if(menu == 1)
+                        menu = scannerEnterosFlotantes.nextInt() ;
+                        if(menu == 1) //Añadir empleado a la plataforma
                         {
                             String nombre;
                             String labor;
@@ -139,11 +158,11 @@ public class main{
                             registroPersonas.agregarPersona(nuevoEmpleado);
                             WriteFile.imprimirTodasLasPersonas(registroPersonas);
                         }
-                        if(menu == 2)
+                        if(menu == 2)//mostrar empleados de una obra
                         {
                             
                         }
-                        if(menu == 3) // llenar los datos de los trabajadores con el archivo 
+                        if(menu == 3) // Mostrar todos los empleados
                         {
                             System.out.println("Desea filtrar los datos?");
                             System.out.println("1. Por profesión");
@@ -153,7 +172,7 @@ public class main{
                             menu = 0;
                             try{
                                 menu = scannerEnterosFlotantes.nextInt();
-                                if(menu == 1)
+                                if(menu == 1)//Por profecion 
                                  {
                                     String filtro;
                                     System.out.println("ingrese profesión");
@@ -163,7 +182,7 @@ public class main{
                                     menu = 0;
                                     continue;
                                 }
-                                if(menu == 2)
+                                if(menu == 2)//Por sueldo
                                 {
                                     String filtro;
                                     System.out.println("Ingrese sueldo");
@@ -173,7 +192,7 @@ public class main{
                                     menu = 0;
                                     continue;
                                 }
-                                if(menu == 3)
+                                if(menu == 3)//Asignado o no
                                 {                                   
                                     System.out.println("Desea ver los empleados asignados a una obra o los no asignados");
                                     System.out.println("1. asignados") ;
@@ -192,7 +211,7 @@ public class main{
                                         continue;
                                     }  
                                 }
-                                if(menu == 4)
+                                if(menu == 4)//Todos los empleados
                                 {
                                     registroPersonas.mostrarPersona();
                                     menu = 0;
@@ -206,12 +225,25 @@ public class main{
                             }
                             
                         }
+                        if(menu == 4)//Mover empleados
+                        {
+                            menu = 0;
+                            continue;
+                        }
+                        if(menu == 5)//Despedir empleado
+                        {
+                            menu = 0;
+                            continue;
+                        }
+                        if(menu == 6)//Modificar un sueldo
+                        {
+                            menu = 0;
+                        }
                     }
                     catch(Exception e) 
                     {
                         System.out.println("Error opción no disponible volviendo al menú") ;
                         menu = 0;
-                        continue;
                     }
                 }
             }
@@ -219,7 +251,6 @@ public class main{
             {
                 System.out.println("Error opción no disponible volviendo al menú") ;
                 menu = 0;
-                continue;
             }
             
         }while(menu != 3);
