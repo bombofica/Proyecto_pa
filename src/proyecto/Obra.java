@@ -165,10 +165,9 @@ public class Obra {
         }
     }
     
-    void eliminarObra(RegistroTrabajadores registroTrabajadores){
+    void eliminarObra(RegistroTrabajadores registroTrabajadores, RegistroObras registroObras){
         
-        Persona current = null;
-        int cont =0;
+        Persona current;
         
         for (Map.Entry persona : tablaPersonasNombre.entrySet()) {
 
@@ -176,6 +175,8 @@ public class Obra {
             current = (Persona) persona.getValue();
             registroTrabajadores.cambiarEstadoPersona(current.getNombre(), false);         
         }
+        
+        registroObras.eliminarObra(this.nombreObra);
         
     }
     

@@ -62,6 +62,23 @@ public class RegistroObras {
         
         registro.remove(nombreObra);
         
+        
+        Obra current = null;
+        int i;
+        for(i =0; i < listaCompleta.size();i++){
+            current=this.listaCompleta.get(i);
+            
+            if(nombreObra.equals(current.getNombreObra())){
+                this.listaCompleta.remove(i);
+                break;
+            }
+            
+            
+            System.out.println(current.getNombreObra());
+            //current.mostrarEmpleados();
+        }
+        this.contadorObras--;
+        
     }
     
 }
