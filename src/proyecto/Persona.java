@@ -29,11 +29,11 @@ public class Persona {
         this.sueldo = sueldo;
         this.rut = rut;
         this.trabajando = estado;
-      
+      /*
         if(Integer.toString(this.rut).length() < 8){
             System.out.println("Revisar las cifras que tiene el rut");
         }
-        
+        */
     }
 
     public String getNombre() {

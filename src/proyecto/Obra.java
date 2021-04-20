@@ -2,6 +2,8 @@ package proyecto;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
+
 //import java.util.Iterator;
 
 public class Obra {
@@ -161,6 +163,20 @@ public class Obra {
             System.out.print(" Sueldo: " + current.getSueldo());
             System.out.println(" Labor: " + current.getLaborProfesional());
         }
+    }
+    
+    void eliminarObra(RegistroTrabajadores registroTrabajadores){
+        
+        Persona current = null;
+        int cont =0;
+        
+        for (Map.Entry persona : tablaPersonasNombre.entrySet()) {
+
+          //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
+            current = (Persona) persona.getValue();
+            registroTrabajadores.cambiarEstadoPersona(current.getNombre(), false);         
+        }
+        
     }
     
     public Persona devolverPersonaI(int index){
