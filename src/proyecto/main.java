@@ -177,7 +177,8 @@ public class main{
                             String nombre ;
                             System.out.println("ingrese el nombre de la persona") ;
                             nombre = scannerStrings.nextLine() ;
-                            //funcion eliminar
+                            registroPersonas.eliminarPersona(nombre);
+                            
                             menu = 0 ;
                             continue ;
                         }
