@@ -19,7 +19,7 @@ public class WriteFile {
     
     public static void escribirObras(char separador, RegistroObras registroObras) throws IOException{
                 
-        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras2.txt")) { 
+        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) { 
 
             Obra current;
             for(int i =0; i < registroObras.contadorObras;i++){
@@ -49,7 +49,7 @@ public class WriteFile {
                 
             WriteFile.existenciaDirectorio(currentObra);
             
-            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreObra()+"//Empleados2.txt")) {
+            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreObra()+"//Empleados.txt")) {
                 
                 Persona currentPersona;
                 
@@ -93,7 +93,7 @@ public class WriteFile {
         
         
             
-            try (FileWriter Escritor = new FileWriter("RegistroTrabajadores2.txt")) {
+            try (FileWriter Escritor = new FileWriter("RegistroTrabajadores.txt")) {
                 
                 Persona current;
                 
