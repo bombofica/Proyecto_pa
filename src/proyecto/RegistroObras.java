@@ -53,4 +53,15 @@ public class RegistroObras {
         this.contadorObras++;
     }
     
+    public void eliminarObra(String nombreObra){
+        Obra valor = registro.get(nombreObra);
+        if(valor == null){
+            System.out.println("Inválido");
+            return;
+        }
+        
+        registro.remove(nombreObra);
+        
+    }
+    
 }

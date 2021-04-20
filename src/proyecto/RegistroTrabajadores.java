@@ -1,21 +1,30 @@
 package proyecto;
 
+import java.util.HashMap;
 import java.util.ArrayList;
 
 public class RegistroTrabajadores {
 
+    
     private ArrayList<Persona> registroEmpleados;
-
-    public RegistroTrabajadores(ArrayList<Persona> lista) {
+    private HashMap<String, Persona> registroPersonasNombre;
+    
+    public RegistroTrabajadores(ArrayList<Persona> lista, HashMap<String, Persona> registroPersonasNombre) {
+        this.registroPersonasNombre = registroPersonasNombre;
         this.registroEmpleados = lista;
     }
 
     public RegistroTrabajadores() {
         this.registroEmpleados = new ArrayList();
+        this.registroPersonasNombre = new HashMap();
     }
 
     public void setRegistroEmpleados(ArrayList<Persona> lista) {
         this.registroEmpleados = lista;
+    }
+    
+    public void setRegistroPersonasNombre(HashMap<String, Persona> registroPersonasNombre){
+        this.registroPersonasNombre=registroPersonasNombre;
     }
 
     public void mostrarPersona(boolean persona) {
@@ -54,7 +63,10 @@ public class RegistroTrabajadores {
     } 
     // funcion agregada
     public void agregarPersona(Persona persona){
-        registroEmpleados.add(persona);
+        
+        this.registroEmpleados.add(persona);
+        this.registroPersonasNombre.put(persona.getNombre(), persona);
+        
     }
     
     public Persona getPersona(int index){
@@ -73,5 +85,13 @@ public class RegistroTrabajadores {
     
     public int devolverNumeroPersonas (){
         return registroEmpleados.size();
+    }
+    
+    public void cambiarEstadoPersona(String nombre, boolean booleano){
+        
+        Persona valor = this.registroPersonasNombre.get(nombre);
+        if(valor != null){
+            valor.setTrabajando(booleano);
+        }
     }
 }

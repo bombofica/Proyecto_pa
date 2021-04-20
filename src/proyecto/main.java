@@ -22,8 +22,9 @@ public class main{
         Object[] pulpa_de_frutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroTrabajadores.txt");
         
         arrayxd =(ArrayList <Persona>) pulpa_de_frutilla[2];
+        HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) pulpa_de_frutilla[2];
         
-        RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd);
+        RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd,hashpersonaxd);
         RegistroObras registroObras = ReadFile.traerObras(',', 4, "RegistroObras");     
         
         Scanner scannerEnterosFlotantes = new Scanner(System.in) ;
@@ -84,6 +85,8 @@ public class main{
                         }
                         if(menu == 3)//Obra terminada
                         {
+                            //eliminar obra de RegistroObra
+                            //Poner a las personas
                             menu = 0;
                             continue;
                         }
