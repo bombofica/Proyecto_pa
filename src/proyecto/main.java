@@ -18,8 +18,11 @@ public class main{
     public static void main(String args[]) throws IOException
     {
         
-        Object[] pulpa_de_frutilla = ReadFile.tomarContenidos(',',5,"RegistroTrabajadores.txt");
-        ArrayList <Persona> arrayxd = (ArrayList<Persona>) pulpa_de_frutilla[2];
+        ArrayList <Persona> arrayxd;      
+        Object[] pulpa_de_frutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroTrabajadores.txt");
+        
+        arrayxd =(ArrayList <Persona>) pulpa_de_frutilla[2];
+        
         RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd);
         RegistroObras registroObras = ReadFile.traerObras(',', 4, "RegistroObras");     
         

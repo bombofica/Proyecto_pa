@@ -1,5 +1,0 @@
-Nombre_Valparaíso,Valparaíso,10000.2,525.6
-Santiago,Santiago,20000.2,1025.6
-Temuco,Temuco,100.2,425.6
-San Fernando,San Fernando,10.2,225.6
-Nuevo5,Valpo,686.5,514.6
