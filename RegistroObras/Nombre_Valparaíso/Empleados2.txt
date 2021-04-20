@@ -1,7 +1,7 @@
 Andres Vidal,Informático,1300000,20481905,true,
 Chino Rios,Tenista,10000,32134537,false,
 Sebastián Piñera,Presidente,700000,83892547,false,
-Gabriel Alvarez,Informático,6546846,654846,true,
+Gabriel Álvarez Chernobyl,Informático,6546846,654846,true,
 Esteban Paredes,Futbolista,100,455462541,true,
 Wendy Sulca,Cantante,10,54647845,true,
 Pastor Soto,Pastor,1000,84934843,true,
