@@ -22,7 +22,7 @@ public class main{
         Object[] pulpa_de_frutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroTrabajadores.txt");
         
         arrayxd =(ArrayList <Persona>) pulpa_de_frutilla[2];
-        HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) pulpa_de_frutilla[2];
+        HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) pulpa_de_frutilla[0];
         
         RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd,hashpersonaxd);
         RegistroObras registroObras = ReadFile.traerObras(',', 4, "RegistroObras");     
@@ -42,7 +42,15 @@ public class main{
             
             try
             {
+                
+                
                 menu = scannerEnterosFlotantes.nextInt() ;
+                main.limpiarPantalla();
+                
+                System.out.print("Everything on the console will cleared");
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+                
                 if(menu == 1)//Gestion de obras
                 {
                     //esta previsto que existan mas funciones
@@ -285,5 +293,15 @@ public class main{
             registroPersonas.mostrarPersona();
         }
     }
+    
+    public static void limpiarPantalla(){
+            try {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } catch (Exception e) {
+            /*No hacer nada*/
+        }
+    }
+    
+
 }
     
