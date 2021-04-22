@@ -194,4 +194,14 @@ public class Obra {
         }
         return current;
     }
+    
+    public void eliminarEmpleado(String nombre)
+    {
+        Persona personaEliminar = tablaPersonasNombre.get(nombre) ;
+        if(personaEliminar == null) return;
+            
+        tablaPersonasNombre.remove(nombre) ;
+        tablaPersonasRut.remove(personaEliminar.getRut()) ;
+           
+    }
 }
