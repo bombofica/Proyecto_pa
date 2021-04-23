@@ -145,23 +145,21 @@ public class ReadFile {
                 
                 */
                 if (caracter == '\n' || c == -1) {
-                    currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), Double.parseDouble(valores[3]));
+ 
                     
-                    registroObras.agregarObra(currentObra);//*************** benja ****************
+                    //System.out.println(currentObra.getNombreObra());                         // nombre_lugar(2)
+                    contenedorDatos = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
+                            +valores[0]+"//Empleados.txt",registroTrabajadores);
+                             // nombre_Obra(1)
                     
-                    //System.out.println(currentObra.getNombreObra());
-                    contenedorDatos = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+currentObra.getNombreLugar()+"//"
-                            +currentObra.getNombreObra()+"//Empleados.txt",registroTrabajadores);
                     
                     hashPersonaNombre = (HashMap<String,Persona>)contenedorDatos[0];
                     hashPersonaRut = (HashMap<Integer,Persona>)contenedorDatos[1];
-                    //lista = (ArrayList<Persona>)contenedorDatos[2];
-                                  
-                    currentObra.setTablaPersonasNombre(hashPersonaNombre);
-                    currentObra.setTablaPersonasRut(hashPersonaRut);
                     
+                    currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), Double.parseDouble(valores[3]),hashPersonaNombre,hashPersonaRut);
                     
-                    
+                    registroObras.agregarObra(currentObra);//*************** benja ****************
+                                        
                     valores = new String[num];
                     cont = 0;
                 }                
