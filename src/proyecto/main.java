@@ -21,31 +21,14 @@ public class main{
         
         RegistroObras registroObras = new RegistroObras();
         
-        /*String[] regionesDeChile = new String[16];
-        regionesDeChile[0] = new String("Tarapaca");
-        
-        regionesDeChile[1] =new String("Antofagasta") ;
-        regionesDeChile[2] =new String("Atacama") ;
-        regionesDeChile[3] =new String("Coquimbo") ;
-        regionesDeChile[4] =new String("Valparaiso") ;
-        regionesDeChile[5] =new String("O'higgins") ;
-        regionesDeChile[6] =new String("Maule") ;
-        regionesDeChile[7] =new String("Biobio") ;
-        regionesDeChile[8] =new String("Araucania") ;
-        regionesDeChile[9] =new String("Los Lagos") ;
-        regionesDeChile[10] =new String("Aysen") ;
-        regionesDeChile[11] = new String("Magallanes") ;
-        regionesDeChile[12] = new String("Metropolitana") ;
-        regionesDeChile[13] = new String("Los Rios") ;
-        regionesDeChile[14] = new String("Arica y Parinacota") ;
-        regionesDeChile[15] = new String("Ñuble") ;*/
-        
         //ReadFile.crearDirectorio(regionesDeChile);
         
         ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);
         //registroDeTrabajadores.mostrarEspecialistas("Informático");
         //NewJFrame.main(new String[5]);
-        Obra obra_nombre_valparaíso = registroObras.retornarObra("Nombre_Valparaíso","Valparaiso");
+
+        Obra obra_nombre_valparaíso = registroObras.retornarObra("Nombre_Valparaíso", "Valparaiso");
+
         // probar la edición de obras por referencia
         if(obra_nombre_valparaíso != null){
             Persona personaje = obra_nombre_valparaíso.buscarPersona("Gabriel Álvarez Chernobyl");
@@ -107,10 +90,10 @@ public class main{
                     //esta previsto que existan mas funciones
                     System.out.println("1. Añadir obra") ;
                     System.out.println("2. Mostrar todas las obras") ;
-                    System.out.println("3. Obra terminada") ; // esta opción no está disponible
-                    System.out.println("4. Cambiar presupuesto"); // Esta no está terminada
-                    System.out.println("5. Tiempo restante de una obra");
-                    System.out.println("6. Gastos totales");
+                    System.out.println("3. Obra terminada") ; //"Eliminar Obra"
+                    System.out.println("4. Cambiar un dato de una obra"); 
+                    //System.out.println("5. Tiempo restante de una obra");
+                    //System.out.println("6. Gastos totales");
                     try
                     {
                         menu = scannerEnterosFlotantes.nextInt() ;
@@ -122,33 +105,19 @@ public class main{
                         }
                         if(menu == 2)//Mostrar todas las obras
                         {
-                            registroObras.mostrarObras() ;
+                            imprimirObras(scannerStrings, registroObras);
                             menu = 0;
                             continue;
                         }
                         if(menu == 3)//Obra terminada
                         {
-                            //eliminar obra de RegistroObra
-                            //Poner a las personas
+                            obraTerminada(scannerStrings, registroObras) ;
                             menu = 0;
                             continue;
                         }
-                        if(menu == 4) //Cambiar presupuesto
+                        if(menu == 4) //Cambiar un dato
                         {
-                            /*String nombre;
-                            int nuevoPresupuesto;
-                            registroObras.mostrarObras() ;
-                            System.out.println("Ingrese el nombre de la obra");
-                            nombre = scannerEnterosFlotantes.nextLine() ;
-                            Obra obraSeleccionada ;
-                            obraSeleccionada = registroObras.retornarObra(nombre) ;
-                            System.out.println("Ingrese el nuevo presupuesto");
-                            nuevoPresupuesto = scannerEnterosFlotantes.nextInt() ;
-                            obraSeleccionada.cambiarPresupuesto(nuevoPresupuesto) ;
-                            System.out.println("Presupuesto cambiado");
-                            menu = scannerEnterosFlotantes.nextInt() ;
-                            menu = 0;
-                            continue;*/
+                            modificarDatos(scannerStrings, scannerEnterosFlotantes, registroObras) ;
                         }
                         if(menu == 5)//Tiempo restante de una obra
                         {
@@ -270,6 +239,10 @@ public class main{
         String tiempoAsignado;
         System.out.println("Ingrese el nombre de la obra");
         nombre = scannerStrings.nextLine() ;
+        if(registroObras.existenciaObra(nombre))
+        {
+            return;
+        }
         System.out.println("Ingrese el lugar de la obra");
         lugar = scannerStrings.nextLine() ;
         System.out.println("Ingrese el presupuesto de la obra");
@@ -280,6 +253,41 @@ public class main{
         registroObras.agregarObra(nuevaObra);
         WriteFile.escribirObras(',', registroObras);
         System.out.println("Obra agregada");
+    }
+    
+    private static void imprimirObras(Scanner scannerStrings, RegistroObras registroObras)
+    {
+        System.out.println("Ingrese region para filtrar");
+        System.out.println("Ingrese 1 si no desea filtrar");
+        String filtro = scannerStrings.nextLine() ;
+        if(filtro.equals("1"))
+        {
+            registroObras.mostrarObras() ;
+        }
+        else
+        {
+            registroObras.mostrarObras(filtro) ;
+        }
+    }
+    
+    private static void obraTerminada(Scanner scannerStrings, RegistroObras registroObras) {
+        System.out.println("Ingrese el nombre de la obra finalizada");
+        String nombreObra = scannerStrings.nextLine() ;
+        registroObras.eliminarObra(nombreObra);
+    }
+    
+    private static void modificarDatos(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroObras registroObras) {
+        System.out.println("Ingrese el nombre de la obra a modificar");
+        String nombreObra = scannerStrings.nextLine() ;
+        System.out.println("Ingrese el atributo a modificar");
+        System.out.println("1. Nombre de la obra");
+        System.out.println("2. Region de la obra");
+        System.out.println("3. Tiempo restante de la obra");
+        System.out.println("4. Presupuesto asignado a la obra");
+        int opcion = scannerEnterosFlotantes.nextInt() ;
+        System.out.println("Ingrese el nuevo atributo");
+        String nuevoDato = scannerStrings.nextLine() ;
+        registroObras.modificarObra(nombreObra, nuevoDato, opcion);
     }
     
     private static void AgregarEmpleados(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroTrabajadores registroPersonas)
@@ -352,6 +360,10 @@ public class main{
             /*No hacer nada*/
         }
     }
+
+    
+
+    
     
 
 }

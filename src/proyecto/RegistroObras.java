@@ -108,15 +108,14 @@ public class RegistroObras {
     
     public void agregarObra(Obra obraAgregar){//Andres
         
-        if(existenciaObra(obraAgregar.getNombreObra()))
+        /*if(existenciaObra(obraAgregar.getNombreObra()))
         {
-            System.out.println("ERROR El nombre de la obra ya existe");
             return;
-        }
-        
-        //HashMap<String, Obra> region = this.regiones.get(obraAgregar.getNombreLugar());
-        
-        if(this.regiones.get(obraAgregar.getNombreLugar()) != null)
+
+        }*/
+        HashMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
+        if(region != null)
+
         {
             
             System.out.println("Region ingresada correctamente");
@@ -139,6 +138,8 @@ public class RegistroObras {
     {
         if(existenciaObra(nombreObra))
         {
+            Obra ObraEliminar = registro.get(nombreObra) ;
+            ObraEliminar.eliminarObra();
             String lugar = this.registro.get(nombreObra).getNombreLugar() ;
             this.registro.remove(nombreObra) ;
             this.regiones.get(lugar).remove(nombreObra) ;

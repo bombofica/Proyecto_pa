@@ -157,20 +157,15 @@ public class Obra {
         }
     }
     
-/*    void eliminarObra(RegistroTrabajadores registroTrabajadores, RegistroObras registroObras){ // editar esto
+    void eliminarObra(){
         
-        Persona current;
-        
+        Persona current ;
         for (Map.Entry persona : tablaPersonasNombre.entrySet()) {
-
-          //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
+            
             current = (Persona) persona.getValue();
-            //registroTrabajadores.cambiarEstadoPersona(current.getNombre(), false);         
-        }
-        
-        registroObras.eliminarObra(this.nombreObra);
-        
-    }*/
+            current.setTrabajando(false) ;
+        }        
+    }
     
     public Persona devolverPersonaI(int index){
         
