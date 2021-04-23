@@ -36,7 +36,7 @@ public class ReadFile {
         
         Object[] contenedorDatos = new Object[3];
         
-        ArrayList<Persona> lista = new ArrayList();
+        //ArrayList<Persona> lista = new ArrayList();
         HashMap<String, Persona> hashPersonaNombre = new HashMap();
         HashMap<Integer, Persona> hashPersonaRut = new HashMap();
         
@@ -76,8 +76,8 @@ public class ReadFile {
                     System.out.println(current.getRut());
                     System.out.println(current.getSueldo());*/
                     //lista.add(current);
-                    //hashPersonaNombre.put(current.getNombre(), current);
-                    //hashPersonaRut.put(current.getRut(), current);
+                    hashPersonaNombre.put(current.getNombre(), current);
+                    hashPersonaRut.put(current.getRut(), current);
                     valores = new String[num];
                     cont = 0;
                 }
@@ -89,7 +89,7 @@ public class ReadFile {
         
         contenedorDatos[0] = hashPersonaNombre;
         contenedorDatos[1] = hashPersonaRut;
-        contenedorDatos[2] = lista;
+        
         return contenedorDatos;
     }
     
@@ -102,17 +102,17 @@ public class ReadFile {
        Y esta carpeta posee un archivo de texto de nombre "Empleados.txt"
 
     */
-    public static RegistroObras traerObras (char separador, int num, String direccion,RegistroTrabajadores registroTrabajadores){
+    public static void traerObras (char separador, int num, String direccion,RegistroTrabajadores registroTrabajadores, RegistroObras registroObras){
         
         /* Se crean las variables correspondientes*/
 
         String[] valores = new String[num]; // para almacenar los datos que se encuentran en una linea
-        RegistroObras todasLasObras = new RegistroObras(); // para almacenar las obras
+        //RegistroObras todasLasObras = new RegistroObras(); // para almacenar las obras // No sirve
+        
         Object[] contenedorDatos; //contendrá variables de tipo HashMap<String, Persona> y HashMap<Integer, Persona>
         
         HashMap<String, Persona> hashPersonaNombre;// HashMap que se asociará con "tablaPersonasNombre" de la obra respectiva
         HashMap<Integer, Persona> hashPersonaRut; // HashMap que se asociará con "tablaPersonasRut" de la obra respectiva
-        ArrayList<Persona> lista = new ArrayList(); // ArrayList que se asociará con "registroEmpleados" del registro de Trabajadores
         
         Obra currentObra;
         int cont = 0;
@@ -147,6 +147,8 @@ public class ReadFile {
                 if (caracter == '\n' || c == -1) {
                     currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), Double.parseDouble(valores[3]));
                     
+                    registroObras.agregarObra(currentObra);//*************** benja ****************
+                    
                     //System.out.println(currentObra.getNombreObra());
                     contenedorDatos = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+currentObra.getNombreLugar()+"//"
                             +currentObra.getNombreObra()+"//Empleados.txt",registroTrabajadores);
@@ -158,7 +160,6 @@ public class ReadFile {
                     currentObra.setTablaPersonasNombre(hashPersonaNombre);
                     currentObra.setTablaPersonasRut(hashPersonaRut);
                     
-                    todasLasObras.agregarObra(currentObra);
                     
                     
                     valores = new String[num];
@@ -171,7 +172,7 @@ public class ReadFile {
             System.out.println("El fichero no existe2");
         }
 
-        return todasLasObras;
+        
     }
     
     public static void crearDirectorio(String[] regiones){

@@ -19,10 +19,14 @@ public class RegistroObras {
 
     public RegistroObras(HashMap<String,Obra> registro,ArrayList<Obra> listaCompleta, int contadorObras)
     {
+        
+        listadoRegiones = new ArrayList();
+        
         llenarArray(listadoRegiones) ;
         this.registro = registro ;
         this.listaCompleta = listaCompleta ;
         this.contadorObras = contadorObras ;
+        
         this.regiones = new HashMap();
         for(int i = 0; i < listadoRegiones.size(); i++)
         {
@@ -30,10 +34,24 @@ public class RegistroObras {
         }
         
     }
+    
+    
     public RegistroObras(){
+        
+        listadoRegiones = new ArrayList();
+        
+        llenarArray(listadoRegiones);
+        
+        
         this.registro = new HashMap();
         this.listaCompleta = new ArrayList() ;
         this.contadorObras=0;
+        
+        this.regiones = new HashMap();
+        for(int i = 0; i < listadoRegiones.size(); i++)
+        {
+            this.regiones.put(listadoRegiones.get(i), new HashMap()) ;
+        }
     }
     
     
@@ -41,11 +59,25 @@ public class RegistroObras {
         return listaCompleta.get(index);
     }
     
-    public Obra retornarObra(String nombre)
+    public Obra retornarObra(String nombre, String nombreRegion)
     {
-        Obra obraRetorno ;
-        obraRetorno = registro.get(nombre);
-        return obraRetorno ;
+        HashMap<String,Obra> region  = regiones.get(nombreRegion);
+        if(region == null){
+            System.out.println("No existe la región");
+            return null;
+        }
+        
+        Obra obra = region.get(nombre);
+        
+        if(obra == null){
+            System.out.println("No existe la Obra");
+        }
+    
+        return obra ;
+    }
+    
+    public HashMap <String, HashMap<String, Obra>> obtenerHashRegiones(){
+        return this.regiones;
     }
     
     public void mostrarObras(){ //Editar
@@ -74,7 +106,7 @@ public class RegistroObras {
         }*/
     }
     
-    public void agregarObra(Obra obra1){
+    public void agregarObra(Obra obra1){//Andres
         
         HashMap<String, Obra> region = regiones.get(obra1.getNombreLugar());
         if(region != null)
@@ -88,6 +120,8 @@ public class RegistroObras {
         this.contadorObras++;*/
     }
     
+    /* No sirve
+    
     public void eliminarObra(String nombreObra){
         Obra valor = registro.get(nombreObra);
         if(valor == null){
@@ -96,9 +130,8 @@ public class RegistroObras {
         }
         
         registro.remove(nombreObra);
-        
-        
-        Obra current = null;
+            
+        Obra current;
         int i;
         for(i =0; i < listaCompleta.size();i++){
             current=this.listaCompleta.get(i);
@@ -114,9 +147,10 @@ public class RegistroObras {
         }
         this.contadorObras--;
         
-    }
+    }*/
     private void llenarArray(ArrayList listaRegiones)
     {
+        
         this.listadoRegiones.add("Tarapaca") ;
         this.listadoRegiones.add("Antofagasta") ;
         this.listadoRegiones.add("Atacama") ;

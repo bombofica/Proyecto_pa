@@ -165,7 +165,7 @@ public class Obra {
         }
     }
     
-    void eliminarObra(RegistroTrabajadores registroTrabajadores, RegistroObras registroObras){ // editar esto
+/*    void eliminarObra(RegistroTrabajadores registroTrabajadores, RegistroObras registroObras){ // editar esto
         
         Persona current;
         
@@ -178,7 +178,7 @@ public class Obra {
         
         registroObras.eliminarObra(this.nombreObra);
         
-    }
+    }*/
     
     public Persona devolverPersonaI(int index){
         

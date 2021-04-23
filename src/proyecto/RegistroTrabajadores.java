@@ -53,17 +53,17 @@ public class RegistroTrabajadores {
         
         }
         (this.registroEspecializaciones.get(trabajador.getLaborProfesional())).put(trabajador.getRut(), trabajador);
-        System.out.println("Esa especialidad si existe");
+        //System.out.println("Esa especialidad si existe");
         
         
     }
     
-    public void buscarEspecialista(Persona trabajador){
+    public void buscarEspecialista(String especialidad, int rut){
         
-        if (this.registroEspecializaciones.get(trabajador.getLaborProfesional()) == null){
+        if (this.registroEspecializaciones.get(especialidad) == null){
             //System.out.println("Esa especialidad no existe");
         }
-        Persona valor = (this.registroEspecializaciones.get(trabajador.getLaborProfesional())).get(trabajador.getRut());
+        Persona valor = (this.registroEspecializaciones.get(especialidad)).get(rut);
         if(valor == null){
             System.out.println("No existe tal persona");
             return;

@@ -4,6 +4,8 @@ package proyecto;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class WriteFile {
     // Este método solo se creó para probar el funcionamiento de "FileWriter" 
@@ -24,34 +26,93 @@ public class WriteFile {
         donde se imprimen los datos correspondientes a cada empleado
     */
     public static void escribirObras(char separador, RegistroObras registroObras) throws IOException{
+        
                 
-        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) { 
+        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras2.txt")) { 
             
             
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
                 más específicamente en el ArrayList de RegistroObras*/ 
-            Obra current;
-            for(int i =0; i < registroObras.contadorObras;i++){
-                current=registroObras.retornarObra(i);
+            
+            HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
+            
+            
+            int cont = 1;
+            for (Map.Entry HashObras : regiones.entrySet()) {
                 
-                if(i == registroObras.contadorObras-1){
-                    Escritor.write(current.getNombreObra()+','+current.getNombreLugar()+','+current.getPresupuestoObra()+','+current.getTiempoParaTerminarObra()+',');
-                }
-                else
-                {
-                    Escritor.write(current.getNombreObra()+','+current.getNombreLugar()+','+current.getPresupuestoObra()+','+current.getTiempoParaTerminarObra()+','+'\n');
-                    
-                }
-
+                HashMap<String, Obra> currentHashObras =(HashMap) HashObras.getValue();
+                for (Map.Entry obra : currentHashObras.entrySet()) {
+                    Obra currentObra = (Obra) obra.getValue();
+                    if (cont < registroObras.contadorObras){
+                        Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
+                                currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+','+'\n');
+                    }
+                    else
+                    {
+                        Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
+                                currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+',');
+                        
+                    }
+                    cont++;
+                    /*
+                    System.out.print("Nombre: " + currentObra.getNombreObra());
+                    System.out.print(" Nombre Lugar: " + currentObra.getNombreLugar());
+                    System.out.print(" Presupuesto: " + currentObra.getPresupuestoObra());
+                    System.out.print(" Tiempo Estimado: " + currentObra.getTiempoParaTerminarObra());*/          
+                }                
+          //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
             }
-            
-            
             Escritor.close();
         } catch (IOException e) {
             System.out.println("Error, el fichero no existe");
         }
         
+        int cont = 1;
+        HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
+        for (Map.Entry HashObras : regiones.entrySet()) {
+            HashMap<String, Obra> currentHashObras =(HashMap) HashObras.getValue();
+            for (Map.Entry obra : currentHashObras.entrySet()) {
+                Obra currentObra = (Obra) obra.getValue();      
+                
+                
+            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados3.txt")) {
+                
+                Persona currentPersona;
+                
+                System.out.println(currentObra.getNumeroEmpleados());
+                
+                for(int j=0; j < currentObra.getNumeroEmpleados(); j++){
+                    currentPersona = currentObra.devolverPersonaI(j);
+                    if (j == currentObra.getNumeroEmpleados()-1){
+                        Escritor.write(currentPersona.getNombre()+','+currentPersona.getLaborProfesional()+','+currentPersona.getSueldo()
+                        +','+currentPersona.getRut()+','+currentPersona.isTrabajando()+',');                       
+                    }
+                    else
+                    {
+                        Escritor.write(currentPersona.getNombre()+','+currentPersona.getLaborProfesional()+','+currentPersona.getSueldo()
+                        +','+currentPersona.getRut()+','+currentPersona.isTrabajando()+','+'\n');                        
+                    }
+                    
+                    //System.out.println(currentPersona.getNombre());
+                }
+                
+                Escritor.close();
+            } catch (IOException e) {
+                System.out.println("Error, el fichero no existe 4");
+            }                
+                
+                
+                
+                
+                
+                }                
+          //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
+            }
         
+        
+        
+        
+        /*
         Obra currentObra;
         for(int i =0; i < registroObras.contadorObras;i++){
             currentObra=registroObras.retornarObra(i);
@@ -83,7 +144,7 @@ public class WriteFile {
             } catch (IOException e) {
                 System.out.println("Error, el fichero no existe 4");
             }
-        }
+        }*/
     }
     
     public static void existenciaDirectorioObra(Obra currentObra){ // verifica si existe la carpeta
