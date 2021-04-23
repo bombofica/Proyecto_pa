@@ -165,7 +165,7 @@ public class Obra {
         }
     }
     
-    void eliminarObra(RegistroTrabajadores registroTrabajadores, RegistroObras registroObras){
+    void eliminarObra(RegistroTrabajadores registroTrabajadores, RegistroObras registroObras){ // editar esto
         
         Persona current;
         
@@ -173,7 +173,7 @@ public class Obra {
 
           //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
             current = (Persona) persona.getValue();
-            registroTrabajadores.cambiarEstadoPersona(current.getNombre(), false);         
+            //registroTrabajadores.cambiarEstadoPersona(current.getNombre(), false);         
         }
         
         registroObras.eliminarObra(this.nombreObra);

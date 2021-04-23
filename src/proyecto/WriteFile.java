@@ -18,7 +18,7 @@ public class WriteFile {
     }
     
     /*Este método se encarga de escribir en "RegistroObras.txt" donde se imprimirá los datos correspondientes al a obra en el siguiente formato:
-      Nombre_Obra,Lugar,Presupuesto_estimado,Tiempo_estimado,
+      NombreObra,Lugar,PresupuestoEstimado,TiempoEstimado,
  
         Luego de escribir en "RegistroObras.txt", imprime en las direcciones "RegistroObras/Nombre_obra/empleados.txt" correspondiente a cada Obra
         donde se imprimen los datos correspondientes a cada empleado
@@ -56,7 +56,7 @@ public class WriteFile {
         for(int i =0; i < registroObras.contadorObras;i++){
             currentObra=registroObras.retornarObra(i);
                 
-            WriteFile.existenciaDirectorio(currentObra);
+            WriteFile.existenciaDirectorioObra(currentObra);
             
             try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreObra()+"//Empleados.txt")) {
                 
@@ -86,7 +86,7 @@ public class WriteFile {
         }
     }
     
-    public static void existenciaDirectorio(Obra currentObra){ // verifica si existe la carpeta
+    public static void existenciaDirectorioObra(Obra currentObra){ // verifica si existe la carpeta
             File directorio = new File("RegistroObras//"+currentObra.getNombreObra());
             
             if(!directorio.exists()){ // si no existe, crea una
@@ -96,7 +96,16 @@ public class WriteFile {
                 }
             }        
     }
-    
+    public static void existenciaDirectorioRegion(String nombreRegion){ // verifica si existe la carpeta
+            File directorio = new File("RegistroObras//"+nombreRegion);
+            
+            if(!directorio.exists()){ // si no existe, crea una
+                if(!directorio.mkdirs()) // si no se crea, se imprime un error
+                {
+                    System.out.println("Error al crear el directorio");
+                }
+            }        
+    }    
     
     public static void imprimirTodasLasPersonas(RegistroTrabajadores registroTrabajadores){
         
@@ -108,7 +117,7 @@ public class WriteFile {
                 
                 //System.out.println(currentObra.getNumeroEmpleados());
                 
-                for(int j=0; j < registroTrabajadores.devolverNumeroPersonas(); j++){
+                /*for(int j=0; j < registroTrabajadores.devolverNumeroPersonas(); j++){ ********Editar esto******
                     current = registroTrabajadores.getPersona(j);
                     
                     if (j == registroTrabajadores.devolverNumeroPersonas()-1){
@@ -121,7 +130,7 @@ public class WriteFile {
                         +','+current.getRut()+','+current.isTrabajando()+','+'\n');                        
                     }
                     
-                }
+                }*/
                 
                 Escritor.close();
             } catch (IOException e) {

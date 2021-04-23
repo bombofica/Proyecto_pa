@@ -11,24 +11,62 @@ import java.io.* ;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 
 
 public class main{
     public static void main(String args[]) throws IOException
     {
+        RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores();
+        
+        Persona trabajador = new Persona("Pepito Manos Largas","Obrero", 12000, 204562581, true);
+        
+        registroDeTrabajadores.agregarEspecialista(trabajador);
+        registroDeTrabajadores.buscarEspecialista(trabajador);
+        
+        String[] regionesDeChile = new String[16];
+        regionesDeChile[0] = new String("Tarapaca");
+        
+        regionesDeChile[1] =new String("Antofagasta") ;
+        regionesDeChile[2] =new String("Atacama") ;
+        regionesDeChile[3] =new String("Coquimbo") ;
+        regionesDeChile[4] =new String("Valparaiso") ;
+        regionesDeChile[5] =new String("O'higgins") ;
+        regionesDeChile[6] =new String("Maule") ;
+        regionesDeChile[7] =new String("Biobio") ;
+        regionesDeChile[8] =new String("Araucania") ;
+        regionesDeChile[9] =new String("Los Lagos") ;
+        regionesDeChile[10] =new String("Aysen") ;
+        regionesDeChile[11] = new String("Magallanes") ;
+        regionesDeChile[12] = new String("Metropolitana") ;
+        regionesDeChile[13] = new String("Los Rios") ;
+        regionesDeChile[14] = new String("Arica y Parinacota") ;
+        regionesDeChile[15] = new String("Ñuble") ;
+        
+        //ReadFile.crearDirectorio(regionesDeChile);
+        
+        ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores);
+        registroDeTrabajadores.mostrarEspecialistas("Informático");
+        
+        //inicio();
+
+    }
+    
+    
+    private static void inicio(RegistroTrabajadores registro){
         
         ArrayList <Persona> arrayxd;      
-        Object[] pulpa_de_frutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroTrabajadores.txt");
+        Object[] PulpaDeFrutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroTrabajadores.txt",registro);
         
-        arrayxd =(ArrayList <Persona>) pulpa_de_frutilla[2];
-        HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) pulpa_de_frutilla[0];
+        arrayxd =(ArrayList <Persona>) PulpaDeFrutilla[2];
+        HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) PulpaDeFrutilla[0];
         
         RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd,hashpersonaxd);
-        RegistroObras registroObras = ReadFile.traerObras(',', 4, "RegistroObras");     
+        RegistroObras registroObras = ReadFile.traerObras(',', 4, "RegistroObras",registro); 
         
         Scanner scannerEnterosFlotantes = new Scanner(System.in) ;
         Scanner scannerStrings = new Scanner(System.in) ;
+        
         int menu;
         
         
@@ -45,11 +83,7 @@ public class main{
                 
                 
                 menu = scannerEnterosFlotantes.nextInt() ;
-                main.limpiarPantalla();
-                
-                System.out.print("Everything on the console will cleared");
-                System.out.print("\033[H\033[2J");
-                System.out.flush();
+                //main.limpiarPantalla();
                 
                 if(menu == 1)//Gestion de obras
                 {
@@ -65,7 +99,7 @@ public class main{
                         menu = scannerEnterosFlotantes.nextInt() ;
                         if(menu == 1) //Añadir obra
                         {
-                            añadirObra(scannerStrings, scannerEnterosFlotantes, registroObras);
+                            agregarObra(scannerStrings, scannerEnterosFlotantes, registroObras);
                             menu = 0 ;
                             continue;
                         }
@@ -141,7 +175,7 @@ public class main{
                         menu = scannerEnterosFlotantes.nextInt() ;
                         if(menu == 1) //Añadir empleado a la plataforma
                         {
-                            añadirEmpleados(scannerStrings, scannerEnterosFlotantes, registroPersonas);
+                            AgregarEmpleados(scannerStrings, scannerEnterosFlotantes, registroPersonas);
                             menu = 0 ;
                             continue ;
                                     
@@ -185,7 +219,7 @@ public class main{
                             String nombre ;
                             System.out.println("ingrese el nombre de la persona") ;
                             nombre = scannerStrings.nextLine() ;
-                            registroPersonas.eliminarPersona(nombre);
+                            //registroPersonas.eliminarPersona(nombre); Agregar esta función
                             
                             menu = 0 ;
                             continue ;
@@ -211,7 +245,7 @@ public class main{
         }while(menu != 3);
     }
     
-    private static void añadirObra(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroObras registroObras) throws IOException
+    private static void agregarObra(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroObras registroObras) throws IOException
     {
         String nombre;
         String lugar;
@@ -231,7 +265,7 @@ public class main{
         System.out.println("Obra agregada");
     }
     
-    private static void añadirEmpleados(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroTrabajadores registroPersonas)
+    private static void AgregarEmpleados(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroTrabajadores registroPersonas)
     {
         String nombre;
         String labor;
@@ -246,7 +280,7 @@ public class main{
         System.out.println("Ingrese el rut");
         rut = scannerEnterosFlotantes.nextInt() ;
         Persona nuevoEmpleado = new Persona(nombre,labor,sueldo,rut,false) ;
-        registroPersonas.agregarPersona(nuevoEmpleado);
+        //registroPersonas.agregarPersona(nuevoEmpleado); agregar esta funcion
         WriteFile.imprimirTodasLasPersonas(registroPersonas);
     }
 
@@ -259,7 +293,7 @@ public class main{
             System.out.println("ingrese profesión");
             filtro = scannerStrings.nextLine();
             System.out.println("El filtro es: "+filtro);
-            registroPersonas.mostrarPersona(filtro);
+            //registroPersonas.mostrarPersona(filtro); Agregar esta función
             return ;
         }
         if(menu == 2)//Por sueldo
@@ -268,7 +302,7 @@ public class main{
             System.out.println("Ingrese sueldo");
             filtro = scannerEnterosFlotantes.nextInt();
             System.out.println("El filtro es: "+filtro);
-            registroPersonas.mostrarPersona(filtro);
+            //registroPersonas.mostrarPersona(filtro);Agregar esta función
             return ;
         }
         if(menu == 3)//Asignado o no
@@ -279,18 +313,18 @@ public class main{
             menu = scannerEnterosFlotantes.nextInt();
             if(menu == 1)
             {
-                registroPersonas.mostrarPersona(true);
+                //registroPersonas.mostrarPersona(true); Agregar esta función
                 return ;
             }
             else
             {
-                registroPersonas.mostrarPersona(false);
+                // registroPersonas.mostrarPersona(false); Agregar esta función
                 return ;
             }  
         }
         if(menu == 4)//Todos los empleados
         {
-            registroPersonas.mostrarPersona();
+            //registroPersonas.mostrarPersona(); Agregar esta función
         }
     }
     
