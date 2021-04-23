@@ -11,30 +11,31 @@ import java.util.*;
  * @author Ceseo
  */
 public class RegistroObras {
+    private HashMap <String, HashMap<String, Obra>> regiones;
     private HashMap <String, Obra> registro ;
     private ArrayList<Obra> listaCompleta;
+    private ArrayList<String> listadoRegiones;
     int contadorObras ;
 
     public RegistroObras(HashMap<String,Obra> registro,ArrayList<Obra> listaCompleta, int contadorObras)
     {
+        llenarArray(listadoRegiones) ;
         this.registro = registro ;
         this.listaCompleta = listaCompleta ;
         this.contadorObras = contadorObras ;
+        this.regiones = new HashMap();
+        for(int i = 0; i < listadoRegiones.size(); i++)
+        {
+            this.regiones.put(listadoRegiones.get(i), new HashMap()) ;
+        }
+        
     }
     public RegistroObras(){
         this.registro = new HashMap();
         this.listaCompleta = new ArrayList() ;
         this.contadorObras=0;
     }
-    public void mostrarObras(){
-        Obra current;
-        int i;
-        for(i =0; i < listaCompleta.size();i++){
-            current=listaCompleta.get(i);
-            System.out.println(current.getNombreObra());
-            //current.mostrarEmpleados();
-        }
-    }
+    
     
     public Obra retornarObra(int index){
         return listaCompleta.get(index);
@@ -47,10 +48,44 @@ public class RegistroObras {
         return obraRetorno ;
     }
     
+    public void mostrarObras(){ //Editar
+        System.out.println("region para filtrar");
+        Scanner scannerStrings = new Scanner(System.in) ;
+        String region;
+        region = scannerStrings.nextLine();
+        
+        HashMap<String, Obra> listaFiltrada = regiones.get(region) ;
+        if(listaFiltrada == null)
+        {
+            System.out.println("Region mal ingresada") ;
+            return ;
+        }
+        Obra obraActual ;
+        for (Map.Entry me : listaFiltrada.entrySet()) {
+            obraActual = (Obra) me.getValue();
+            System.out.println(obraActual.getNombreObra());
+        }
+        /*Obra current;
+        int i;
+        for(i =0; i < listaCompleta.size();i++){
+            current=listaCompleta.get(i);
+            System.out.println(current.getNombreObra());
+            //current.mostrarEmpleados();
+        }*/
+    }
+    
     public void agregarObra(Obra obra1){
-        this.registro.put(obra1.getNombreObra(), obra1);
+        
+        HashMap<String, Obra> region = regiones.get(obra1.getNombreLugar());
+        if(region != null)
+        {
+            System.out.println("Region ingresada correctamente");
+            region.put(obra1.getNombreObra(), obra1) ;
+            this.contadorObras++;
+        }
+        /*this.registro.put(obra1.getNombreObra(), obra1);
         this.listaCompleta.add(obra1);
-        this.contadorObras++;
+        this.contadorObras++;*/
     }
     
     public void eliminarObra(String nombreObra){
@@ -79,6 +114,25 @@ public class RegistroObras {
         }
         this.contadorObras--;
         
+    }
+    private void llenarArray(ArrayList listaRegiones)
+    {
+        this.listadoRegiones.add("Tarapaca") ;
+        this.listadoRegiones.add("Antofagasta") ;
+        this.listadoRegiones.add("Atacama") ;
+        this.listadoRegiones.add("Coquimbo") ;
+        this.listadoRegiones.add("Valparaiso") ;
+        this.listadoRegiones.add("O'higgins") ;
+        this.listadoRegiones.add("Maule") ;
+        this.listadoRegiones.add("Biobio") ;
+        this.listadoRegiones.add("Araucania") ;
+        this.listadoRegiones.add("Los Lagos") ;
+        this.listadoRegiones.add("Aysen") ;
+        this.listadoRegiones.add("Magallanes") ;
+        this.listadoRegiones.add("Metropolitana") ;
+        this.listadoRegiones.add("Los Rios") ;
+        this.listadoRegiones.add("Arica y Parinacota") ;
+        this.listadoRegiones.add("Ñuble") ;
     }
     
 }
