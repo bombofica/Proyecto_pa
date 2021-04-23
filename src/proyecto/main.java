@@ -19,12 +19,9 @@ public class main{
     {
         RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores();
         
-        Persona trabajador = new Persona("Pepito Manos Largas","Obrero", 12000, 204562581, true);
+        RegistroObras registroObras = new RegistroObras();
         
-        registroDeTrabajadores.agregarEspecialista(trabajador);
-        registroDeTrabajadores.buscarEspecialista(trabajador);
-        
-        String[] regionesDeChile = new String[16];
+        /*String[] regionesDeChile = new String[16];
         regionesDeChile[0] = new String("Tarapaca");
         
         regionesDeChile[1] =new String("Antofagasta") ;
@@ -41,28 +38,33 @@ public class main{
         regionesDeChile[12] = new String("Metropolitana") ;
         regionesDeChile[13] = new String("Los Rios") ;
         regionesDeChile[14] = new String("Arica y Parinacota") ;
-        regionesDeChile[15] = new String("Ñuble") ;
+        regionesDeChile[15] = new String("Ñuble") ;*/
         
         //ReadFile.crearDirectorio(regionesDeChile);
         
-        ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores);
-        registroDeTrabajadores.mostrarEspecialistas("Informático");
+        ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);
+        //registroDeTrabajadores.mostrarEspecialistas("Informático");
+        
+        Obra obra_nombre_valparaíso = registroObras.retornarObra("Nombre_Valparaíso", "Valparaiso");
+        // probar la edición de obras por referencia        
+        
+        WriteFile.escribirObras(',', registroObras);
         
         //inicio();
 
     }
     
     
-    private static void inicio(RegistroTrabajadores registro){
+    private static void inicio(RegistroTrabajadores registroPersonas, RegistroObras registroObras){
         
         ArrayList <Persona> arrayxd;      
-        Object[] PulpaDeFrutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroTrabajadores.txt",registro);
+        Object[] PulpaDeFrutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroTrabajadores.txt",registroPersonas);
         
         arrayxd =(ArrayList <Persona>) PulpaDeFrutilla[2];
         HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) PulpaDeFrutilla[0];
         
-        RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd,hashpersonaxd);
-        RegistroObras registroObras = ReadFile.traerObras(',', 4, "RegistroObras",registro); 
+        //RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd,hashpersonaxd);
+        //RegistroObras registroObras = ReadFile.traerObras(',', 4, "RegistroObras",registroPersonas,registroObras); 
         
         Scanner scannerEnterosFlotantes = new Scanner(System.in) ;
         Scanner scannerStrings = new Scanner(System.in) ;
