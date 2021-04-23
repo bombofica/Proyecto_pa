@@ -1,7 +1,7 @@
 Andres Vidal,Informático,1300000,20481905,true,
 Chino Rios,Prevencionista de Riesgos,10000,32134537,false,
 Sebastián Piñera,Ingeniero Civil,700000,83892547,false,
-Gabo alvarez quinta,Informático,6546846,654846,true,
+Gabriel Álvarez Chernobyl,Informático,6546846,654846,true,
 Esteban Paredes,Ingeniero Ambiental,100,455462541,true,
 Chupilca del Diablo,Ingeniero Ambiental,5,54789231,true,
 Wendy Sulca,Obrero,10,54647845,true,

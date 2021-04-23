@@ -44,17 +44,26 @@ public class main{
         
         ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);
         //registroDeTrabajadores.mostrarEspecialistas("Informático");
-        NewJFrame.main(new String[5]);
-        Obra obra_nombre_valparaíso = registroObras.retornarObra("Nombre_Valparaíso", "Valparaiso");
+        //NewJFrame.main(new String[5]);
+        Obra obra_nombre_valparaíso = registroObras.retornarObra("Nombre_Valparaíso","Valparaiso");
         // probar la edición de obras por referencia
+        if(obra_nombre_valparaíso != null){
+            Persona personaje = obra_nombre_valparaíso.buscarPersona("Gabriel Álvarez Chernobyl");
+            if(personaje != null){
+                System.out.println(personaje.getNombre());
+            }            
+        }
+        else
+        {
+            System.out.println("La Obra no existe");
+        }
         
-        /*
-        Persona personaje = obra_nombre_valparaíso.buscarPersona("Gabriel Álvarez Chernobyl");
-        personaje.setNombre("El gran Gabo Alvarez Chernoby");
+
+        //personaje.setNombre("El gran Gabo Alvarez Chernoby");
         
-        Persona personaje2 = registroDeTrabajadores.buscarEspecialista(personaje.getLaborProfesional(),personaje.getRut());
-        personaje2.setNombre("Gabo alvarez quinta");
-        WriteFile.escribirObras(',', registroObras);*/
+        //Persona personaje2 = registroDeTrabajadores.buscarEspecialista(personaje.getLaborProfesional(),personaje.getRut());
+        //personaje2.setNombre("Gabo alvarez quinta");
+        WriteFile.escribirObras(',', registroObras);
         
         //inicio();
 
