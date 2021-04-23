@@ -9,20 +9,20 @@ import java.util.TreeMap;
 public class RegistroTrabajadores {
 
     
-    private ArrayList<Persona> registroEmpleados;
-    private HashMap<String, Persona> registroPersonasNombre;
+    //private ArrayList<Persona> registroEmpleados;
+    //private HashMap<String, Persona> registroPersonasNombre;
      
     private String[] especializaciones;
     private HashMap<String, TreeMap<Integer,Persona>> registroEspecializaciones; 
     
-    public RegistroTrabajadores(ArrayList<Persona> lista, HashMap<String, Persona> registroPersonasNombre) {
+  /*  public RegistroTrabajadores(ArrayList<Persona> lista, HashMap<String, Persona> registroPersonasNombre) {
         this.registroPersonasNombre = registroPersonasNombre;
         this.registroEmpleados = lista;
-    }
+    }*/
 
     public RegistroTrabajadores() {
-        this.registroEmpleados = new ArrayList();
-        this.registroPersonasNombre = new HashMap();
+       /* this.registroEmpleados = new ArrayList();
+        this.registroPersonasNombre = new HashMap();*/
         
         this.registroEspecializaciones = new HashMap();
         
@@ -58,7 +58,17 @@ public class RegistroTrabajadores {
         
     }
     
-    public void buscarEspecialista(String especialidad, int rut){
+    public void eliminarEspecialista(String especialidad, int rut){
+        
+    }
+    
+    public void eliminarEspecialista(Persona especialista){
+        
+    }
+    
+    
+    
+    public Persona buscarEspecialista(String especialidad, int rut){
         
         if (this.registroEspecializaciones.get(especialidad) == null){
             //System.out.println("Esa especialidad no existe");
@@ -66,9 +76,10 @@ public class RegistroTrabajadores {
         Persona valor = (this.registroEspecializaciones.get(especialidad)).get(rut);
         if(valor == null){
             System.out.println("No existe tal persona");
-            return;
+            return null;
         }
         System.out.println(valor.getNombre());
+        return valor;
     }
     
     public void mostrarEspecialistas(String especialidad){
@@ -89,33 +100,8 @@ public class RegistroTrabajadores {
         }
     }
 
-/*    public void setRegistroEmpleados(ArrayList<Persona> lista) {
-        this.registroEmpleados = lista;
-    }
-    
-    public void setRegistroPersonasNombre(HashMap<String, Persona> registroPersonasNombre){
-        this.registroPersonasNombre=registroPersonasNombre;
-    }
+/* 
 
-    public void mostrarPersona(boolean persona) {
-        System.out.println("El/Los Nombre/s son:");
-        for (Persona actual : registroEmpleados) {
-            if (actual.isTrabajando() == persona) {
-                System.out.println(actual.getNombre());
-            }
-        }
-    }
-
-    public void mostrarPersona(int sueldo) {
-        System.out.println("El/Los Nombre/s son:");
-        for (Persona actual : registroEmpleados) {
-            if (sueldo == actual.getSueldo()) {
-                System.out.println(actual.getNombre());
-            }
-        }
-        
-       
-    }
     
     public void mostrarPersona()
     {
@@ -141,19 +127,6 @@ public class RegistroTrabajadores {
         
     }
     
-    public Persona getPersona(int index){
-        
-        int i = 0;
-        
-        for (Persona actual : registroEmpleados) {
-            if (i == index) {
-                return actual;
-            }
-            i++;
-        }                
-        
-        return null;
-    }
     
     public int devolverNumeroPersonas (){
         return registroEmpleados.size();

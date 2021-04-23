@@ -44,11 +44,17 @@ public class main{
         
         ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);
         //registroDeTrabajadores.mostrarEspecialistas("Informático");
-        
+        NewJFrame.main(new String[5]);
         Obra obra_nombre_valparaíso = registroObras.retornarObra("Nombre_Valparaíso", "Valparaiso");
-        // probar la edición de obras por referencia        
+        // probar la edición de obras por referencia
         
-        WriteFile.escribirObras(',', registroObras);
+        /*
+        Persona personaje = obra_nombre_valparaíso.buscarPersona("Gabriel Álvarez Chernobyl");
+        personaje.setNombre("El gran Gabo Alvarez Chernoby");
+        
+        Persona personaje2 = registroDeTrabajadores.buscarEspecialista(personaje.getLaborProfesional(),personaje.getRut());
+        personaje2.setNombre("Gabo alvarez quinta");
+        WriteFile.escribirObras(',', registroObras);*/
         
         //inicio();
 
