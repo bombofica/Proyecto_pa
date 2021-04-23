@@ -252,7 +252,7 @@ public class main{
         String nombre;
         String lugar;
         double presupuesto;
-        double tiempoAsignado;
+        String tiempoAsignado;
         System.out.println("Ingrese el nombre de la obra");
         nombre = scannerStrings.nextLine() ;
         System.out.println("Ingrese el lugar de la obra");
@@ -260,7 +260,7 @@ public class main{
         System.out.println("Ingrese el presupuesto de la obra");
         presupuesto = scannerEnterosFlotantes.nextDouble() ;
         System.out.println("Ingrese el tiempo asignado de la obra");
-        tiempoAsignado = scannerEnterosFlotantes.nextDouble() ;
+        tiempoAsignado = scannerStrings.nextLine() ;
         Obra nuevaObra = new Obra(nombre, lugar, presupuesto, tiempoAsignado) ;
         registroObras.agregarObra(nuevaObra);
         WriteFile.escribirObras(',', registroObras);

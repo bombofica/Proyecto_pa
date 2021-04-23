@@ -156,7 +156,7 @@ public class ReadFile {
                     hashPersonaNombre = (HashMap<String,Persona>)contenedorDatos[0];
                     hashPersonaRut = (HashMap<Integer,Persona>)contenedorDatos[1];
                     
-                    currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), Double.parseDouble(valores[3]),hashPersonaNombre,hashPersonaRut);
+                    currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), valores[3],hashPersonaNombre,hashPersonaRut);
                     
                     registroObras.agregarObra(currentObra);//*************** benja ****************
                                         

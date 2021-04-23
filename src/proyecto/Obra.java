@@ -13,18 +13,20 @@ public class Obra {
 
     private double presupuestoObra;
 
-    private double tiempoParaTerminarObra;
+    private String tiempoParaTerminarObra;
 
     private HashMap<String, Persona> tablaPersonasNombre;
 
     private HashMap<Integer, Persona> tablaPersonasRut;
     
     private int numeroEmpleados;
+    
+    int codigo;
 
     public Obra() {
     }
 
-    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, double tiempoNecesarioParaTerminarObra) {
+    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, String tiempoNecesarioParaTerminarObra) {
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
         this.presupuestoObra = presupuestoObra;
@@ -34,7 +36,11 @@ public class Obra {
         this.numeroEmpleados = tablaPersonasNombre.size();
     }
 
-    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, double tiempoNecesarioParaTerminarObra, HashMap<String, Persona> tablaPersonasNombre, HashMap<Integer, Persona> tablaPersonasRut) {
+    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, String tiempoNecesarioParaTerminarObra, HashMap<String, Persona> tablaPersonasNombre, HashMap<Integer, Persona> tablaPersonasRut) {
+        
+        //esta variable debe ser enviada por el metodo y no declararce en esta linea
+        RegistroObras registro = new RegistroObras();
+        
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
         this.presupuestoObra = presupuestoObra;
@@ -42,6 +48,7 @@ public class Obra {
         this.tablaPersonasNombre = tablaPersonasNombre;
         this.tablaPersonasRut = tablaPersonasRut;
         this.numeroEmpleados = tablaPersonasNombre.size();
+        this.codigo = registro.numeroObras() +1 ;
     }
     
     public void setNumeroEmpleados(int valor){
@@ -89,15 +96,11 @@ public class Obra {
         this.presupuestoObra = (int) presupuestoObra;
     }
 
-    public double getTiempoParaTerminarObra() {
+    public String getTiempoParaTerminarObra() {
         return tiempoParaTerminarObra;
     }
 
-    public void setTiempoParaTerminarObra(double tiempoParaTerminarObra) {
-        this.tiempoParaTerminarObra = tiempoParaTerminarObra;
-    }
-
-    public void setTiempoParaTerminarObra(int tiempoParaTerminarObra) {
+    public void setTiempoParaTerminarObra(String tiempoParaTerminarObra) {
         this.tiempoParaTerminarObra = tiempoParaTerminarObra;
     }
 

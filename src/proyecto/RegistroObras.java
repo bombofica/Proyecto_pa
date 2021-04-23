@@ -11,15 +11,17 @@ import java.util.*;
  * @author Ceseo
  */
 public class RegistroObras {
+    
+    //variables de instancia
     private HashMap <String, HashMap<String, Obra>> regiones;
     private HashMap <String, Obra> registro ;
     private ArrayList<Obra> listaCompleta;
     private ArrayList<String> listadoRegiones;
     int contadorObras ;
 
+    //constructores
     public RegistroObras(HashMap<String,Obra> registro,ArrayList<Obra> listaCompleta, int contadorObras)
     {
-        
         listadoRegiones = new ArrayList();
         
         llenarArray(listadoRegiones) ;
@@ -32,7 +34,6 @@ public class RegistroObras {
         {
             this.regiones.put(listadoRegiones.get(i), new HashMap()) ;
         }
-        
     }
     
     
@@ -54,37 +55,35 @@ public class RegistroObras {
         }
     }
     
-    
+    //metodos publicos
     public Obra retornarObra(int index){
         return listaCompleta.get(index);
     }
     
     public Obra retornarObra(String nombre, String nombreRegion)
     {
-        HashMap<String,Obra> region  = regiones.get(nombreRegion);
-        if(region == null){
-            System.out.println("No existe la región");
-            return null;
+        if(existenciaObra(nombre))
+        {
+            HashMap<String,Obra> region  = regiones.get(nombreRegion);
+            if(region == null){
+                System.out.println("No existe la región");
+                return null;
+            }
+            Obra obraRetornar = region.get(nombre);
+            return obraRetornar ;
         }
-        
-        Obra obra = region.get(nombre);
-        
-        if(obra == null){
-            System.out.println("No existe la Obra");
-        }
-    
-        return obra ;
+        return null;
     }
     
     public HashMap <String, HashMap<String, Obra>> obtenerHashRegiones(){
         return this.regiones;
     }
     
-    public void mostrarObras(){ //Editar
-        System.out.println("region para filtrar");
+    public void mostrarObras(String region){ //Editar
+        /*System.out.println("region para filtrar");
         Scanner scannerStrings = new Scanner(System.in) ;
         String region;
-        region = scannerStrings.nextLine();
+        region = scannerStrings.nextLine();*/
         
         HashMap<String, Obra> listaFiltrada = regiones.get(region) ;
         if(listaFiltrada == null)
@@ -97,60 +96,114 @@ public class RegistroObras {
             obraActual = (Obra) me.getValue();
             System.out.println(obraActual.getNombreObra());
         }
-        /*Obra current;
-        int i;
-        for(i =0; i < listaCompleta.size();i++){
-            current=listaCompleta.get(i);
-            System.out.println(current.getNombreObra());
-            //current.mostrarEmpleados();
-        }*/
     }
     
-    public void agregarObra(Obra obra1){//Andres
+    public void mostrarObras()
+    {
+        for(int i = 0 ; i< listaCompleta.size() ; i++)
+        {
+            System.out.println(listaCompleta.get(i).getNombreObra());
+        }
+    }
+    
+    public void agregarObra(Obra obraAgregar){//Andres
         
-        HashMap<String, Obra> region = regiones.get(obra1.getNombreLugar());
+        if(existenciaObra(obraAgregar.getNombreObra()))
+        {
+            System.out.println("ERROR El nombre de la obra ya existe");
+            return;
+        }
+        HashMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
         if(region != null)
         {
             System.out.println("Region ingresada correctamente");
-            region.put(obra1.getNombreObra(), obra1) ;
+            region.put(obraAgregar.getNombreObra(), obraAgregar) ;
             this.contadorObras++;
         }
-        /*this.registro.put(obra1.getNombreObra(), obra1);
-        this.listaCompleta.add(obra1);
-        this.contadorObras++;*/
     }
     
-    /* No sirve
+    public int numeroObras(){
+        return this.contadorObras;
+    }
     
-    public void eliminarObra(String nombreObra){
-        Obra valor = registro.get(nombreObra);
-        if(valor == null){
-            System.out.println("Inválido");
-            return;
+    public void eliminarObra(String nombreObra)
+    {
+        if(existenciaObra(nombreObra))
+        {
+            String lugar = this.registro.get(nombreObra).getNombreLugar() ;
+            this.registro.remove(nombreObra) ;
+            this.regiones.get(lugar).remove(nombreObra) ;
         }
-        
-        registro.remove(nombreObra);
-            
-        Obra current;
-        int i;
-        for(i =0; i < listaCompleta.size();i++){
-            current=this.listaCompleta.get(i);
-            
-            if(nombreObra.equals(current.getNombreObra())){
-                this.listaCompleta.remove(i);
-                break;
+    }
+                
+    public void modificarObra(String nombreObra, String nuevoDato, int opcion)
+    {
+        //nombreObra es el nombre actual de la obra a editar
+        //nuevoDato es el dato a editar que puedeser de cualquier atributo dentro del objeto Obra
+        //opcion guardaria la hipotetica opcion a modificar por el usuario seleccionada en el menu
+        if(existenciaObra(nombreObra))
+        {
+            String lugar = this.registro.get(nombreObra).getNombreLugar() ;
+            Obra remplazo = this.registro.get(nombreObra) ;
+            switch(opcion)
+            {
+                case 1: //Cambiar nombre
+                {
+                    remplazo.setNombreObra(nuevoDato) ;
+                    this.registro.remove(nombreObra) ;
+                    this.registro.put(remplazo.getNombreObra(), remplazo) ;
+                    this.regiones.get(lugar).remove(nombreObra) ;
+                    this.regiones.get(lugar).put(remplazo.getNombreLugar(), remplazo) ; 
+                    return;
+                }
+                case 2: //Cambiar region
+                {
+                    remplazo.setNombreLugar(nuevoDato) ;
+                    this.registro.remove(nombreObra) ;
+                    this.registro.put(remplazo.getNombreObra(), remplazo) ;
+                    this.regiones.get(lugar).remove(nombreObra) ;
+                    this.regiones.get(nuevoDato).put(nombreObra, remplazo) ;
+                    return;
+                }
+                case 3: //Cambiar tiempo restante
+                {
+                    remplazo.setTiempoParaTerminarObra(nuevoDato) ;
+                    break;
+                }
+                case 4: //Cambiar presupuesto
+                {
+                    try
+                    {
+                        remplazo.setPresupuestoObra(Integer.parseInt(nuevoDato));
+                    }
+                    catch(Exception e)
+                    {
+                        System.out.println("ERROR valor no numerico");
+                        return;
+                    }
+                } 
             }
-            
-            
-            System.out.println(current.getNombreObra());
-            //current.mostrarEmpleados();
+            this.registro.remove(nombreObra) ;
+            this.registro.put(nombreObra, remplazo) ;
+            this.regiones.get(lugar).remove(nombreObra) ;
+            this.regiones.get(lugar).put(nombreObra, remplazo) ;
         }
-        this.contadorObras--;
-        
-    }*/
+    }
+    
+    public Boolean existenciaObra(String obra)
+    {
+        Obra verificador = this.registro.get(obra) ;
+        if(verificador == null)
+        {
+            System.out.println("ERROR La obra ingresada no existe");
+            return false ;
+        }
+        return true ;
+    }
+    
+    //metodos privados
     private void llenarArray(ArrayList listaRegiones)
     {
-        
         this.listadoRegiones.add("Tarapaca") ;
         this.listadoRegiones.add("Antofagasta") ;
         this.listadoRegiones.add("Atacama") ;
