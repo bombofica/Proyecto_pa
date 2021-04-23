@@ -21,26 +21,26 @@ public class FechaHoy {
     {
         char[] xd = formato.format(fecha).toCharArray();
 
-        int año = obtenerAño(xd);
-        int añoComparar = obtenerAño(fechaComparar);
+        int year = obtenerYear(xd);
+        int anoComparar = obtenerYear(fechaComparar);
         
-        año = añoComparar - año;
-        System.out.println("quedan:" + año + "años");
+        year = anoComparar - year;
+        System.out.println("quedan:" + year + "años");
 
         int mes;
         int dia;
         
         
     }
-    private int obtenerAño(char[] xd)
+    private int obtenerYear(char[] xd)
     {
         int i;
         int j;
-        int año = 0;
+        int year = 0;
         for(i = 9, j = 1; i > 5 ; i--,j = j*10)
         {
-            año = (Integer.parseInt(String.valueOf(xd[i])) * j) + año;
+            year = (Integer.parseInt(String.valueOf(xd[i])) * j) + year;
         }
-        return año;
+        return year;
     }
 }

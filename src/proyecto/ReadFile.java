@@ -26,10 +26,10 @@ public class ReadFile {
     /* El método "tomarContenidosPersonas" lee el archivo que corresponde a los empleados de una Obra o de la lista con 
        con todos los empleados(RegistroTrabajadores.txt) con todos sus datos respectivos.
        El formato(txt separado por comas) en el que se encuentran las obras es el siguiente:
-       Nombre_Persona,Labor,Sueldo,Rut,Estado(Trabajando o no),
+       NombrePersona,Labor,Sueldo,Rut,Estado(Trabajando o no),
     */
 
-    public static Object[] tomarContenidosPersonas(char separador, int num, String direccion){//, ArrayList<Persona> lista) {
+    public static Object[] tomarContenidosPersonas(char separador, int num, String direccion, RegistroTrabajadores registroTrabajadores) {
         String[] valores = new String[num];// para almacenar los datos que se encuentran en una linea
         Persona current;
         int cont = 0;
@@ -67,9 +67,17 @@ public class ReadFile {
                 */
                 if ((caracter == '\n' || c == -1)) {
                     current = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]));
-                    lista.add(current);
-                    hashPersonaNombre.put(current.getNombre(), current);
-                    hashPersonaRut.put(current.getRut(), current);
+                    
+                    
+                    registroTrabajadores.agregarEspecialista(current);
+                    /*
+                    System.out.println(current.getNombre());
+                    System.out.println(current.getLaborProfesional());
+                    System.out.println(current.getRut());
+                    System.out.println(current.getSueldo());*/
+                    //lista.add(current);
+                    //hashPersonaNombre.put(current.getNombre(), current);
+                    //hashPersonaRut.put(current.getRut(), current);
                     valores = new String[num];
                     cont = 0;
                 }
@@ -88,13 +96,13 @@ public class ReadFile {
     
     /* El método "traerObras" lee el archivo "RegistroObras.txt" que contiene las obras y sus datos.
        El formato(txt separado por comas) en el que se encuentran las obras es el siguiente:
-       Nombre_Obra,Nombre_Lugar,Presupuesto,Tiempo_para_terminar_la_obra,
+       NombreObra,NombreLugar,Presupuesto,TiempoParaTerminarObra,
        Luego de leer y guardar los datos básicos de las obras, se procede a integrar a los empleados
        cada lista de empleados de una obra se encuentra en una carpeta con el nombre de la Obra correspondiente
        Y esta carpeta posee un archivo de texto de nombre "Empleados.txt"
 
     */
-    public static RegistroObras traerObras (char separador, int num, String direccion){
+    public static RegistroObras traerObras (char separador, int num, String direccion,RegistroTrabajadores registroTrabajadores){
         
         /* Se crean las variables correspondientes*/
 
@@ -138,7 +146,10 @@ public class ReadFile {
                 */
                 if (caracter == '\n' || c == -1) {
                     currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), Double.parseDouble(valores[3]));
-                    contenedorDatos = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+currentObra.getNombreObra()+"//Empleados.txt");
+                    
+                    //System.out.println(currentObra.getNombreObra());
+                    contenedorDatos = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+currentObra.getNombreLugar()+"//"
+                            +currentObra.getNombreObra()+"//Empleados.txt",registroTrabajadores);
                     
                     hashPersonaNombre = (HashMap<String,Persona>)contenedorDatos[0];
                     hashPersonaRut = (HashMap<Integer,Persona>)contenedorDatos[1];
@@ -161,6 +172,14 @@ public class ReadFile {
         }
 
         return todasLasObras;
+    }
+    
+    public static void crearDirectorio(String[] regiones){
+        
+        int i ;
+        for(i = 0; i<regiones.length;i++){
+            WriteFile.existenciaDirectorioRegion(regiones[i]);
+        }
     }
 
 }
