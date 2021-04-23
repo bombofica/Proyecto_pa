@@ -295,7 +295,7 @@ public class main{
             System.out.println("ingrese profesión");
             filtro = scannerStrings.nextLine();
             System.out.println("El filtro es: "+filtro);
-            //registroPersonas.mostrarPersona(filtro); Agregar esta función
+            registroPersonas.mostrarEspecialistas(filtro);
             return ;
         }
         if(menu == 2)//Por sueldo

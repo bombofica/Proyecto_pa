@@ -62,16 +62,6 @@ public class Obra {
     }
     
     
-    public void setTablaPersonasNombre(HashMap<String,Persona> tablaPersonasNombre){
-        this.tablaPersonasNombre = tablaPersonasNombre;
-        this.numeroEmpleados = this.tablaPersonasNombre.size();
-    }
-
-    public void setTablaPersonasRut(HashMap<Integer,Persona> tablaPersonasRut){
-        this.tablaPersonasRut= tablaPersonasRut;
-        this.numeroEmpleados = this.tablaPersonasRut.size();
-    }
-    
     public String getNombreObra() {
         return nombreObra;
     }
