@@ -67,7 +67,7 @@ public class Persona {
     public void setRut(int rut) {
         int digitos = Integer.toString(rut).length();
         if(digitos != 9){
-            System.out.println("Tai cagao gancho");
+            System.out.println("No es un numero válido");
         }
         this.rut = rut;
     }

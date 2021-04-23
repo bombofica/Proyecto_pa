@@ -111,13 +111,22 @@ public class RegistroObras {
         /*if(existenciaObra(obraAgregar.getNombreObra()))
         {
             return;
+
         }*/
         HashMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
         if(region != null)
+
         {
+            
             System.out.println("Region ingresada correctamente");
-            region.put(obraAgregar.getNombreObra(), obraAgregar) ;
+            this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
+            this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
             this.contadorObras++;
+            
+        }
+        else
+        {
+            System.out.println("La Región No Existe");
         }
     }
     
