@@ -23,7 +23,6 @@ public class RegistroObras {
     public RegistroObras(HashMap<String,Obra> registro,ArrayList<Obra> listaCompleta, int contadorObras)
     {
         listadoRegiones = new ArrayList();
-        
         llenarArray(listadoRegiones) ;
         this.registro = registro ;
         this.listaCompleta = listaCompleta ;
@@ -79,12 +78,7 @@ public class RegistroObras {
         return this.regiones;
     }
     
-    public void mostrarObras(String region){ //Editar
-        /*System.out.println("region para filtrar");
-        Scanner scannerStrings = new Scanner(System.in) ;
-        String region;
-        region = scannerStrings.nextLine();*/
-        
+    public void mostrarObras(String region){ 
         HashMap<String, Obra> listaFiltrada = regiones.get(region) ;
         if(listaFiltrada == null)
         {
@@ -106,16 +100,10 @@ public class RegistroObras {
         }
     }
     
-    public void agregarObra(Obra obraAgregar){//Andres
+    public void agregarObra(Obra obraAgregar){
         
-        /*if(existenciaObra(obraAgregar.getNombreObra()))
-        {
-            return;
-
-        }*/
         HashMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
         if(region != null)
-
         {
             
             System.out.println("Region ingresada correctamente");

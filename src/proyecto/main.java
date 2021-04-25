@@ -48,7 +48,7 @@ public class main{
         //personaje2.setNombre("Gabo alvarez quinta");
         WriteFile.escribirObras(',', registroObras);
         
-        //inicio();
+        inicio(registroDeTrabajadores, registroObras);
 
     }
     
@@ -92,7 +92,7 @@ public class main{
                     System.out.println("2. Mostrar todas las obras") ;
                     System.out.println("3. Obra terminada") ; //"Eliminar Obra"
                     System.out.println("4. Cambiar un dato de una obra"); 
-                    //System.out.println("5. Tiempo restante de una obra");
+                    System.out.println("5. Tiempo restante de una obra");
                     //System.out.println("6. Gastos totales");
                     try
                     {
@@ -121,17 +121,13 @@ public class main{
                         }
                         if(menu == 5)//Tiempo restante de una obra
                         {
-                            /*String formato = "dd-MM-yyyy";
-                            SimpleDateFormat asd = new SimpleDateFormat(formato);
-                            String hoy;*/
-                            /*String jejeje = "05-06-2022" ;
-                            char[] q = new char[10] ;
-                            q = jejeje.toCharArray();
+                            String fechaComparar =scannerStrings.nextLine() ;
+                            char[] cadenaCaracteres = new char[10] ;
+                            cadenaCaracteres = fechaComparar.toCharArray();
                             FechaHoy fecha = new FechaHoy();
-                            fecha.obterFecha(q);
-                            //System.out.println(hoy);
+                            fecha.obterFecha(cadenaCaracteres);
                             menu = 0;
-                            continue;*/
+                            continue;
                         }
                         if(menu == 6)//gastos totales
                         {
@@ -141,7 +137,8 @@ public class main{
                     }
                     catch(Exception e)
                     {
-                        System.out.println("Error!!! Opción no disponible volviendo al menú") ;
+                        
+                        System.out.println("Error!!! Opción no disponible volviendo al menú"+menu) ;
                         menu = 0;
                         continue;
                     }
@@ -241,6 +238,7 @@ public class main{
         nombre = scannerStrings.nextLine() ;
         if(registroObras.existenciaObra(nombre))
         {
+                
             return;
         }
         System.out.println("Ingrese el lugar de la obra");
