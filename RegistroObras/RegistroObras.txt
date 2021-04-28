@@ -1,6 +1,4 @@
-Plaza Victoria,Valparaiso,1000000.0,31-10-2024,
 Nombre_Valparaíso,Valparaiso,10000.2,525.6,
 San Fernando,O'higgins,10.2,225.6,
 Temuco,Araucania,100.2,425.6,
 Santiago,Metropolitana,20000.2,1025.6,
-molino ,Antofagasta,10.0,15-02-2027,

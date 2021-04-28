@@ -28,7 +28,9 @@ public class WriteFile {
     public static void escribirObras(char separador, RegistroObras registroObras) throws IOException{
         
                 
-        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) { 
+
+        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {// piiiiiip 
+
             
             
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
@@ -74,8 +76,8 @@ public class WriteFile {
             for (Map.Entry obra : currentHashObras.entrySet()) {
                 Obra currentObra = (Obra) obra.getValue();      
                 
-                
-            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados.txt")) {
+            existenciaDirectorioObra(currentObra);
+            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados3.txt")) {
                 
                 Persona currentPersona;
                 
@@ -148,8 +150,9 @@ public class WriteFile {
     }
     
     public static void existenciaDirectorioObra(Obra currentObra){ // verifica si existe la carpeta
-            File directorio = new
-            File("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra());
+
+            File directorio = new File("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra());
+
             
             if(!directorio.exists()){ // si no existe, crea una
                 if(!directorio.mkdirs()) // si no se crea, se imprime un error
