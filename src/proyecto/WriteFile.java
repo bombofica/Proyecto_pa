@@ -54,11 +54,11 @@ public class WriteFile {
                         
                     }
                     cont++;
-                    
+                    /*
                     System.out.print("Nombre: " + currentObra.getNombreObra());
                     System.out.print(" Nombre Lugar: " + currentObra.getNombreLugar());
                     System.out.print(" Presupuesto: " + currentObra.getPresupuestoObra());
-                    System.out.println(" Tiempo Estimado: " + currentObra.getTiempoParaTerminarObra());        
+                    System.out.println(" Tiempo Estimado: " + currentObra.getTiempoParaTerminarObra());        */
                 }                
           //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
             }
@@ -79,7 +79,7 @@ public class WriteFile {
                 
                 Persona currentPersona;
                 
-                System.out.println(currentObra.getNumeroEmpleados());
+                //System.out.println(currentObra.getNumeroEmpleados());
                 
                 for(int j=0; j < currentObra.getNumeroEmpleados(); j++){
                     currentPersona = currentObra.devolverPersonaI(j);
