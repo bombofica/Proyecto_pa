@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 
 public class main{
-    public static void main(String args[]) throws IOException
+    public static void main(String params[]) throws IOException
     {
         RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores();
         
