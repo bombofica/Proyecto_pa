@@ -28,7 +28,7 @@ public class WriteFile {
     public static void escribirObras(char separador, RegistroObras registroObras) throws IOException{
         
                 
-        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras2.txt")) { 
+        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) { 
             
             
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
@@ -75,7 +75,7 @@ public class WriteFile {
                 Obra currentObra = (Obra) obra.getValue();      
                 
                 
-            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados3.txt")) {
+            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados.txt")) {
                 
                 Persona currentPersona;
                 
@@ -148,7 +148,8 @@ public class WriteFile {
     }
     
     public static void existenciaDirectorioObra(Obra currentObra){ // verifica si existe la carpeta
-            File directorio = new File("RegistroObras//"+currentObra.getNombreObra());
+            File directorio = new
+            File("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra());
             
             if(!directorio.exists()){ // si no existe, crea una
                 if(!directorio.mkdirs()) // si no se crea, se imprime un error
