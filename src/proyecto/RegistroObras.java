@@ -80,6 +80,7 @@ public class RegistroObras {
     
     public void mostrarObras(String region){ 
         HashMap<String, Obra> listaFiltrada = regiones.get(region) ;
+        
         if(listaFiltrada == null)
         {
             System.out.println("Region mal ingresada") ;
@@ -94,6 +95,8 @@ public class RegistroObras {
     
     public void mostrarObras()
     {
+        
+        
         for(int i = 0 ; i< listaCompleta.size() ; i++)
         {
             System.out.println(listaCompleta.get(i).getNombreObra());
@@ -107,6 +110,7 @@ public class RegistroObras {
         {
             
             System.out.println("Region ingresada correctamente");
+            this.listaCompleta.add(obraAgregar);
             this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
             this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
             this.contadorObras++;

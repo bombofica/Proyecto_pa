@@ -153,7 +153,7 @@ public class ReadFile {
                 if (caracter == '\n' || c == -1) {
  
                     
-                    //System.out.println(currentObra.getNombreObra());                         // nombre_lugar(2)
+                    System.out.println(valores[1]);                         // nombre_lugar(2)
                     contenedorDatos = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
                             +valores[0]+"//Empleados.txt",registroTrabajadores);
                              // nombre_Obra(1)

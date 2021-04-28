@@ -26,29 +26,8 @@ public class main{
         ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);
         //registroDeTrabajadores.mostrarEspecialistas("Informático");
         //InterfazGrafica.main(new String[5]);
-        InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
-        interfaz.setVisible(true);
-
-        //Obra obra_nombre_valparaíso = registroObras.retornarObra("Nombre_Valparaíso", "Valparaiso");
-
-        // probar la edición de obras por referencia
-        //if(obra_nombre_valparaíso != null){
-        //    Persona personaje = obra_nombre_valparaíso.buscarPersona("Gabriel Álvarez Chernobyl");
-        //    if(personaje != null){
-        //        System.out.println(personaje.getNombre());
-        //    }            
-        //}
-        //else
-       //{
-        //    System.out.println("La Obra no existe");
-        //}
-        
-
-        //personaje.setNombre("El gran Gabo Alvarez Chernoby");
-        
-        //Persona personaje2 = registroDeTrabajadores.buscarEspecialista(personaje.getLaborProfesional(),personaje.getRut());
-        //personaje2.setNombre("Gabo alvarez quinta");
-        //WriteFile.escribirObras(',', registroObras);
+        //InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
+        //interfaz.setVisible(true);
         
         inicio(registroDeTrabajadores, registroObras);
 
@@ -58,7 +37,7 @@ public class main{
     private static void inicio(RegistroTrabajadores registroPersonas, RegistroObras registroObras){
         
         ArrayList <Persona> arrayxd;      
-        Object[] PulpaDeFrutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroTrabajadores.txt",registroPersonas);
+        Object[] PulpaDeFrutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//RegistroTrabajadores.txt",registroPersonas);
         
         arrayxd =(ArrayList <Persona>) PulpaDeFrutilla[2];
         HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) PulpaDeFrutilla[0];
@@ -236,11 +215,13 @@ public class main{
         String lugar;
         double presupuesto;
         String tiempoAsignado;
+        
         System.out.println("Ingrese el nombre de la obra");
+        
         nombre = scannerStrings.nextLine() ;
+        
         if(registroObras.existenciaObra(nombre))
-        {
-                
+        {    
             return;
         }
         System.out.println("Ingrese el lugar de la obra");
@@ -279,6 +260,9 @@ public class main{
     private static void modificarDatos(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroObras registroObras) {
         System.out.println("Ingrese el nombre de la obra a modificar");
         String nombreObra = scannerStrings.nextLine() ;
+        if(!registroObras.existenciaObra(nombreObra)){
+            return;
+        }
         System.out.println("Ingrese el atributo a modificar");
         System.out.println("1. Nombre de la obra");
         System.out.println("2. Region de la obra");
