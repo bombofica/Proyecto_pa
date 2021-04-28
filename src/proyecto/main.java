@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 
 public class main{
-    public static void main(String args[]) throws IOException
+    public static void main(String params[]) throws IOException
     {
         RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores();
         
@@ -24,8 +24,7 @@ public class main{
         //ReadFile.crearDirectorio(regionesDeChile);
         
         ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);
-        //registroDeTrabajadores.mostrarEspecialistas("Informático");
-        //InterfazGrafica.main(new String[5]);
+
         //InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
         //interfaz.setVisible(true);
         
@@ -61,8 +60,6 @@ public class main{
             
             try
             {
-                
-                
                 menu = scannerEnterosFlotantes.nextInt() ;
                 //main.limpiarPantalla();
                 
@@ -99,6 +96,8 @@ public class main{
                         if(menu == 4) //Cambiar un dato
                         {
                             modificarDatos(scannerStrings, scannerEnterosFlotantes, registroObras) ;
+                            menu = 0;
+                            continue;
                         }
                         if(menu == 5)//Tiempo restante de una obra
                         {
@@ -193,6 +192,7 @@ public class main{
                             menu = 0;
                         }
                     }
+                    
                     catch(Exception e) 
                     {
                         System.out.println("Error opción no disponible volviendo al menú") ;
@@ -221,14 +221,18 @@ public class main{
         nombre = scannerStrings.nextLine() ;
         
         if(registroObras.existenciaObra(nombre))
-        {    
+
+        {
+            System.out.println("la obra ingresada ya existe") ;
+
             return;
         }
-        System.out.println("Ingrese el lugar de la obra");
+        System.out.println("Ingrese la region de la obra");
         lugar = scannerStrings.nextLine() ;
         System.out.println("Ingrese el presupuesto de la obra");
         presupuesto = scannerEnterosFlotantes.nextDouble() ;
         System.out.println("Ingrese el tiempo asignado de la obra");
+        System.out.println("ej: 28-04-2021");// verificar que esto se cumpla
         tiempoAsignado = scannerStrings.nextLine() ;
         Obra nuevaObra = new Obra(nombre, lugar, presupuesto, tiempoAsignado) ;
         registroObras.agregarObra(nuevaObra);
@@ -260,6 +264,7 @@ public class main{
     private static void modificarDatos(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroObras registroObras) {
         System.out.println("Ingrese el nombre de la obra a modificar");
         String nombreObra = scannerStrings.nextLine() ;
+
         if(!registroObras.existenciaObra(nombreObra)){
             return;
         }

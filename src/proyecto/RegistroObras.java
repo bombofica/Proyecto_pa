@@ -27,7 +27,7 @@ public class RegistroObras {
         this.registro = registro ;
         this.listaCompleta = listaCompleta ;
         this.contadorObras = contadorObras ;
-        
+       
         this.regiones = new HashMap();
         for(int i = 0; i < listadoRegiones.size(); i++)
         {
