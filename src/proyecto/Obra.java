@@ -21,8 +21,6 @@ public class Obra {
     
     private int numeroEmpleados;
     
-    int codigo;
-
     public Obra() {
     }
 
@@ -48,7 +46,7 @@ public class Obra {
         this.tablaPersonasNombre = tablaPersonasNombre;
         this.tablaPersonasRut = tablaPersonasRut;
         this.numeroEmpleados = tablaPersonasNombre.size();
-        this.codigo = registro.numeroObras() +1 ;
+        
     }
     
     public void setNumeroEmpleados(int valor){

@@ -183,7 +183,7 @@ public class ReadFile {
         
         int i ;
         for(i = 0; i<regiones.length;i++){
-            WriteFile.existenciaDirectorioRegion(regiones[i]);
+            WriteFile.addExistenciaDirectorioRegion(regiones[i]);
         }
     }
 
