@@ -27,7 +27,7 @@ public class main{
 
         //InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
         //interfaz.setVisible(true);
-        
+        //WriteFile.deleteDirectorio(new File("RegistroObras//"+"Valparaiso"+"//"+"NombrePrueba"));
         inicio(registroDeTrabajadores, registroObras);
 
     }

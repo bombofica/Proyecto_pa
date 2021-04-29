@@ -30,9 +30,7 @@ public class WriteFile {
                 
 
         try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {// piiiiiip 
-
-            
-            
+      
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
                 más específicamente en el ArrayList de RegistroObras*/ 
             
@@ -76,7 +74,7 @@ public class WriteFile {
             for (Map.Entry obra : currentHashObras.entrySet()) {
                 Obra currentObra = (Obra) obra.getValue();      
                 
-            existenciaDirectorioObra(currentObra);
+            addExistenciaDirectorioObra(currentObra);
             try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados3.txt")) {
                 
                 Persona currentPersona;
@@ -119,7 +117,7 @@ public class WriteFile {
         for(int i =0; i < registroObras.contadorObras;i++){
             currentObra=registroObras.retornarObra(i);
                 
-            WriteFile.existenciaDirectorioObra(currentObra);
+            WriteFile.addExistenciaDirectorioObra(currentObra);
             
             try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreObra()+"//Empleados.txt")) {
                 
@@ -149,7 +147,7 @@ public class WriteFile {
         }*/
     }
     
-    public static void existenciaDirectorioObra(Obra currentObra){ // verifica si existe la carpeta
+    public static void addExistenciaDirectorioObra(Obra currentObra){ // verifica si existe la carpeta
 
             File directorio = new File("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra());
 
@@ -161,7 +159,7 @@ public class WriteFile {
                 }
             }        
     }
-    public static void existenciaDirectorioRegion(String nombreRegion){ // verifica si existe la carpeta
+    public static void addExistenciaDirectorioRegion(String nombreRegion){ // verifica si existe la carpeta
             File directorio = new File("RegistroObras//"+nombreRegion);
             
             if(!directorio.exists()){ // si no existe, crea una
@@ -170,7 +168,40 @@ public class WriteFile {
                     System.out.println("Error al crear el directorio");
                 }
             }        
-    }    
+    }
+    
+    public static void deleteDirectorio(File directorio){
+        
+        if(directorio.exists()){
+            File[] ficheros = directorio.listFiles();
+        
+            for (int x=0;x < directorio.listFiles().length; x++){
+            
+                if(ficheros[x].exists()){
+                    if (ficheros[x].isDirectory()) {
+                        deleteDirectorio(ficheros[x]);
+                    }
+                    ficheros[x].delete();
+                }
+            }
+        }
+        
+        if(directorio.exists()){
+            if(directorio.delete()) // si no se elimina, se imprime un error
+            {
+                
+                System.out.println("Se eliminó correctamente");
+            }
+        }
+        else
+        {
+            System.out.print("La Obra No existe");
+        }
+        
+        
+    }
+    
+    
     
     public static void imprimirTodasLasPersonas(RegistroTrabajadores registroTrabajadores){
         

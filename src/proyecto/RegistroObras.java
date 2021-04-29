@@ -20,12 +20,13 @@ public class RegistroObras {
     int contadorObras ;
 
     //constructores
-    public RegistroObras(HashMap<String,Obra> registro,ArrayList<Obra> listaCompleta, int contadorObras)
+    
+/*    public RegistroObras(HashMap<String,Obra> registro, int contadorObras)
     {
         listadoRegiones = new ArrayList();
-        llenarArray(listadoRegiones) ;
+        llenarArray() ;
         this.registro = registro ;
-        this.listaCompleta = listaCompleta ;
+        this.listaCompleta = new ArrayList() ;
         this.contadorObras = contadorObras ;
        
         this.regiones = new HashMap();
@@ -33,21 +34,17 @@ public class RegistroObras {
         {
             this.regiones.put(listadoRegiones.get(i), new HashMap()) ;
         }
-    }
+    }*/
     
     
     public RegistroObras(){
-        
-        listadoRegiones = new ArrayList();
-        
-        llenarArray(listadoRegiones);
-        
-        
+        this.listadoRegiones = new ArrayList();
         this.registro = new HashMap();
         this.listaCompleta = new ArrayList() ;
         this.contadorObras=0;
+        this.regiones = new HashMap(); 
+        llenarArray();
         
-        this.regiones = new HashMap();
         for(int i = 0; i < listadoRegiones.size(); i++)
         {
             this.regiones.put(listadoRegiones.get(i), new HashMap()) ;
@@ -204,7 +201,7 @@ public class RegistroObras {
     }
     
     //metodos privados
-    private void llenarArray(ArrayList listaRegiones)
+    private void llenarArray()
     {
         this.listadoRegiones.add("Tarapaca") ;
         this.listadoRegiones.add("Antofagasta") ;
