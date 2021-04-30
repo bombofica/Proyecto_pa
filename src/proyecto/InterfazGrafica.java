@@ -54,7 +54,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         cambiarPresupuesto = new javax.swing.JButton();
         tiempoRestanteDeUnaObra = new javax.swing.JButton();
         gastosTotalesDeUnaObra = new javax.swing.JButton();
-        GestiónEmpleadosFrame = new javax.swing.JFrame();
+        GestionEmpleadosFrame = new javax.swing.JFrame();
         anadirEmpleadoToPlataforma = new javax.swing.JButton();
         mostrarEmpleadosDeUnaObra = new javax.swing.JButton();
         mostrarTodosLosEmpleados = new javax.swing.JButton();
@@ -62,6 +62,25 @@ public class InterfazGrafica extends javax.swing.JFrame {
         despedirEmpleados = new javax.swing.JButton();
         eliminarEmpleadoDePlataforma = new javax.swing.JButton();
         cambiarSueldoDeEmpleado = new javax.swing.JButton();
+        AnadirEmpleadoToPlataform = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        anadirEmpleadobtn = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTextRutSDV = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        MostrarEmpleadosDeUnaObra = new javax.swing.JFrame();
+        MoverEmpleados = new javax.swing.JFrame();
+        MostrarTodosLosEmpleados = new javax.swing.JFrame();
+        DespedirEmpleados = new javax.swing.JFrame();
+        EliminarEmpleadoDeLaPlataforma = new javax.swing.JFrame();
+        CambiarSueldoEmpleado = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         NombreProyecto = new javax.swing.JLabel();
         Autores = new javax.swing.JLabel();
@@ -283,22 +302,47 @@ public class InterfazGrafica extends javax.swing.JFrame {
         });
 
         mostrarTodosLosEmpleados.setText("Mostrar todos los Empleados");
+        mostrarTodosLosEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarTodosLosEmpleadosActionPerformed(evt);
+            }
+        });
 
         moverEmpleados.setText("Mover Empleados");
+        moverEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moverEmpleadosActionPerformed(evt);
+            }
+        });
 
         despedirEmpleados.setText("Despedir Empleados");
+        despedirEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                despedirEmpleadosActionPerformed(evt);
+            }
+        });
 
         eliminarEmpleadoDePlataforma.setText("Eliminar Empleado de la plataforma");
+        eliminarEmpleadoDePlataforma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarEmpleadoDePlataformaActionPerformed(evt);
+            }
+        });
 
         cambiarSueldoDeEmpleado.setText("Cambiar Sueldo de un Empleado");
+        cambiarSueldoDeEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarSueldoDeEmpleadoActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout GestiónEmpleadosFrameLayout = new javax.swing.GroupLayout(GestiónEmpleadosFrame.getContentPane());
-        GestiónEmpleadosFrame.getContentPane().setLayout(GestiónEmpleadosFrameLayout);
-        GestiónEmpleadosFrameLayout.setHorizontalGroup(
-            GestiónEmpleadosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(GestiónEmpleadosFrameLayout.createSequentialGroup()
+        javax.swing.GroupLayout GestionEmpleadosFrameLayout = new javax.swing.GroupLayout(GestionEmpleadosFrame.getContentPane());
+        GestionEmpleadosFrame.getContentPane().setLayout(GestionEmpleadosFrameLayout);
+        GestionEmpleadosFrameLayout.setHorizontalGroup(
+            GestionEmpleadosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionEmpleadosFrameLayout.createSequentialGroup()
                 .addGap(101, 101, 101)
-                .addGroup(GestiónEmpleadosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(GestionEmpleadosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(mostrarEmpleadosDeUnaObra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(anadirEmpleadoToPlataforma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mostrarTodosLosEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -308,9 +352,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addComponent(cambiarSueldoDeEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
-        GestiónEmpleadosFrameLayout.setVerticalGroup(
-            GestiónEmpleadosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(GestiónEmpleadosFrameLayout.createSequentialGroup()
+        GestionEmpleadosFrameLayout.setVerticalGroup(
+            GestionEmpleadosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(GestionEmpleadosFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(anadirEmpleadoToPlataforma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -326,6 +370,163 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cambiarSueldoDeEmpleado)
                 .addContainerGap(64, Short.MAX_VALUE))
+        );
+
+        anadirEmpleadobtn.setText("Agregar Empleado");
+        anadirEmpleadobtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                anadirEmpleadobtnActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Nombre Empleado");
+
+        jLabel2.setText("Especializacion");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingeniero Civil", "Arquitecto", "Topografo", "Ingeniero Ambiental", "Prevencionista de Riesgos", "Obrero" }));
+
+        jLabel3.setText("Sueldo");
+
+        jLabel4.setText("Rut");
+
+        jTextRutSDV.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextRutSDVKeyTyped(evt);
+            }
+        });
+
+        jLabel5.setText("-");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextRutSDV, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(anadirEmpleadobtn)
+                .addGap(136, 136, 136))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextRutSDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addComponent(anadirEmpleadobtn)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout AnadirEmpleadoToPlataformLayout = new javax.swing.GroupLayout(AnadirEmpleadoToPlataform.getContentPane());
+        AnadirEmpleadoToPlataform.getContentPane().setLayout(AnadirEmpleadoToPlataformLayout);
+        AnadirEmpleadoToPlataformLayout.setHorizontalGroup(
+            AnadirEmpleadoToPlataformLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        AnadirEmpleadoToPlataformLayout.setVerticalGroup(
+            AnadirEmpleadoToPlataformLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout MostrarEmpleadosDeUnaObraLayout = new javax.swing.GroupLayout(MostrarEmpleadosDeUnaObra.getContentPane());
+        MostrarEmpleadosDeUnaObra.getContentPane().setLayout(MostrarEmpleadosDeUnaObraLayout);
+        MostrarEmpleadosDeUnaObraLayout.setHorizontalGroup(
+            MostrarEmpleadosDeUnaObraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        MostrarEmpleadosDeUnaObraLayout.setVerticalGroup(
+            MostrarEmpleadosDeUnaObraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout MoverEmpleadosLayout = new javax.swing.GroupLayout(MoverEmpleados.getContentPane());
+        MoverEmpleados.getContentPane().setLayout(MoverEmpleadosLayout);
+        MoverEmpleadosLayout.setHorizontalGroup(
+            MoverEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        MoverEmpleadosLayout.setVerticalGroup(
+            MoverEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout MostrarTodosLosEmpleadosLayout = new javax.swing.GroupLayout(MostrarTodosLosEmpleados.getContentPane());
+        MostrarTodosLosEmpleados.getContentPane().setLayout(MostrarTodosLosEmpleadosLayout);
+        MostrarTodosLosEmpleadosLayout.setHorizontalGroup(
+            MostrarTodosLosEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        MostrarTodosLosEmpleadosLayout.setVerticalGroup(
+            MostrarTodosLosEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout DespedirEmpleadosLayout = new javax.swing.GroupLayout(DespedirEmpleados.getContentPane());
+        DespedirEmpleados.getContentPane().setLayout(DespedirEmpleadosLayout);
+        DespedirEmpleadosLayout.setHorizontalGroup(
+            DespedirEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        DespedirEmpleadosLayout.setVerticalGroup(
+            DespedirEmpleadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout EliminarEmpleadoDeLaPlataformaLayout = new javax.swing.GroupLayout(EliminarEmpleadoDeLaPlataforma.getContentPane());
+        EliminarEmpleadoDeLaPlataforma.getContentPane().setLayout(EliminarEmpleadoDeLaPlataformaLayout);
+        EliminarEmpleadoDeLaPlataformaLayout.setHorizontalGroup(
+            EliminarEmpleadoDeLaPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        EliminarEmpleadoDeLaPlataformaLayout.setVerticalGroup(
+            EliminarEmpleadoDeLaPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout CambiarSueldoEmpleadoLayout = new javax.swing.GroupLayout(CambiarSueldoEmpleado.getContentPane());
+        CambiarSueldoEmpleado.getContentPane().setLayout(CambiarSueldoEmpleadoLayout);
+        CambiarSueldoEmpleadoLayout.setHorizontalGroup(
+            CambiarSueldoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        CambiarSueldoEmpleadoLayout.setVerticalGroup(
+            CambiarSueldoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -431,14 +632,19 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void anadirEmpleadoToPlataformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirEmpleadoToPlataformaActionPerformed
         // TODO add your handling code here:
+        this.AnadirEmpleadoToPlataform.setVisible(true);
+        this.GestionEmpleadosFrame.setVisible(false);
     }//GEN-LAST:event_anadirEmpleadoToPlataformaActionPerformed
 
     private void mostrarEmpleadosDeUnaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarEmpleadosDeUnaObraActionPerformed
         // TODO add your handling code here:
+        this.MostrarEmpleadosDeUnaObra.setVisible(true);
+        this.GestionEmpleadosFrame.setVisible(false);
     }//GEN-LAST:event_mostrarEmpleadosDeUnaObraActionPerformed
 
     private void gastosTotalesDeUnaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastosTotalesDeUnaObraActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_gastosTotalesDeUnaObraActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -448,9 +654,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void GestiónEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestiónEmpleadosActionPerformed
         // TODO add your handling code here:
-        //this.OpcionesPrincipalesFrame.setVisible(false);
-        this.GestiónEmpleadosFrame.setVisible(true);
-        GestiónEmpleadosFrame.setSize(450, 450);
+        this.OpcionesPrincipalesFrame.setVisible(false);
+        this.GestionEmpleadosFrame.setVisible(true);
+        GestionEmpleadosFrame.setSize(450, 450);
     }//GEN-LAST:event_GestiónEmpleadosActionPerformed
 
     private void botonAgregarObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarObraActionPerformed
@@ -485,10 +691,67 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void botonMostrarAllObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarAllObrasActionPerformed
         // TODO add your handling code here:
+        this.registroObr.mostrarObras();
         
     }//GEN-LAST:event_botonMostrarAllObrasActionPerformed
 
-    
+    private void mostrarTodosLosEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarTodosLosEmpleadosActionPerformed
+        // TODO add your handling code here:
+        this.GestionEmpleadosFrame.setVisible(false);
+        this.MostrarTodosLosEmpleados.setVisible(true);
+    }//GEN-LAST:event_mostrarTodosLosEmpleadosActionPerformed
+
+    private void moverEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverEmpleadosActionPerformed
+        // TODO add your handling code here:
+        this.GestionEmpleadosFrame.setVisible(false);
+        this.MoverEmpleados.setVisible(true);
+    }//GEN-LAST:event_moverEmpleadosActionPerformed
+
+    private void despedirEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEmpleadosActionPerformed
+        // TODO add your handling code here:
+        this.GestionEmpleadosFrame.setVisible(false);
+        this.DespedirEmpleados.setVisible(true);
+    }//GEN-LAST:event_despedirEmpleadosActionPerformed
+
+    private void eliminarEmpleadoDePlataformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoDePlataformaActionPerformed
+        // TODO add your handling code here:
+        this.GestionEmpleadosFrame.setVisible(false);
+        this.DespedirEmpleados.setVisible(true);
+    }//GEN-LAST:event_eliminarEmpleadoDePlataformaActionPerformed
+
+    private void cambiarSueldoDeEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarSueldoDeEmpleadoActionPerformed
+        // TODO add your handling code here:
+        this.GestionEmpleadosFrame.setVisible(false);
+        this.CambiarSueldoEmpleado.setVisible(true);
+    }//GEN-LAST:event_cambiarSueldoDeEmpleadoActionPerformed
+
+    private void anadirEmpleadobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirEmpleadobtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_anadirEmpleadobtnActionPerformed
+
+    private void jTextRutSDVKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextRutSDVKeyTyped
+        // TODO add your handling code here:
+        
+        //System.out.println(this.jTextRutSDV.getText().length());
+        int valor;
+        
+/*        if(this.jTextRutSDV.getText().length()>0){
+            try
+            {
+                valor = Integer.parseInt(this.jTextRutSDV.getText());
+            }
+            catch(Exception e){
+                System.out.println("Ingrese solo números");
+                evt.consume();
+            }
+        }*/
+        if(this.jTextRutSDV.getText().length()<8 ){
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextRutSDVKeyTyped
+
+
     
     /**
      * @param args the command line arguments
@@ -532,11 +795,18 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame AnadirEmpleadoToPlataform;
     private javax.swing.JLabel Autores;
+    private javax.swing.JFrame CambiarSueldoEmpleado;
+    private javax.swing.JFrame DespedirEmpleados;
+    private javax.swing.JFrame EliminarEmpleadoDeLaPlataforma;
+    private javax.swing.JFrame GestionEmpleadosFrame;
     private javax.swing.JButton GestionObras;
     private javax.swing.JFrame GestionObrasFrame;
     private javax.swing.JButton GestiónEmpleados;
-    private javax.swing.JFrame GestiónEmpleadosFrame;
+    private javax.swing.JFrame MostrarEmpleadosDeUnaObra;
+    private javax.swing.JFrame MostrarTodosLosEmpleados;
+    private javax.swing.JFrame MoverEmpleados;
     private javax.swing.JLabel NombreProyecto;
     private javax.swing.JFrame OpcionesPrincipalesFrame;
     private javax.swing.JComboBox<String> Región1;
@@ -544,6 +814,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton agregarObraAlSistema;
     private javax.swing.JFrame agregarObraFrame1;
     private javax.swing.JButton anadirEmpleadoToPlataforma;
+    private javax.swing.JButton anadirEmpleadobtn;
     private javax.swing.JButton botonAgregarObra;
     private javax.swing.JButton botonMostrarAllObras;
     private javax.swing.JButton botonObraTerminada;
@@ -553,13 +824,24 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton eliminarEmpleadoDePlataforma;
     private javax.swing.JButton gastosTotalesDeUnaObra;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextNombreObra;
     private javax.swing.JTextField jTextPresupuesto;
+    private javax.swing.JTextField jTextRutSDV;
     private javax.swing.JTextField jTextTiempoAsignado;
     private javax.swing.JButton mostrarEmpleadosDeUnaObra;
     private javax.swing.JButton mostrarTodosLosEmpleados;

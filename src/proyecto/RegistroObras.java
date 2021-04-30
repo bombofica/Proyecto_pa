@@ -23,22 +23,6 @@ public class RegistroObras {
 
     //constructores
     
-/*    public RegistroObras(HashMap<String,Obra> registro, int contadorObras)
-    {
-        listadoRegiones = new ArrayList();
-        llenarArray() ;
-        this.registro = registro ;
-        this.listaCompleta = new ArrayList() ;
-        this.contadorObras = contadorObras ;
-       
-        this.regiones = new HashMap();
-        for(int i = 0; i < listadoRegiones.size(); i++)
-        {
-            this.regiones.put(listadoRegiones.get(i), new HashMap()) ;
-        }
-    }*/
-    
-    
     public RegistroObras(){
         this.listadoRegiones = new ArrayList();
         this.registro = new HashMap();
@@ -95,7 +79,6 @@ public class RegistroObras {
     public void mostrarObras()
     {
         
-        
         for(int i = 0 ; i< listaCompleta.size() ; i++)
         {
             System.out.println(listaCompleta.get(i).getNombreObra());
@@ -135,13 +118,16 @@ public class RegistroObras {
             System.out.println(ObraEliminar.getNombreObra());
             
             WriteFile.deleteDirectorio(new File("RegistroObras//"+ObraEliminar.getNombreLugar()+"//"+ObraEliminar.getNombreObra()));
+            WriteFile.escribirObras(',', registroActual );
             ObraEliminar.eliminarObra();
             String lugar = this.registro.get(nombreObra).getNombreLugar() ;
             this.registro.remove(nombreObra) ;
             this.regiones.get(lugar).remove(nombreObra) ;
             this.listaCompleta.remove(ObraEliminar);
             
-            WriteFile.escribirObras(',', registroActual );
+            this.contadorObras=this.registro.size();
+            
+            
         }
     }
                 
