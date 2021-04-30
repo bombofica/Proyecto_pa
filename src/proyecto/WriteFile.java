@@ -181,12 +181,15 @@ public class WriteFile {
                     if (ficheros[x].isDirectory()) {
                         deleteDirectorio(ficheros[x]);
                     }
-                    ficheros[x].delete();
+                    
+                    if(!ficheros[x].delete()){
+                        System.out.println("El Archivo/Directorio No se ha eliminado");
+                    }
                 }
             }
         }
         
-        if(directorio.exists()){
+     /*   if(directorio.exists()){
             if(directorio.delete()) // si no se elimina, se imprime un error
             {
                 
@@ -196,7 +199,7 @@ public class WriteFile {
         else
         {
             System.out.print("La Obra No existe");
-        }
+        }*/
         
         
     }
