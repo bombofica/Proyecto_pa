@@ -1,4 +1,4 @@
-Nombre_Valparaíso,Valparaiso,10000.2,525.6,
+Avenida Alemania,Valparaiso,874.8,841.9,
 San Fernando,O'higgins,10.2,225.6,
 Temuco,Araucania,100.2,425.6,
 Santiago,Metropolitana,20000.2,1025.6,

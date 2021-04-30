@@ -255,10 +255,10 @@ public class main{
         }
     }
     
-    private static void obraTerminada(Scanner scannerStrings, RegistroObras registroObras) {
+    private static void obraTerminada(Scanner scannerStrings, RegistroObras registroObras) throws IOException {
         System.out.println("Ingrese el nombre de la obra finalizada");
         String nombreObra = scannerStrings.nextLine() ;
-        registroObras.eliminarObra(nombreObra);
+        registroObras.eliminarObra(nombreObra, registroObras);
     }
     
     private static void modificarDatos(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroObras registroObras) {
