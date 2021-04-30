@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package proyecto;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -123,15 +125,23 @@ public class RegistroObras {
         return this.contadorObras;
     }
     
-    public void eliminarObra(String nombreObra)
+    public void eliminarObra(String nombreObra, RegistroObras registroActual) throws IOException
     {
         if(existenciaObra(nombreObra))
         {
+            
             Obra ObraEliminar = registro.get(nombreObra) ;
+            System.out.println(ObraEliminar.getNombreLugar());
+            System.out.println(ObraEliminar.getNombreObra());
+            
+            WriteFile.deleteDirectorio(new File("RegistroObras//"+ObraEliminar.getNombreLugar()+"//"+ObraEliminar.getNombreObra()));
             ObraEliminar.eliminarObra();
             String lugar = this.registro.get(nombreObra).getNombreLugar() ;
             this.registro.remove(nombreObra) ;
             this.regiones.get(lugar).remove(nombreObra) ;
+            this.listaCompleta.remove(ObraEliminar);
+            
+            WriteFile.escribirObras(',', registroActual );
         }
     }
                 
@@ -191,6 +201,8 @@ public class RegistroObras {
     
     public Boolean existenciaObra(String obra)
     {
+        System.out.println(this.registro.size());
+        System.out.println(this.registro.get(obra).getNombreObra());
         Obra verificador = this.registro.get(obra) ;
         if(verificador == null)
         {

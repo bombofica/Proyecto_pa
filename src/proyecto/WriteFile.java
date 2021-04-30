@@ -188,8 +188,13 @@ public class WriteFile {
                 }
             }
         }
-        
-     /*   if(directorio.exists()){
+
+        else
+        {
+            System.out.println("El directorio NO existe");
+        }
+        /*if(directorio.exists()){
+
             if(directorio.delete()) // si no se elimina, se imprime un error
             {
                 
@@ -200,8 +205,7 @@ public class WriteFile {
         {
             System.out.print("La Obra No existe");
         }*/
-        
-        
+
     }
     
     
