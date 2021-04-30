@@ -238,6 +238,23 @@ public class RegistroTrabajadores {
             System.out.println("Saldo: "+current.getSueldo());
         }
     }
+    
+    public void mostrarPersona(int rut, String profesion)
+    {
+        TreeMap<Integer,Persona> especialistas = this.registroEspecializaciones.get(profesion);
+        if(especialistas == null){
+            System.out.println("No existe Tal Especialidad");
+            return;
+        }
+        Persona current = especialistas.get(rut);
+        if(current != null){
+            System.out.println("Nombre: "+current.getNombre());
+            System.out.println("Profesión: "+current.getLaborProfesional());
+            System.out.println("Rut: "+current.getRut());
+            System.out.println("Saldo: "+current.getSueldo());
+        }
+
+    }
 
 /* 
 

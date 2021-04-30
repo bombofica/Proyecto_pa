@@ -18,6 +18,7 @@ public class ReadFile {
                 char caracter = (char) c;
                 System.out.print(caracter);
             }
+            entrada.close();
         } catch (IOException e) {
             System.out.println("El fichero no existe");
         }
@@ -88,6 +89,8 @@ public class ReadFile {
                     cont = 0;
                 }
             } while (c != -1);
+            
+            entrada.close();
         } catch (IOException e) {
             System.out.println("El fichero no existe");
         }
@@ -168,10 +171,12 @@ public class ReadFile {
                                         
                     valores = new String[num];
                     cont = 0;
-                }                
+                }            
                 
 
             } while (c != -1);
+            
+            entrada.close();
         } catch (IOException e) {
             System.out.println("El fichero no existe2");
         }

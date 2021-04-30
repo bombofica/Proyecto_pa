@@ -29,7 +29,7 @@ public class WriteFile {
         
                 
 
-        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {// piiiiiip 
+        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
       
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
                 más específicamente en el ArrayList de RegistroObras*/ 
@@ -43,7 +43,7 @@ public class WriteFile {
                 HashMap<String, Obra> currentHashObras =(HashMap) HashObras.getValue();
                 for (Map.Entry obra : currentHashObras.entrySet()) {
                     Obra currentObra = (Obra) obra.getValue();
-                    if (cont < registroObras.contadorObras){
+                    if (cont < registroObras.numeroObras()){
                         Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
                                 currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+','+'\n');
                     }
@@ -172,28 +172,36 @@ public class WriteFile {
     
     public static void deleteDirectorio(File directorio){
         
-        if(directorio.exists()){
+        
+        
             File[] ficheros = directorio.listFiles();
         
-            for (int x=0;x < directorio.listFiles().length; x++){
-            
+            for (int x=0;x < ficheros.length; x++){
+                System.out.println("Nombre: "+ ficheros[x].getAbsolutePath());
                 if(ficheros[x].exists()){
                     if (ficheros[x].isDirectory()) {
-                        deleteDirectorio(ficheros[x]);
+                        //System.out.println("El Archivo/Directorio No se ha eliminado");
+                        WriteFile.deleteDirectorio(ficheros[x]);
                     }
                     
                     if(!ficheros[x].delete()){
+                        System.out.println("Nombre: "+ ficheros[x].getAbsolutePath());
                         System.out.println("El Archivo/Directorio No se ha eliminado");
                     }
                 }
+                else
+                {
+                    System.out.println("No esxxiste 2");
+                }
             }
-        }
+   
+    }
+    
+    public static void eliminarDefinitivo(File directorio){
 
-        else
-        {
-            System.out.println("El directorio NO existe");
-        }
-        /*if(directorio.exists()){
+        if(directorio.exists()) WriteFile.deleteDirectorio(directorio);
+        
+        if(directorio.exists()){
 
             if(directorio.delete()) // si no se elimina, se imprime un error
             {
@@ -204,8 +212,7 @@ public class WriteFile {
         else
         {
             System.out.print("La Obra No existe");
-        }*/
-
+        }
     }
     
     

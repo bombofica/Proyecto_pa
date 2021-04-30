@@ -27,7 +27,8 @@ public class main{
 
         //InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
         //interfaz.setVisible(true);
-        //WriteFile.deleteDirectorio(new File("RegistroObras//"+"Valparaiso"+"//"+"NombrePrueba"));
+        //String direccion = new String("RegistroObras//"+"Valparaiso"+"//"+"Nombre_Valparaiso");
+        //WriteFile.eliminarDefinitivo(new File(direccion));
         inicio(registroDeTrabajadores, registroObras);
 
     }
@@ -35,11 +36,11 @@ public class main{
     
     private static void inicio(RegistroTrabajadores registroPersonas, RegistroObras registroObras){
         
-        ArrayList <Persona> arrayxd;      
+        /*ArrayList <Persona> arrayxd;      
         Object[] PulpaDeFrutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//RegistroTrabajadores.txt",registroPersonas);
         
         arrayxd =(ArrayList <Persona>) PulpaDeFrutilla[2];
-        HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) PulpaDeFrutilla[0];
+        HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) PulpaDeFrutilla[0];*/
         
         //RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd,hashpersonaxd);
         //RegistroObras registroObras = ReadFile.traerObras(',', 4, "RegistroObras",registroPersonas,registroObras); 
