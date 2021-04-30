@@ -25,11 +25,11 @@ public class main{
         
         ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);
 
-        InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
-        interfaz.setVisible(true);
+        //InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
+        //interfaz.setVisible(true);
         //String direccion = new String("RegistroObras//"+"Valparaiso"+"//"+"Nombre_Valparaiso");
         //WriteFile.eliminarDefinitivo(new File(direccion));
-        //inicio(registroDeTrabajadores, registroObras);
+        inicio(registroDeTrabajadores, registroObras);
 
     }
     

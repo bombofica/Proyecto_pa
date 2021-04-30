@@ -117,8 +117,6 @@ public class RegistroObras {
             System.out.println(ObraEliminar.getNombreLugar());
             System.out.println(ObraEliminar.getNombreObra());
             
-            WriteFile.deleteDirectorio(new File("RegistroObras//"+ObraEliminar.getNombreLugar()+"//"+ObraEliminar.getNombreObra()));
-            WriteFile.escribirObras(',', registroActual );
             ObraEliminar.eliminarObra();
             String lugar = this.registro.get(nombreObra).getNombreLugar() ;
             this.registro.remove(nombreObra) ;
@@ -126,6 +124,9 @@ public class RegistroObras {
             this.listaCompleta.remove(ObraEliminar);
             
             this.contadorObras=this.registro.size();
+            
+            WriteFile.eliminarDefinitivo(new File("RegistroObras//"+ObraEliminar.getNombreLugar()+"//"+ObraEliminar.getNombreObra()));
+            WriteFile.escribirObras(',', registroActual );
             
             
         }

@@ -180,7 +180,7 @@ public class WriteFile {
                 System.out.println("Nombre: "+ ficheros[x].getAbsolutePath());
                 if(ficheros[x].exists()){
                     if (ficheros[x].isDirectory()) {
-                        System.out.println("El Archivo/Directorio No se ha eliminado");
+                        //System.out.println("El Archivo/Directorio No se ha eliminado");
                         WriteFile.deleteDirectorio(ficheros[x]);
                     }
                     
