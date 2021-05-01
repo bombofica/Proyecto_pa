@@ -15,8 +15,9 @@ public class FechaHoy {
     private ArrayList<Integer> meses;
 
     public FechaHoy() {
+        
         meses = new ArrayList();
-        llenarMeses(meses) ;
+        llenarMeses() ;
         this.fecha = new Date();
         this.formato = new SimpleDateFormat("dd-MM-yyyy") ;
         
@@ -172,7 +173,7 @@ public class FechaHoy {
         }
         return yearComparar - yearHoy;
     }
-    private void llenarMeses(ArrayList meses) {
+    private void llenarMeses() {
         this.meses.add(31) ;
         this.meses.add(28) ;
         this.meses.add(31) ;

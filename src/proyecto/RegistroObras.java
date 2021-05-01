@@ -44,6 +44,7 @@ public class RegistroObras {
         return listaCompleta.get(index);
     }
     
+
     public Obra retornarObra(String nombreObra){
         Obra obraPedida = this.registro.get(nombreObra);
         if(obraPedida == null){
@@ -51,6 +52,7 @@ public class RegistroObras {
         }
         return obraPedida;
     }
+
     
     public Obra retornarObra(String nombre, String nombreRegion)
     {
@@ -67,10 +69,12 @@ public class RegistroObras {
         return null;
     }
     
+    
     public HashMap <String, HashMap<String, Obra>> obtenerHashRegiones(){
         return this.regiones;
     }
     
+
     public void llenarComboBoxObras(JComboBox<String> comboBoxObra){
         comboBoxObra.removeAllItems();
         for(int i = 0 ; i< listaCompleta.size() ; i++)
@@ -106,7 +110,8 @@ public class RegistroObras {
     
     
     
-    public void mostrarObras(String region){ 
+    public void mostrarObras(String region){ // listo
+
         HashMap<String, Obra> listaFiltrada = regiones.get(region) ;
         
         if(listaFiltrada == null)
@@ -121,7 +126,8 @@ public class RegistroObras {
         }
     }
     
-    public void mostrarObras()
+    
+    public void mostrarObras() //Listo
     {
         
         for(int i = 0 ; i< listaCompleta.size() ; i++)
@@ -130,13 +136,12 @@ public class RegistroObras {
         }
     }
     
-    public void agregarObra(Obra obraAgregar){
+    
+    public void agregarObra(Obra obraAgregar){ //Listo
         
         HashMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
         if(region != null)
         {
-            
-            System.out.println("Region ingresada correctamente");
             this.listaCompleta.add(obraAgregar);
             this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
             this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
@@ -145,23 +150,22 @@ public class RegistroObras {
         }
         else
         {
-            System.out.println("La Región No Existe");
+            System.out.println("La Región No Existe recuerde que las regiones van con la primera letra");
+            System.out.println("en matusculas ej: Valparaiso");
         }
     }
+    
     
     public int numeroObras(){
         return this.contadorObras;
     }
     
-    public void eliminarObra(String nombreObra, RegistroObras registroActual) throws IOException
+    
+    public void eliminarObra(String nombreObra, RegistroObras registroActual) throws IOException //Listo
     {
         if(existenciaObra(nombreObra))
         {
-            
             Obra ObraEliminar = registro.get(nombreObra) ;
-            System.out.println(ObraEliminar.getNombreLugar());
-            System.out.println(ObraEliminar.getNombreObra());
-            
             ObraEliminar.eliminarObra();
             String lugar = this.registro.get(nombreObra).getNombreLugar() ;
             this.registro.remove(nombreObra) ;
@@ -172,12 +176,10 @@ public class RegistroObras {
             
             WriteFile.eliminarDefinitivo(new File("RegistroObras//"+ObraEliminar.getNombreLugar()+"//"+ObraEliminar.getNombreObra()));
             WriteFile.escribirObras(',', registroActual );
-            
-            
         }
     }
                 
-    public void modificarObra(String nombreObra, String nuevoDato, int opcion)
+    public void modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException //Listo
     {
         //nombreObra es el nombre actual de la obra a editar
         //nuevoDato es el dato a editar que puedeser de cualquier atributo dentro del objeto Obra
@@ -192,18 +194,22 @@ public class RegistroObras {
                 {
                     remplazo.setNombreObra(nuevoDato) ;
                     this.registro.remove(nombreObra) ;
-                    this.registro.put(remplazo.getNombreObra(), remplazo) ;
                     this.regiones.get(lugar).remove(nombreObra) ;
+                    WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
                     this.regiones.get(lugar).put(remplazo.getNombreLugar(), remplazo) ; 
+                    this.registro.put(remplazo.getNombreObra(), remplazo) ;
+                    WriteFile.escribirObras(',', registroActual );
                     return;
                 }
                 case 2: //Cambiar region
                 {
                     remplazo.setNombreLugar(nuevoDato) ;
                     this.registro.remove(nombreObra) ;
-                    this.registro.put(remplazo.getNombreObra(), remplazo) ;
                     this.regiones.get(lugar).remove(nombreObra) ;
+                    WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
+                    this.registro.put(remplazo.getNombreObra(), remplazo) ;
                     this.regiones.get(nuevoDato).put(nombreObra, remplazo) ;
+                    WriteFile.escribirObras(',', registroActual );
                     return;
                 }
                 case 3: //Cambiar tiempo restante
@@ -223,25 +229,53 @@ public class RegistroObras {
                         return;
                     }
                 } 
+                
             }
             this.registro.remove(nombreObra) ;
-            this.registro.put(nombreObra, remplazo) ;
             this.regiones.get(lugar).remove(nombreObra) ;
+            WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
+            this.registro.put(nombreObra, remplazo) ;
             this.regiones.get(lugar).put(nombreObra, remplazo) ;
+            WriteFile.escribirObras(',', registroActual );
         }
     }
     
     public Boolean existenciaObra(String obra)
     {
-        System.out.println(this.registro.size());
-        System.out.println(this.registro.get(obra).getNombreObra());
         Obra verificador = this.registro.get(obra) ;
         if(verificador == null)
         {
-            System.out.println("ERROR La obra ingresada no existe");
+            //System.out.println("ERROR La obra ingresada no existe");
             return false ;
         }
         return true ;
+    }
+    
+    public void PresupuestoGeneral() //presupuesto total de la compañia
+    {
+        Obra obraActual ;
+        long balanceObra = 0;
+        long balanceTotal = 0;
+        for(int i = 0 ; i < listaCompleta.size(); i++)
+        {
+            obraActual = listaCompleta.get(i) ;
+            balanceObra = PresupuestoGeneral(obraActual.getNombreObra());
+            balanceTotal += balanceObra;
+        }
+        System.out.println(balanceTotal);
+    }
+    
+    public long PresupuestoGeneral(String nombreObra) //presupuesto particular de una obra
+    {
+        Obra obraEvaluar;
+        long balance ;
+        obraEvaluar = this.registro.get(nombreObra) ;
+        balance = obraEvaluar.retornarSueldos(obraEvaluar) ;
+        System.out.println(nombreObra) ;
+        System.out.println(balance) ;
+        System.out.println(obraEvaluar.getPresupuestoObra()) ;
+        balance = (long) (obraEvaluar.getPresupuestoObra() - balance) ;
+        return balance;
     }
     
     //metodos privados

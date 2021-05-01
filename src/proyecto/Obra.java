@@ -201,6 +201,7 @@ public class Obra {
            
     }
     
+
 // Estas funciones sirven para utilizar la interfaz gráfica
     
     public void llenarComboBoxEmpleados(JComboBox comboBox){
@@ -252,5 +253,19 @@ public class Obra {
         }        
     }
     
+
+
+    public long retornarSueldos(Obra obraActual)
+    {
+        long sumaSueldos = 0;
+        Persona personaActual ;
+        
+        for (Map.Entry me : this.tablaPersonasNombre.entrySet()) {
+            personaActual = (Persona) me.getValue();
+            //System.out.println(sumaSueldos);
+            sumaSueldos += personaActual.getSueldo() ;
+        }
+        return sumaSueldos ;
+    }
 
 }
