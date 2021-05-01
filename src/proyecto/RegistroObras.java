@@ -7,6 +7,8 @@ package proyecto;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -42,6 +44,15 @@ public class RegistroObras {
         return listaCompleta.get(index);
     }
     
+
+    public Obra retornarObra(String nombreObra){
+        Obra obraPedida = this.registro.get(nombreObra);
+        if(obraPedida == null){
+            System.out.println("La obra no existe");
+        }
+        return obraPedida;
+    }
+
     
     public Obra retornarObra(String nombre, String nombreRegion)
     {
@@ -63,8 +74,44 @@ public class RegistroObras {
         return this.regiones;
     }
     
+
+    public void llenarComboBoxObras(JComboBox<String> comboBoxObra){
+        comboBoxObra.removeAllItems();
+        for(int i = 0 ; i< listaCompleta.size() ; i++)
+        {
+            Obra current=listaCompleta.get(i);
+            comboBoxObra.addItem(current.getNombreObra());
+        }
+        
+    }
     
-    public void mostrarObras(String region){ //Listo
+    public void llenarComboBoxEmpleadosRegistro(JComboBox<String> comboBoxObra, String nombreObra){
+                
+        Obra obraSeleccionada = this.registro.get(nombreObra);
+        if(obraSeleccionada != null){
+            System.out.println("Valido");
+            obraSeleccionada.llenarComboBoxEmpleados(comboBoxObra);
+        }
+        
+        //this.listaCompleta.ge
+        
+        if(this.contadorObras > 0 && obraSeleccionada == null){
+            obraSeleccionada = this.listaCompleta.get(0);
+            obraSeleccionada.llenarComboBoxEmpleados(comboBoxObra);
+        }
+
+    }
+    
+    public void llenarJTextAreaEmpleadosRegistro(JTextArea jTextArea, int valor, String nombreObra){
+        Obra obraSeleccionada = this.registro.get(nombreObra);
+        if(obraSeleccionada != null)
+            obraSeleccionada.llenarJTextAreaEmpleados(jTextArea, valor);
+    }
+    
+    
+    
+    public void mostrarObras(String region){ // listo
+
         HashMap<String, Obra> listaFiltrada = regiones.get(region) ;
         
         if(listaFiltrada == null)

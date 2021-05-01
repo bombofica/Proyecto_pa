@@ -10,6 +10,8 @@ public class Persona {
 
     private int rut;
 
+    private String ObraALaQuePertenece;
+    
     private boolean trabajando;
 
     public boolean isTrabajando() {
@@ -23,19 +25,28 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, String laborProfecional, int sueldo, int rut, boolean estado) {
+    public Persona(String nombre, String laborProfesional, int sueldo, int rut, boolean estado, String nombreObra) {
         this.nombre = nombre;
-        this.laborProfesional = laborProfecional;
+        this.laborProfesional = laborProfesional;
         this.sueldo = sueldo;
         this.rut = rut;
         this.trabajando = estado;
+        this.ObraALaQuePertenece = nombreObra;
       /*
         if(Integer.toString(this.rut).length() < 8){
             System.out.println("Revisar las cifras que tiene el rut");
         }
         */
     }
+    
+    public String getObraALaQuePertenece(){
+        return this.ObraALaQuePertenece;
+    }
 
+    public void setObraALaQuePertenece(String obraNueva){
+        this.ObraALaQuePertenece = obraNueva;
+    }    
+    
     public String getNombre() {
         return nombre;
     }
@@ -71,4 +82,12 @@ public class Persona {
         }
         this.rut = rut;
     }
+
+    @Override
+    public String toString() {
+        return this.nombre;
+    }
+    
+    
+    
 }

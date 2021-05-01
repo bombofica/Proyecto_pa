@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
 
 
 public class RegistroTrabajadores {
@@ -46,6 +48,62 @@ public class RegistroTrabajadores {
             this.registroEspecializaciones.put(this.especializaciones[i], new TreeMap());
         } 
     }
+    
+    //Aquí se hacen funciones para agregar información a las ventanas(combobox, jtext, etc...) 
+    public void llenarComboBoxEspecialidad(JComboBox<String> comboBox){
+        comboBox.removeAllItems();
+        for(int i=0 ; i<=9; i++){
+            
+            comboBox.addItem(this.especializaciones[i]);
+        } 
+    }
+    public void llenarJTextAreaEspecialidad(JTextArea jTextArea, String especialidad, int valor){
+
+        TreeMap<Integer,Persona> especialistas = this.registroEspecializaciones.get(especialidad);
+        if(especialistas == null){
+            System.out.println("No existe Tal Especialidad");
+            return;
+        }
+        
+        
+        for(Map.Entry<Integer,Persona> entry : especialistas.entrySet()){
+            //Integer llave = entry.getKey();
+            Persona current = entry.getValue();
+            
+            
+            switch(valor){
+                case 0:
+                    jTextArea.append(current.getNombre()+'\n');
+                    break;
+                case 1:
+                    jTextArea.append(String.valueOf(current.getRut())+'\n');
+                    break;
+                case 2:
+                    jTextArea.append(String.valueOf(current.getSueldo())+'\n');
+                    break;
+                case 3:
+                    //System.out.println(current.isTrabajando());
+                    
+                    if(current.isTrabajando()){
+                        jTextArea.append("Trabajando"+'\n');
+                    }
+                    else
+                    {
+                        jTextArea.append("Desempleado"+'\n');
+                    }
+                    
+                    break;
+                default: 
+            }
+            
+            
+            /*System.out.println("Nombre: "+current.getNombre());
+            System.out.println("Profesión: "+current.getLaborProfesional());
+            System.out.println("Rut: "+current.getRut());
+            System.out.println("Saldo: "+current.getSueldo());*/
+        }
+    }
+    
     
     public boolean agregarEspecialista(Persona trabajador){
             
