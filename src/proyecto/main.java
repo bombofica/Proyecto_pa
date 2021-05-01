@@ -8,8 +8,6 @@
 
 package proyecto;
 import java.io.* ;
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.Scanner;
 //import java.text.SimpleDateFormat;
 
@@ -25,11 +23,11 @@ public class main{
         
         ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);
 
-        //InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
-        //interfaz.setVisible(true);
+        InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
+        interfaz.setVisible(true);
         //String direccion = new String("RegistroObras//"+"Valparaiso"+"//"+"Nombre_Valparaiso");
         //WriteFile.eliminarDefinitivo(new File(direccion));
-        inicio(registroDeTrabajadores, registroObras);
+        //inicio(registroDeTrabajadores, registroObras);
 
     }
     
@@ -294,7 +292,7 @@ public class main{
         sueldo = scannerEnterosFlotantes.nextInt() ;
         System.out.println("Ingrese el rut");
         rut = scannerEnterosFlotantes.nextInt() ;
-        Persona nuevoEmpleado = new Persona(nombre,labor,sueldo,rut,false) ;
+        Persona nuevoEmpleado = new Persona(nombre,labor,sueldo,rut,false,"") ;
         //registroPersonas.agregarPersona(nuevoEmpleado); agregar esta funcion
         WriteFile.imprimirTodasLasPersonas(registroPersonas);
     }

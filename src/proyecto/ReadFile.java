@@ -30,16 +30,12 @@ public class ReadFile {
        NombrePersona,Labor,Sueldo,Rut,Estado(Trabajando o no),
     */
 
-    public static Object[] tomarContenidosPersonas(char separador, int num, String direccion, RegistroTrabajadores registroTrabajadores) {
+    public static void tomarContenidosPersonas(char separador, int num, String direccion, RegistroTrabajadores registroTrabajadores, Obra currentObra) {
         String[] valores = new String[num];// para almacenar los datos que se encuentran en una linea
-        Persona current;
+        Persona currentPersona;
         int cont = 0;
         
-        Object[] contenedorDatos = new Object[3];
-        
-        //ArrayList<Persona> lista = new ArrayList();
-        HashMap<String, Persona> hashPersonaNombre = new HashMap();
-        HashMap<Integer, Persona> hashPersonaRut = new HashMap();
+
         
         try {
             FileReader entrada = new FileReader(direccion);
@@ -67,10 +63,20 @@ public class ReadFile {
                     Se crea una persona que será agregada a las variables "hashPersonaNombre", "hashPersonaRut" y "lista"
                 */
                 if ((caracter == '\n' || c == -1)) {
-                    current = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]));
                     
                     
-                    if(registroTrabajadores.agregarEspecialista(current)){
+                    if(currentObra != null){
+                        currentPersona = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),
+                                Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]),
+                                currentObra.getNombreObra());
+                        currentObra.agregarPersona(currentPersona);
+                    }
+                    else
+                    {
+                        currentPersona = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),
+                                Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]),"");
+                    }
+                    if(registroTrabajadores.agregarEspecialista(currentPersona)){
                         System.out.println("Se agregó exitosamente el empleado");
                     }
                     else
@@ -78,13 +84,13 @@ public class ReadFile {
                         System.out.println("El usuario No ha sido ingresado");
                     }
                     /*
-                    System.out.println(current.getNombre());
-                    System.out.println(current.getLaborProfesional());
-                    System.out.println(current.getRut());
-                    System.out.println(current.getSueldo());*/
-                    //lista.add(current);
-                    hashPersonaNombre.put(current.getNombre(), current);
-                    hashPersonaRut.put(current.getRut(), current);
+                    System.out.println(currentPersona.getNombre());
+                    System.out.println(currentPersona.getLaborProfesional());
+                    System.out.println(currentPersona.getRut());
+                    System.out.println(currentPersona.getSueldo());*/
+                    //System.out.println(currentPersona.isTrabajando());
+                    //lista.add(currentPersona);
+
                     valores = new String[num];
                     cont = 0;
                 }
@@ -95,11 +101,6 @@ public class ReadFile {
             System.out.println("El fichero no existe");
         }
         
-        
-        contenedorDatos[0] = hashPersonaNombre;
-        contenedorDatos[1] = hashPersonaRut;
-        
-        return contenedorDatos;
     }
     
     
@@ -117,11 +118,6 @@ public class ReadFile {
 
         String[] valores = new String[num]; // para almacenar los datos que se encuentran en una linea
         //RegistroObras todasLasObras = new RegistroObras(); // para almacenar las obras // No sirve
-        
-        Object[] contenedorDatos; //contendrá variables de tipo HashMap<String, Persona> y HashMap<Integer, Persona>
-        
-        HashMap<String, Persona> hashPersonaNombre;// HashMap que se asociará con "tablaPersonasNombre" de la obra respectiva
-        HashMap<Integer, Persona> hashPersonaRut; // HashMap que se asociará con "tablaPersonasRut" de la obra respectiva
         
         Obra currentObra;
         int cont = 0;
@@ -157,15 +153,12 @@ public class ReadFile {
  
                     
                     System.out.println(valores[1]);                         // nombre_lugar(2)
-                    contenedorDatos = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
-                            +valores[0]+"//Empleados.txt",registroTrabajadores);
+                    currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), valores[3]);
+                    ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
+                            +valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);
                              // nombre_Obra(1)
                     
-                    
-                    hashPersonaNombre = (HashMap<String,Persona>)contenedorDatos[0];
-                    hashPersonaRut = (HashMap<Integer,Persona>)contenedorDatos[1];
-                    
-                    currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), valores[3],hashPersonaNombre,hashPersonaRut);
+                    //,hashPersonaNombre,hashPersonaRut,lista);
                     
                     registroObras.agregarObra(currentObra);//*************** benja ****************
                                         
