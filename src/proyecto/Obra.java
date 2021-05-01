@@ -114,20 +114,49 @@ public class Obra {
 
     public void despedirEmpleado(String nombre) {
         Persona sujeto = tablaPersonasNombre.get(nombre);
-        tablaPersonasNombre.remove(nombre);
-        tablaPersonasRut.remove(sujeto.getRut());
-        this.numeroEmpleados= tablaPersonasNombre.size();
-        sujeto.setTrabajando(false);
-        System.out.println("El sujeto ha sido eliminado");
+        
+        if(sujeto != null){
+            eliminarDelListado(sujeto.getRut());
+            tablaPersonasNombre.remove(nombre);
+            tablaPersonasRut.remove(sujeto.getRut());
+            this.numeroEmpleados= tablaPersonasNombre.size();
+            sujeto.setTrabajando(false);
+            System.out.println("El sujeto ha sido eliminado");
+        }
+    }
+    
+    public void eliminarDelListado(int rut){
+        Persona sujeto = tablaPersonasRut.get(rut);
+        
+        System.out.println(this.listadoPersonas.size());
+        
+        if(sujeto != null && this.listadoPersonas.size() > 0){
+            for(int i = 0 ; i< this.listadoPersonas.size() ; i++)
+            {
+                if(sujeto.getRut() == this.listadoPersonas.get(i).getRut()){
+                    this.listadoPersonas.remove(i);
+                    break;
+                }
+                
+                
+            }
+        }
+        System.out.println(this.listadoPersonas.size());
     }
 
     public void despedirEmpleado(int rut) {
         Persona sujeto = tablaPersonasRut.get(rut);
-        tablaPersonasRut.remove(rut);
-        tablaPersonasNombre.remove(sujeto.getNombre());
-        this.numeroEmpleados= tablaPersonasNombre.size();
-        sujeto.setTrabajando(false);
-        System.out.println("El sujeto ha sido eliminado");
+        
+        if(sujeto != null){
+            eliminarDelListado(rut);
+            tablaPersonasRut.remove(rut);
+            tablaPersonasNombre.remove(sujeto.getNombre());
+        
+        
+            this.numeroEmpleados= tablaPersonasNombre.size();
+            sujeto.setTrabajando(false);
+            System.out.println("El sujeto ha sido eliminado");
+        }
     }
 
     public void cambiarPresupuesto(double presupuestoObra) {
@@ -266,6 +295,11 @@ public class Obra {
             sumaSueldos += personaActual.getSueldo() ;
         }
         return sumaSueldos ;
+    }
+    
+    @Override
+    public String toString() {
+        return this.nombreObra;
     }
 
 }
