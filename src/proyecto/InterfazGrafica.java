@@ -1097,6 +1097,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jLabel14.setText("Nombre de La Obra");
 
         despedirEmpleadoDeObrabtn.setText("Despedir Empleado");
+        despedirEmpleadoDeObrabtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                despedirEmpleadoDeObrabtnActionPerformed(evt);
+            }
+        });
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -1768,16 +1773,37 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void NombreEmpeladoDespedirEmpleadoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreEmpeladoDespedirEmpleadoComboBoxActionPerformed
         // TODO add your handling code here:
-        String nombreObra = (String) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
-        Obra currentObraComboBox = this.registroObr.retornarObra(nombreObra);
+        //Obra currentObraComboBox = this.registroObr.retornarObra(nombreObra);
         
         Persona currentPersonaComboBox=(Persona) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
-        System.out.println(currentPersonaComboBox.getNombre());
+        if(currentPersonaComboBox != null){
+            System.out.println(currentPersonaComboBox.getNombre());
+                this.jTextArea2.setText("");
+                this.jTextArea2.append(currentPersonaComboBox.getNombre()+'\n');
+                this.jTextArea2.append(currentPersonaComboBox.getLaborProfesional()+'\n');
+                this.jTextArea2.append(String.valueOf(currentPersonaComboBox.getRut())+'\n');
+                this.jTextArea2.append(String.valueOf(currentPersonaComboBox.getSueldo()));     
+        }
     }//GEN-LAST:event_NombreEmpeladoDespedirEmpleadoComboBoxActionPerformed
 
     private void eliminarEmpleadoEmpleadoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoEmpleadoComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_eliminarEmpleadoEmpleadoComboBoxActionPerformed
+
+    private void despedirEmpleadoDeObrabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEmpleadoDeObrabtnActionPerformed
+        // TODO add your handling code here:
+        Persona currentPersonaComboBox=(Persona) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
+        String nombreObra = (String) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
+        Obra obra = this.registroObr.retornarObra(nombreObra);
+        obra.despedirEmpleado(currentPersonaComboBox.getRut());
+        
+        
+        
+        this.jTextArea2.setText("");
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, nombreObra);        
+       
+        
+    }//GEN-LAST:event_despedirEmpleadoDeObrabtnActionPerformed
 
 
     
