@@ -91,7 +91,7 @@ public class RegistroTrabajadores {
                     {
                         jTextArea.append("Desempleado"+'\n');
                     }
-                    
+   
                     break;
                 default: 
             }
