@@ -189,4 +189,17 @@ public class Obra {
         tablaPersonasRut.remove(personaEliminar.getRut()) ;
            
     }
+    
+    public long retornarSueldos(Obra obraActual)
+    {
+        long sumaSueldos = 0;
+        Persona personaActual ;
+        
+        for (Map.Entry me : this.tablaPersonasNombre.entrySet()) {
+            personaActual = (Persona) me.getValue();
+            //System.out.println(sumaSueldos);
+            sumaSueldos += personaActual.getSueldo() ;
+        }
+        return sumaSueldos ;
+    }
 }

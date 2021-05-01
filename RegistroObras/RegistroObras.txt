@@ -1,3 +1,5 @@
+Avenida Alemania,Valparaiso,200000.0,2002025,
+Iglesia Tirana,Valparaiso,321321.0,321321,
+Plaza Victoria,Valparaiso,100000.0,03213,
 San Fernando,O'higgins,10.2,225.6,
 Temuco,Araucania,100.2,425.6,
-Santiago,Metropolitana,20000.2,1025.6,

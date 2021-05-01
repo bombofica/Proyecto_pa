@@ -112,6 +112,10 @@ public class main{
                         }
                         if(menu == 6)//gastos totales
                         {
+                            /*Obra xd = registroObras.retornarObra("San Fernando", "O'higgins") ;
+                            long lel = xd.retornarSueldos(xd) ;
+                            System.out.println(lel) ;*/
+                            registroObras.PresupuestoGeneral();
                             menu = 0;
                             continue;
                         }
@@ -213,7 +217,7 @@ public class main{
     private static void agregarObra(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroObras registroObras) throws IOException
     {
         String nombre;
-        String lugar;
+        String Region;
         double presupuesto;
         String tiempoAsignado;
         
@@ -222,20 +226,19 @@ public class main{
         nombre = scannerStrings.nextLine() ;
         
         if(registroObras.existenciaObra(nombre))
-
         {
             System.out.println("la obra ingresada ya existe") ;
 
             return;
         }
         System.out.println("Ingrese la region de la obra");
-        lugar = scannerStrings.nextLine() ;
+        Region = scannerStrings.nextLine() ;
         System.out.println("Ingrese el presupuesto de la obra");
         presupuesto = scannerEnterosFlotantes.nextDouble() ;
         System.out.println("Ingrese el tiempo asignado de la obra");
         System.out.println("ej: 28-04-2021");// verificar que esto se cumpla
         tiempoAsignado = scannerStrings.nextLine() ;
-        Obra nuevaObra = new Obra(nombre, lugar, presupuesto, tiempoAsignado) ;
+        Obra nuevaObra = new Obra(nombre, Region, presupuesto, tiempoAsignado) ;
         registroObras.agregarObra(nuevaObra);
         WriteFile.escribirObras(',', registroObras);
         System.out.println("Obra agregada");
@@ -262,11 +265,11 @@ public class main{
         registroObras.eliminarObra(nombreObra, registroObras);
     }
     
-    private static void modificarDatos(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroObras registroObras) {
+    private static void modificarDatos(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroObras registroObras) throws IOException {
         System.out.println("Ingrese el nombre de la obra a modificar");
         String nombreObra = scannerStrings.nextLine() ;
-
         if(!registroObras.existenciaObra(nombreObra)){
+            System.out.println("ERROR la obra ingresada no existe");
             return;
         }
         System.out.println("Ingrese el atributo a modificar");
@@ -277,7 +280,7 @@ public class main{
         int opcion = scannerEnterosFlotantes.nextInt() ;
         System.out.println("Ingrese el nuevo atributo");
         String nuevoDato = scannerStrings.nextLine() ;
-        registroObras.modificarObra(nombreObra, nuevoDato, opcion);
+        registroObras.modificarObra(nombreObra, nuevoDato, opcion, registroObras);
     }
     
     private static void AgregarEmpleados(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroTrabajadores registroPersonas)
