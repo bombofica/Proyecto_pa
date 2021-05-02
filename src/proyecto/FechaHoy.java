@@ -165,6 +165,7 @@ public class FechaHoy {
     }
     
     private int mesesRestantes(int mesHoy, int mesComparar) {
+        
         int mesesRestantes = mesComparar - mesHoy;
         if(mesesRestantes > 0)
         {

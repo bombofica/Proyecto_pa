@@ -273,7 +273,7 @@ public class RegistroTrabajadores {
         return valor;
     }
     
-    public void mostrarEspecialistas(String especialidad){
+    public void mostrarPersona(String especialidad){
         TreeMap<Integer,Persona> especialistas = this.registroEspecializaciones.get(especialidad);
         if(especialistas == null){
             System.out.println("No existe Tal Especialidad");
