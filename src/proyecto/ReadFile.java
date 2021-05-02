@@ -1,9 +1,8 @@
 package proyecto;
 
-import java.util.HashMap;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class ReadFile {
     
@@ -35,10 +34,18 @@ public class ReadFile {
         Persona currentPersona;
         int cont = 0;
         
-
+        // Verifica si el txt de los empleados de una obra tiene Personas, si no tiene
+        // no realiza el proceso
+        File direccionEnviada = new File(direccion);
+        if(direccionEnviada.exists()){
+            if(direccionEnviada.length() == 0){
+                return;
+            }
+        }
         
         try {
             FileReader entrada = new FileReader(direccion);
+            
             int c;
             do {
                 c = entrada.read();
@@ -83,13 +90,7 @@ public class ReadFile {
                     {
                         System.out.println("El usuario No ha sido ingresado");
                     }
-                    /*
-                    System.out.println(currentPersona.getNombre());
-                    System.out.println(currentPersona.getLaborProfesional());
-                    System.out.println(currentPersona.getRut());
-                    System.out.println(currentPersona.getSueldo());*/
-                    //System.out.println(currentPersona.isTrabajando());
-                    //lista.add(currentPersona);
+                    
 
                     valores = new String[num];
                     cont = 0;

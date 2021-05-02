@@ -10,22 +10,12 @@ import javax.swing.JTextArea;
 
 public class RegistroTrabajadores {
 
-    private RegistroObras registroObra;
-    //private ArrayList<Persona> registroEmpleados;
-    //private HashMap<String, Persona> registroPersonasNombre;
     private ArrayList<Persona> arrayEmpleados; 
     private String[] especializaciones;
     private HashMap<String, TreeMap<Integer,Persona>> registroEspecializaciones; 
     
-  /*  public RegistroTrabajadores(ArrayList<Persona> lista, HashMap<String, Persona> registroPersonasNombre) {
-        this.registroPersonasNombre = registroPersonasNombre;
-        this.registroEmpleados = lista;
-    }*/
-
     public RegistroTrabajadores() {
-       /* this.registroEmpleados = new ArrayList();
-        this.registroPersonasNombre = new HashMap();*/
-       
+        
         this.arrayEmpleados = new ArrayList();
         
         this.registroEspecializaciones = new HashMap();
@@ -96,11 +86,6 @@ public class RegistroTrabajadores {
                 default: 
             }
             
-            
-            /*System.out.println("Nombre: "+current.getNombre());
-            System.out.println("Profesión: "+current.getLaborProfesional());
-            System.out.println("Rut: "+current.getRut());
-            System.out.println("Saldo: "+current.getSueldo());*/
         }
     }
     
@@ -322,8 +307,7 @@ public class RegistroTrabajadores {
         }
 
     }
-    
-    
+      
     public void llenarComboBoxDePersonas(JComboBox comboBox){
         
         comboBox.removeAllItems();
@@ -334,54 +318,4 @@ public class RegistroTrabajadores {
         }        
     }
 
-/* 
-
-    
-    public void mostrarPersona()
-    {
-        //Persona actual;
-        for(Persona actual : registroEmpleados)
-        {
-            System.out.println(actual.getNombre());
-        }
-    }
-    public void mostrarPersona(String profesion) {
-        System.out.println("El/Los Nombre/s son:");
-        for (Persona actual : registroEmpleados) {
-            if (actual.getLaborProfesional().equals(profesion)) {
-                System.out.println(actual.getNombre());
-            }
-        }
-    } 
-    // funcion agregada
-    public void agregarPersona(Persona persona){
-        
-        this.registroEmpleados.add(persona);
-        this.registroPersonasNombre.put(persona.getNombre(), persona);
-        
-    }
-    
-    
-    public int devolverNumeroPersonas (){
-        return registroEmpleados.size();
-    }
-    
-    public void cambiarEstadoPersona(String nombre, boolean booleano){
-        
-        Persona valor = this.registroPersonasNombre.get(nombre);
-        if(valor != null){
-            valor.setTrabajando(booleano);
-        }
-    }
-    public void eliminarPersona(String nombre)
-    {
-        for(Persona actual : registroEmpleados)
-        {
-            if(actual.getNombre().equals(nombre))
-            {
-                registroEmpleados.remove(actual) ;
-            }
-        }
-        registroPersonasNombre.remove(nombre);
-    }*/
 }
