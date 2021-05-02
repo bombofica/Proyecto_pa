@@ -125,7 +125,7 @@ public class RegistroTrabajadores {
          
     }
     
-    public boolean eliminarEspecialista(String especialidad, int rut){
+    public boolean eliminarEspecialista(String especialidad, int rut, Obra currentObra){
         TreeMap<Integer,Persona> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
         if(mapaEspecialidades == null){
             System.out.println("No existe esa especialización");
@@ -138,11 +138,17 @@ public class RegistroTrabajadores {
             System.out.println("El empleado No existe");
             return false;
         }
-             
+        
+        mapaEspecialidades.remove(rut);
+        if(currentObra != null){
+            currentObra.despedirEmpleado(rut);
+        }
+        
+        
         return true;
     }
     
-    public boolean eliminarEspecialista(Persona especialista){
+    public boolean eliminarEspecialista(Persona especialista, Obra currentObra){
         
         String especialidad = especialista.getLaborProfesional();
         int rut = especialista.getRut();
@@ -158,6 +164,11 @@ public class RegistroTrabajadores {
         if(empleado == null){
             System.out.println("El empleado No existe");
             return false;
+        }
+
+        mapaEspecialidades.remove(rut);
+        if(currentObra != null){
+            currentObra.despedirEmpleado(rut);
         }
         
         return true;
@@ -205,7 +216,7 @@ public class RegistroTrabajadores {
             return false;
         }
         
-        this.eliminarEspecialista(especialista);
+        this.eliminarEspecialista(especialista,null);
         
         empleado.setLaborProfesional(especialidadNueva);
         
@@ -235,9 +246,7 @@ public class RegistroTrabajadores {
         
         empleado.setSueldo(sueldo);
         System.out.println("Sueldo del empleado editado con exito");        
-        
-        
-        
+              
         return true;
     }
 
@@ -312,6 +321,17 @@ public class RegistroTrabajadores {
             System.out.println("Saldo: "+current.getSueldo());
         }
 
+    }
+    
+    
+    public void llenarComboBoxDePersonas(JComboBox comboBox){
+        
+        comboBox.removeAllItems();
+        for(int i = 0 ; i< this.arrayEmpleados.size() ; i++)
+        {
+            Persona current=this.arrayEmpleados.get(i);
+            comboBox.addItem(current);
+        }        
     }
 
 /* 
