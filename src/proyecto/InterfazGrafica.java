@@ -92,7 +92,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         TiempoRestanteObraFrame = new javax.swing.JFrame();
         jPanel12 = new javax.swing.JPanel();
         GastosTotalesObraFrame = new javax.swing.JFrame();
-        jPanel13 = new javax.swing.JPanel();
         GestionEmpleadosFrame = new javax.swing.JFrame();
         anadirEmpleadoToPlataforma = new javax.swing.JButton();
         mostrarEmpleadosDeUnaObra = new javax.swing.JButton();
@@ -100,7 +99,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         moverEmpleados = new javax.swing.JButton();
         despedirEmpleados = new javax.swing.JButton();
         eliminarEmpleadoDePlataforma = new javax.swing.JButton();
-        cambiarSueldoDeEmpleado = new javax.swing.JButton();
+        cambiarDatosDeEmpleado = new javax.swing.JButton();
         AnadirEmpleadoToPlataform = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
         anadirEmpleadobtn = new javax.swing.JButton();
@@ -168,8 +167,17 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        CambiarSueldoEmpleado = new javax.swing.JFrame();
+        CambiarDatosEmpleado = new javax.swing.JFrame();
         jPanel6 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        cambiarDatosNombreEmpleadoComboBox = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         NombreProyecto = new javax.swing.JLabel();
         Autores = new javax.swing.JLabel();
@@ -686,26 +694,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout GastosTotalesObraFrameLayout = new javax.swing.GroupLayout(GastosTotalesObraFrame.getContentPane());
         GastosTotalesObraFrame.getContentPane().setLayout(GastosTotalesObraFrameLayout);
         GastosTotalesObraFrameLayout.setHorizontalGroup(
             GastosTotalesObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         GastosTotalesObraFrameLayout.setVerticalGroup(
             GastosTotalesObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         GestionEmpleadosFrame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -761,10 +758,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        cambiarSueldoDeEmpleado.setText("Cambiar Sueldo de un Empleado");
-        cambiarSueldoDeEmpleado.addActionListener(new java.awt.event.ActionListener() {
+        cambiarDatosDeEmpleado.setText("Cambiar Datos de un Empleado");
+        cambiarDatosDeEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cambiarSueldoDeEmpleadoActionPerformed(evt);
+                cambiarDatosDeEmpleadoActionPerformed(evt);
             }
         });
 
@@ -781,7 +778,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addComponent(moverEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(despedirEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(eliminarEmpleadoDePlataforma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cambiarSueldoDeEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cambiarDatosDeEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         GestionEmpleadosFrameLayout.setVerticalGroup(
@@ -800,7 +797,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(eliminarEmpleadoDePlataforma)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cambiarSueldoDeEmpleado)
+                .addComponent(cambiarDatosDeEmpleado)
                 .addContainerGap(64, Short.MAX_VALUE))
         );
 
@@ -1373,9 +1370,48 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        CambiarSueldoEmpleado.addWindowListener(new java.awt.event.WindowAdapter() {
+        CambiarDatosEmpleado.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
-                CambiarSueldoEmpleadoWindowClosing(evt);
+                CambiarDatosEmpleadoWindowClosing(evt);
+            }
+        });
+
+        jLabel22.setText("Nombre Empleado");
+
+        jLabel23.setText("Dato que se cambiará");
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Sueldo", "Labor Profesional" }));
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Especialidad");
+
+        jButton2.setText("Cambiar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setText("Sueldo");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
             }
         });
 
@@ -1383,21 +1419,55 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(jButton2))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel22)
+                    .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cambiarDatosNombreEmpleadoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cambiarDatosNombreEmpleadoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout CambiarSueldoEmpleadoLayout = new javax.swing.GroupLayout(CambiarSueldoEmpleado.getContentPane());
-        CambiarSueldoEmpleado.getContentPane().setLayout(CambiarSueldoEmpleadoLayout);
-        CambiarSueldoEmpleadoLayout.setHorizontalGroup(
-            CambiarSueldoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout CambiarDatosEmpleadoLayout = new javax.swing.GroupLayout(CambiarDatosEmpleado.getContentPane());
+        CambiarDatosEmpleado.getContentPane().setLayout(CambiarDatosEmpleadoLayout);
+        CambiarDatosEmpleadoLayout.setHorizontalGroup(
+            CambiarDatosEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        CambiarSueldoEmpleadoLayout.setVerticalGroup(
-            CambiarSueldoEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        CambiarDatosEmpleadoLayout.setVerticalGroup(
+            CambiarDatosEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1611,11 +1681,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
         
     }//GEN-LAST:event_eliminarEmpleadoDePlataformaActionPerformed
 
-    private void cambiarSueldoDeEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarSueldoDeEmpleadoActionPerformed
+    private void cambiarDatosDeEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatosDeEmpleadoActionPerformed
         // TODO add your handling code here:
         this.GestionEmpleadosFrame.setVisible(false);
-        this.CambiarSueldoEmpleado.setVisible(true);
-    }//GEN-LAST:event_cambiarSueldoDeEmpleadoActionPerformed
+        this.CambiarDatosEmpleado.setVisible(true);
+        this.CambiarDatosEmpleado.setSize(500,500);
+        this.registroTra.llenarComboBoxDePersonas(this.cambiarDatosNombreEmpleadoComboBox);
+        this.jLabel16.setVisible(false);
+        this.jComboBox1.setVisible(false);
+    }//GEN-LAST:event_cambiarDatosDeEmpleadoActionPerformed
 
     private void anadirEmpleadobtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirEmpleadobtnActionPerformed
         // TODO add your handling code here:
@@ -1786,10 +1860,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_EliminarEmpleadoDeLaPlataformaWindowClosing
 
-    private void CambiarSueldoEmpleadoWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CambiarSueldoEmpleadoWindowClosing
+    private void CambiarDatosEmpleadoWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CambiarDatosEmpleadoWindowClosing
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_CambiarSueldoEmpleadoWindowClosing
+    }//GEN-LAST:event_CambiarDatosEmpleadoWindowClosing
 
     private void obraTerminadaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obraTerminadaComboBoxActionPerformed
         // TODO add your handling code here:
@@ -1991,6 +2065,46 @@ public class InterfazGrafica extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_cambiarDatojButtonActionPerformed
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+        int valor = this.jComboBox4.getSelectedIndex();
+        System.out.println(valor);
+        switch(valor){
+            case 0:
+                this.jLabel16.setVisible(false);
+                this.jComboBox1.setVisible(false);
+                break;
+            case 1:
+                this.jLabel16.setVisible(true);
+                this.jComboBox1.setVisible(true);
+                break;
+            case 2:
+                this.jLabel16.setVisible(false);
+                this.jComboBox1.setVisible(false);
+                break;
+        }
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        // TODO add your handling code here:
+        if( !(Character.isDigit(evt.getKeyChar()) ||  evt.getKeyChar() == '.')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
+
 
 
     
@@ -2040,6 +2154,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel Autores;
     private javax.swing.JFrame CambiarDatoFrame;
     private javax.swing.JFrame CambiarSueldoEmpleado;
+    private javax.swing.JFrame CambiarDatosEmpleado;
+    private javax.swing.JFrame CambiarPresupuestoFrame;
     private javax.swing.JFrame DespedirEmpleados;
     private javax.swing.JFrame EliminarEmpleadoDeLaPlataforma;
     private javax.swing.JLabel EmpleadosObrasMostrarJLabel;
@@ -2077,6 +2193,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JTextArea cambiarDatojTextArea1;
     private javax.swing.JTextField cambiarDatojTextField1;
     private javax.swing.JButton cambiarSueldoDeEmpleado;
+    private javax.swing.JButton cambiarDatosDeEmpleado;
+    private javax.swing.JComboBox<String> cambiarDatosNombreEmpleadoComboBox;
+    private javax.swing.JButton cambiarPresupuesto;
     private javax.swing.JComboBox<String> comboBoxEmpleadosObrasMostrar;
     private javax.swing.JComboBox<String> comboBoxEspecialidad;
     private javax.swing.JComboBox<String> comboBoxObra;
@@ -2095,6 +2214,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JTextArea estadoJTextArea1;
     private javax.swing.JButton gastosTotalesDeUnaObra;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2109,6 +2232,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2120,7 +2245,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2143,6 +2267,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextNombreObra;
     private javax.swing.JTextField jTextPresupuesto;
     private javax.swing.JTextField jTextRutCDV;
