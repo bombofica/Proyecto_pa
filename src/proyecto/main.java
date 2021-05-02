@@ -15,20 +15,18 @@ import java.util.Scanner;
 public class main{
     public static void main(String params[]) throws IOException
     {
-        RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores();
-        
-        RegistroObras registroObras = new RegistroObras();
-        
-        //ReadFile.crearDirectorio(regionesDeChile);
-        
-        ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);
-
+        RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores(); //registro de todos los trabajdores de la aplicacion
+        RegistroObras registroObras = new RegistroObras();//registro de todas las obras de la aplicacion
+        ReadFile.traerObras(',', 4,"RegistroObras" , registroDeTrabajadores, registroObras);//uso de archivos para obtener los datos
         InterfazGrafica interfaz = new InterfazGrafica(registroDeTrabajadores,registroObras);
-        interfaz.setVisible(true);
-        //String direccion = new String("RegistroObras//"+"Valparaiso"+"//"+"Nombre_Valparaiso");
-        //WriteFile.eliminarDefinitivo(new File(direccion));
-        //inicio(registroDeTrabajadores, registroObras);
-
+        interfaz.setVisible(true);//llamado a la interfas grafica
+        
+        /*
+        El resto del main son los llamados al menu por consola los cuales no se utilizan a menos que
+        se le llamen con el metodo "inicio"
+        */
+        inicio(registroDeTrabajadores, registroObras);
+        
     }
     
     
@@ -60,17 +58,17 @@ public class main{
             try
             {
                 menu = scannerEnterosFlotantes.nextInt() ;
-                //main.limpiarPantalla();
+                main.limpiarPantalla();
                 
                 if(menu == 1)//Gestion de obras
                 {
-                    //esta previsto que existan mas funciones
                     System.out.println("1. Añadir obra") ;
                     System.out.println("2. Mostrar todas las obras") ;
                     System.out.println("3. Obra terminada") ; //"Eliminar Obra"
                     System.out.println("4. Cambiar un dato de una obra"); 
-                    System.out.println("5. Tiempo restante de una obra");
-                    //System.out.println("6. Gastos totales");
+                    System.out.println("5. Tiempo restante de una obra"); //esta funcion no esta lista ya que falta implementarlo con las obras
+                    /*System.out.println("6. Gastos totales"); existe la opcion 6 la cual realiza esta funcion pero tenemos pensado
+                                                               implementar un grafico*/
                     try
                     {
                         menu = scannerEnterosFlotantes.nextInt() ;
@@ -100,6 +98,7 @@ public class main{
                         }
                         if(menu == 5)//Tiempo restante de una obra
                         {
+                            System.out.println("Ingrese la fecha acomparar");
                             String fechaComparar =scannerStrings.nextLine() ;
                             char[] cadenaCaracteres = new char[10] ;
                             cadenaCaracteres = fechaComparar.toCharArray();
@@ -110,9 +109,6 @@ public class main{
                         }
                         if(menu == 6)//gastos totales
                         {
-                            /*Obra xd = registroObras.retornarObra("San Fernando", "O'higgins") ;
-                            long lel = xd.retornarSueldos(xd) ;
-                            System.out.println(lel) ;*/
                             registroObras.PresupuestoGeneral();
                             menu = 0;
                             continue;
@@ -120,7 +116,6 @@ public class main{
                     }
                     catch(Exception e)
                     {
-                        
                         System.out.println("Error!!! Opción no disponible volviendo al menú"+menu) ;
                         menu = 0;
                         continue;
@@ -128,12 +123,11 @@ public class main{
                 }
                 if(menu == 2)//Gestion de personas
                 {
-                    //esta previsto que existan mas funciones
                     System.out.println("1. Añadir empleado a la plataforma") ;
-                    System.out.println("2. Mostrar empleados de una obra") ; // Esta opción no funciona
+                    System.out.println("2. Mostrar empleados de una obra") ;
                     System.out.println("3. Mostrar todos los empleados") ;
                     System.out.println("4. mover empleados") ;
-                    System.out.println("5. Despedir empleado"); // Esta opción no funciona
+                    System.out.println("5. Despedir empleado");
                     System.out.println("6. Eliminar empleado de la plataforma");
                     System.out.println("7. Cambiar sueldo de un empleado");
                     try
@@ -226,7 +220,6 @@ public class main{
         if(registroObras.existenciaObra(nombre))
         {
             System.out.println("la obra ingresada ya existe") ;
-
             return;
         }
         System.out.println("Ingrese la region de la obra");

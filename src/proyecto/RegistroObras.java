@@ -147,7 +147,6 @@ public class RegistroObras {
             this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
             this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
             this.contadorObras++;
-            
         }
         else
         {
@@ -164,6 +163,7 @@ public class RegistroObras {
     
     public void eliminarObra(String nombreObra, RegistroObras registroActual) throws IOException //Listo
     {
+        //en el archivo se elimina la obra original y se vuelve a crear el registro sin esta
         if(existenciaObra(nombreObra))
         {
             Obra ObraEliminar = registro.get(nombreObra) ;
@@ -182,6 +182,8 @@ public class RegistroObras {
                 
     public void modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException //Listo
     {
+        //en el archivo se elimina la obra anterior y se vuelve a crear esta pero con el dato cambiado
+        
         //nombreObra es el nombre actual de la obra a editar
         //nuevoDato es el dato a editar que puedeser de cualquier atributo dentro del objeto Obra
         //opcion guardaria la hipotetica opcion a modificar por el usuario seleccionada en el menu
