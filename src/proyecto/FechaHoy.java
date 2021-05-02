@@ -10,10 +10,12 @@ import java.util.Date;
 
 public class FechaHoy {
     
+    //Variables de instancia
     private Date fecha;
     private SimpleDateFormat formato;
     private ArrayList<Integer> meses;
 
+    //Constructor
     public FechaHoy() {
         
         meses = new ArrayList();
@@ -23,25 +25,25 @@ public class FechaHoy {
         
     }
     
+    //Metodos publicos
     public void obterFecha(char[] fechaComparar)
     {
-        verificarEstructura(fechaComparar) ;
-        char[] fechaHoy = formato.format(fecha).toCharArray();
+        if(!verificarEstructura(fechaComparar)) return;
         
-        System.out.println(fechaHoy);
-        System.out.println(fechaComparar);
+        char[] fechaHoy = formato.format(fecha).toCharArray(); //la funcion crea una variable con la fecha de hoy        
         
+        //datos de la fecha de hoy
         int yearHoy = obtenerYear(fechaHoy);
         int mesHoy = obtenerMes(fechaHoy);
         int diaHoy = obtenerDia(fechaHoy);
         
+        //datos de la fecha a comparar
         int yearComparar = obtenerYear(fechaComparar);
         int mesComparar = obtenerMes(fechaComparar);
         int diaComparar = obtenerDia(fechaComparar);
         
         if(verificarFechas(yearHoy, mesHoy, diaHoy, yearComparar, mesComparar, diaComparar))
         {
-            
             int diasR = diasRestantes(diaHoy, mesHoy, diaComparar, mesComparar) ;
             int MesesR = mesesRestantes(mesHoy, mesComparar);
             int yearR = yearRestante(yearComparar, yearHoy, mesHoy, mesComparar);
@@ -51,7 +53,9 @@ public class FechaHoy {
         }
     }
     
-    private boolean verificarEstructura(char[] fechaComparar) {
+    //Metodos privados
+    private boolean verificarEstructura(char[] fechaComparar) //se debe verificar que se cumpla la estructura base dd-MM-yyyy
+    {
         if((fechaComparar[2] != '-') || (fechaComparar[5] != '-'))
         {
             System.out.println("ERROR la estructura de la fecha no es valida");
@@ -76,20 +80,21 @@ public class FechaHoy {
         return true;
     }
     
-    private boolean verificarFechas(int yearHoy, int mesHoy, int diaHoy, int yearComparar, int mesComparar, int diaComparar) {
+    private boolean verificarFechas(int yearHoy, int mesHoy, int diaHoy, int yearComparar, int mesComparar, int diaComparar)//Verificar que las fechas sean comparables 
+    {
         if(yearHoy > yearComparar)
         {
-            System.out.println("ERROR fecha ingresada no valida");
+            System.out.println("La obra esta fuera de fecha");
             return false ;
         }
         if((yearHoy == yearComparar) && (mesHoy > mesComparar))
         {
-            System.out.println("ERROR fecha ingresada no valida");
+            System.out.println("La obra esta fuera de fecha");
             return false;
         }
         if((yearHoy == yearComparar) && (mesHoy == mesComparar) && (diaHoy > diaComparar))
         {
-            System.out.println("ERROR fecha ingresada no valida");
+            System.out.println("La obra esta fuera de fecha");
             return false;
         }
         return true;
@@ -134,6 +139,13 @@ public class FechaHoy {
     
     private int diasRestantes(int diaHoy, int mesHoy, int diaComparar, int mesComparar)
     {
+        /*
+            se calculan los dias que faltan para terminar el termino del mes de fechaHoy
+            ej: si el dia de hoy es 21 de mayo faltan 10 dias para terminar el mes
+            a su vez se calculan los dias que pasaron de fechaComparar
+            ej: si la fecha a comparar es 19 de octubre han pasado 19 dias desde el comienzo del mes
+            estos 2 valores se suman dando como resultado se suma dando 29 dias restantes
+        */
         int contadorDias = 0;
         if((mesComparar == 2) && (diaComparar == 29))
         {

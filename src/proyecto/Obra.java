@@ -9,9 +9,10 @@ import javax.swing.JTextArea;
 //import java.util.Iterator;
 
 public class Obra {
-
+    
+    //Variables de instancia
     private String nombreObra;
-
+    
     private String nombreLugar;
 
     private double presupuestoObra;
@@ -26,6 +27,7 @@ public class Obra {
     
     private int numeroEmpleados;
     
+    //Constructores
     public Obra() {
         this.tablaPersonasNombre = new HashMap();
         this.tablaPersonasRut = new HashMap();
@@ -43,22 +45,8 @@ public class Obra {
         this.numeroEmpleados = tablaPersonasNombre.size();
         this.listadoPersonas = new ArrayList();
     }
-
-    /*public Obra(String nombreObra, String nombreLugar, double presupuestoObra, String tiempoNecesarioParaTerminarObra, HashMap<String, Persona> tablaPersonasNombre, HashMap<Integer, Persona> tablaPersonasRut, ArrayList<Persona> lista) {
-        
-        //esta variable debe ser enviada por el metodo y no declararce en esta linea
-        RegistroObras registro = new RegistroObras();
-        
-        this.nombreObra = nombreObra;
-        this.nombreLugar = nombreLugar;
-        this.presupuestoObra = presupuestoObra;
-        this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
-        this.tablaPersonasNombre = tablaPersonasNombre;
-        this.tablaPersonasRut = tablaPersonasRut;
-        this.numeroEmpleados = tablaPersonasNombre.size();
-        this.listadoPersonas = lista;
-    }*/
     
+    //Metodos
     public void setNumeroEmpleados(int valor){
         this.numeroEmpleados = valor;
     }
@@ -135,9 +123,7 @@ public class Obra {
                 if(sujeto.getRut() == this.listadoPersonas.get(i).getRut()){
                     this.listadoPersonas.remove(i);
                     break;
-                }
-                
-                
+                }  
             }
         }
         System.out.println(this.listadoPersonas.size());
@@ -150,8 +136,6 @@ public class Obra {
             eliminarDelListado(rut);
             tablaPersonasRut.remove(rut);
             tablaPersonasNombre.remove(sujeto.getNombre());
-        
-        
             this.numeroEmpleados= tablaPersonasNombre.size();
             sujeto.setTrabajando(false);
             System.out.println("El sujeto ha sido eliminado");
@@ -182,10 +166,7 @@ public class Obra {
     
     public void mostrarEmpleados()
     {
-        
         for (Map.Entry me : tablaPersonasRut.entrySet()) {
-              
-          //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
             Persona current = (Persona) me.getValue();
             System.out.print("Nombre: " + current.getNombre());
             System.out.print(" Rut: " + current.getRut());
@@ -194,7 +175,7 @@ public class Obra {
         }
     }
     
-    void eliminarObra(){
+    public void eliminarObra(){
         
         Persona current ;
         for (Map.Entry persona : tablaPersonasNombre.entrySet()) {
@@ -219,7 +200,20 @@ public class Obra {
         return current;
     }
 
-// Estas funciones sirven para utilizar la interfaz gráfica
+    public long retornarSueldos(Obra obraActual)
+    {
+        long sumaSueldos = 0;
+        Persona personaActual ;
+        
+        for (Map.Entry me : this.tablaPersonasNombre.entrySet()) {
+            personaActual = (Persona) me.getValue();
+            //System.out.println(sumaSueldos);
+            sumaSueldos += personaActual.getSueldo() ;
+        }
+        return sumaSueldos ;
+    }
+    
+// Estos metodos sirven para utilizar la interfaz gráfica
     
     public void llenarComboBoxEmpleados(JComboBox comboBox){
         
@@ -268,21 +262,6 @@ public class Obra {
             }
             }
         }        
-    }
-    
-
-
-    public long retornarSueldos(Obra obraActual)
-    {
-        long sumaSueldos = 0;
-        Persona personaActual ;
-        
-        for (Map.Entry me : this.tablaPersonasNombre.entrySet()) {
-            personaActual = (Persona) me.getValue();
-            //System.out.println(sumaSueldos);
-            sumaSueldos += personaActual.getSueldo() ;
-        }
-        return sumaSueldos ;
     }
     
     @Override
