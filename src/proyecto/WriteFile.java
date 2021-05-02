@@ -75,7 +75,7 @@ public class WriteFile {
                 Obra currentObra = (Obra) obra.getValue();      
                 
             addExistenciaDirectorioObra(currentObra);
-            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados3.txt")) {
+            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados.txt")) {
                 
                 Persona currentPersona;
                 

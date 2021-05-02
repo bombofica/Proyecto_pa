@@ -193,6 +193,7 @@ public class RegistroObras {
             {
                 case 1: //Cambiar nombre
                 {
+                    
                     remplazo.setNombreObra(nuevoDato) ;
                     this.registro.remove(nombreObra) ;
                     this.regiones.get(lugar).remove(nombreObra) ;
