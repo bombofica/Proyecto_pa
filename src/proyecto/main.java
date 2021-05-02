@@ -302,7 +302,7 @@ public class main{
             System.out.println("ingrese profesión");
             filtro = scannerStrings.nextLine();
             System.out.println("El filtro es: "+filtro);
-            registroPersonas.mostrarEspecialistas(filtro);
+            registroPersonas.mostrarPersona(filtro);
             return ;
         }
         if(menu == 2)//Por sueldo
