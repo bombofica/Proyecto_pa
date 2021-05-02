@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -177,6 +179,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        eliminarEmpleadojButton3 = new javax.swing.JButton();
         CambiarDatosEmpleado2 = new javax.swing.JFrame();
         panelCambiarDatos = new javax.swing.JPanel();
         NombreEmpleadoCDEjLabel = new javax.swing.JLabel();
@@ -190,15 +193,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         cDESueldoJLabel = new javax.swing.JLabel();
         cDESueldoJTextField = new javax.swing.JTextField();
         cDECambiarDatonJButton = new javax.swing.JButton();
-        eliminarEmpleadojButton3 = new javax.swing.JButton();
-        CambiarDatosEmpleado = new javax.swing.JFrame();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        cambiarDatosNombreEmpleadoComboBox = new javax.swing.JComboBox<>();
-        jLabel23 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel26 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         NombreProyecto = new javax.swing.JLabel();
@@ -1808,7 +1802,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.MostrarTodasLasObrasFrame.setVisible(true);
         this.GestionObrasFrame.setVisible(false);
         this.MostrarTodasLasObrasFrame.setSize(450,500);
-        this.registroObr.mostrarObras();
+        //this.registroObr.mostrarObras();
         
         registroObr.llenarComboBoxObras(this.comboBoxObra);
         
@@ -1909,11 +1903,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         String valor = (String) this.comboBoxObra.getSelectedItem();
         Obra obraEscogida = this.registroObr.retornarObra(valor);
-        String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
+        
+        if(obraEscogida != null){
+            String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
                 +"Región: "+obraEscogida.getNombreLugar()+'\n'
                 +"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
                 +"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
-        this.mostrarObraTextArea.setText(textoFinal);
+            this.mostrarObraTextArea.setText(textoFinal);
+        }
+        
     }//GEN-LAST:event_comboBoxObraActionPerformed
 
     private void comboBoxEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxEspecialidadActionPerformed
@@ -2526,9 +2524,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton gestionEmpleadosjButton3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

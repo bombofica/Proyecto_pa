@@ -47,11 +47,13 @@ public class RegistroObras {
     
 
     public Obra retornarObra(String nombreObra){
-        Obra obraPedida = this.registro.get(nombreObra);
-        if(obraPedida == null){
-            System.out.println("La obra no existe");
-        }
-        return obraPedida;
+        
+            if(this.existenciaObra(nombreObra)){
+                Obra obraPedida = this.registro.get(nombreObra);
+                return obraPedida;
+            }
+        return null;
+            
     }
 
     
