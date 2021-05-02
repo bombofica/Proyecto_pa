@@ -10,7 +10,7 @@ import javax.swing.JTextArea;
 
 public class RegistroTrabajadores {
 
-    
+    private RegistroObras registroObra;
     //private ArrayList<Persona> registroEmpleados;
     //private HashMap<String, Persona> registroPersonasNombre;
     private ArrayList<Persona> arrayEmpleados; 
