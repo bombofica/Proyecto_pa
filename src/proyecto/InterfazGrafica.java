@@ -2008,7 +2008,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void eliminarEmpleadojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadojButtonActionPerformed
         
         Persona empleado = (Persona) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
-        this.registroTra.eliminarEspecialista(empleado) ;
+        String nombreObra = (String) this.eliminarEmpleadoObraComboBox.getSelectedItem();
+        
+        Obra obraEscogida = this.registroObr.retornarObra(nombreObra);
+        if(obraEscogida != null){
+            this.registroTra.eliminarEspecialista(empleado,obraEscogida) ;  
+        }
+        
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, nombreObra);
+        
     }//GEN-LAST:event_eliminarEmpleadojButtonActionPerformed
 
     private void cambiarDatoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoComboBoxActionPerformed
