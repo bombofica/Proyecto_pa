@@ -1,0 +1,6 @@
+Benjamín Azul,Arquitecto,99999999,204783102,false,
+Kim Jong un,Prevencionista de Riesgos,700000,74892547,false,
+Virgil Van Dijk,Ingeniero Civil,3000000,18283749,true,
+Cristiano Ronaldo,Ingeniero Constructor,1300000,19481905,true,
+Alexis Sanchez,Ingeniero Constructor,1000,15934843,true,
+Lionel Messi,Ingeniero Constructor,10000,43134537,true,

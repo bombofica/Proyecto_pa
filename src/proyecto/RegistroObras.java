@@ -16,8 +16,6 @@ import javax.swing.JTextArea;
  */
 public class RegistroObras {
     
-    private RegistroTrabajadores registroTrabajadores;
-    //variables de instancia
     private HashMap <String, HashMap<String, Obra>> regiones;
     private HashMap <String, Obra> registro ;
     private ArrayList<Obra> listaCompleta;
