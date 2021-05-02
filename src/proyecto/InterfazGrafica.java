@@ -6,6 +6,7 @@
 package proyecto;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,7 +48,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         botonAgregarObra = new javax.swing.JButton();
         botonMostrarAllObras = new javax.swing.JButton();
         botonObraTerminada = new javax.swing.JButton();
-        cambiarPresupuesto = new javax.swing.JButton();
+        cambiarDato = new javax.swing.JButton();
         tiempoRestanteDeUnaObra = new javax.swing.JButton();
         gastosTotalesDeUnaObra = new javax.swing.JButton();
         agregarObraFrame1 = new javax.swing.JFrame();
@@ -67,8 +68,19 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         mostrarObraTextArea = new javax.swing.JTextArea();
         jLabel18 = new javax.swing.JLabel();
-        CambiarPresupuestoFrame = new javax.swing.JFrame();
+        CambiarDatoFrame = new javax.swing.JFrame();
         jPanel10 = new javax.swing.JPanel();
+        cambiarDatoComboBox = new javax.swing.JComboBox<>();
+        cambiarDatojLabel = new javax.swing.JLabel();
+        cambiarDatojLabel2 = new javax.swing.JLabel();
+        cambiarDatojButton = new javax.swing.JButton();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        cambiarDatojTextArea1 = new javax.swing.JTextArea();
+        cambiarDatojComboBox2 = new javax.swing.JComboBox<>();
+        cambiarDatojTextField1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        cambiarDatojButton2 = new javax.swing.JButton();
         ObraTerminadaFrame = new javax.swing.JFrame();
         jPanel11 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
@@ -147,9 +159,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         NombreEmpeladoDespedirEmpleadoComboBox = new javax.swing.JComboBox<>();
         EliminarEmpleadoDeLaPlataforma = new javax.swing.JFrame();
         jPanel5 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
+        eliminarEmpleadojButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        eliminarEmpleadoJText = new javax.swing.JTextArea();
         eliminarEmpleadoObraComboBox = new javax.swing.JComboBox<>();
         eliminarEmpleadoEmpleadoComboBox = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
@@ -252,7 +264,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        cambiarPresupuesto.setText("Cambiar Presupuesto");
+        cambiarDato.setText("Cambiar Dato de una obra");
+        cambiarDato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarDatoActionPerformed(evt);
+            }
+        });
 
         tiempoRestanteDeUnaObra.setText("Tiempo restante de una Obra");
 
@@ -273,7 +290,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addComponent(tiempoRestanteDeUnaObra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonAgregarObra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonMostrarAllObras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cambiarPresupuesto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cambiarDato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonObraTerminada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(gastosTotalesDeUnaObra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(116, Short.MAX_VALUE))
@@ -286,7 +303,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(botonMostrarAllObras)
                 .addGap(18, 18, 18)
-                .addComponent(cambiarPresupuesto)
+                .addComponent(cambiarDato)
                 .addGap(18, 18, 18)
                 .addComponent(botonObraTerminada)
                 .addGap(18, 18, 18)
@@ -456,31 +473,114 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        CambiarPresupuestoFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+        CambiarDatoFrame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
-                CambiarPresupuestoFrameWindowClosing(evt);
+                CambiarDatoFrameWindowClosing(evt);
             }
         });
+
+        cambiarDatoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cambiarDatoComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarDatoComboBoxActionPerformed(evt);
+            }
+        });
+
+        cambiarDatojLabel.setText("Datos actuales de la obra");
+
+        cambiarDatojLabel2.setText("Obra");
+
+        cambiarDatojButton.setText("Cambiar");
+        cambiarDatojButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarDatojButtonActionPerformed(evt);
+            }
+        });
+
+        cambiarDatojTextArea1.setColumns(20);
+        cambiarDatojTextArea1.setRows(5);
+        jScrollPane13.setViewportView(cambiarDatojTextArea1);
+
+        cambiarDatojComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarDatojComboBox2ActionPerformed(evt);
+            }
+        });
+
+        cambiarDatojTextField1.setToolTipText("");
+        cambiarDatojTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cambiarDatojTextField1KeyTyped(evt);
+            }
+        });
+
+        jLabel16.setText("Nuevo dato");
+
+        jLabel21.setText("Opcion");
+
+        cambiarDatojButton2.setText("Volver");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(cambiarDatojButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cambiarDatojButton)
+                        .addGap(52, 52, 52))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cambiarDatojLabel2)
+                            .addComponent(cambiarDatojLabel)
+                            .addComponent(cambiarDatoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(69, 69, 69)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cambiarDatojComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cambiarDatojTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel21))
+                        .addContainerGap(45, Short.MAX_VALUE))))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(cambiarDatojLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cambiarDatoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cambiarDatojLabel)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(cambiarDatojComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel16)
+                        .addGap(9, 9, 9)
+                        .addComponent(cambiarDatojTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cambiarDatojButton)
+                    .addComponent(cambiarDatojButton2))
+                .addGap(29, 29, 29))
         );
 
-        javax.swing.GroupLayout CambiarPresupuestoFrameLayout = new javax.swing.GroupLayout(CambiarPresupuestoFrame.getContentPane());
-        CambiarPresupuestoFrame.getContentPane().setLayout(CambiarPresupuestoFrameLayout);
-        CambiarPresupuestoFrameLayout.setHorizontalGroup(
-            CambiarPresupuestoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout CambiarDatoFrameLayout = new javax.swing.GroupLayout(CambiarDatoFrame.getContentPane());
+        CambiarDatoFrame.getContentPane().setLayout(CambiarDatoFrameLayout);
+        CambiarDatoFrameLayout.setHorizontalGroup(
+            CambiarDatoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        CambiarPresupuestoFrameLayout.setVerticalGroup(
-            CambiarPresupuestoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        CambiarDatoFrameLayout.setVerticalGroup(
+            CambiarDatoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -1182,11 +1282,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Eliminar de La Plataforma");
+        eliminarEmpleadojButton.setText("Eliminar de La Plataforma");
+        eliminarEmpleadojButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarEmpleadojButtonActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        eliminarEmpleadoJText.setColumns(20);
+        eliminarEmpleadoJText.setRows(5);
+        jScrollPane1.setViewportView(eliminarEmpleadoJText);
 
         eliminarEmpleadoObraComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1212,12 +1317,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(eliminarEmpleadoEmpleadoComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(eliminarEmpleadoObraComboBox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(eliminarEmpleadoEmpleadoComboBox, 0, 109, Short.MAX_VALUE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(eliminarEmpleadoObraComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1225,7 +1329,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(eliminarEmpleadojButton, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(119, 119, 119))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel12)
@@ -1251,7 +1355,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
-                .addComponent(jButton4)
+                .addComponent(eliminarEmpleadojButton)
                 .addContainerGap())
         );
 
@@ -1568,8 +1672,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void eliminarEmpleadoDePlataformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoDePlataformaActionPerformed
         // TODO add your handling code here:
+
         this.GestionEmpleadosFrame.setVisible(false);
-        this.DespedirEmpleados.setVisible(true);
+        this.EliminarEmpleadoDeLaPlataforma.setVisible(true);
+        this.EliminarEmpleadoDeLaPlataforma.setSize(800,450);
+        this.registroObr.llenarComboBoxObras(this.eliminarEmpleadoObraComboBox);
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, "");
+        
     }//GEN-LAST:event_eliminarEmpleadoDePlataformaActionPerformed
 
     private void cambiarDatosDeEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatosDeEmpleadoActionPerformed
@@ -1696,10 +1805,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_MostrarTodasLasObrasFrameWindowClosing
 
-    private void CambiarPresupuestoFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CambiarPresupuestoFrameWindowClosing
+    private void CambiarDatoFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CambiarDatoFrameWindowClosing
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_CambiarPresupuestoFrameWindowClosing
+    }//GEN-LAST:event_CambiarDatoFrameWindowClosing
 
     private void ObraTerminadaFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ObraTerminadaFrameWindowClosing
         // TODO add your handling code here:
@@ -1835,6 +1944,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void eliminarEmpleadoObraComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoObraComboBoxActionPerformed
         // TODO add your handling code here:
+        String nombreObra = (String) this.eliminarEmpleadoObraComboBox.getSelectedItem();
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, nombreObra);
+        //String valor = (String) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem();
+        
     }//GEN-LAST:event_eliminarEmpleadoObraComboBoxActionPerformed
 
     private void nombreObraDespedirEmpeladoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreObraDespedirEmpeladoComboBoxActionPerformed
@@ -1842,6 +1955,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         
         String nombreObra = (String) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
         this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, nombreObra);
+        
 
     }//GEN-LAST:event_nombreObraDespedirEmpeladoComboBoxActionPerformed
 
@@ -1862,6 +1976,18 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void eliminarEmpleadoEmpleadoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoEmpleadoComboBoxActionPerformed
         // TODO add your handling code here:
+        
+        Persona empleado = (Persona) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem();
+        
+        if(empleado != null){
+            this.eliminarEmpleadoJText.setText("");
+            this.eliminarEmpleadoJText.append("Nombre: "+empleado.getNombre()+'\n');
+            this.eliminarEmpleadoJText.append("Labor: "+empleado.getLaborProfesional()+'\n');
+            this.eliminarEmpleadoJText.append("Rut: "+String.valueOf(empleado.getRut())+'\n') ;
+            this.eliminarEmpleadoJText.append("Sueldo: "+String.valueOf(empleado.getSueldo())) ;
+        }
+       //this.eliminarEmpleadoJText.append(empleado.getRut());
+        //this.eliminarEmpleadoJText.append(empleado.getSueldo());
     }//GEN-LAST:event_eliminarEmpleadoEmpleadoComboBoxActionPerformed
 
     private void despedirEmpleadoDeObrabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEmpleadoDeObrabtnActionPerformed
@@ -1879,6 +2005,66 @@ public class InterfazGrafica extends javax.swing.JFrame {
         
     }//GEN-LAST:event_despedirEmpleadoDeObrabtnActionPerformed
 
+    private void eliminarEmpleadojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadojButtonActionPerformed
+        
+        Persona empleado = (Persona) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
+        this.registroTra.eliminarEspecialista(empleado) ;
+    }//GEN-LAST:event_eliminarEmpleadojButtonActionPerformed
+
+    private void cambiarDatoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoComboBoxActionPerformed
+        String nombreObra = (String) this.cambiarDatoComboBox.getSelectedItem() ;
+        System.out.println(nombreObra);
+        Obra obraActual = this.registroObr.retornarObra(nombreObra) ;
+        if(obraActual != null){
+            this.cambiarDatojTextArea1.setText("");
+            this.cambiarDatojTextArea1.append("Nombre: "+obraActual.getNombreObra()+'\n');
+            this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
+            this.cambiarDatojTextArea1.append("Presupuesto: "+String.valueOf(obraActual.getPresupuestoObra())+'\n') ;
+            this.cambiarDatojTextArea1.append("Tiempo restante: "+obraActual.getTiempoParaTerminarObra()) ;
+        }
+    }//GEN-LAST:event_cambiarDatoComboBoxActionPerformed
+
+    private void cambiarDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoActionPerformed
+        this.GestionObrasFrame.setVisible(false);
+        this.CambiarDatoFrame.setVisible(true);
+        this.CambiarDatoFrame.setSize(450,400);
+        this.registroObr.llenarComboBoxObras(this.cambiarDatoComboBox) ;
+        this.cambiarDatojComboBox2.addItem("Nombre");
+        this.cambiarDatojComboBox2.addItem("Region");
+        this.cambiarDatojComboBox2.addItem("Fecha Objetivo");
+        this.cambiarDatojComboBox2.addItem("Presupuesto");
+    }//GEN-LAST:event_cambiarDatoActionPerformed
+
+    private void cambiarDatojComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojComboBox2ActionPerformed
+
+        /*String nombreObra = (String) this.cambiarDatojComboBox2.getSelectedItem() ;
+        Obra obraActual = this.registroObr.retornarObra(nombreObra) ;
+        if(obraActual != null){
+            this.cambiarDatojTextArea1.setText("");
+            this.cambiarDatojTextArea1.append("Nombre: "+obraActual.getNombreObra()+'\n');
+            this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
+            this.cambiarDatojTextArea1.append("Presupuesto: "+String.valueOf(obraActual.getPresupuestoObra())+'\n') ;
+            this.cambiarDatojTextArea1.append("Tiempo restante: "+obraActual.getTiempoParaTerminarObra()) ;
+        }*/
+    }//GEN-LAST:event_cambiarDatojComboBox2ActionPerformed
+
+    private void cambiarDatojTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cambiarDatojTextField1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cambiarDatojTextField1KeyTyped
+
+    private void cambiarDatojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojButtonActionPerformed
+        String nombreObra = (String) this.cambiarDatoComboBox.getSelectedItem();
+        String nuevoDato = this.cambiarDatojTextField1.getText() ;
+        
+        int opcion = this.cambiarDatojComboBox2.getSelectedIndex() ;
+        System.out.println(nuevoDato+" "+ nombreObra+" "+opcion);
+        try {
+            this.registroObr.modificarObra(nombreObra, nuevoDato, opcion+1, registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_cambiarDatojButtonActionPerformed
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
         // TODO add your handling code here:
         int valor = this.jComboBox4.getSelectedIndex();
@@ -1918,6 +2104,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField1KeyTyped
+
 
 
     
@@ -1965,6 +2152,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AnadirEmpleadoToPlataform;
     private javax.swing.JLabel Autores;
+    private javax.swing.JFrame CambiarDatoFrame;
+    private javax.swing.JFrame CambiarSueldoEmpleado;
     private javax.swing.JFrame CambiarDatosEmpleado;
     private javax.swing.JFrame CambiarPresupuestoFrame;
     private javax.swing.JFrame DespedirEmpleados;
@@ -1994,6 +2183,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton botonAgregarObra;
     private javax.swing.JButton botonMostrarAllObras;
     private javax.swing.JButton botonObraTerminada;
+    private javax.swing.JButton cambiarDato;
+    private javax.swing.JComboBox<String> cambiarDatoComboBox;
+    private javax.swing.JButton cambiarDatojButton;
+    private javax.swing.JButton cambiarDatojButton2;
+    private javax.swing.JComboBox<String> cambiarDatojComboBox2;
+    private javax.swing.JLabel cambiarDatojLabel;
+    private javax.swing.JLabel cambiarDatojLabel2;
+    private javax.swing.JTextArea cambiarDatojTextArea1;
+    private javax.swing.JTextField cambiarDatojTextField1;
+    private javax.swing.JButton cambiarSueldoDeEmpleado;
     private javax.swing.JButton cambiarDatosDeEmpleado;
     private javax.swing.JComboBox<String> cambiarDatosNombreEmpleadoComboBox;
     private javax.swing.JButton cambiarPresupuesto;
@@ -2004,7 +2203,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton despedirEmpleados;
     private javax.swing.JButton eliminarEmpleadoDePlataforma;
     private javax.swing.JComboBox<String> eliminarEmpleadoEmpleadoComboBox;
+    private javax.swing.JTextArea eliminarEmpleadoJText;
     private javax.swing.JComboBox<String> eliminarEmpleadoObraComboBox;
+    private javax.swing.JButton eliminarEmpleadojButton;
     private javax.swing.JLabel especialidadJLabel;
     private javax.swing.JComboBox<String> especializacionCombobox;
     private javax.swing.JLabel estadoEmpleadosObrasMostrarJLabel1;
@@ -2056,6 +2257,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2064,7 +2266,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextNombreObra;

@@ -16,6 +16,7 @@ import javax.swing.JTextArea;
  */
 public class RegistroObras {
     
+    private RegistroTrabajadores registroTrabajadores;
     //variables de instancia
     private HashMap <String, HashMap<String, Obra>> regiones;
     private HashMap <String, Obra> registro ;
@@ -195,9 +196,10 @@ public class RegistroObras {
                     remplazo.setNombreObra(nuevoDato) ;
                     this.registro.remove(nombreObra) ;
                     this.regiones.get(lugar).remove(nombreObra) ;
-                    WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
+                    
                     this.regiones.get(lugar).put(remplazo.getNombreLugar(), remplazo) ; 
                     this.registro.put(remplazo.getNombreObra(), remplazo) ;
+                    WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
                     WriteFile.escribirObras(',', registroActual );
                     return;
                 }
@@ -206,9 +208,10 @@ public class RegistroObras {
                     remplazo.setNombreLugar(nuevoDato) ;
                     this.registro.remove(nombreObra) ;
                     this.regiones.get(lugar).remove(nombreObra) ;
-                    WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
+                    
                     this.registro.put(remplazo.getNombreObra(), remplazo) ;
                     this.regiones.get(nuevoDato).put(nombreObra, remplazo) ;
+                    WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
                     WriteFile.escribirObras(',', registroActual );
                     return;
                 }
@@ -233,9 +236,10 @@ public class RegistroObras {
             }
             this.registro.remove(nombreObra) ;
             this.regiones.get(lugar).remove(nombreObra) ;
-            WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
+            
             this.registro.put(nombreObra, remplazo) ;
             this.regiones.get(lugar).put(nombreObra, remplazo) ;
+            WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
             WriteFile.escribirObras(',', registroActual );
         }
     }

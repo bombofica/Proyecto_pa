@@ -114,7 +114,6 @@ public class Obra {
 
     public void despedirEmpleado(String nombre) {
         Persona sujeto = tablaPersonasNombre.get(nombre);
-        
         if(sujeto != null){
             eliminarDelListado(sujeto.getRut());
             tablaPersonasNombre.remove(nombre);
