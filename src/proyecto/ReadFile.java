@@ -83,13 +83,8 @@ public class ReadFile {
                         currentPersona = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),
                                 Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]),"");
                     }
-                    if(registroTrabajadores.agregarEspecialista(currentPersona)){
-                        System.out.println("Se agregó exitosamente el empleado");
-                    }
-                    else
-                    {
-                        System.out.println("El usuario No ha sido ingresado");
-                    }
+                    
+                    registroTrabajadores.agregarEspecialista(currentPersona);
                     
 
                     valores = new String[num];
