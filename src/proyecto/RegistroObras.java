@@ -202,6 +202,7 @@ public class RegistroObras {
                     
                     this.regiones.get(lugar).put(remplazo.getNombreLugar(), remplazo) ; 
                     this.registro.put(remplazo.getNombreObra(), remplazo) ;
+                    remplazo.cambiarNombre();
                     WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
                     WriteFile.escribirObras(',', registroActual );
                     return;

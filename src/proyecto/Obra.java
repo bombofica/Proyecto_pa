@@ -268,5 +268,16 @@ public class Obra {
     public String toString() {
         return this.nombreObra;
     }
+    
+    public void cambiarNombre()
+    {
+        int i;
+        Persona personaActual;
+        for(i = 0 ; i < listadoPersonas.size() ; i++)
+        {
+            personaActual = listadoPersonas.get(i) ;
+            personaActual.setObraALaQuePertenece(nombreObra);
+        }
+    }
 
 }
