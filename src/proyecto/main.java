@@ -58,8 +58,12 @@ public class main{
             try
             {
                 menu = scannerEnterosFlotantes.nextInt() ;
-                main.limpiarPantalla();
-                
+                //main.limpiarPantalla();
+                if(menu == 3)
+                {
+                    System.exit(0);
+                    //break;
+                }
                 if(menu == 1)//Gestion de obras
                 {
                     System.out.println("1. Añadir obra") ;
@@ -124,12 +128,12 @@ public class main{
                 if(menu == 2)//Gestion de personas
                 {
                     System.out.println("1. Añadir empleado a la plataforma") ;
-                    System.out.println("2. Mostrar empleados de una obra") ;
-                    System.out.println("3. Mostrar todos los empleados") ;
-                    System.out.println("4. mover empleados") ;
-                    System.out.println("5. Despedir empleado");
-                    System.out.println("6. Eliminar empleado de la plataforma");
-                    System.out.println("7. Cambiar sueldo de un empleado");
+                    //System.out.println("2. Mostrar empleados de una obra") ;
+                    System.out.println("2. Mostrar empleados") ;
+                    //System.out.println("4. mover empleados") ;
+                    //System.out.println("5. Despedir empleado");
+                    System.out.println("3. Eliminar empleado de la plataforma");
+                    System.out.println("4. Cambiar un dato de un empleado");
                     try
                     {
                         menu = scannerEnterosFlotantes.nextInt() ;
@@ -138,54 +142,72 @@ public class main{
                             AgregarEmpleados(scannerStrings, scannerEnterosFlotantes, registroPersonas);
                             menu = 0 ;
                             continue ;
-                                    
                         }
-                        if(menu == 2)//mostrar empleados de una obra
+                        if(menu == 2) // Mostrar empleados
                         {
-                            
-                        }
-                        if(menu == 3) // Mostrar todos los empleados
-                        {
-                            System.out.println("Desea filtrar los datos?");
-                            System.out.println("1. Por profesión");
-                            System.out.println("2. Por sueldo");
-                            System.out.println("3. Mostrar no asignados y asignados");
-                            System.out.println("4. Mostrar sin filtro");
-                            try{
-                                listaPersonas(scannerStrings, scannerEnterosFlotantes, registroPersonas);
-                                menu = 0;
-                                continue ;
-                            }
-                            catch(Exception e)
-                            {
-                                System.out.println("Error opción no disponible volviendo al menú") ;
-                                menu = 0;
-                                continue;
-                            }
-                            
-                        }
-                        if(menu == 4)//Mover empleados
-                        {
-                            menu = 0;
-                            continue;
-                        }
-                        if(menu == 5)//Despedir empleado
-                        {
-                            menu = 0;
-                            continue;
-                        }
-                        if(menu == 6)//Eliminar empleado de la plataforma
-                        {
-                            String nombre ;
-                            System.out.println("ingrese el nombre de la persona") ;
-                            nombre = scannerStrings.nextLine() ;
-                            //registroPersonas.eliminarPersona(nombre); Agregar esta función
-                            
+                            System.out.println("Ingrese profecion para filtrar");
+                            String filtro = scannerStrings.nextLine() ;
+                            registroPersonas.mostrarPersona(filtro);
                             menu = 0 ;
                             continue ;
                         }
-                        if(menu == 7)//Modificar un sueldo
+                        if(menu == 3)//Eliminar empleado de la plataforma
                         {
+                            
+                            int rut ;
+                            String profesion ;
+                            System.out.println("ingrese el rut de la persona") ;
+                            rut = scannerEnterosFlotantes.nextInt() ;
+                            System.out.println(rut) ;
+                            System.out.println("ingrese la profesion de la persona") ;
+                            profesion = scannerStrings.nextLine() ;
+                            Obra obraActual = registroObras.retornarObra(registroPersonas.buscarEspecialista(profesion, rut).getObraALaQuePertenece()) ;
+                            registroPersonas.eliminarEspecialista(profesion, rut , obraActual) ;
+                            WriteFile.escribirObras(',', registroObras);
+                            menu = 0 ;
+                            continue ;
+                        }
+                        if(menu == 4)//Modificar un sueldo
+                        {
+                            String nuevoDato;
+                            System.out.println("Ingrese rut de la persona");
+                            int rut = scannerEnterosFlotantes.nextInt() ;
+                            System.out.println("Ingrese la profecion de la persona");
+                            String profesion = scannerStrings.nextLine() ;
+                            Persona sujetoModificar = registroPersonas.buscarEspecialista(profesion, rut) ;
+                            System.out.println("Ingrese el atributo a modificar");
+                            System.out.println("Ingrese el atributo a modificar");
+                            System.out.println("1. Nombre del especialista");
+                            System.out.println("2. Labor en la obra");
+                            System.out.println("3. Sueldo");
+                            int opcion = scannerEnterosFlotantes.nextInt() ;
+                            switch(opcion)
+                            {
+                                case 1:
+                                {
+                                    System.out.println("Ingrese el nuevo nombre de la persona");
+                                    nuevoDato = scannerStrings.nextLine() ;
+                                    registroPersonas.modificarEspecialistaNombre(sujetoModificar, nuevoDato) ;
+                                    WriteFile.escribirObras(',', registroObras);
+                                    break;
+                                }
+                                case 2:
+                                {
+                                    System.out.println("Ingrese la nueva labor de la persona");
+                                    nuevoDato = scannerStrings.nextLine() ;
+                                    registroPersonas.modificarEspecialistaLaborProfesional(sujetoModificar, nuevoDato) ;
+                                    WriteFile.escribirObras(',', registroObras);
+                                    break ;
+                                }
+                                case 3:
+                                {
+                                    System.out.println("Ingrese la nueva labor de la persona");
+                                    int nuevoSueldo = scannerEnterosFlotantes.nextInt() ;
+                                    registroPersonas.modificarEspecialistaSueldo(sujetoModificar, nuevoSueldo) ;
+                                    WriteFile.escribirObras(',', registroObras);
+                                }
+                                
+                            }
                             menu = 0;
                         }
                     }
@@ -289,52 +311,8 @@ public class main{
         System.out.println("Ingrese el rut");
         rut = scannerEnterosFlotantes.nextInt() ;
         Persona nuevoEmpleado = new Persona(nombre,labor,sueldo,rut,false,"") ;
-        //registroPersonas.agregarPersona(nuevoEmpleado); agregar esta funcion
+        registroPersonas.agregarEspecialista(nuevoEmpleado);
         WriteFile.imprimirTodasLasPersonas(registroPersonas);
-    }
-
-    private static void listaPersonas(Scanner scannerStrings, Scanner scannerEnterosFlotantes, RegistroTrabajadores registroPersonas) {
-        int menu ;
-        menu = scannerEnterosFlotantes.nextInt();
-        if(menu == 1)//Por profecion 
-        {
-            String filtro;
-            System.out.println("ingrese profesión");
-            filtro = scannerStrings.nextLine();
-            System.out.println("El filtro es: "+filtro);
-            registroPersonas.mostrarPersona(filtro);
-            return ;
-        }
-        if(menu == 2)//Por sueldo
-        {
-            int filtro;
-            System.out.println("Ingrese sueldo");
-            filtro = scannerEnterosFlotantes.nextInt();
-            System.out.println("El filtro es: "+filtro);
-            //registroPersonas.mostrarPersona(filtro);Agregar esta función
-            return ;
-        }
-        if(menu == 3)//Asignado o no
-        {                                   
-            System.out.println("Desea ver los empleados asignados a una obra o los no asignados");
-            System.out.println("1. asignados") ;
-            System.out.println("2. no asignados") ;
-            menu = scannerEnterosFlotantes.nextInt();
-            if(menu == 1)
-            {
-                //registroPersonas.mostrarPersona(true); Agregar esta función
-                return ;
-            }
-            else
-            {
-                // registroPersonas.mostrarPersona(false); Agregar esta función
-                return ;
-            }  
-        }
-        if(menu == 4)//Todos los empleados
-        {
-            //registroPersonas.mostrarPersona(); Agregar esta función
-        }
     }
     
     public static void limpiarPantalla(){
