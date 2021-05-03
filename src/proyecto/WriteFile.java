@@ -206,12 +206,12 @@ public class WriteFile {
             if(directorio.delete()) // si no se elimina, se imprime un error
             {
                 
-                System.out.println("Se eliminó correctamente");
+                //System.out.println("Se eliminó correctamente");
             }
         }
         else
         {
-            System.out.print("La Obra No existe");
+            //System.out.print("La Obra No existe");
         }
     }
     
@@ -227,10 +227,10 @@ public class WriteFile {
                 
                 //System.out.println(currentObra.getNumeroEmpleados());
                 
-                /*for(int j=0; j < registroTrabajadores.devolverNumeroPersonas(); j++){ ********Editar esto******
-                    current = registroTrabajadores.getPersona(j);
+                for(int j=0; j < registroTrabajadores.numeroDeTrabajadores(); j++){
+                    current = registroTrabajadores.devolverPersona(j);
                     
-                    if (j == registroTrabajadores.devolverNumeroPersonas()-1){
+                    if (j == registroTrabajadores.numeroDeTrabajadores()-1){
                         Escritor.write(current.getNombre()+','+current.getLaborProfesional()+','+current.getSueldo()
                         +','+current.getRut()+','+current.isTrabajando()+',');                       
                     }
@@ -240,7 +240,7 @@ public class WriteFile {
                         +','+current.getRut()+','+current.isTrabajando()+','+'\n');                        
                     }
                     
-                }*/
+                }
                 
                 Escritor.close();
             } catch (IOException e) {

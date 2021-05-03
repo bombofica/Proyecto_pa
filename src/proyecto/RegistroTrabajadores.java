@@ -307,6 +307,13 @@ public class RegistroTrabajadores {
         }
 
     }
+    public Persona devolverPersona(int index){
+        return this.arrayEmpleados.get(index);
+    }
+    
+    public int numeroDeTrabajadores(){
+        return this.arrayEmpleados.size();
+    }
       
     public void llenarComboBoxDePersonas(JComboBox comboBox){
         
