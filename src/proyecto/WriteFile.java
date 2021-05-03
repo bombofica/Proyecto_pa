@@ -221,7 +221,7 @@ public class WriteFile {
         
         
             
-            try (FileWriter Escritor = new FileWriter("RegistroTrabajadores.txt")) {
+            try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroTrabajadores.txt")) {
                 
                 Persona current;
                 
