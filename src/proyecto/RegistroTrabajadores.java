@@ -288,6 +288,7 @@ public class RegistroTrabajadores {
             System.out.println("Profesión: "+current.getLaborProfesional());
             System.out.println("Rut: "+current.getRut());
             System.out.println("Saldo: "+current.getSueldo());
+            System.out.println("Obra: "+current.getObraALaQuePertenece());
         }
     }
     

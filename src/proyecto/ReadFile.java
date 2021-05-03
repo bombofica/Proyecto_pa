@@ -75,8 +75,9 @@ public class ReadFile {
                     if(currentObra != null){
                         currentPersona = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),
                                 Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]),
-                                currentObra.getNombreObra());
-                        currentObra.agregarPersona(currentPersona);
+                                //currentObra.getNombreObra());
+                        currentObra.toString());
+                                currentObra.agregarPersona(currentPersona);
                     }
                     else
                     {

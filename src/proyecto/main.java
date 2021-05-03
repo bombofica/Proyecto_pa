@@ -249,7 +249,7 @@ public class main{
         System.out.println("Ingrese el presupuesto de la obra");
         presupuesto = scannerEnterosFlotantes.nextDouble() ;
         System.out.println("Ingrese el tiempo asignado de la obra");
-        System.out.println("ej: 28-04-2021");// verificar que esto se cumpla
+        //System.out.println("ej: 28-04-2021");// verificar que esto se cumpla
         tiempoAsignado = scannerStrings.nextLine() ;
         Obra nuevaObra = new Obra(nombre, Region, presupuesto, tiempoAsignado) ;
         registroObras.agregarObra(nuevaObra);
