@@ -241,8 +241,8 @@ public class MenuConsola {
         System.out.println("Ingrese el tiempo asignado de la obra");
         //System.out.println("ej: 28-04-2021");// verificar que esto se cumpla
         tiempoAsignado = scannerStrings.nextLine() ;
-        Obra nuevaObra = new Obra(nombre, Region, presupuesto, tiempoAsignado) ;
-        registroObras.agregarObra(nuevaObra);
+        //Obra nuevaObra = new Obra(nombre, Region, presupuesto, tiempoAsignado, 0) ;
+        //registroObras.agregarObra(nuevaObra);
         WriteFile.escribirObras(',', registroObras);
         System.out.println("Obra agregada");
     }

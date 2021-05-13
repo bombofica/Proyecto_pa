@@ -154,17 +154,17 @@ public class ReadFile {
  
                     
                     System.out.println(valores[1]);                         // nombre_lugar(2)
-                    currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), valores[3]);
-                    ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
-                            +valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);
+                    //currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), valores[3]);
+                    //ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
+                            //+valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);
                              // nombre_Obra(1)
                     
                     //,hashPersonaNombre,hashPersonaRut,lista);
                     
-                    registroObras.agregarObra(currentObra);//*************** benja ****************
+                    //registroObras.agregarObra(currentObra);//*************** benja ****************
                                         
-                    valores = new String[num];
-                    cont = 0;
+                    //valores = new String[num];
+                    //cont = 0;
                 }            
                 
 

@@ -14,16 +14,16 @@ import javax.swing.JTextArea;
 //crear un getEmpleados y mover los metodos a registroObras
 //crear un getEmpleados y mover los metodos a registroObras
 
-public class Obra {
+public abstract class Obra {
     
     //Variables de instancia
     private String nombreObra;
     
     private String nombreLugar;
 
-    private double presupuestoObra;
+    private double presupuestoObra; //mover a la herencia eliminar de la clase Obra
 
-    private String tiempoParaTerminarObra;
+    private String tiempoParaTerminarObra; //mover a herencia eliminar de la clase Obra
 
     private HashMap<String, Persona> tablaPersonasNombre;
 
@@ -33,6 +33,8 @@ public class Obra {
     
     private int numeroEmpleados;
     
+    private int codigo;
+    
     //Constructores
     public Obra() {
         this.tablaPersonasNombre = new HashMap();
@@ -41,7 +43,7 @@ public class Obra {
         this.listadoPersonas = new ArrayList();
     }
 
-    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, String tiempoNecesarioParaTerminarObra) {
+    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, String tiempoNecesarioParaTerminarObra, int codigo) {
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
         this.presupuestoObra = presupuestoObra;
@@ -50,6 +52,7 @@ public class Obra {
         this.tablaPersonasRut = new HashMap();
         this.numeroEmpleados = tablaPersonasNombre.size();
         this.listadoPersonas = new ArrayList();
+        this.codigo = codigo ;
     }
     
     //Metodos
