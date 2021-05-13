@@ -14,22 +14,22 @@ import javax.swing.JTextArea;
 //crear un getEmpleados y mover los metodos a registroObras
 //crear un getEmpleados y mover los metodos a registroObras
 
-public class Obra {
+public abstract class Obra {
     
     //Variables de instancia
     private String nombreObra;
     
     private String nombreLugar;
 
-    private double presupuestoObra;
+    //private double presupuestoObra;
 
-    private String tiempoParaTerminarObra;
+    //private String tiempoParaTerminarObra;
 
-    private HashMap<String, Persona> tablaPersonasNombre;
+    private HashMap<String, Trabajador> tablaPersonasNombre;
 
-    private HashMap<Integer, Persona> tablaPersonasRut;
+    private HashMap<Integer, Trabajador> tablaPersonasRut;
     
-    private ArrayList<Persona> listadoPersonas;
+    private ArrayList<Trabajador> listadoPersonas;
     
     private int numeroEmpleados;
     
@@ -44,8 +44,8 @@ public class Obra {
     public Obra(String nombreObra, String nombreLugar, double presupuestoObra, String tiempoNecesarioParaTerminarObra) {
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
-        this.presupuestoObra = presupuestoObra;
-        this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
+        //this.presupuestoObra = presupuestoObra;
+        //this.tiempoParaTerminarObra = tiempoNecesarioParaTerminarObra;
         this.tablaPersonasNombre = new HashMap();
         this.tablaPersonasRut = new HashMap();
         this.numeroEmpleados = tablaPersonasNombre.size();
@@ -87,7 +87,7 @@ public class Obra {
         this.nombreLugar = nombreLugar;
     }
 
-    public double getPresupuestoObra() {
+/*    public double getPresupuestoObra() {
         return presupuestoObra;
     }
 
@@ -105,10 +105,10 @@ public class Obra {
 
     public void setTiempoParaTerminarObra(String tiempoParaTerminarObra) {
         this.tiempoParaTerminarObra = tiempoParaTerminarObra;
-    }
+    }*/
 
     public void despedirEmpleado(String nombre) {
-        Persona sujeto = tablaPersonasNombre.get(nombre);
+        Trabajador sujeto = tablaPersonasNombre.get(nombre);
         if(sujeto != null){
             eliminarDelListado(sujeto.getRut());
             tablaPersonasNombre.remove(nombre);
@@ -120,7 +120,7 @@ public class Obra {
     }
     
     public void despedirEmpleado(int rut) {
-        Persona sujeto = tablaPersonasRut.get(rut);
+        Trabajador sujeto = tablaPersonasRut.get(rut);
         
         if(sujeto != null){
             eliminarDelListado(rut);
@@ -150,10 +150,10 @@ public class Obra {
     }
 
     
-
+/*
     public void cambiarPresupuesto(double presupuestoObra) {
         this.presupuestoObra = presupuestoObra;
-    }
+    }*/
 
     public Persona buscarPersona(int rut) {
         Persona valor = tablaPersonasRut.get(rut);
@@ -165,7 +165,7 @@ public class Obra {
         return valor;
     }
 
-    public void agregarPersona(Persona serHumano) {
+    public void agregarPersona(Trabajador serHumano) {
         tablaPersonasRut.put(serHumano.getRut(), serHumano);
         tablaPersonasNombre.put(serHumano.getNombre(), serHumano);
         this.listadoPersonas.add(serHumano);
@@ -176,7 +176,7 @@ public class Obra {
     public void mostrarEmpleados()
     {
         for (Map.Entry me : tablaPersonasRut.entrySet()) {
-            Persona current = (Persona) me.getValue();
+            Trabajador current = (Trabajador) me.getValue();
             System.out.print("Nombre: " + current.getNombre());
             System.out.print(" Rut: " + current.getRut());
             System.out.print(" Sueldo: " + current.getSueldo());
@@ -186,10 +186,10 @@ public class Obra {
     
     public void eliminarObra(){ //crear un getEmpleados y mover los metodos a registroObras
         
-        Persona current ;
+        Trabajador current ;
         for (Map.Entry persona : tablaPersonasNombre.entrySet()) {
             
-            current = (Persona) persona.getValue();
+            current = (Trabajador) persona.getValue();
             current.setTrabajando(false) ;
         }        
     }
@@ -212,10 +212,10 @@ public class Obra {
     public long retornarSueldos()
     {
         long sumaSueldos = 0;
-        Persona personaActual ;
+        Trabajador personaActual ;
         
         for (Map.Entry me : this.tablaPersonasNombre.entrySet()) {
-            personaActual = (Persona) me.getValue();
+            personaActual = (Trabajador) me.getValue();
             //System.out.println(sumaSueldos);
             sumaSueldos += personaActual.getSueldo() ;
         }
@@ -225,7 +225,7 @@ public class Obra {
     public void cambiarNombre()
     {
         int i;
-        Persona personaActual;
+        Trabajador personaActual;
         for(i = 0 ; i < listadoPersonas.size() ; i++)
         {
             personaActual = listadoPersonas.get(i) ;
@@ -254,7 +254,7 @@ public class Obra {
         if(this.listadoPersonas.size() > 0){
             for(int i = 0 ; i< this.listadoPersonas.size() ; i++)
             {
-                Persona current= this.listadoPersonas.get(i);
+                Trabajador current= this.listadoPersonas.get(i);
                 
             switch(valor){
                 case 0:

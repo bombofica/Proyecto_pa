@@ -5,6 +5,7 @@ import com.registro.obras.Controlador.RegistroTrabajadores;
 import com.registro.obras.Controlador.RegistroObras;
 import com.registro.obras.Modelo.Persona;
 import com.registro.obras.Modelo.Obra;
+import com.registro.obras.Modelo.Trabajador;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
@@ -33,12 +34,12 @@ public class WriteFile {
         
                 
 
-        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
+ //       try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
       
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
                 más específicamente en el ArrayList de RegistroObras*/ 
             
-            HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
+            /*HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
             
             
             int cont = 1;
@@ -58,30 +59,27 @@ public class WriteFile {
                         
                     }
                     cont++;
-                    /*
-                    System.out.print("Nombre: " + currentObra.getNombreObra());
-                    System.out.print(" Nombre Lugar: " + currentObra.getNombreLugar());
-                    System.out.print(" Presupuesto: " + currentObra.getPresupuestoObra());
-                    System.out.println(" Tiempo Estimado: " + currentObra.getTiempoParaTerminarObra());        */
+
                 }                
-          //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
-            }
-            Escritor.close();
-        } catch (IOException e) {
-            System.out.println("Error, el fichero no existe");
-        }
+
+            }*/
+ //           Escritor.close();
+//        } catch (IOException e) {
+ //           System.out.println("Error, el fichero no existe");
+ //       }
         
         int cont = 1;
-        HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
-        for (Map.Entry HashObras : regiones.entrySet()) {
-            HashMap<String, Obra> currentHashObras =(HashMap) HashObras.getValue();
-            for (Map.Entry obra : currentHashObras.entrySet()) {
-                Obra currentObra = (Obra) obra.getValue();      
+       // HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
+        //for (Map.Entry HashObras : regiones.entrySet()) {
+            //HashMap<String, Obra> currentHashObras =(HashMap) HashObras.getValue();
+            //for (Map.Entry obra : currentHashObras.entrySet()) {
+                //Obra currentObra = (Obra) obra.getValue();      
                 
-            addExistenciaDirectorioObra(currentObra);
-            try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados.txt")) {
+            //addExistenciaDirectorioObra(currentObra);
+            // terminar estoooooooooooooooooo
+ /*           try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados.txt")) {
                 
-                Persona currentPersona;
+                Trabajador currentPersona;
                 
                 //System.out.println(currentObra.getNumeroEmpleados());
                 
@@ -103,15 +101,15 @@ public class WriteFile {
                 Escritor.close();
             } catch (IOException e) {
                 System.out.println("Error, el fichero no existe 4");
-            }                
+            }   */             
                 
                 
                 
                 
                 
-                }                
+             //   }                
           //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
-            }
+           // }
         
         
         
@@ -221,13 +219,13 @@ public class WriteFile {
     
     
     
-    public static void imprimirTodasLasPersonas(RegistroTrabajadores registroTrabajadores){
+    public static void imprimirTodasLasPersonas(RegistroTrabajadores registroTrabajadores){ // terminar este metodo
         
         
             
-            try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroTrabajadores.txt")) {
+/*            try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroTrabajadores.txt")) {
                 
-                Persona current;
+                Trabajador current;
                 
                 //System.out.println(currentObra.getNumeroEmpleados());
                 
@@ -249,6 +247,6 @@ public class WriteFile {
                 Escritor.close();
             } catch (IOException e) {
                 System.out.println("Error, el fichero no existe 4");
-            }
+            }*/
     }
 }

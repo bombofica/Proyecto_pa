@@ -9,6 +9,7 @@ import com.registro.obras.Controlador.RegistroTrabajadores;
 import com.registro.obras.Controlador.RegistroObras;
 import com.registro.obras.Modelo.Persona;
 import com.registro.obras.Modelo.Obra;
+import com.registro.obras.Modelo.Trabajador;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.io.IOException;
@@ -1602,7 +1603,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         );
 
         CambiarDatosEmpleado2.setAlwaysOnTop(true);
-        CambiarDatosEmpleado2.setPreferredSize(new java.awt.Dimension(400, 300));
         CambiarDatosEmpleado2.setResizable(false);
         CambiarDatosEmpleado2.setSize(new java.awt.Dimension(400, 300));
         CambiarDatosEmpleado2.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1894,9 +1894,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         int presupuesto = Integer.parseInt(this.jTextPresupuesto.getText());
         String tiempoAsignado = this.jTextTiempoAsignado.getText();
         
-        Obra obraAgregar = new Obra(nombreObra,region,presupuesto,tiempoAsignado);
+        //Obra obraAgregar = new Obra(nombreObra,region,presupuesto,tiempoAsignado);
         
-        this.registroObr.agregarObra(obraAgregar);
+        //this.registroObr.agregarObra(obraAgregar);
         
         System.out.println("Obra Añadida al sistema");
         System.out.println(nombreObra);
@@ -1975,8 +1975,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         String especializacion = (String) this.especializacionCombobox.getSelectedItem();
         double salario = Double.parseDouble(this.sueldoJTextField.getText());
         int rut = Integer.parseInt(this.jTextRutSDV.getText());
-        Persona trabajador;
-        trabajador = new Persona(nombreEmpleado,especializacion,(int) salario,rut,false,"");
+        Trabajador trabajador;
+        trabajador = new Trabajador(nombreEmpleado,especializacion,(int) salario,rut,false,"");
         this.registroTra.agregarEspecialista(trabajador);
     }//GEN-LAST:event_anadirEmpleadobtnActionPerformed
 
@@ -2014,10 +2014,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Obra obraEscogida = this.registroObr.retornarObra(valor);
         
         if(obraEscogida != null){
-            String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
-                +"Región: "+obraEscogida.getNombreLugar()+'\n'
-                +"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
-                +"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
+            String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'+"Región: "+obraEscogida.getNombreLugar()+'\n';
+                //+"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
+                //+"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
             this.mostrarObraTextArea.setText(textoFinal);
         }
         
@@ -2149,9 +2148,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Obra obraEscogida = this.registroObr.retornarObra(valor);
         if(obraEscogida != null){
             String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
-                +"Región: "+obraEscogida.getNombreLugar()+'\n'
-                +"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
-                +"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
+                +"Región: "+obraEscogida.getNombreLugar()+'\n';
+//                +"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
+//                +"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
             this.InfoObraTerminadaJTextArea.setText(textoFinal);
         }
         else
@@ -2240,7 +2239,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Obra currentObraComboBox = this.registroObr.retornarObra(nombreObra);
         
-        Persona currentPersonaComboBox=(Persona) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
+        Trabajador currentPersonaComboBox=(Trabajador) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
         if(currentPersonaComboBox != null){
             System.out.println(currentPersonaComboBox.getNombre());
                 this.jTextArea2.setText("");
@@ -2254,7 +2253,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void eliminarEmpleadoEmpleadoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoEmpleadoComboBoxActionPerformed
         // TODO add your handling code here:
         
-        Persona empleado = (Persona) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem();
+        Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem();
         
         if(empleado != null){
             this.eliminarEmpleadoJText.setText("");
@@ -2284,7 +2283,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void eliminarEmpleadojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadojButtonActionPerformed
         
-        Persona empleado = (Persona) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
+        Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
         String nombreObra = (String) this.eliminarEmpleadoObraComboBox.getSelectedItem();
         
         Obra obraEscogida = this.registroObr.retornarObra(nombreObra);
@@ -2304,8 +2303,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
             this.cambiarDatojTextArea1.setText("");
             this.cambiarDatojTextArea1.append("Nombre: "+obraActual.getNombreObra()+'\n');
             this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
-            this.cambiarDatojTextArea1.append("Presupuesto: "+String.valueOf(obraActual.getPresupuestoObra())+'\n') ;
-            this.cambiarDatojTextArea1.append("Tiempo restante: "+obraActual.getTiempoParaTerminarObra()) ;
+            //this.cambiarDatojTextArea1.append("Presupuesto: "+String.valueOf(obraActual.getPresupuestoObra())+'\n') ;
+            //this.cambiarDatojTextArea1.append("Tiempo restante: "+obraActual.getTiempoParaTerminarObra()) ;
         }
     }//GEN-LAST:event_cambiarDatoComboBoxActionPerformed
 
@@ -2430,7 +2429,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void cDECambiarDatonJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDECambiarDatonJButtonActionPerformed
         // TODO add your handling code here:
-        Persona especialista = (Persona) this.cDENombreJComboBox.getSelectedItem();
+        Trabajador especialista = (Trabajador) this.cDENombreJComboBox.getSelectedItem();
         int valor = this.datosCDEJComboBox.getSelectedIndex();
         switch(valor){
             
