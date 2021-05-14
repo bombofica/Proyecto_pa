@@ -1894,7 +1894,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         int presupuesto = Integer.parseInt(this.jTextPresupuesto.getText());
         String tiempoAsignado = this.jTextTiempoAsignado.getText();
         
-        //Obra obraAgregar = new Obra(nombreObra,region,presupuesto,tiempoAsignado);
+
+        //Obra obraAgregar = new ObraConstruccion(nombreObra,region,presupuesto,tiempoAsignado,1);
+
         
         //this.registroObr.agregarObra(obraAgregar);
         

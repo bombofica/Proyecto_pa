@@ -21,6 +21,7 @@ public abstract class Obra {
     
     private String nombreLugar;
 
+
     //private double presupuestoObra;
 
     //private String tiempoParaTerminarObra;
@@ -33,6 +34,8 @@ public abstract class Obra {
     
     private int numeroEmpleados;
     
+    private int codigo;
+    
     //Constructores
     public Obra() {
         this.tablaPersonasNombre = new HashMap();
@@ -41,7 +44,7 @@ public abstract class Obra {
         this.listadoPersonas = new ArrayList();
     }
 
-    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, String tiempoNecesarioParaTerminarObra) {
+    public Obra(String nombreObra, String nombreLugar, double presupuestoObra, String tiempoNecesarioParaTerminarObra, int codigo) {
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
         //this.presupuestoObra = presupuestoObra;
@@ -50,6 +53,7 @@ public abstract class Obra {
         this.tablaPersonasRut = new HashMap();
         this.numeroEmpleados = tablaPersonasNombre.size();
         this.listadoPersonas = new ArrayList();
+        this.codigo = codigo ;
     }
     
     //Metodos
