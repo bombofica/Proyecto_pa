@@ -222,14 +222,14 @@ public class RegistroObras {
                 }
                 case 3: //Cambiar tiempo restante
                 {
-                    remplazo.setTiempoParaTerminarObra(nuevoDato) ;
+                    //remplazo.setTiempoParaTerminarObra(nuevoDato) ;
                     break;
                 }
                 case 4: //Cambiar presupuesto
                 {
                     try
                     {
-                        remplazo.setPresupuestoObra(Integer.parseInt(nuevoDato));
+                        //remplazo.setPresupuestoObra(Integer.parseInt(nuevoDato));
                     }
                     catch(Exception e)
                     {
@@ -282,8 +282,8 @@ public class RegistroObras {
         balance = obraEvaluar.retornarSueldos() ;
         System.out.println(nombreObra) ;
         System.out.println(balance) ;
-        System.out.println(obraEvaluar.getPresupuestoObra()) ;
-        balance = (long) (obraEvaluar.getPresupuestoObra() - balance) ;
+        //System.out.println(obraEvaluar.getPresupuestoObra()) ;
+        //balance = (long) (obraEvaluar.getPresupuestoObra() - balance) ;
         return balance;
     }
     
@@ -302,7 +302,7 @@ public class RegistroObras {
         long ingresos = 0 ;
         for(int i = 0; i < listaCompleta.size() ; i++)
         {
-            ingresos += listaCompleta.get(i).getPresupuestoObra() ;
+            //ingresos += listaCompleta.get(i).getPresupuestoObra() ;
         }
         return ingresos;
     }

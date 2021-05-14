@@ -2,6 +2,7 @@ package com.registro.obras.Controlador;
 
 import com.registro.obras.Modelo.Persona;
 import com.registro.obras.Modelo.Obra;
+import com.registro.obras.Modelo.Trabajador;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Map;
@@ -12,9 +13,9 @@ import javax.swing.JTextArea;
 
 public class RegistroTrabajadores {
 
-    private ArrayList<Persona> arrayEmpleados; 
+    private ArrayList<Trabajador> arrayEmpleados; 
     private String[] especializaciones;
-    private HashMap<String, TreeMap<Integer,Persona>> registroEspecializaciones; 
+    private HashMap<String, TreeMap<Integer,Trabajador>> registroEspecializaciones; 
     
     public RegistroTrabajadores() {
         
@@ -51,16 +52,16 @@ public class RegistroTrabajadores {
     }
     public void llenarJTextAreaEspecialidad(JTextArea jTextArea, String especialidad, int valor){
 
-        TreeMap<Integer,Persona> especialistas = this.registroEspecializaciones.get(especialidad);
+        TreeMap<Integer,Trabajador> especialistas = this.registroEspecializaciones.get(especialidad);
         if(especialistas == null){
             System.out.println("No existe Tal Especialidad");
             return;
         }
         
         
-        for(Map.Entry<Integer,Persona> entry : especialistas.entrySet()){
+        for(Map.Entry<Integer,Trabajador> entry : especialistas.entrySet()){
             //Integer llave = entry.getKey();
-            Persona current = entry.getValue();
+            Trabajador current = entry.getValue();
             
             
             switch(valor){
@@ -92,7 +93,7 @@ public class RegistroTrabajadores {
     }
     
     
-    public boolean agregarEspecialista(Persona trabajador){
+    public boolean agregarEspecialista(Trabajador trabajador){
             
         if (this.registroEspecializaciones.get(trabajador.getLaborProfesional()) == null){
             System.out.println("Esa especialidad no existe");  
@@ -113,7 +114,7 @@ public class RegistroTrabajadores {
     }
     
     public boolean eliminarEspecialista(String especialidad, int rut, Obra currentObra){
-        TreeMap<Integer,Persona> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
+        TreeMap<Integer,Trabajador> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
         if(mapaEspecialidades == null){
             System.out.println("No existe esa especialización");
             return false;
@@ -135,12 +136,12 @@ public class RegistroTrabajadores {
         return true;
     }
     
-    public boolean eliminarEspecialista(Persona especialista, Obra currentObra){
+    public boolean eliminarEspecialista(Trabajador especialista, Obra currentObra){
         
         String especialidad = especialista.getLaborProfesional();
         int rut = especialista.getRut();
         
-        TreeMap<Integer,Persona> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
+        TreeMap<Integer,Trabajador> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
         if(mapaEspecialidades == null){
             System.out.println("No existe esa especialización");
             return false;
@@ -161,12 +162,12 @@ public class RegistroTrabajadores {
         return true;
     }
     
-    public boolean modificarEspecialistaNombre(Persona especialista, String nombre){
+    public boolean modificarEspecialistaNombre(Trabajador especialista, String nombre){
         
         String especialidad = especialista.getLaborProfesional();
         int rut = especialista.getRut();
         
-        TreeMap<Integer,Persona> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
+        TreeMap<Integer,Trabajador> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
         if(mapaEspecialidades == null){
             System.out.println("No existe esa especialización");
             return false;
@@ -185,18 +186,18 @@ public class RegistroTrabajadores {
         return true;
     }
 
-    public boolean modificarEspecialistaLaborProfesional(Persona especialista, String especialidadNueva){
+    public boolean modificarEspecialistaLaborProfesional(Trabajador especialista, String especialidadNueva){
         
         String especialidad = especialista.getLaborProfesional();
         int rut = especialista.getRut();
         
-        TreeMap<Integer,Persona> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
+        TreeMap<Integer,Trabajador> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
         if(mapaEspecialidades == null){
             System.out.println("No existe esa especialización");
             return false;
         }
         
-        Persona empleado = mapaEspecialidades.get(rut);
+        Trabajador empleado = mapaEspecialidades.get(rut);
         
         if(empleado == null){
             System.out.println("El empleado No existe");
@@ -213,18 +214,18 @@ public class RegistroTrabajadores {
         return true;
     }
 
-    public boolean modificarEspecialistaSueldo(Persona especialista, int sueldo){
+    public boolean modificarEspecialistaSueldo(Trabajador especialista, int sueldo){
         
         String especialidad = especialista.getLaborProfesional();
         int rut = especialista.getRut();
         
-        TreeMap<Integer,Persona> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
+        TreeMap<Integer,Trabajador> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
         if(mapaEspecialidades == null){
             System.out.println("No existe esa especialización");
             return false;
         }
         
-        Persona empleado = mapaEspecialidades.get(rut);
+        Trabajador empleado = mapaEspecialidades.get(rut);
         
         if(empleado == null){
             System.out.println("El empleado No existe");
@@ -237,18 +238,18 @@ public class RegistroTrabajadores {
         return true;
     }
 
-    public boolean modificarEspecialistaEstadoDeTrabajo(Persona especialista, boolean estado){
+    public boolean modificarEspecialistaEstadoDeTrabajo(Trabajador especialista, boolean estado){
         
         String especialidad = especialista.getLaborProfesional();
         int rut = especialista.getRut();
         
-        TreeMap<Integer,Persona> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
+        TreeMap<Integer,Trabajador> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
         if(mapaEspecialidades == null){
             System.out.println("No existe esa especialización");
             return false;
         }
         
-        Persona empleado = mapaEspecialidades.get(rut);
+        Trabajador empleado = mapaEspecialidades.get(rut);
         
         if(empleado == null){
             System.out.println("El empleado No existe");
@@ -261,12 +262,12 @@ public class RegistroTrabajadores {
     }
     
     
-    public Persona buscarEspecialista(String especialidad, int rut){
+    public Trabajador buscarEspecialista(String especialidad, int rut){
         
         if (this.registroEspecializaciones.get(especialidad) == null){
             //System.out.println("Esa especialidad no existe");
         }
-        Persona valor = (this.registroEspecializaciones.get(especialidad)).get(rut);
+        Trabajador valor = (this.registroEspecializaciones.get(especialidad)).get(rut);
         if(valor == null){
             System.out.println("No existe tal persona");
             return null;
@@ -276,16 +277,16 @@ public class RegistroTrabajadores {
     }
     
     public void mostrarPersona(String especialidad){
-        TreeMap<Integer,Persona> especialistas = this.registroEspecializaciones.get(especialidad);
+        TreeMap<Integer,Trabajador> especialistas = this.registroEspecializaciones.get(especialidad);
         if(especialistas == null){
             System.out.println("No existe Tal Especialidad");
             return;
         }
         
         
-        for(Map.Entry<Integer,Persona> entry : especialistas.entrySet()){
+        for(Map.Entry<Integer,Trabajador> entry : especialistas.entrySet()){
             //Integer llave = entry.getKey();
-            Persona current = entry.getValue();
+            Trabajador current = entry.getValue();
             System.out.println("Nombre: "+current.getNombre());
             System.out.println("Profesión: "+current.getLaborProfesional());
             System.out.println("Rut: "+current.getRut());
@@ -296,12 +297,12 @@ public class RegistroTrabajadores {
     
     public void mostrarPersona(int rut, String profesion)
     {
-        TreeMap<Integer,Persona> especialistas = this.registroEspecializaciones.get(profesion);
+        TreeMap<Integer,Trabajador> especialistas = this.registroEspecializaciones.get(profesion);
         if(especialistas == null){
             System.out.println("No existe Tal Especialidad");
             return;
         }
-        Persona current = especialistas.get(rut);
+        Trabajador current = especialistas.get(rut);
         if(current != null){
             System.out.println("Nombre: "+current.getNombre());
             System.out.println("Profesión: "+current.getLaborProfesional());

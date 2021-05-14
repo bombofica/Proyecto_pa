@@ -4,6 +4,7 @@ import com.registro.obras.Controlador.RegistroTrabajadores;
 import com.registro.obras.Controlador.RegistroObras;
 import com.registro.obras.Modelo.Persona;
 import com.registro.obras.Modelo.Obra;
+import com.registro.obras.Modelo.Trabajador;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class ReadFile {
 
     public static void tomarContenidosPersonas(char separador, int num, String direccion, RegistroTrabajadores registroTrabajadores, Obra currentObra) {
         String[] valores = new String[num];// para almacenar los datos que se encuentran en una linea
-        Persona currentPersona;
+        Trabajador currentPersona;
         int cont = 0;
         
         // Verifica si el txt de los empleados de una obra tiene Personas, si no tiene
@@ -77,7 +78,7 @@ public class ReadFile {
                     
                     
                     if(currentObra != null){
-                        currentPersona = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),
+                        currentPersona = new Trabajador(valores[0], valores[1], Integer.parseInt(valores[2]),
                                 Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]),
                                 //currentObra.getNombreObra());
                         currentObra.toString());
@@ -85,7 +86,7 @@ public class ReadFile {
                     }
                     else
                     {
-                        currentPersona = new Persona(valores[0], valores[1], Integer.parseInt(valores[2]),
+                        currentPersona = new Trabajador(valores[0], valores[1], Integer.parseInt(valores[2]),
                                 Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]),"");
                     }
                     
@@ -150,7 +151,7 @@ public class ReadFile {
                    y se insertan en contenedorDatos para luego integrar los empleados en la Obra.
                 
                 */
-                if (caracter == '\n' || c == -1) {
+/*                if (caracter == '\n' || c == -1) {
  
                     
                     System.out.println(valores[1]);                         // nombre_lugar(2)
@@ -163,9 +164,11 @@ public class ReadFile {
                     
                     //registroObras.agregarObra(currentObra);//*************** benja ****************
                                         
-                    //valores = new String[num];
-                    //cont = 0;
-                }            
+
+                    valores = new String[num];
+                    cont = 0;
+                }    */        
+
                 
 
             } while (c != -1);

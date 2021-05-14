@@ -11,6 +11,7 @@ import com.registro.obras.Controlador.WriteFile;
 import com.registro.obras.Controlador.FechaHoy;
 import com.registro.obras.Modelo.Persona;
 import com.registro.obras.Modelo.Obra;
+import com.registro.obras.Modelo.Trabajador;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -164,7 +165,7 @@ public class MenuConsola {
                             int rut = scannerEnterosFlotantes.nextInt() ;
                             System.out.println("Ingrese la profecion de la persona");
                             String profesion = scannerStrings.nextLine() ;
-                            Persona sujetoModificar = registroPersonas.buscarEspecialista(profesion, rut) ;
+                            Trabajador sujetoModificar = registroPersonas.buscarEspecialista(profesion, rut) ;
                             System.out.println("Ingrese el atributo a modificar");
                             System.out.println("Ingrese el atributo a modificar");
                             System.out.println("1. Nombre del especialista");
@@ -241,7 +242,7 @@ public class MenuConsola {
         System.out.println("Ingrese el tiempo asignado de la obra");
         //System.out.println("ej: 28-04-2021");// verificar que esto se cumpla
         tiempoAsignado = scannerStrings.nextLine() ;
-        //Obra nuevaObra = new Obra(nombre, Region, presupuesto, tiempoAsignado, 0) ;
+        //Obra nuevaObra = new Obra(nombre, Region, presupuesto, tiempoAsignado) ;
         //registroObras.agregarObra(nuevaObra);
         WriteFile.escribirObras(',', registroObras);
         System.out.println("Obra agregada");
@@ -300,7 +301,7 @@ public class MenuConsola {
         sueldo = scannerEnterosFlotantes.nextInt() ;
         System.out.println("Ingrese el rut");
         rut = scannerEnterosFlotantes.nextInt() ;
-        Persona nuevoEmpleado = new Persona(nombre,labor,sueldo,rut,false,"") ;
+        Trabajador nuevoEmpleado = new Trabajador(nombre,labor,sueldo,rut,false,"") ;
         registroPersonas.agregarEspecialista(nuevoEmpleado);
         WriteFile.imprimirTodasLasPersonas(registroPersonas);
     }
@@ -313,3 +314,4 @@ public class MenuConsola {
         }
     }
 }
+
