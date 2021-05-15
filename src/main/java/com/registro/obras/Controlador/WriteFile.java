@@ -39,11 +39,11 @@ public class WriteFile {
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
                 más específicamente en el ArrayList de RegistroObras*/ 
             
-            HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
+            //HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
             
             
             int cont = 1;
-            for (Map.Entry HashObras : regiones.entrySet()) {
+            /*for (Map.Entry HashObras : regiones.entrySet()) {
                 
                 HashMap<String, Obra> currentHashObras =(HashMap) HashObras.getValue();
                 for (Map.Entry obra : currentHashObras.entrySet()) {
@@ -84,7 +84,7 @@ public class WriteFile {
 
                 }                
 
-            }
+            }*/
            Escritor.close();
         } catch (IOException e) {
             System.out.println("Error, el fichero no existe");

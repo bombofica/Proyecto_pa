@@ -13,14 +13,15 @@ package com.registro.obras.Modelo;
 public class ObraMantencion extends Obra{
     
     long mantenimientoMonetarioAnual ;
-    long InteresAnual ;
+    double InteresAnual ;
     boolean operativo ;
 
-    ObraMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, long InteresAnual, boolean operativo)
+    public ObraMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, double InteresAnual)
     {
         super(nombreObra, nombreRegion, 3) ;
         this.mantenimientoMonetarioAnual = mantenimientoMonetarioAnual;
-        this.operativo = operativo ;
+        this.operativo = false ;
+        
     }
     
     
