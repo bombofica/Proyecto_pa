@@ -11,7 +11,6 @@ package com.registro.obras.Modelo;
  */
 //3000 - 5999
 public class ObraRestauracion extends Obra{
-    
     long presupuesto ;
     String tiempoRestante ;
     int fase ;
@@ -24,4 +23,29 @@ public class ObraRestauracion extends Obra{
         this.tiempoRestante = tiempoAsignado ;
         this.fase = 0;
     }
+    public long getPresupuesto() {
+        return presupuesto;
+    }
+
+    public void setPresupuesto(long presupuesto) {
+        this.presupuesto = presupuesto;
+    }
+
+    public String getTiempoRestante() {
+        return tiempoRestante;
+    }
+
+    public void setTiempoRestante(String tiempoRestante) {
+        this.tiempoRestante = tiempoRestante;
+    }
+
+    public int getFase() {
+        return fase;
+    }
+
+    public void setFase(int fase) {
+        this.fase = fase;
+    }
+    
+
 }

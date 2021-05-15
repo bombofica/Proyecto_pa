@@ -200,15 +200,15 @@ public abstract class Obra {
         }        
     }
     
-    public Persona devolverPersonaI(int index){
+    public Trabajador devolverPersonaI(int index){
         
-        Persona current = null;
+        Trabajador current = null;
         int cont =0;
         
         for (Map.Entry persona : tablaPersonasNombre.entrySet()) {
 
           //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
-            current = (Persona) persona.getValue();        
+            current = (Trabajador) persona.getValue();        
             if(cont == index) break;
             cont++;
         }
