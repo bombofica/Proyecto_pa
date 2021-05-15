@@ -21,11 +21,6 @@ public abstract class Obra {
     
     private String nombreLugar;
 
-
-    //private double presupuestoObra;
-
-    //private String tiempoParaTerminarObra;
-
     private HashMap<String, Trabajador> tablaPersonasNombre;
 
     private HashMap<Integer, Trabajador> tablaPersonasRut;
@@ -34,7 +29,8 @@ public abstract class Obra {
     
     private int numeroEmpleados;
     
-    private int codigo;
+    int codigo;
+    
     
     //Constructores
     public Obra() {
@@ -45,17 +41,25 @@ public abstract class Obra {
     }
 
     public Obra(String nombreObra, String nombreLugar, int codigo) {
+        this.codigo = codigo ;
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
         this.tablaPersonasNombre = new HashMap();
         this.tablaPersonasRut = new HashMap();
         this.numeroEmpleados = tablaPersonasNombre.size();
         this.listadoPersonas = new ArrayList();
-        this.codigo = codigo ;
     }
     
     //Metodos
-    public void setNumeroEmpleados(int valor){
+    public int getCodigo(){
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNumeroEmpleados(int valor) {
         this.numeroEmpleados = valor;
     }
     

@@ -5,6 +5,9 @@
  */
 package com.registro.obras.Controlador;
 import com.registro.obras.Modelo.Obra;
+import com.registro.obras.Modelo.ObraConstruccion;
+import com.registro.obras.Modelo.ObraMantencion;
+import com.registro.obras.Modelo.ObraRestauracion;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -17,10 +20,11 @@ import javax.swing.JTextArea;
  */
 public class RegistroObras {
     
-    private HashMap <String, HashMap<String, Obra>> regiones;
+    private HashMap <String, TreeMap<String, Obra>> regiones;
     private HashMap <String, Obra> registro ;
     private ArrayList<Obra> listaCompleta;
     private ArrayList<String> listadoRegiones;
+    
     int contadorObras ;
 
     //constructores
@@ -35,7 +39,7 @@ public class RegistroObras {
         
         for(int i = 0; i < listadoRegiones.size(); i++)
         {
-            this.regiones.put(listadoRegiones.get(i), new HashMap()) ;
+            this.regiones.put(listadoRegiones.get(i), new TreeMap()) ;
         }
     }
     
@@ -44,11 +48,36 @@ public class RegistroObras {
         return listaCompleta.get(index);
     }
     
+    public int retornarTipoObra(String nombreObra)
+    {
+        Obra obraEvaluar = registro.get(nombreObra) ;
+        return obraEvaluar.getCodigo();
+    }
 
-    public Obra retornarObra(String nombreObra){
+    public Object retornarObra(String nombreObra){
+        
+        //if( ClaseHija.class.isInstance(vectorejemplo[1]) )
+        
         
             if(this.existenciaObra(nombreObra)){
+                
                 Obra obraPedida = this.registro.get(nombreObra);
+                
+                
+                
+                    if(ObraConstruccion.class.isInstance(obraPedida))
+                    {
+                        
+                    }
+                    if(ObraMantencion.class.isInstance(obraPedida))
+                    {
+                        
+                    }
+                    if(ObraRestauracion.class.isInstance(obraPedida))
+                    {
+                        
+                    }
+                
                 return obraPedida;
             }
         return null;
@@ -60,7 +89,7 @@ public class RegistroObras {
     {
         if(existenciaObra(nombre))
         {
-            HashMap<String,Obra> region  = regiones.get(nombreRegion);
+            TreeMap<String,Obra> region  = regiones.get(nombreRegion);
             if(region == null){
                 System.out.println("No existe la región");
                 return null;
@@ -72,7 +101,7 @@ public class RegistroObras {
     }
     
     
-    public HashMap <String, HashMap<String, Obra>> obtenerHashRegiones(){
+    public HashMap <String, TreeMap<String, Obra>> obtenerHashRegiones(){
         return this.regiones;
     }
     
@@ -114,7 +143,7 @@ public class RegistroObras {
     
     public void mostrarObras(String region){ // listo
 
-        HashMap<String, Obra> listaFiltrada = regiones.get(region) ;
+        TreeMap<String, Obra> listaFiltrada = regiones.get(region) ;
         
         if(listaFiltrada == null)
         {
@@ -141,7 +170,7 @@ public class RegistroObras {
     
     public void agregarObra(Obra obraAgregar){ //Listo
         
-        HashMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
+        TreeMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
         if(region != null)
         {
             this.listaCompleta.add(obraAgregar);
