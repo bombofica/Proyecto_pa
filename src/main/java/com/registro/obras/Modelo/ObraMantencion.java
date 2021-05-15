@@ -16,11 +16,15 @@ public class ObraMantencion extends Obra{
     double InteresAnual ;
     boolean operativo ;
 
-    public ObraMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, double InteresAnual, boolean operativo)
+
+    public ObraMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, double InteresAnual)
+
     {
         super(nombreObra, nombreRegion, 3) ;
         this.mantenimientoMonetarioAnual = mantenimientoMonetarioAnual;
-        this.operativo = operativo ;
+        this.operativo = false ;
+        this.InteresAnual = InteresAnual;
+        
     }
     public long getMantenimientoMonetarioAnual() {
         return mantenimientoMonetarioAnual;

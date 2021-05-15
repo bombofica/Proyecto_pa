@@ -44,6 +44,7 @@ public class WriteFile {
                 más específicamente en el ArrayList de RegistroObras*/ 
             
             HashMap <String, TreeMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
+
             
             
             int cont = 1;

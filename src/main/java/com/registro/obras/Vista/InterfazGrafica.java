@@ -8,12 +8,17 @@ package com.registro.obras.Vista;
 import com.registro.obras.Controlador.FechaHoy;
 import com.registro.obras.Controlador.RegistroTrabajadores;
 import com.registro.obras.Controlador.RegistroObras;
+import com.registro.obras.Controlador.WriteFile;
 import com.registro.obras.Modelo.Persona;
 import com.registro.obras.Modelo.Obra;
+import com.registro.obras.Modelo.ObraConstruccion;
+import com.registro.obras.Modelo.ObraMantencion;
+import com.registro.obras.Modelo.ObraRestauracion;
 import com.registro.obras.Modelo.Trabajador;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -76,16 +81,18 @@ public class InterfazGrafica extends javax.swing.JFrame {
         gastosTotalesDeUnaObra = new javax.swing.JButton();
         VolverGestionObras = new javax.swing.JButton();
         AgregarObraFrame = new javax.swing.JFrame();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextPresupuesto = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextTiempoAsignado = new javax.swing.JTextField();
+        AgregarObrajLabel5 = new javax.swing.JLabel();
+        AgregarObrajLabel4 = new javax.swing.JLabel();
+        AgregarObrajTextField2 = new javax.swing.JTextField();
+        AgregarObrajLabel = new javax.swing.JLabel();
+        AgregarObrajLabel3 = new javax.swing.JLabel();
+        AgregarObrajTextField3 = new javax.swing.JTextField();
         Región1 = new javax.swing.JComboBox<>();
         jTextNombreObra = new javax.swing.JTextField();
         agregarObraAlSistema = new javax.swing.JButton();
         agregarObrajButton3 = new javax.swing.JButton();
+        AgregarObrajComboBox2 = new javax.swing.JComboBox<>();
+        AgregarObrajLabel2 = new javax.swing.JLabel();
         MostrarTodasLasObrasFrame = new javax.swing.JFrame();
         jPanel9 = new javax.swing.JPanel();
         comboBoxObra = new javax.swing.JComboBox<>();
@@ -229,6 +236,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         NombreProyecto = new javax.swing.JLabel();
         Autores = new javax.swing.JLabel();
@@ -394,19 +402,19 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Nombre de La Obra");
+        AgregarObrajLabel5.setText("Nombre de La Obra");
 
-        jLabel7.setText("Región");
+        AgregarObrajLabel4.setText("Región");
 
-        jTextPresupuesto.addActionListener(new java.awt.event.ActionListener() {
+        AgregarObrajTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextPresupuestoActionPerformed(evt);
+                AgregarObrajTextField2ActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Presupuesto");
+        AgregarObrajLabel.setText("Presupuesto");
 
-        jLabel9.setText("Tiempo asignado");
+        AgregarObrajLabel3.setText("Tiempo asignado");
 
         Región1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tarapaca", "Antofagasta", "Atacama", "Coquimbo", "Valparaiso", "O'higgins", "Maule", "Biobio", "Araucania", "Los Lagos", "Aysen", "Magallanes", "Metropolitana", "Los Rios", "Arica y Parinacota", "Ñuble" }));
         Región1.setToolTipText("");
@@ -441,6 +449,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
+        AgregarObrajComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        AgregarObrajComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarObrajComboBox2ActionPerformed(evt);
+            }
+        });
+
+        AgregarObrajLabel2.setText("anual");
+
         javax.swing.GroupLayout AgregarObraFrameLayout = new javax.swing.GroupLayout(AgregarObraFrame.getContentPane());
         AgregarObraFrame.getContentPane().setLayout(AgregarObraFrameLayout);
         AgregarObraFrameLayout.setHorizontalGroup(
@@ -448,48 +465,58 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addGroup(AgregarObraFrameLayout.createSequentialGroup()
                 .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AgregarObraFrameLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextNombreObra, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AgregarObrajLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AgregarObrajLabel4)
+                            .addComponent(Región1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AgregarObrajComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71)
+                        .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AgregarObrajTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AgregarObrajLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(AgregarObraFrameLayout.createSequentialGroup()
+                                .addComponent(AgregarObrajLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AgregarObrajLabel2))
+                            .addComponent(AgregarObrajTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 40, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarObraFrameLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextNombreObra)
-                            .addComponent(Región1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(agregarObrajButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(83, 83, 83)
-                .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextPresupuesto)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                    .addComponent(jTextTiempoAsignado)
-                    .addComponent(agregarObraAlSistema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(76, Short.MAX_VALUE))
+                        .addComponent(agregarObrajButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(agregarObraAlSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         AgregarObraFrameLayout.setVerticalGroup(
             AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AgregarObraFrameLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(AgregarObrajComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AgregarObrajLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(AgregarObrajLabel)
+                        .addComponent(AgregarObrajLabel2)))
+                .addGap(18, 18, 18)
                 .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextNombreObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                    .addComponent(AgregarObrajTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(AgregarObrajLabel4)
+                    .addComponent(AgregarObrajLabel3))
+                .addGap(18, 18, 18)
                 .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Región1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextTiempoAsignado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                    .addComponent(AgregarObrajTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66)
                 .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(agregarObraAlSistema)
-                    .addComponent(agregarObrajButton3))
-                .addGap(45, 45, 45))
+                    .addComponent(agregarObrajButton3)
+                    .addComponent(agregarObraAlSistema))
+                .addGap(18, 18, 18))
         );
 
         MostrarTodasLasObrasFrame.setAlwaysOnTop(true);
@@ -1956,34 +1983,73 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void botonAgregarObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarObraActionPerformed
         // TODO add your handling code here:
+        this.AgregarObrajComboBox2.addItem("tipo de Obra");
+        this.AgregarObrajComboBox2.addItem("Construccion");
+        this.AgregarObrajComboBox2.addItem("Restauracion");
+        this.AgregarObrajComboBox2.addItem("Mantencion");
         this.GestionObrasFrame.setVisible(false);
         this.AgregarObraFrame.setVisible(true);
         this.AgregarObraFrame.setSize(450, 450);
     }//GEN-LAST:event_botonAgregarObraActionPerformed
 
-    private void jTextPresupuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextPresupuestoActionPerformed
+    private void AgregarObrajTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarObrajTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextPresupuestoActionPerformed
+    }//GEN-LAST:event_AgregarObrajTextField2ActionPerformed
 
     private void agregarObraAlSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarObraAlSistemaActionPerformed
         // TODO add your handling code here:
         String nombreObra = this.jTextNombreObra.getText();
         String region = (String) this.Región1.getSelectedItem();
-        int presupuesto = Integer.parseInt(this.jTextPresupuesto.getText());
-        String tiempoAsignado = this.jTextTiempoAsignado.getText();
+        long presupuesto = Integer.parseInt(this.AgregarObrajTextField2.getText());
+        String tiempoAsignadoInteresAnual = this.AgregarObrajTextField3.getText();
         
-
+        switch(this.AgregarObrajComboBox2.getSelectedIndex())
+        {
+            case 1:
+            {
+                ObraConstruccion nuevaObra = new ObraConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
+                this.registroObr.agregarObra(nuevaObra);
+                try 
+                {
+                    WriteFile.escribirObras(',', registroObr);
+                }
+                catch (IOException ex)
+                {
+                    Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            }
+            case 2:
+            {
+                ObraRestauracion nuevaObra = new ObraRestauracion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
+                this.registroObr.agregarObra(nuevaObra);
+                try 
+                {
+                WriteFile.escribirObras(',', registroObr);
+                } 
+                catch (IOException ex) 
+                {
+                    Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            }
+            case 3:
+            {
+                try
+                {
+                    double Interes = Double.parseDouble(tiempoAsignadoInteresAnual) ;
+                    ObraMantencion nuevaObra = new ObraMantencion(nombreObra, region, presupuesto , Interes) ;
+                    this.registroObr.agregarObra(nuevaObra);
+                    WriteFile.escribirObras(',', registroObr);
+                }
+                catch(Exception e)
+                {
+                    //crear ventana de error
+                }
+            }
+        }
         //Obra obraAgregar = new ObraConstruccion(nombreObra,region,presupuesto,tiempoAsignado,1);
-
-        
         //this.registroObr.agregarObra(obraAgregar);
-        
-        System.out.println("Obra Añadida al sistema");
-        System.out.println(nombreObra);
-        System.out.println(region);
-        System.out.println(presupuesto);
-        System.out.println(tiempoAsignado);
-        
     }//GEN-LAST:event_agregarObraAlSistemaActionPerformed
 
     private void botonMostrarAllObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarAllObrasActionPerformed
@@ -2367,23 +2433,29 @@ public class InterfazGrafica extends javax.swing.JFrame {
         String nombreObra = (String) this.eliminarEmpleadoObraComboBox.getSelectedItem();
         
         int tipo = this.registroObr.retornarTipoObra(nombreObra);
+        Obra obraEscogida = null;
         
-        /*switch (tipo){
+        switch (tipo){
             case 1:
-                ObraConstruccion obraEscogida = this.registroObr.retornarObra(nombreObra);
+            {
+                obraEscogida = (ObraConstruccion) this.registroObr.retornarObra(nombreObra);
                 break;
+            }
             case 2:
-                ObraMantencion obraEscogida= this.registroObr.retornarObra(nombreObra);
+            {
+                obraEscogida = (ObraMantencion) this.registroObr.retornarObra(nombreObra);
                 break;
+            }
             case 3:
-                ObraRestauracion obraEscogida= this.registroObr.retornarObra(nombreObra);
-                break;
+            {
+                obraEscogida = (ObraRestauracion) this.registroObr.retornarObra(nombreObra);
+            }
         }
         
         
         if(obraEscogida != null){
             this.registroTra.eliminarEspecialista(empleado,obraEscogida) ;  
-        }*/
+        }
         
         this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, nombreObra);
         
@@ -2630,9 +2702,65 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TiempoRestanteObrajComboBox1ActionPerformed
 
+    private void AgregarObrajComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarObrajComboBox2ActionPerformed
+        
+        int opcion = AgregarObrajComboBox2.getSelectedIndex();
+        
+        switch(opcion)
+        {
+            case 0:
+            {
+                this.AgregarObrajLabel.setVisible(false);
+                this.AgregarObrajLabel2.setVisible(false);
+                this.AgregarObrajLabel3.setVisible(false);
+                this.AgregarObrajTextField2.setVisible(false);
+                this.AgregarObrajTextField3.setVisible(false);
+                break;
+            }
+            case 1:
+            {
+                this.AgregarObrajLabel2.setVisible(false);
+                this.AgregarObrajLabel.setVisible(true);
+                this.AgregarObrajLabel3.setText("Tiempo asignado");
+                this.AgregarObrajLabel3.setVisible(true);
+                this.AgregarObrajTextField2.setVisible(true);
+                this.AgregarObrajTextField3.setVisible(true);
+                break;
+            }
+            case 2:
+            {
+                this.AgregarObrajLabel2.setVisible(false);
+                this.AgregarObrajLabel.setVisible(true);
+                this.AgregarObrajLabel3.setText("Tiempo asignado");
+                this.AgregarObrajLabel3.setVisible(true);
+                this.AgregarObrajTextField2.setVisible(true);
+                this.AgregarObrajTextField3.setVisible(true);
+                break;
+            }
+            case 3:
+            {
+                this.AgregarObrajLabel.setVisible(true);
+                this.AgregarObrajLabel2.setVisible(true);
+                this.AgregarObrajLabel3.setText("Interes anual");
+                this.AgregarObrajLabel3.setVisible(true);
+                this.AgregarObrajTextField2.setVisible(true);
+                this.AgregarObrajTextField3.setVisible(true);
+            }
+        }
+        
+    }//GEN-LAST:event_AgregarObrajComboBox2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AgregarObraFrame;
+    private javax.swing.JComboBox<String> AgregarObrajComboBox2;
+    private javax.swing.JLabel AgregarObrajLabel;
+    private javax.swing.JLabel AgregarObrajLabel2;
+    private javax.swing.JLabel AgregarObrajLabel3;
+    private javax.swing.JLabel AgregarObrajLabel4;
+    private javax.swing.JLabel AgregarObrajLabel5;
+    private javax.swing.JTextField AgregarObrajTextField2;
+    private javax.swing.JTextField AgregarObrajTextField3;
     private javax.swing.JFrame AnadirEmpleadoToPlataform;
     private javax.swing.JButton AnadirEmpleadojButton3;
     private javax.swing.JLabel Autores;
@@ -2742,9 +2870,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2771,10 +2896,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextNombreObra;
-    private javax.swing.JTextField jTextPresupuesto;
     private javax.swing.JTextField jTextRutCDV;
     private javax.swing.JTextField jTextRutSDV;
-    private javax.swing.JTextField jTextTiempoAsignado;
     private javax.swing.JButton mostrarEmpleadosDeUnaObra;
     private javax.swing.JButton mostrarEmpleadosjButton3;
     private javax.swing.JTextArea mostrarObraTextArea;
