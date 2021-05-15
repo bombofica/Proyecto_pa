@@ -4,6 +4,9 @@ import com.registro.obras.Controlador.RegistroTrabajadores;
 import com.registro.obras.Controlador.RegistroObras;
 import com.registro.obras.Modelo.Persona;
 import com.registro.obras.Modelo.Obra;
+import com.registro.obras.Modelo.ObraConstruccion;
+import com.registro.obras.Modelo.ObraMantencion;
+import com.registro.obras.Modelo.ObraRestauracion;
 import com.registro.obras.Modelo.Trabajador;
 import java.io.File;
 import java.io.FileReader;
@@ -121,10 +124,11 @@ public class ReadFile {
         String[] valores = new String[num]; // para almacenar los datos que se encuentran en una linea
         //RegistroObras todasLasObras = new RegistroObras(); // para almacenar las obras // No sirve
         
-        Obra currentObra;
+        
         int cont = 0;
         
         try{
+            Obra currentObra = null;
             FileReader entrada = new FileReader(direccion+"//RegistroObras.txt");
             int c;
             do {
@@ -153,8 +157,25 @@ public class ReadFile {
                 */
                 if (caracter == '\n' || c == -1) {
  
-                    
-                    System.out.println(valores[0]);                         // nombre_lugar(2)
+                    int valor = Integer.parseInt(valores[0]);
+                    System.out.println(valores[0]+" " + valores[1]+" "+valores[2]+" " + valores[3]+" "+valores[4]+" "+valores[5]);                       // nombre_lugar(2)
+                    switch(valor){
+                        case 1:
+                            currentObra = new ObraConstruccion(valores[1], valores[2], valores[4],Long.parseLong(valores[3]));
+                            ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
+                            +valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);
+                            break;
+                        case 2:
+                            currentObra = new ObraRestauracion(valores[1], valores[2], valores[4], Long.parseLong(valores[3]));
+                            ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
+                            +valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);                                
+                            break;
+                        case 3:
+                            currentObra = new ObraMantencion(valores[1], valores[2], Long.parseLong(valores[3]), Double.parseDouble(valores[4]),Boolean.parseBoolean(valores[5]));
+                            ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
+                            +valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);                              
+                            break;
+                        }                    
                     //currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), valores[3]);
                     //ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
                             //+valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);
@@ -162,7 +183,7 @@ public class ReadFile {
                     
                     //,hashPersonaNombre,hashPersonaRut,lista);
                     
-                    //registroObras.agregarObra(currentObra);//*************** benja ****************
+                    registroObras.agregarObra(currentObra);//*************** benja ****************
                                         
 
                     valores = new String[num];
