@@ -17,7 +17,7 @@ public class ObraMantencion extends Obra{
 
     ObraMantencion(String nombreObra, String nombreLugar, long mantenimientoMonetarioAnual, long InteresAnual, boolean operativo)
     {
-        //super(nombreObra, nombreLugar, 3) ;
+        super(nombreObra, nombreLugar, 3) ;
         this.mantenimientoMonetarioAnual = mantenimientoMonetarioAnual;
         this.operativo = operativo ;
     }

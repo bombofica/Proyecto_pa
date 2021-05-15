@@ -151,10 +151,10 @@ public class ReadFile {
                    y se insertan en contenedorDatos para luego integrar los empleados en la Obra.
                 
                 */
-/*                if (caracter == '\n' || c == -1) {
+                if (caracter == '\n' || c == -1) {
  
                     
-                    System.out.println(valores[1]);                         // nombre_lugar(2)
+                    System.out.println(valores[0]);                         // nombre_lugar(2)
                     //currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), valores[3]);
                     //ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
                             //+valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);
@@ -167,7 +167,7 @@ public class ReadFile {
 
                     valores = new String[num];
                     cont = 0;
-                }    */        
+                }       
 
                 
 

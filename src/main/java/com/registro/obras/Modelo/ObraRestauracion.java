@@ -18,7 +18,7 @@ public class ObraRestauracion extends Obra{
     
     public ObraRestauracion(String nombreObra, String nombreLugar,String tiempoAsignado,long presupuesto)
     {
-        //super(nombreObra, nombreLugar, 2) ;
+        super(nombreObra, nombreLugar, 2) ;
         this.presupuesto = presupuesto ;
         this.tiempoRestante = tiempoAsignado ;
         this.fase = 0;
