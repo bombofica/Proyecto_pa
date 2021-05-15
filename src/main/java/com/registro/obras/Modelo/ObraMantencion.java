@@ -17,7 +17,7 @@ public class ObraMantencion extends Obra{
     boolean operativo ;
 
 
-    public ObraMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, double InteresAnual)
+    public ObraMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, double InteresAnual, boolean operativo)
 
     {
         super(nombreObra, nombreRegion, 3) ;
