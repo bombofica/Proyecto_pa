@@ -9,16 +9,19 @@ package com.registro.obras.Modelo;
  *
  * @author Ceseo
  */
+//3000 - 3999
 public class ObraMantencion extends Obra{
     
     long mantenimientoMonetarioAnual ;
     long InteresAnual ;
     boolean operativo ;
 
-    ObraMantencion(String nombreObra, String nombreLugar, long mantenimientoMonetarioAnual, long InteresAnual, boolean operativo)
+    ObraMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, long InteresAnual, boolean operativo)
     {
-        //super(nombreObra, nombreLugar, 3) ;
+        super(nombreObra, nombreRegion, 3) ;
         this.mantenimientoMonetarioAnual = mantenimientoMonetarioAnual;
         this.operativo = operativo ;
     }
+    
+    
 }

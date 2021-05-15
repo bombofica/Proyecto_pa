@@ -22,15 +22,8 @@ import java.util.Scanner;
 public class MenuConsola {
     
     public static void inicio(RegistroTrabajadores registroPersonas, RegistroObras registroObras){
-        
-        /*ArrayList <Persona> arrayxd;      
-        Object[] PulpaDeFrutilla = ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//RegistroTrabajadores.txt",registroPersonas);
-        
-        arrayxd =(ArrayList <Persona>) PulpaDeFrutilla[2];
-        HashMap<String,Persona> hashpersonaxd =(HashMap <String,Persona>) PulpaDeFrutilla[0];*/
-        
-        //RegistroTrabajadores registroPersonas = new RegistroTrabajadores(arrayxd,hashpersonaxd);
-        //RegistroObras registroObras = ReadFile.traerObras(',', 4, "RegistroObras",registroPersonas,registroObras); 
+      /*  
+
         
         Scanner scannerEnterosFlotantes = new Scanner(System.in) ;
         Scanner scannerStrings = new Scanner(System.in) ;
@@ -62,8 +55,7 @@ public class MenuConsola {
                     System.out.println("3. Obra terminada") ; //"Eliminar Obra"
                     System.out.println("4. Cambiar un dato de una obra"); 
                     System.out.println("5. Tiempo restante de una obra"); //esta funcion no esta lista ya que falta implementarlo con las obras
-                    /*System.out.println("6. Gastos totales"); existe la opcion 6 la cual realiza esta funcion pero tenemos pensado
-                                                               implementar un grafico*/
+                    /*System.out.println("6. Gastos totales"); 
                     try
                     {
                         menu = scannerEnterosFlotantes.nextInt() ;
@@ -310,8 +302,9 @@ public class MenuConsola {
             try {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             } catch (Exception e) {
-            /*No hacer nada*/
+            /*No hacer nada
         }
+    }*/
     }
 }
 

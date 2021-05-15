@@ -9,6 +9,7 @@ package com.registro.obras.Modelo;
  *
  * @author Ceseo
  */
+//3000 - 5999
 public class ObraRestauracion extends Obra{
     
     long presupuesto ;
@@ -16,9 +17,9 @@ public class ObraRestauracion extends Obra{
     int fase ;
 
     
-    public ObraRestauracion(String nombreObra, String nombreLugar,String tiempoAsignado,long presupuesto)
+    public ObraRestauracion(String nombreObra, String nombreRegion,String tiempoAsignado,long presupuesto)
     {
-        //super(nombreObra, nombreLugar, 2) ;
+        super(nombreObra, nombreRegion, 2) ;
         this.presupuesto = presupuesto ;
         this.tiempoRestante = tiempoAsignado ;
         this.fase = 0;

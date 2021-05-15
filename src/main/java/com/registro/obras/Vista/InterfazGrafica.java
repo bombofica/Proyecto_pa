@@ -5,6 +5,7 @@
  */
 package com.registro.obras.Vista;
 
+import com.registro.obras.Controlador.FechaHoy;
 import com.registro.obras.Controlador.RegistroTrabajadores;
 import com.registro.obras.Controlador.RegistroObras;
 import com.registro.obras.Modelo.Persona;
@@ -117,7 +118,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
         terminarObraJButton = new javax.swing.JButton();
         obraTerminadajButton3 = new javax.swing.JButton();
         TiempoRestanteObraFrame = new javax.swing.JFrame();
-        jPanel12 = new javax.swing.JPanel();
+        TiempoRestanteObrajPanel12 = new javax.swing.JPanel();
+        TiempoRestanteObrajButton3 = new javax.swing.JButton();
+        TiempoRestanteObrajComboBox1 = new javax.swing.JComboBox<>();
+        TiempoRestanteObrajLabel23 = new javax.swing.JLabel();
+        TiempoRestanteObrajTextField2 = new javax.swing.JTextField();
+        TiempoRestanteObrajLabel24 = new javax.swing.JLabel();
+        TiempoRestanteObrajTextField3 = new javax.swing.JTextField();
+        TiempoRestanteObrajLabel25 = new javax.swing.JLabel();
+        TiempoRestanteObrajTextField4 = new javax.swing.JTextField();
         GastosTotalesObraFrame = new javax.swing.JFrame();
         gastosTotalesjLabel22 = new javax.swing.JLabel();
         gastosTotalesjComboBox = new javax.swing.JComboBox<>();
@@ -218,6 +227,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         cDESueldoJTextField = new javax.swing.JTextField();
         cDECambiarDatonJButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         NombreProyecto = new javax.swing.JLabel();
         Autores = new javax.swing.JLabel();
@@ -318,6 +329,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
         });
 
         tiempoRestanteDeUnaObra.setText("Tiempo restante de una Obra");
+        tiempoRestanteDeUnaObra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tiempoRestanteDeUnaObraActionPerformed(evt);
+            }
+        });
 
         gastosTotalesDeUnaObra.setText("Gastos Totales de Una Obra");
         gastosTotalesDeUnaObra.addActionListener(new java.awt.event.ActionListener() {
@@ -776,26 +792,84 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        TiempoRestanteObrajButton3.setText("jButton3");
+        TiempoRestanteObrajButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TiempoRestanteObrajButton3ActionPerformed(evt);
+            }
+        });
+
+        TiempoRestanteObrajComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TiempoRestanteObrajComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TiempoRestanteObrajComboBox1ActionPerformed(evt);
+            }
+        });
+
+        TiempoRestanteObrajLabel23.setText("jLabel23");
+
+        TiempoRestanteObrajTextField2.setText("jTextField2");
+
+        TiempoRestanteObrajLabel24.setText("jLabel24");
+
+        TiempoRestanteObrajTextField3.setText("jTextField3");
+
+        TiempoRestanteObrajLabel25.setText("jLabel25");
+
+        TiempoRestanteObrajTextField4.setText("jTextField4");
+
+        javax.swing.GroupLayout TiempoRestanteObrajPanel12Layout = new javax.swing.GroupLayout(TiempoRestanteObrajPanel12);
+        TiempoRestanteObrajPanel12.setLayout(TiempoRestanteObrajPanel12Layout);
+        TiempoRestanteObrajPanel12Layout.setHorizontalGroup(
+            TiempoRestanteObrajPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TiempoRestanteObrajPanel12Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(TiempoRestanteObrajComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addComponent(TiempoRestanteObrajButton3)
+                .addGap(90, 90, 90))
+            .addGroup(TiempoRestanteObrajPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(TiempoRestanteObrajPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TiempoRestanteObrajLabel23)
+                    .addComponent(TiempoRestanteObrajTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TiempoRestanteObrajLabel24)
+                    .addComponent(TiempoRestanteObrajTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TiempoRestanteObrajLabel25)
+                    .addComponent(TiempoRestanteObrajTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        TiempoRestanteObrajPanel12Layout.setVerticalGroup(
+            TiempoRestanteObrajPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TiempoRestanteObrajPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(TiempoRestanteObrajPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TiempoRestanteObrajComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TiempoRestanteObrajButton3))
+                .addGap(18, 18, 18)
+                .addComponent(TiempoRestanteObrajLabel23)
+                .addGap(18, 18, 18)
+                .addComponent(TiempoRestanteObrajTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(TiempoRestanteObrajLabel24)
+                .addGap(18, 18, 18)
+                .addComponent(TiempoRestanteObrajTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(TiempoRestanteObrajLabel25)
+                .addGap(18, 18, 18)
+                .addComponent(TiempoRestanteObrajTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout TiempoRestanteObraFrameLayout = new javax.swing.GroupLayout(TiempoRestanteObraFrame.getContentPane());
         TiempoRestanteObraFrame.getContentPane().setLayout(TiempoRestanteObraFrameLayout);
         TiempoRestanteObraFrameLayout.setHorizontalGroup(
             TiempoRestanteObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(TiempoRestanteObrajPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         TiempoRestanteObraFrameLayout.setVerticalGroup(
             TiempoRestanteObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(TiempoRestanteObrajPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         GastosTotalesObraFrame.setAlwaysOnTop(true);
@@ -1740,6 +1814,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addComponent(panelCambiarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jTextField1.setText("jTextField1");
+
+        jLabel22.setText("jLabel22");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 203, 123));
@@ -2013,14 +2091,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
         // TODO add your handling code here:
         String valor = (String) this.comboBoxObra.getSelectedItem();
-        Obra obraEscogida = this.registroObr.retornarObra(valor);
+/*        Obra obraEscogida = this.registroObr.retornarObra(valor);
         
         if(obraEscogida != null){
             String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'+"Región: "+obraEscogida.getNombreLugar()+'\n';
                 //+"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
                 //+"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
             this.mostrarObraTextArea.setText(textoFinal);
-        }
+        }*/
         
     }//GEN-LAST:event_comboBoxObraActionPerformed
 
@@ -2147,7 +2225,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         String valor = (String) this.obraTerminadaComboBox.getSelectedItem();
         
-        Obra obraEscogida = this.registroObr.retornarObra(valor);
+/*        Obra obraEscogida = this.registroObr.retornarObra(valor);
         if(obraEscogida != null){
             String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
                 +"Región: "+obraEscogida.getNombreLugar()+'\n';
@@ -2158,7 +2236,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         else
         {
             this.InfoObraTerminadaJTextArea.setText("");
-        }
+        }*/
     }//GEN-LAST:event_obraTerminadaComboBoxActionPerformed
 
     private void botonObraTerminadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonObraTerminadaActionPerformed
@@ -2272,8 +2350,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         Persona currentPersonaComboBox=(Persona) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
         String nombreObra = (String) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
-        Obra obra = this.registroObr.retornarObra(nombreObra);
-        obra.despedirEmpleado(currentPersonaComboBox.getRut());
+//        Obra obra = this.registroObr.retornarObra(nombreObra);
+     //   obra.despedirEmpleado(currentPersonaComboBox.getRut());
         
         
         
@@ -2288,10 +2366,24 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
         String nombreObra = (String) this.eliminarEmpleadoObraComboBox.getSelectedItem();
         
-        Obra obraEscogida = this.registroObr.retornarObra(nombreObra);
+        int tipo = this.registroObr.retornarTipoObra(nombreObra);
+        
+        /*switch (tipo){
+            case 1:
+                ObraConstruccion obraEscogida = this.registroObr.retornarObra(nombreObra);
+                break;
+            case 2:
+                ObraMantencion obraEscogida= this.registroObr.retornarObra(nombreObra);
+                break;
+            case 3:
+                ObraRestauracion obraEscogida= this.registroObr.retornarObra(nombreObra);
+                break;
+        }
+        
+        
         if(obraEscogida != null){
             this.registroTra.eliminarEspecialista(empleado,obraEscogida) ;  
-        }
+        }*/
         
         this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, nombreObra);
         
@@ -2300,14 +2392,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void cambiarDatoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoComboBoxActionPerformed
         String nombreObra = (String) this.cambiarDatoComboBox.getSelectedItem() ;
         System.out.println(nombreObra);
-        Obra obraActual = this.registroObr.retornarObra(nombreObra) ;
+/*        Obra obraActual = this.registroObr.retornarObra(nombreObra) ;
         if(obraActual != null){
             this.cambiarDatojTextArea1.setText("");
             this.cambiarDatojTextArea1.append("Nombre: "+obraActual.getNombreObra()+'\n');
             this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
             //this.cambiarDatojTextArea1.append("Presupuesto: "+String.valueOf(obraActual.getPresupuestoObra())+'\n') ;
             //this.cambiarDatojTextArea1.append("Tiempo restante: "+obraActual.getTiempoParaTerminarObra()) ;
-        }
+        }*/
     }//GEN-LAST:event_cambiarDatoComboBoxActionPerformed
 
     private void cambiarDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoActionPerformed
@@ -2520,6 +2612,24 @@ public class InterfazGrafica extends javax.swing.JFrame {
         repaint() ;
     }//GEN-LAST:event_gastosTotalesjButton1ActionPerformed
 
+    private void TiempoRestanteObrajButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiempoRestanteObrajButton3ActionPerformed
+        // TODO add your handling code here:
+        String obraActual = (String)TiempoRestanteObrajComboBox1.getSelectedItem() ;
+/*        Obra obraSeleccionada = this.registroObr.retornarObra(obraActual) ;
+        
+        FechaHoy fecha = new FechaHoy();
+        fecha.obterFecha(obraSeleccionada);*/
+        
+    }//GEN-LAST:event_TiempoRestanteObrajButton3ActionPerformed
+
+    private void tiempoRestanteDeUnaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoRestanteDeUnaObraActionPerformed
+        registroObr.llenarComboBoxObras(TiempoRestanteObrajComboBox1);
+    }//GEN-LAST:event_tiempoRestanteDeUnaObraActionPerformed
+
+    private void TiempoRestanteObrajComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiempoRestanteObrajComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TiempoRestanteObrajComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AgregarObraFrame;
@@ -2550,6 +2660,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Región1;
     private javax.swing.JButton Salir;
     private javax.swing.JFrame TiempoRestanteObraFrame;
+    private javax.swing.JButton TiempoRestanteObrajButton3;
+    private javax.swing.JComboBox<String> TiempoRestanteObrajComboBox1;
+    private javax.swing.JLabel TiempoRestanteObrajLabel23;
+    private javax.swing.JLabel TiempoRestanteObrajLabel24;
+    private javax.swing.JLabel TiempoRestanteObrajLabel25;
+    private javax.swing.JPanel TiempoRestanteObrajPanel12;
+    private javax.swing.JTextField TiempoRestanteObrajTextField2;
+    private javax.swing.JTextField TiempoRestanteObrajTextField3;
+    private javax.swing.JTextField TiempoRestanteObrajTextField4;
     private javax.swing.JButton VolverGestionObras;
     private javax.swing.JButton agregarObraAlSistema;
     private javax.swing.JButton agregarObrajButton3;
@@ -2618,6 +2737,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2628,7 +2748,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2650,6 +2769,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextNombreObra;
     private javax.swing.JTextField jTextPresupuesto;
     private javax.swing.JTextField jTextRutCDV;
