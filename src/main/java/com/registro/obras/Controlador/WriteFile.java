@@ -34,12 +34,12 @@ public class WriteFile {
         
                 
 
- //       try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
+        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
       
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
                 más específicamente en el ArrayList de RegistroObras*/ 
             
-            /*HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
+            HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
             
             
             int cont = 1;
@@ -48,25 +48,47 @@ public class WriteFile {
                 HashMap<String, Obra> currentHashObras =(HashMap) HashObras.getValue();
                 for (Map.Entry obra : currentHashObras.entrySet()) {
                     Obra currentObra = (Obra) obra.getValue();
+                    int valor = 1;
                     if (cont < registroObras.numeroObras()){
-                        Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
-                                currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+','+'\n');
+                         
+                        switch(valor){
+                            case 1:
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                        }
+                        
+                            //Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
+                                //currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+','+'\n');
                     }
                     else
                     {
-                        Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
-                                currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+',');
+                        switch(valor){
+                            case 1:
+                                //Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
+                                //currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+',');
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                        }
+                        
+                            //Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
+                            //    currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+',');
                         
                     }
                     cont++;
 
                 }                
 
-            }*/
- //           Escritor.close();
-//        } catch (IOException e) {
- //           System.out.println("Error, el fichero no existe");
- //       }
+            }
+           Escritor.close();
+        } catch (IOException e) {
+            System.out.println("Error, el fichero no existe");
+        }
         
         int cont = 1;
        // HashMap <String, HashMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
