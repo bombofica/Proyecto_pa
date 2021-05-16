@@ -1,6 +1,6 @@
 1,Plaza Victoria,Valparaiso,1000000,03-12-2030,0,
 1,Avenida Alemania,Valparaiso,2000000,20-07-2025,1,
-2,Avenida Libertador Bernando,O'Higgins,1200000,24-06-2022,1,
+2,Avenida Libertador Bernando,O'higgins,1200000,24-06-2022,1,
 3,Hospital Clinico UC Christus,Metropolitana,1450000,0.1,true,
 2,Iglesia de la Tirana,Tarapaca,800000,23-04-2022,1,
 1,Caleta Chanavaya,Tarapaca,1570000,14-09-2026,2,
