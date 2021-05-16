@@ -558,16 +558,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17)
                             .addComponent(comboBoxObra, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(MostrarObrasjButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -614,6 +614,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         cambiarDatojLabel.setText("Datos actuales de la obra");
 
+        cambiarDatojLabel2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         cambiarDatojLabel2.setText("Obra");
 
         cambiarDatojButton.setText("Cambiar");
@@ -656,52 +657,61 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(cambiarDatojButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cambiarDatojButton)
-                        .addGap(52, 52, 52))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cambiarDatojLabel2)
-                            .addComponent(cambiarDatojLabel)
-                            .addComponent(cambiarDatoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(69, 69, 69)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cambiarDatojComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cambiarDatojTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel21))
-                        .addContainerGap(45, Short.MAX_VALUE))))
+                        .addContainerGap()
+                        .addComponent(cambiarDatojLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(cambiarDatojButton2)
+                            .addGap(231, 231, 231)
+                            .addComponent(cambiarDatojButton))
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(cambiarDatoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
+                                .addGroup(jPanel10Layout.createSequentialGroup()
+                                    .addGap(56, 56, 56)
+                                    .addComponent(cambiarDatojLabel)))
+                            .addGap(45, 45, 45)
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel16)
+                                .addComponent(jLabel21)
+                                .addComponent(cambiarDatojComboBox2, 0, 100, Short.MAX_VALUE)
+                                .addComponent(cambiarDatojTextField1)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(cambiarDatojLabel2)
+                .addContainerGap()
+                .addComponent(cambiarDatojLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cambiarDatoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cambiarDatojLabel)
-                    .addComponent(jLabel21))
+                .addComponent(cambiarDatojLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cambiarDatojComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(jLabel16)
-                        .addGap(9, 9, 9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cambiarDatojTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                    .addComponent(jScrollPane13))
+                .addGap(24, 24, 24)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cambiarDatojButton)
-                    .addComponent(cambiarDatojButton2))
-                .addGap(29, 29, 29))
+                    .addComponent(cambiarDatojButton2)
+                    .addComponent(cambiarDatojButton))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout CambiarDatoFrameLayout = new javax.swing.GroupLayout(CambiarDatoFrame.getContentPane());
@@ -2498,40 +2508,64 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminarEmpleadojButtonActionPerformed
 
     private void cambiarDatoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoComboBoxActionPerformed
-        String nombreObra = (String) this.cambiarDatoComboBox.getSelectedItem() ;
-        System.out.println(nombreObra);
-/*        Obra obraActual = this.registroObr.retornarObra(nombreObra) ;
+        Obra obraActual = (Obra) this.cambiarDatoComboBox.getSelectedItem() ;
+        this.cambiarDatojComboBox2.removeAllItems();
+        if((obraActual != null) && (obraActual.getCodigo() == 3))
+        {
+            this.cambiarDatojComboBox2.addItem("Nombre");
+            this.cambiarDatojComboBox2.addItem("Region");
+            this.cambiarDatojComboBox2.addItem("Interes anual");
+            this.cambiarDatojComboBox2.addItem("Presupuesto anual");
+        }
+        else
+        {
+            this.cambiarDatojComboBox2.addItem("Nombre");
+            this.cambiarDatojComboBox2.addItem("Region");
+            this.cambiarDatojComboBox2.addItem("Fecha Objetivo");
+            this.cambiarDatojComboBox2.addItem("Presupuesto");
+        }
+        
+
         if(obraActual != null){
             this.cambiarDatojTextArea1.setText("");
             this.cambiarDatojTextArea1.append("Nombre: "+obraActual.getNombreObra()+'\n');
             this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
-            //this.cambiarDatojTextArea1.append("Presupuesto: "+String.valueOf(obraActual.getPresupuestoObra())+'\n') ;
-            //this.cambiarDatojTextArea1.append("Tiempo restante: "+obraActual.getTiempoParaTerminarObra()) ;
-        }*/
+            if(obraActual.getCodigo() == 1)
+            {
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraConstruccion)(obraActual)).getPresupuesto()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraConstruccion)(obraActual)).getTiempoRestante()+'\n');
+                this.cambiarDatojTextArea1.append("Fase: "+'\n');
+            }
+            if(obraActual.getCodigo() == 2)
+            {
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraRestauracion)(obraActual)).getPresupuesto()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraRestauracion)(obraActual)).getTiempoRestante()+'\n');
+                this.cambiarDatojTextArea1.append("Fase: "+'\n');
+            }
+            if(obraActual.getCodigo() == 3)
+            {
+                this.cambiarDatojTextArea1.append("Presupuesto anual: "+((ObraMantencion)(obraActual)).getMantenimientoMonetarioAnual()+'\n');
+                this.cambiarDatojTextArea1.append("Interes anual: "+((ObraMantencion)(obraActual)).getInteresAnual()+'\n');
+            }
+        }
     }//GEN-LAST:event_cambiarDatoComboBoxActionPerformed
 
     private void cambiarDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoActionPerformed
         this.GestionObrasFrame.setVisible(false);
         this.CambiarDatoFrame.setVisible(true);
         this.CambiarDatoFrame.setSize(450,400);
+        this.cambiarDatoComboBox.removeAllItems();
         this.registroObr.llenarComboBoxObras(this.cambiarDatoComboBox) ;
+        /*this.cambiarDatojComboBox2.removeAllItems();
         this.cambiarDatojComboBox2.addItem("Nombre");
         this.cambiarDatojComboBox2.addItem("Region");
         this.cambiarDatojComboBox2.addItem("Fecha Objetivo");
-        this.cambiarDatojComboBox2.addItem("Presupuesto");
+        this.cambiarDatojComboBox2.addItem("Presupuesto");*/
     }//GEN-LAST:event_cambiarDatoActionPerformed
 
     private void cambiarDatojComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojComboBox2ActionPerformed
 
-        /*String nombreObra = (String) this.cambiarDatojComboBox2.getSelectedItem() ;
-        Obra obraActual = this.registroObr.retornarObra(nombreObra) ;
-        if(obraActual != null){
-            this.cambiarDatojTextArea1.setText("");
-            this.cambiarDatojTextArea1.append("Nombre: "+obraActual.getNombreObra()+'\n');
-            this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
-            this.cambiarDatojTextArea1.append("Presupuesto: "+String.valueOf(obraActual.getPresupuestoObra())+'\n') ;
-            this.cambiarDatojTextArea1.append("Tiempo restante: "+obraActual.getTiempoParaTerminarObra()) ;
-        }*/
+     
     }//GEN-LAST:event_cambiarDatojComboBox2ActionPerformed
 
     private void cambiarDatojTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cambiarDatojTextField1KeyTyped
@@ -2539,16 +2573,41 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_cambiarDatojTextField1KeyTyped
 
     private void cambiarDatojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojButtonActionPerformed
-        String nombreObra = (String) this.cambiarDatoComboBox.getSelectedItem();
+        
+        Obra obraActual = (Obra) this.cambiarDatoComboBox.getSelectedItem();
         String nuevoDato = this.cambiarDatojTextField1.getText() ;
         
         int opcion = this.cambiarDatojComboBox2.getSelectedIndex() ;
-        System.out.println(nuevoDato+" "+ nombreObra+" "+opcion);
+        
         try {
-            this.registroObr.modificarObra(nombreObra, nuevoDato, opcion+1, registroObr);
+            this.registroObr.modificarObra(obraActual.getNombreObra(), nuevoDato, opcion+1, registroObr);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        if(obraActual != null){
+            this.cambiarDatojTextArea1.setText("");
+            this.cambiarDatojTextArea1.append("Nombre: "+obraActual.getNombreObra()+'\n');
+            this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
+            if(obraActual.getCodigo() == 1)
+            {
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraConstruccion)(obraActual)).getPresupuesto()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraConstruccion)(obraActual)).getTiempoRestante()+'\n');
+                this.cambiarDatojTextArea1.append("Fase: "+'\n');
+            }
+            if(obraActual.getCodigo() == 2)
+            {
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraRestauracion)(obraActual)).getPresupuesto()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraRestauracion)(obraActual)).getTiempoRestante()+'\n');
+                this.cambiarDatojTextArea1.append("Fase: "+'\n');
+            }
+            if(obraActual.getCodigo() == 3)
+            {
+                this.cambiarDatojTextArea1.append("Presupuesto anual: "+((ObraMantencion)(obraActual)).getMantenimientoMonetarioAnual()+'\n');
+                this.cambiarDatojTextArea1.append("Interes anual: "+((ObraMantencion)(obraActual)).getInteresAnual()+'\n');
+            }
+        }
+        
         
     }//GEN-LAST:event_cambiarDatojButtonActionPerformed
 

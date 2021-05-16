@@ -28,7 +28,7 @@ public class ObraMantencion extends Obra{
         return InteresAnual;
     }
 
-    public void setInteresAnual(long InteresAnual) {
+    public void setInteresAnual(double InteresAnual) {
         this.InteresAnual = InteresAnual;
     }
 

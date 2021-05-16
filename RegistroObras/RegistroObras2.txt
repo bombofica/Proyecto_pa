@@ -10,6 +10,8 @@
 1Mirador Puerto Saavedra,Araucania,254000,04-09-2027,0,
 1Avenida el Salvador,Atacama,860000,09-11-2025,0,
 1Avenida el palomar,Atacama,0.1,false,
+1joaquinsilvido,Atacama,321,20-04-2022,0,
+1matiassosorio,Atacama,0.3,false,
 1Cementerio Municipal Sara Braun,Magallanes,0.1,false,
 1Plaza la Herradura,Magallanes,0.1,false,
 1Plaza Abate Molina,Maule,522500,09-07-2026,0,
