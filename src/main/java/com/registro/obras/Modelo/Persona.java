@@ -1,6 +1,6 @@
 package com.registro.obras.Modelo;
 
-public class Persona {
+public abstract class Persona {
 
     private String nombre;
     private int rut;
@@ -22,8 +22,6 @@ public class Persona {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-
 
     public int getRut() {
         return rut;

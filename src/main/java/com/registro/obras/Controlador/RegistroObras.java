@@ -104,12 +104,12 @@ public class RegistroObras {
     }
     
 
-    public void llenarComboBoxObras(JComboBox<String> comboBoxObra){
+    public void llenarComboBoxObras(JComboBox<Obra> comboBoxObra){
         comboBoxObra.removeAllItems();
         for(int i = 0 ; i< listaCompleta.size() ; i++)
         {
             Obra current=listaCompleta.get(i);
-            comboBoxObra.addItem(current.getNombreObra());
+            comboBoxObra.addItem(current);
         }
         
     }
