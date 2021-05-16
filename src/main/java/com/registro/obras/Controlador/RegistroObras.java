@@ -54,30 +54,13 @@ public class RegistroObras {
         return obraEvaluar.getCodigo();
     }
 
-    public Object retornarObra(String nombreObra){
-        
-        //if( ClaseHija.class.isInstance(vectorejemplo[1]) )
-        
+    public Obra retornarObra(String nombreObra){
         
             if(this.existenciaObra(nombreObra)){
-                
-                Obra obraPedida = this.registro.get(nombreObra);
-                
-                    /*if(ObraConstruccion.class.isInstance(obraPedida))
-                    {
-                        
-                    }
-                    if(ObraMantencion.class.isInstance(obraPedida))
-                    {
-                        
-                    }
-                    if(ObraRestauracion.class.isInstance(obraPedida))
-                    {
-                        
-                    }*/
-                
+                Obra obraPedida = this.registro.get(nombreObra); 
                 return obraPedida;
             }
+            
         return null;
             
     }
@@ -247,21 +230,87 @@ public class RegistroObras {
                     WriteFile.escribirObras(',', registroActual );
                     return;
                 }
-                case 3: //Cambiar tiempo restante
+                case 3: //Cambiar tiempo restante y cambiar el interes
                 {
                     //remplazo.setTiempoParaTerminarObra(nuevoDato) ;
+                    int tipoObra = retornarTipoObra(nombreObra);
+                    switch(tipoObra)
+                    {
+                        case 1:
+                        {
+                            ((ObraConstruccion)(remplazo)).setTiempoRestante(nuevoDato);
+                            break;
+                        }
+                        case 2:
+                        {
+                            ((ObraRestauracion)(remplazo)).setTiempoRestante(nuevoDato);
+                            break;
+                        }
+                        case 3:
+                        {
+                            try
+                            {
+                                double nuevoInteres = Double.parseDouble(nuevoDato) ;
+                                ((ObraMantencion)(remplazo)).setInteresAnual(nuevoInteres);
+                            }
+                            catch(Exception e)
+                            {
+                                //ventana de error
+                            }
+                            
+                        }
+                        
+                    }
                     break;
                 }
-                case 4: //Cambiar presupuesto
+                case 4: //Cambiar presupuesto y presupuesto anual
                 {
-                    try
+                    int tipoObra = retornarTipoObra(nombreObra);
+                    switch(tipoObra)
                     {
-                        //remplazo.setPresupuestoObra(Integer.parseInt(nuevoDato));
-                    }
-                    catch(Exception e)
-                    {
-                        System.out.println("ERROR valor no numerico");
-                        return;
+                        case 1:
+                        {
+                            try
+                            {
+                                long nuevoPresupuesto = Long.parseLong(nuevoDato) ;
+                                ((ObraConstruccion)(remplazo)).setPresupuesto(nuevoPresupuesto);
+                                break;
+                            }
+                            catch(Exception e)
+                            {
+                                //ventana de error
+                            }
+                            
+                        }
+                        case 2:
+                        {
+                            try
+                            {
+                                long nuevoPresupuesto = Long.parseLong(nuevoDato) ;
+                                ((ObraRestauracion)(remplazo)).setPresupuesto(nuevoPresupuesto);
+                                break;
+                            }
+                            catch(Exception e)
+                            {
+                                //ventana de error
+                            }
+                            
+                        }
+                        case 3:
+                        {
+                            try
+                            {
+                                long nuevoPresupuesto = Long.parseLong(nuevoDato) ;
+                                ((ObraMantencion)(remplazo)).setMantenimientoMonetarioAnual(nuevoPresupuesto);
+                                break;
+                            }
+                            catch(Exception e)
+                            {
+                                //ventana de error
+                            }
+                            
+                        }
+                        
                     }
                 } 
                 
