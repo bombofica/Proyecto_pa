@@ -449,7 +449,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        AgregarObrajComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         AgregarObrajComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarObrajComboBox2ActionPerformed(evt);
@@ -615,7 +614,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        cambiarDatoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cambiarDatoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cambiarDatoComboBoxActionPerformed(evt);
@@ -826,7 +824,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        TiempoRestanteObrajComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         TiempoRestanteObrajComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TiempoRestanteObrajComboBox1ActionPerformed(evt);
@@ -852,7 +849,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addGroup(TiempoRestanteObrajPanel12Layout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addComponent(TiempoRestanteObrajComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addComponent(TiempoRestanteObrajButton3)
                 .addGap(90, 90, 90))
             .addGroup(TiempoRestanteObrajPanel12Layout.createSequentialGroup()
@@ -909,8 +906,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         });
 
         gastosTotalesjLabel22.setText("Obra");
-
-        gastosTotalesjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         gastosTotalesjButton3.setText("Volver");
         gastosTotalesjButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -1983,6 +1978,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void botonAgregarObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarObraActionPerformed
         // TODO add your handling code here:
+        this.AgregarObrajComboBox2.removeAllItems();
         this.AgregarObrajComboBox2.addItem("tipo de Obra");
         this.AgregarObrajComboBox2.addItem("Construccion");
         this.AgregarObrajComboBox2.addItem("Restauracion");
@@ -1990,6 +1986,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionObrasFrame.setVisible(false);
         this.AgregarObraFrame.setVisible(true);
         this.AgregarObraFrame.setSize(450, 450);
+        
     }//GEN-LAST:event_botonAgregarObraActionPerformed
 
     private void AgregarObrajTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarObrajTextField2ActionPerformed
@@ -2038,7 +2035,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 try
                 {
                     double Interes = Double.parseDouble(tiempoAsignadoInteresAnual) ;
-                    ObraMantencion nuevaObra = new ObraMantencion(nombreObra, region, presupuesto , Interes) ;
+                    ObraMantencion nuevaObra = new ObraMantencion(nombreObra, region, presupuesto , Interes, false) ;
                     this.registroObr.agregarObra(nuevaObra);
                     WriteFile.escribirObras(',', registroObr);
                 }
@@ -2156,7 +2153,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
         // TODO add your handling code here:
-        String valor = (String) this.comboBoxObra.getSelectedItem();
+        //String valor = (String) this.comboBoxObra.getSelectedItem();
 /*        Obra obraEscogida = this.registroObr.retornarObra(valor);
         
         if(obraEscogida != null){
@@ -2289,11 +2286,28 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void obraTerminadaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obraTerminadaComboBoxActionPerformed
         // TODO add your handling code here:
-        String valor = (String) this.obraTerminadaComboBox.getSelectedItem();
+        Obra obraEscogida = (Obra) this.obraTerminadaComboBox.getSelectedItem();
         
-/*        Obra obraEscogida = this.registroObr.retornarObra(valor);
         if(obraEscogida != null){
-            String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
+            String textoFinal;
+            switch(obraEscogida.getCodigo()){
+                case 1:
+                    textoFinal = "Tipo: Construccion\n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
+                        +"Región: "+obraEscogida.getNombreLugar()+'\n'+"Presupuesto: "+
+                        ((ObraConstruccion)obraEscogida).getPresupuesto();
+                    break;
+                case 2:
+                    textoFinal = "Tipo: Restauracion \n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
+                        +"Región: "+obraEscogida.getNombreLugar()+'\n';
+                    break;
+                case 3:
+                    textoFinal = "Tipo: Mantencion \n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
+                        +"Región: "+obraEscogida.getNombreLugar()+'\n';
+                    break;
+                       
+            }
+            
+            textoFinal = "Tipo: Construccion\n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
                 +"Región: "+obraEscogida.getNombreLugar()+'\n';
 //                +"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
 //                +"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
@@ -2302,7 +2316,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         else
         {
             this.InfoObraTerminadaJTextArea.setText("");
-        }*/
+        }
     }//GEN-LAST:event_obraTerminadaComboBoxActionPerformed
 
     private void botonObraTerminadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonObraTerminadaActionPerformed
@@ -2696,6 +2710,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void tiempoRestanteDeUnaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoRestanteDeUnaObraActionPerformed
         registroObr.llenarComboBoxObras(TiempoRestanteObrajComboBox1);
+        
     }//GEN-LAST:event_tiempoRestanteDeUnaObraActionPerformed
 
     private void TiempoRestanteObrajComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiempoRestanteObrajComboBox1ActionPerformed
@@ -2789,7 +2804,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton Salir;
     private javax.swing.JFrame TiempoRestanteObraFrame;
     private javax.swing.JButton TiempoRestanteObrajButton3;
-    private javax.swing.JComboBox<String> TiempoRestanteObrajComboBox1;
+    private javax.swing.JComboBox<Obra> TiempoRestanteObrajComboBox1;
     private javax.swing.JLabel TiempoRestanteObrajLabel23;
     private javax.swing.JLabel TiempoRestanteObrajLabel24;
     private javax.swing.JLabel TiempoRestanteObrajLabel25;
@@ -2815,7 +2830,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel cDESueldoJLabel;
     private javax.swing.JTextField cDESueldoJTextField;
     private javax.swing.JButton cambiarDato;
-    private javax.swing.JComboBox<String> cambiarDatoComboBox;
+    private javax.swing.JComboBox<Obra> cambiarDatoComboBox;
     private javax.swing.JButton cambiarDatojButton;
     private javax.swing.JButton cambiarDatojButton2;
     private javax.swing.JComboBox<String> cambiarDatojComboBox2;
@@ -2824,9 +2839,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JTextArea cambiarDatojTextArea1;
     private javax.swing.JTextField cambiarDatojTextField1;
     private javax.swing.JButton cambiarDatosDeEmpleado;
-    private javax.swing.JComboBox<String> comboBoxEmpleadosObrasMostrar;
+    private javax.swing.JComboBox<Obra> comboBoxEmpleadosObrasMostrar;
     private javax.swing.JComboBox<String> comboBoxEspecialidad;
-    private javax.swing.JComboBox<String> comboBoxObra;
+    private javax.swing.JComboBox<Obra> comboBoxObra;
     private javax.swing.JComboBox<String> datosCDEJComboBox;
     private javax.swing.JButton despedirEmpleadoDeObrabtn;
     private javax.swing.JButton despedirEmpleadojButton3;
@@ -2834,7 +2849,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton eliminarEmpleadoDePlataforma;
     private javax.swing.JComboBox<String> eliminarEmpleadoEmpleadoComboBox;
     private javax.swing.JTextArea eliminarEmpleadoJText;
-    private javax.swing.JComboBox<String> eliminarEmpleadoObraComboBox;
+    private javax.swing.JComboBox<Obra> eliminarEmpleadoObraComboBox;
     private javax.swing.JButton eliminarEmpleadojButton;
     private javax.swing.JButton eliminarEmpleadojButton3;
     private javax.swing.JLabel especialidadJLabel;
@@ -2846,7 +2861,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton gastosTotalesDeUnaObra;
     private javax.swing.JButton gastosTotalesjButton1;
     private javax.swing.JButton gastosTotalesjButton3;
-    private javax.swing.JComboBox<String> gastosTotalesjComboBox;
+    private javax.swing.JComboBox<Obra> gastosTotalesjComboBox;
     private javax.swing.JLabel gastosTotalesjLabel22;
     private javax.swing.JButton gestionEmpleadosjButton3;
     private javax.swing.JButton jButton1;
@@ -2910,8 +2925,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel nombreJLabel;
     private javax.swing.JLabel nombreJLabel1;
     private javax.swing.JTextArea nombreJTextArea;
-    private javax.swing.JComboBox<String> nombreObraDespedirEmpeladoComboBox;
-    private javax.swing.JComboBox<String> obraTerminadaComboBox;
+    private javax.swing.JComboBox<Obra> nombreObraDespedirEmpeladoComboBox;
+    private javax.swing.JComboBox<Obra> obraTerminadaComboBox;
     private javax.swing.JButton obraTerminadajButton3;
     private javax.swing.JPanel panelCambiarDatos;
     private javax.swing.JLabel rutJLabel;
