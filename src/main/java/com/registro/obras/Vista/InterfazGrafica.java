@@ -101,7 +101,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         mostrarObraTextArea = new javax.swing.JTextArea();
         jLabel18 = new javax.swing.JLabel();
         MostrarObrasjButton3 = new javax.swing.JButton();
-        mostrarObrasjButton4 = new javax.swing.JButton();
         CambiarDatoFrame = new javax.swing.JFrame();
         jPanel10 = new javax.swing.JPanel();
         cambiarDatoComboBox = new javax.swing.JComboBox<>();
@@ -449,7 +448,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        AgregarObrajComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         AgregarObrajComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarObrajComboBox2ActionPerformed(evt);
@@ -549,31 +547,26 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        mostrarObrasjButton4.setText("Volver al inicio");
-        mostrarObrasjButton4.setToolTipText("");
-        mostrarObrasjButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mostrarObrasjButton4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+            .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel17)
-                    .addComponent(comboBoxObra, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MostrarObrasjButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(mostrarObrasjButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)))
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(comboBoxObra, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37))))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(MostrarObrasjButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -582,17 +575,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(comboBoxObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(MostrarObrasjButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(mostrarObrasjButton4)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addComponent(comboBoxObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(MostrarObrasjButton3)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout MostrarTodasLasObrasFrameLayout = new javax.swing.GroupLayout(MostrarTodasLasObrasFrame.getContentPane());
@@ -1983,6 +1974,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void botonAgregarObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarObraActionPerformed
         // TODO add your handling code here:
+        this.AgregarObrajComboBox2.removeAllItems();
         this.AgregarObrajComboBox2.addItem("tipo de Obra");
         this.AgregarObrajComboBox2.addItem("Construccion");
         this.AgregarObrajComboBox2.addItem("Restauracion");
@@ -2038,7 +2030,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 try
                 {
                     double Interes = Double.parseDouble(tiempoAsignadoInteresAnual) ;
-                    ObraMantencion nuevaObra = new ObraMantencion(nombreObra, region, presupuesto , Interes) ;
+                    ObraMantencion nuevaObra = new ObraMantencion(nombreObra, region, presupuesto , Interes, false) ;
                     this.registroObr.agregarObra(nuevaObra);
                     WriteFile.escribirObras(',', registroObr);
                 }
@@ -2156,10 +2148,40 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
         // TODO add your handling code here:
-        String valor = (String) this.comboBoxObra.getSelectedItem();
-/*        Obra obraEscogida = this.registroObr.retornarObra(valor);
+        Obra valor = (Obra) this.comboBoxObra.getSelectedItem();
+        //Obra obraEscogida = (Obra) this.registroObr.retornarObra(valor);
         
-        if(obraEscogida != null){
+        
+        if(valor != null)
+        {
+            int tipo = this.registroObr.retornarTipoObra(valor.getNombreObra()) ;
+            if(tipo == 1)
+            {
+                String textoFinal = "Nombre Obra: "+((ObraConstruccion)(valor)).getNombreObra()+'\n'+"Región: "+
+                        ((ObraConstruccion)(valor)).getNombreLugar()+'\n'+"Presupuesto:"+((ObraConstruccion)(valor)).getPresupuesto()+
+                        '\n'+"Fecha de termino:"+((ObraConstruccion)(valor)).getTiempoRestante()+'\n'+
+                        "Fase:";
+                this.mostrarObraTextArea.setText(textoFinal);
+            }
+            if(tipo == 2)
+            {
+                String textoFinal = "Nombre Obra: "+((ObraRestauracion)(valor)).getNombreObra()+'\n'+"Región: "+
+                        ((ObraRestauracion)(valor)).getNombreLugar()+'\n'+"Presupuesto:"+((ObraRestauracion)(valor)).getPresupuesto()+
+                        '\n'+"Fecha de termino:"+((ObraRestauracion)(valor)).getTiempoRestante()+'\n'+
+                        "Fase:";
+                this.mostrarObraTextArea.setText(textoFinal);
+            }
+            if(tipo == 3)
+            {
+                String textoFinal = "Nombre Obra: "+((ObraMantencion)(valor)).getNombreObra()+'\n'+"Región: "+
+                        ((ObraMantencion)(valor)).getNombreLugar()+'\n'+"Presupuesto anual:"+((ObraMantencion)(valor)).getMantenimientoMonetarioAnual()+
+                        '\n'+"Interes anual:"+((ObraMantencion)(valor)).getInteresAnual()+'\n';
+                this.mostrarObraTextArea.setText(textoFinal);
+            }
+        }
+        
+        
+        /*if(obraEscogida != null){
             String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'+"Región: "+obraEscogida.getNombreLugar()+'\n';
                 //+"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
                 //+"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
@@ -2536,11 +2558,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionObrasFrame.setVisible(true) ;
     }//GEN-LAST:event_MostrarObrasjButton3ActionPerformed
 
-    private void mostrarObrasjButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarObrasjButton4ActionPerformed
-        this.MostrarTodasLasObrasFrame.setVisible(false) ;
-        this.OpcionesPrincipalesFrame.setVisible(true) ;
-    }//GEN-LAST:event_mostrarObrasjButton4ActionPerformed
-
     private void obraTerminadajButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obraTerminadajButton3ActionPerformed
         this.ObraTerminadaFrame.setVisible(false) ;
         this.GestionObrasFrame.setVisible(true) ;
@@ -2901,7 +2918,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton mostrarEmpleadosDeUnaObra;
     private javax.swing.JButton mostrarEmpleadosjButton3;
     private javax.swing.JTextArea mostrarObraTextArea;
-    private javax.swing.JButton mostrarObrasjButton4;
     private javax.swing.JButton mostrarTodosLosEmpleados;
     private javax.swing.JButton mostrarTodosLosEmpleadosjButton3;
     private javax.swing.JButton moverEmpleados;

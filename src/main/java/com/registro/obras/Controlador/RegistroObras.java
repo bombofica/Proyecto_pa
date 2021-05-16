@@ -63,9 +63,7 @@ public class RegistroObras {
                 
                 Obra obraPedida = this.registro.get(nombreObra);
                 
-                
-                
-                    if(ObraConstruccion.class.isInstance(obraPedida))
+                    /*if(ObraConstruccion.class.isInstance(obraPedida))
                     {
                         
                     }
@@ -76,7 +74,7 @@ public class RegistroObras {
                     if(ObraRestauracion.class.isInstance(obraPedida))
                     {
                         
-                    }
+                    }*/
                 
                 return obraPedida;
             }
