@@ -189,7 +189,7 @@ public class RegistroObras {
     }
     
     
-    public void eliminarObra(String nombreObra, RegistroObras registroActual) throws IOException //Listo
+    public void eliminarObra(String nombreObra) throws IOException //Listo
     {
         //en el archivo se elimina la obra original y se vuelve a crear el registro sin esta
         if(existenciaObra(nombreObra))
@@ -204,7 +204,7 @@ public class RegistroObras {
             this.contadorObras=this.registro.size();
             
             WriteFile.eliminarDefinitivo(new File("RegistroObras//"+ObraEliminar.getNombreLugar()+"//"+ObraEliminar.getNombreObra()));
-            WriteFile.escribirObras(',', registroActual );
+            WriteFile.escribirObras(',', this );
         }
     }
                 

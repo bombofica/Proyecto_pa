@@ -2311,29 +2311,33 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Obra obraEscogida = (Obra) this.obraTerminadaComboBox.getSelectedItem();
         
         if(obraEscogida != null){
-            String textoFinal;
+            String textoFinal = "";
             switch(obraEscogida.getCodigo()){
                 case 1:
                     textoFinal = "Tipo: Construccion\n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
                         +"Región: "+obraEscogida.getNombreLugar()+'\n'+"Presupuesto: "+
-                        ((ObraConstruccion)obraEscogida).getPresupuesto();
+                        ((ObraConstruccion)obraEscogida).getPresupuesto()+ "\nFase: "+((ObraConstruccion)obraEscogida).getFase();
                     break;
                 case 2:
                     textoFinal = "Tipo: Restauracion \n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
-                        +"Región: "+obraEscogida.getNombreLugar()+'\n';
+                        +"Región: "+obraEscogida.getNombreLugar()+'\n'+"Tiempo Restante: "+
+                        ((ObraRestauracion)obraEscogida).getTiempoRestante()
+                        +"\nFase: "+((ObraRestauracion)obraEscogida).getFase();
                     break;
                 case 3:
                     textoFinal = "Tipo: Mantencion \n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
-                        +"Región: "+obraEscogida.getNombreLugar()+'\n';
+                        +"Región: "+obraEscogida.getNombreLugar()+'\n'
+                        +"Costo Mantenimiento: "+ ((ObraMantencion)obraEscogida).getMantenimientoMonetarioAnual()
+                        +"\nInteres Anual: "+((ObraMantencion)obraEscogida).getInteresAnual();
                     break;
                        
             }
+            this.InfoObraTerminadaJTextArea.setText(textoFinal);
             
-            textoFinal = "Tipo: Construccion\n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
-                +"Región: "+obraEscogida.getNombreLugar()+'\n';
+            //textoFinal = "Tipo: Construccion\n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
+                //+"Región: "+obraEscogida.getNombreLugar()+'\n';
 //                +"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
 //                +"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
-            this.InfoObraTerminadaJTextArea.setText(textoFinal);
         }
         else
         {
@@ -2351,9 +2355,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void terminarObraJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarObraJButtonActionPerformed
         // TODO add your handling code here:
-        String nombreObra = (String) this.obraTerminadaComboBox.getSelectedItem();
+        Obra obraSeleccionada = (Obra) this.obraTerminadaComboBox.getSelectedItem();
         try {
-            this.registroObr.eliminarObra(nombreObra, registroObr);
+            this.registroObr.eliminarObra(obraSeleccionada.getNombreObra());
             this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox);
         } catch (IOException ex) {
             System.out.println("La obra no existe");
@@ -2370,13 +2374,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.sueldoJTextArea1.setText("");
         this.estadoJTextArea1.setText("");
 
-        String nombreObra =(String) this.comboBoxEmpleadosObrasMostrar.getSelectedItem();
+        Obra obraEscogida =(Obra) this.comboBoxEmpleadosObrasMostrar.getSelectedItem();
         
         //this.registroObr.llenarComboBoxEmpleadosRegistro(this.empleadoEmpleadoObrasMostrarComboBox, nombreObra);
-        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.nombreEmpleadosObrasMostrarJTextArea, 0, nombreObra);
-        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.rutJTextArea1, 1, nombreObra);
-        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.sueldoJTextArea1, 2, nombreObra);
-        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.estadoJTextArea1, 3, nombreObra);
+        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.nombreEmpleadosObrasMostrarJTextArea, 0, obraEscogida.getNombreObra());
+        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.rutJTextArea1, 1, obraEscogida.getNombreObra());
+        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.sueldoJTextArea1, 2, obraEscogida.getNombreObra());
+        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.estadoJTextArea1, 3, obraEscogida.getNombreObra());
     }//GEN-LAST:event_comboBoxEmpleadosObrasMostrarActionPerformed
 
     private void nombreEmpleadosObrasMostrarJTextAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreEmpleadosObrasMostrarJTextAreaKeyTyped
