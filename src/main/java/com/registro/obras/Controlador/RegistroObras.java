@@ -8,6 +8,7 @@ import com.registro.obras.Modelo.Obra;
 import com.registro.obras.Modelo.ObraConstruccion;
 import com.registro.obras.Modelo.ObraMantencion;
 import com.registro.obras.Modelo.ObraRestauracion;
+import com.registro.obras.Modelo.Persona;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -97,7 +98,7 @@ public class RegistroObras {
         
     }
     
-    public void llenarComboBoxEmpleadosRegistro(JComboBox<String> comboBoxObra, String nombreObra){
+    public void llenarComboBoxEmpleadosRegistro(JComboBox<Persona> comboBoxObra, String nombreObra){
                 
         Obra obraSeleccionada = this.registro.get(nombreObra);
         if(obraSeleccionada != null){

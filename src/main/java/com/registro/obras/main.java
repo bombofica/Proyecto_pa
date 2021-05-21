@@ -17,10 +17,13 @@ import java.io.* ;
 public class main{
     public static void main(String params[]) throws IOException
     {
+        
+        //ReadFile.leerArchivo("RegistroObras//RegistroObras.txt");
         RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores(); //registro de todos los trabajdores de la aplicacion
         RegistroObras registroObras = new RegistroObras();//registro de todas las obras de la aplicacion
         ReadFile.traerObras(',', 6,"RegistroObras" , registroDeTrabajadores, registroObras);//uso de archivos para obtener los datos
-        WriteFile.escribirObras(',', registroObras);
+        //WriteFile.escribirObras(',', registroObras);
+        //WriteFile.imprimirTodasLasPersonas(registroDeTrabajadores);
         //registroTrabajadores.mostrarEspecialistas("Informático");
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

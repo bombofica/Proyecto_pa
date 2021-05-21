@@ -311,7 +311,7 @@ public class RegistroTrabajadores {
         }
 
     }
-    public Persona devolverPersona(int index){
+    public Trabajador devolverPersona(int index){
         return this.arrayEmpleados.get(index);
     }
     

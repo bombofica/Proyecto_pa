@@ -130,8 +130,6 @@ public class WriteFile {
                 
                     Trabajador currentPersona;
                 
-                    
-                
                     for(int j=0; j < currentObra.getNumeroEmpleados(); j++){
                         
                         currentPersona = currentObra.devolverPersonaI(j);
@@ -238,7 +236,7 @@ public class WriteFile {
         
         
             
-/*            try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroTrabajadores.txt")) {
+            try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroTrabajadores.txt")) {
                 
                 Trabajador current;
                 
@@ -262,6 +260,6 @@ public class WriteFile {
                 Escritor.close();
             } catch (IOException e) {
                 System.out.println("Error, el fichero no existe 4");
-            }*/
+            }
     }
 }

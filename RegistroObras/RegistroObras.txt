@@ -5,8 +5,8 @@
 2,Iglesia de la Tirana,Tarapaca,800000,23-04-2022,1,
 1,Caleta Chanavaya,Tarapaca,1570000,14-09-2026,2,
 2,Mirador paso Jama,Antofagasta,750000,31-01-2027,2,
-3,Mallplaza Calama,Antofagasta,900000,0.1,true;
-3,Avenida el palomar,Atacama,630000,0.1,true;
+3,Mallplaza Calama,Antofagasta,900000,0.1,true,
+3,Avenida el palomar,Atacama,630000,0.1,true,
 1,Avenida el Salvador,Atacama,860000,09-11-2025,1,
 2,Paso agua negra,Coquimbo,540000,30-03-2022,2,
 2,Centro medico Arauco,Coquimbo,370000,2030,1,

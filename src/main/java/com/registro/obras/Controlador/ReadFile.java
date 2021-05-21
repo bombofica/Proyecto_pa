@@ -8,17 +8,56 @@ import com.registro.obras.Modelo.ObraConstruccion;
 import com.registro.obras.Modelo.ObraMantencion;
 import com.registro.obras.Modelo.ObraRestauracion;
 import com.registro.obras.Modelo.Trabajador;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class ReadFile {
     
     /*El método "leerArchivo" solo lee e imprime por pantalla el contenido de un archivo de texto */
 
+    
+    
+    private static String[] obtenerValoresSeparados(String cadenaCompleta){
+        
+        String[] valores = cadenaCompleta.split(",");
+        
+        for(int i =0; i < valores.length; i++){
+            System.out.println(valores[i]);
+        }
+        return valores;
+    }
+    
     public static void leerArchivo(String direccion) {
-        try {
-            FileReader entrada = new FileReader(direccion);
+        ArrayList<String> texto = new ArrayList();
+        try{
+            BufferedReader lector;
+            lector = new BufferedReader(new FileReader(direccion,StandardCharsets.UTF_8));
+            String linea;
+            String temporal = "";
+            while((linea = lector.readLine())!= null){
+                texto.add(linea);
+            }
+            
+            
+        }
+        catch(IOException e){
+            
+        }
+        
+        
+        
+        for(int i = 0 ; i< texto.size() ; i++)
+        {
+            ReadFile.obtenerValoresSeparados(texto.get(i));
+            //System.out.println(texto.get(i));
+        }
+        //System.out.print(texto);
+        
+        /*try {
+            FileReader entrada = new FileReader(direccion,StandardCharsets.UTF_8);
             int c = 5;
             while (c != -1) {
                 c = entrada.read();
@@ -28,7 +67,7 @@ public class ReadFile {
             entrada.close();
         } catch (IOException e) {
             System.out.println("El fichero no existe");
-        }
+        }*/
     }
     
     /* El método "tomarContenidosPersonas" lee el archivo que corresponde a los empleados de una Obra o de la lista con 
@@ -37,11 +76,16 @@ public class ReadFile {
        NombrePersona,Labor,Sueldo,Rut,Estado(Trabajando o no),
     */
 
-    public static void tomarContenidosPersonas(char separador, int num, String direccion, RegistroTrabajadores registroTrabajadores, Obra currentObra) {
+    public static void tomarContenidosPersonas(char separador, int num, String direccion, RegistroTrabajadores registroTrabajadores, Obra currentObra) throws IOException {
         String[] valores = new String[num];// para almacenar los datos que se encuentran en una linea
         Trabajador currentPersona;
         int cont = 0;
         
+        
+        
+        //BufferedReader lectorql = new BufferedReader (new InputStreamReader(System.in));
+        
+        try{
         // Verifica si el txt de los empleados de una obra tiene Personas, si no tiene
         // no realiza el proceso
         File direccionEnviada = new File(direccion);
@@ -51,14 +95,15 @@ public class ReadFile {
             }
         }
         
-        try {
-            FileReader entrada = new FileReader(direccion);
+            File ruta = new File(direccion);
+        
+            FileReader entrada = new FileReader(ruta, StandardCharsets.UTF_8);
             
             int c;
             do {
                 c = entrada.read();
                 char caracter = (char) c;
-                
+                //System.out.print((char) c);
                 //En este if se verifica si el caracter es un salto de linea o se ha terminado el archivo
                 if ((caracter == separador)) {
                     cont++;
@@ -102,9 +147,11 @@ public class ReadFile {
             } while (c != -1);
             
             entrada.close();
-        } catch (IOException e) {
-            System.out.println("El fichero no existe");
         }
+        catch(IOException e){
+            System.out.println("Tomar contenidos personas, el fichero no existe");
+        }
+
         
     }
     
@@ -129,7 +176,7 @@ public class ReadFile {
         
         try{
             Obra currentObra = null;
-            FileReader entrada = new FileReader(direccion+"//RegistroObras.txt");
+            FileReader entrada = new FileReader(direccion+"//RegistroObras.txt",StandardCharsets.UTF_8);
             int c;
             do {
                 
@@ -158,37 +205,30 @@ public class ReadFile {
                 if (caracter == '\n' || c == -1) {
  
                     int valor = Integer.parseInt(valores[0]);
-                    System.out.println(valores[0]+" " + valores[1]+" "+valores[2]+" " + valores[3]+" "+valores[4]+" "+valores[5]);                       // nombre_lugar(2)
+                    System.out.println(valores[0]+" "+ valores[1]+" "+valores[2]+" " + valores[3]+" "+valores[4]+" "+valores[5]);                       // nombre_lugar(2)
                     switch(valor){
                         case 1:
                             currentObra = new ObraConstruccion(valores[1], valores[2], valores[4],Long.parseLong(valores[3]));
-                            ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
-                            +valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);
+                            ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[2]+"//"
+                            +valores[1]+"//Empleados.txt",registroTrabajadores,currentObra);
                             break;
                         case 2:
                             currentObra = new ObraRestauracion(valores[1], valores[2], valores[4], Long.parseLong(valores[3]));
-                            ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
-                            +valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);                                
+                            ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[2]+"//"
+                            +valores[1]+"//Empleados.txt",registroTrabajadores,currentObra);                                
                             break;
                         case 3:
                             currentObra = new ObraMantencion(valores[1], valores[2], Long.parseLong(valores[3]), Double.parseDouble(valores[4]),Boolean.parseBoolean(valores[5]));
-                            ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
-                            +valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);                              
+                            ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[2]+"//"
+                            +valores[1]+"//Empleados.txt",registroTrabajadores,currentObra);                              
                             break;
-                        }                    
-                    //currentObra = new Obra(valores[0], valores[1], Double.parseDouble(valores[2]), valores[3]);
-                    //ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[1]+"//"
-                            //+valores[0]+"//Empleados.txt",registroTrabajadores,currentObra);
-                             // nombre_Obra(1)
+                        }
                     
-                    //,hashPersonaNombre,hashPersonaRut,lista);
-                    
-                    registroObras.agregarObra(currentObra);//*************** benja ****************
+                    registroObras.agregarObra(currentObra);
                                         
-
                     valores = new String[num];
                     cont = 0;
-                }       
+                }
 
                 
 
