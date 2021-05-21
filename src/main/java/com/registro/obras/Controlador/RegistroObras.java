@@ -104,10 +104,7 @@ public class RegistroObras {
             llenarComboBoxObras(comboBoxObra) ;
             return ;
         }
-        if(region.equals("Ñuble"))
-        {
-            region = "Nuble" ;
-        }
+        
         TreeMap<String, Obra> registroRegional = this.regiones.get(region) ;
         comboBoxObra.removeAllItems();
         Obra current ;
@@ -127,10 +124,7 @@ public class RegistroObras {
         for(int i = 0 ; i < this.listadoRegiones.size() ; i++)
         {
             regionActual = this.listadoRegiones.get(i) ;
-            if(regionActual.equals("Nuble"))
-            {   
-                regionActual = "Ñuble" ;
-            }
+            
             comboBoxRegiones.addItem(regionActual);
         }
     }
@@ -193,10 +187,7 @@ public class RegistroObras {
         
          int suma= 2147483647+109890;
         double resultado = real/entero;
-        if(obraAgregar.getNombreLugar().equals("Ñuble"))
-        {
-            obraAgregar.setNombreLugar("Nuble") ;
-        }
+        
         TreeMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
         if(region != null)
         {
@@ -244,8 +235,10 @@ public class RegistroObras {
         //nombreObra es el nombre actual de la obra a editar
         //nuevoDato es el dato a editar que puedeser de cualquier atributo dentro del objeto Obra
         //opcion guardaria la hipotetica opcion a modificar por el usuario seleccionada en el menu
+        System.out.println(nombreObra);
         if(existenciaObra(nombreObra))
         {
+
             String lugar = this.registro.get(nombreObra).getNombreLugar() ;
             Obra remplazo = this.registro.get(nombreObra) ;
             switch(opcion)
@@ -358,7 +351,19 @@ public class RegistroObras {
                         }
                         
                     }
-                } 
+                    break;
+                }
+                case 5:
+                {
+                    if(nuevoDato.equals("false"))
+                    {
+                        ((ObraMantencion)(remplazo)).setOperativo(false);
+                    }
+                    else
+                    {
+                        ((ObraMantencion)(remplazo)).setOperativo(true);
+                    }
+                }
                 
             }
             this.registro.remove(nombreObra) ;
@@ -371,8 +376,11 @@ public class RegistroObras {
         }
     }
     
+    
+    
     public Boolean existenciaObra(String obra)
     {
+        System.out.println(obra);
         Obra verificador = this.registro.get(obra) ;
         if(verificador == null)
         {
@@ -446,7 +454,7 @@ public class RegistroObras {
         this.listadoRegiones.add("Metropolitana") ;
         this.listadoRegiones.add("Los Rios") ;
         this.listadoRegiones.add("Arica y Parinacota") ;
-        this.listadoRegiones.add("Nuble") ;
+        this.listadoRegiones.add("Ñuble") ;
     }
     
 }

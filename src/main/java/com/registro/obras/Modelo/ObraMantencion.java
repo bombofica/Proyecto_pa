@@ -14,7 +14,7 @@ public class ObraMantencion extends Obra {
     {
         super(nombreObra, nombreRegion, 3) ;
         this.mantenimientoMonetarioAnual = mantenimientoMonetarioAnual;
-        this.operativo = false ;
+        this.operativo = operativo ;
         this.InteresAnual = InteresAnual;
         
     }
