@@ -38,7 +38,7 @@ public class WriteFile {
         
                 
 
-        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras2.txt")) {
+        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
       
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
                 más específicamente en el ArrayList de RegistroObras*/ 

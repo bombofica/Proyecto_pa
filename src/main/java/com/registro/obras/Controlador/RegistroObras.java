@@ -64,7 +64,6 @@ public class RegistroObras {
         return null;
             
     }
-
     
     public Obra retornarObra(String nombre, String nombreRegion)
     {
@@ -89,12 +88,50 @@ public class RegistroObras {
 
     public void llenarComboBoxObras(JComboBox<Obra> comboBoxObra){
         comboBoxObra.removeAllItems();
+        Obra current ;
         for(int i = 0 ; i< listaCompleta.size() ; i++)
         {
-            Obra current=listaCompleta.get(i);
+            current = listaCompleta.get(i);
             comboBoxObra.addItem(current);
         }
+    }
+    
+    public void llenarComboBoxObras(JComboBox<Obra> comboBoxObra, String region){
         
+        if(region.equals("Todas las regiones"))
+        {
+            llenarComboBoxObras(comboBoxObra) ;
+            return ;
+        }
+        if(region.equals("Ñuble"))
+        {
+            region = "Nuble" ;
+        }
+        TreeMap<String, Obra> registroRegional = this.regiones.get(region) ;
+        comboBoxObra.removeAllItems();
+        Obra current ;
+        for(Map.Entry me : registroRegional.entrySet())
+        {
+            
+            current = (Obra)me.getValue();
+            comboBoxObra.addItem(current);
+        }
+    }
+    
+    public void llenarComoBoxRegiones(JComboBox<String> comboBoxRegiones){
+        
+        comboBoxRegiones.removeAllItems();
+        String regionActual ;
+        comboBoxRegiones.addItem("Todas las regiones");
+        for(int i = 0 ; i < this.listadoRegiones.size() ; i++)
+        {
+            regionActual = this.listadoRegiones.get(i) ;
+            if(regionActual.equals("Nuble"))
+            {   
+                regionActual = "Ñuble" ;
+            }
+            comboBoxRegiones.addItem(regionActual);
+        }
     }
     
     public void llenarComboBoxEmpleadosRegistro(JComboBox<String> comboBoxObra, String nombreObra){
@@ -122,7 +159,7 @@ public class RegistroObras {
     
     
     
-    public void mostrarObras(String region){ // listo
+    /*public void mostrarObras(String region){ // listo
 
         TreeMap<String, Obra> listaFiltrada = regiones.get(region) ;
         
@@ -146,11 +183,19 @@ public class RegistroObras {
         {
             System.out.println(listaCompleta.get(i).getNombreObra());
         }
-    }
+    }*/
     
     
     public void agregarObra(Obra obraAgregar){ //Listo
+        int entero = 1;
+        double real = 2;
         
+         int suma= 2147483647+109890;
+        double resultado = real/entero;
+        if(obraAgregar.getNombreLugar().equals("Ñuble"))
+        {
+            obraAgregar.setNombreLugar("Nuble") ;
+        }
         TreeMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
         if(region != null)
         {
@@ -400,7 +445,7 @@ public class RegistroObras {
         this.listadoRegiones.add("Metropolitana") ;
         this.listadoRegiones.add("Los Rios") ;
         this.listadoRegiones.add("Arica y Parinacota") ;
-        this.listadoRegiones.add("Ñuble") ;
+        this.listadoRegiones.add("Nuble") ;
     }
     
 }

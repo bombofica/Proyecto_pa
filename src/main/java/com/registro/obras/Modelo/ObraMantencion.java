@@ -1,11 +1,13 @@
 package com.registro.obras.Modelo;
 
-public class ObraMantencion extends Obra{
+import com.registro.obras.Controlador.PoderInforme;
+
+public class ObraMantencion extends Obra {
     
     long mantenimientoMonetarioAnual ;
     double InteresAnual ;
     boolean operativo ;
-
+    
 
     public ObraMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, double InteresAnual, boolean operativo)
 
@@ -40,7 +42,8 @@ public class ObraMantencion extends Obra{
         this.operativo = operativo;
     }
     
-
+    
+    
     
     
 }
