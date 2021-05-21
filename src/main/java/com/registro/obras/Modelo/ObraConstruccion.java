@@ -1,11 +1,13 @@
 package com.registro.obras.Modelo;
 
-public class ObraConstruccion extends Obra{
+import com.registro.obras.Controlador.PoderInforme;
+
+public class ObraConstruccion extends Obra implements PoderInforme{
     
     long presupuesto ;
     String tiempoRestante ;
     int fase ;
-
+    public PoderInforme informes;
     //Constructor
     public ObraConstruccion(String nombreObra, String nombreRegion,String tiempoAsignado,long presupuesto)
     {
@@ -41,7 +43,37 @@ public class ObraConstruccion extends Obra{
     }
     
     //metodos publicos
+    //@Override
+    public void crearInforme()
+    {
+        
+    }
     
+    public void crearGrafico()
+    {
+        
+    }
+    
+    public int calcularFase()
+    {
+        return 0;
+    }
+    
+    public double calcularPresupuestoGastadoMensual()
+    {
+        return 0;
+    }
+    public void informe()
+    {
+        informes.crearInforme();
+        informes.crearGrafico();
+        informes.calcularFase();
+        informes.calcularPresupuestoGastadoMensual();
+        
+    }
+    /*double calcularPresupuestoGastadoMensual();
+    int calcularFase();
+    void crearGrafico();*/
     
 }
 
