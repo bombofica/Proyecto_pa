@@ -182,6 +182,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
         mostrarEmpleadosjButton3 = new javax.swing.JButton();
         MoverEmpleados = new javax.swing.JFrame();
         jPanel7 = new javax.swing.JPanel();
+        comboBoxMoverEInicial = new javax.swing.JComboBox<>();
+        comboBoxMoverEObjetivo = new javax.swing.JComboBox<>();
+        jLabelObraInicial = new javax.swing.JLabel();
+        jLabelObraObjetivo = new javax.swing.JLabel();
+        jBotonMoverEmpleado = new javax.swing.JButton();
+        comboBoxMoverEmpleado = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jBotonVolverMoverEmpleados = new javax.swing.JButton();
         MostrarTodosLosEmpleados = new javax.swing.JFrame();
         jPanel8 = new javax.swing.JPanel();
         comboBoxEspecialidad = new javax.swing.JComboBox<>();
@@ -1365,15 +1373,70 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
+        jLabelObraInicial.setText("Obra Inicial");
+
+        jLabelObraObjetivo.setText("Obra objetivo");
+
+        jBotonMoverEmpleado.setText("Cambiar");
+        jBotonMoverEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonMoverEmpleadoActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Empleado");
+
+        jBotonVolverMoverEmpleados.setText("Volver");
+        jBotonVolverMoverEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonVolverMoverEmpleadosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addComponent(jBotonVolverMoverEmpleados)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBotonMoverEmpleado))
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelObraInicial)
+                                .addComponent(comboBoxMoverEInicial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboBoxMoverEmpleado, 0, 125, Short.MAX_VALUE))
+                            .addGap(79, 79, 79)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(comboBoxMoverEObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelObraObjetivo)))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelObraInicial)
+                    .addComponent(jLabelObraObjetivo))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBoxMoverEInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxMoverEObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboBoxMoverEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBotonMoverEmpleado)
+                    .addComponent(jBotonVolverMoverEmpleados))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout MoverEmpleadosLayout = new javax.swing.GroupLayout(MoverEmpleados.getContentPane());
@@ -2086,12 +2149,23 @@ public class InterfazGrafica extends javax.swing.JFrame {
         //this.comboBoxEspecialidad.
         this.MostrarTodosLosEmpleados.setSize(800,500);
         this.registroTra.llenarComboBoxEspecialidad(this.comboBoxEspecialidad);
+        
     }//GEN-LAST:event_mostrarTodosLosEmpleadosActionPerformed
 
     private void moverEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverEmpleadosActionPerformed
         // TODO add your handling code here:
         this.GestionEmpleadosFrame.setVisible(false);
         this.MoverEmpleados.setVisible(true);
+        this.MoverEmpleados.setSize(500,500);
+        
+        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEInicial);
+        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEObjetivo);
+        
+        Obra obraPrimera = this.registroObr.retornarObra(0);
+        
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, obraPrimera.getNombreObra());
+        
+        
     }//GEN-LAST:event_moverEmpleadosActionPerformed
 
     private void despedirEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEmpleadosActionPerformed
@@ -2442,8 +2516,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void nombreObraDespedirEmpeladoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreObraDespedirEmpeladoComboBoxActionPerformed
         // TODO add your handling code here:
         
-        String nombreObra = (String) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, nombreObra);
+        Obra nombreObra = (Obra) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, nombreObra.getNombreObra());
         
 
     }//GEN-LAST:event_nombreObraDespedirEmpeladoComboBoxActionPerformed
@@ -2482,14 +2556,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void despedirEmpleadoDeObrabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEmpleadoDeObrabtnActionPerformed
         // TODO add your handling code here:
         Persona currentPersonaComboBox=(Persona) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
-        String nombreObra = (String) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
+        Obra obraEscogida = (Obra) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
 //        Obra obra = this.registroObr.retornarObra(nombreObra);
-     //   obra.despedirEmpleado(currentPersonaComboBox.getRut());
-        
-        
+        obraEscogida.despedirEmpleado(currentPersonaComboBox.getRut());
         
         this.jTextArea2.setText("");
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, nombreObra);        
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, obraEscogida.getNombreObra());        
        
         
     }//GEN-LAST:event_despedirEmpleadoDeObrabtnActionPerformed
@@ -2862,12 +2934,26 @@ public class InterfazGrafica extends javax.swing.JFrame {
         
     }//GEN-LAST:event_AgregarObrajComboBox2ActionPerformed
 
+
+    private void jBotonMoverEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonMoverEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBotonMoverEmpleadoActionPerformed
+
+    private void jBotonVolverMoverEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonVolverMoverEmpleadosActionPerformed
+        // TODO add your handling code here:
+        
+        this.MoverEmpleados.setVisible(false);
+        this.GestionEmpleadosFrame.setVisible(true);
+        
+    }//GEN-LAST:event_jBotonVolverMoverEmpleadosActionPerformed
+
     private void MostrarTodasLasObrasjComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarTodasLasObrasjComboBox2ActionPerformed
         // TODO add your handling code here:
         String opcion = (String) this.MostrarTodasLasObrasjComboBox2.getSelectedItem() ;
         this.comboBoxObra.removeAllItems();
         this.registroObr.llenarComboBoxObras(this.comboBoxObra, opcion);
     }//GEN-LAST:event_MostrarTodasLasObrasjComboBox2ActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2900,7 +2986,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> MostrarTodasLasObrasjComboBox2;
     private javax.swing.JFrame MostrarTodosLosEmpleados;
     private javax.swing.JFrame MoverEmpleados;
-    private javax.swing.JComboBox<String> NombreEmpeladoDespedirEmpleadoComboBox;
+    private javax.swing.JComboBox<Persona> NombreEmpeladoDespedirEmpleadoComboBox;
     private javax.swing.JLabel NombreEmpleadoCDEjLabel;
     private javax.swing.JLabel NombreProyecto;
     private javax.swing.JFrame ObraTerminadaFrame;
@@ -2946,13 +3032,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton cambiarDatosDeEmpleado;
     private javax.swing.JComboBox<Obra> comboBoxEmpleadosObrasMostrar;
     private javax.swing.JComboBox<String> comboBoxEspecialidad;
+    private javax.swing.JComboBox<Obra> comboBoxMoverEInicial;
+    private javax.swing.JComboBox<Obra> comboBoxMoverEObjetivo;
+    private javax.swing.JComboBox<Persona> comboBoxMoverEmpleado;
     private javax.swing.JComboBox<Obra> comboBoxObra;
     private javax.swing.JComboBox<String> datosCDEJComboBox;
     private javax.swing.JButton despedirEmpleadoDeObrabtn;
     private javax.swing.JButton despedirEmpleadojButton3;
     private javax.swing.JButton despedirEmpleados;
     private javax.swing.JButton eliminarEmpleadoDePlataforma;
-    private javax.swing.JComboBox<String> eliminarEmpleadoEmpleadoComboBox;
+    private javax.swing.JComboBox<Persona> eliminarEmpleadoEmpleadoComboBox;
     private javax.swing.JTextArea eliminarEmpleadoJText;
     private javax.swing.JComboBox<Obra> eliminarEmpleadoObraComboBox;
     private javax.swing.JButton eliminarEmpleadojButton;
@@ -2969,6 +3058,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<Obra> gastosTotalesjComboBox;
     private javax.swing.JLabel gastosTotalesjLabel22;
     private javax.swing.JButton gestionEmpleadosjButton3;
+    private javax.swing.JButton jBotonMoverEmpleado;
+    private javax.swing.JButton jBotonVolverMoverEmpleados;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -2991,6 +3082,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelObraInicial;
+    private javax.swing.JLabel jLabelObraObjetivo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

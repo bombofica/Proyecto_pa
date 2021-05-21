@@ -241,7 +241,7 @@ public abstract class Obra {
     
 // Estos metodos sirven para utilizar la interfaz gráfica
     
-    public void llenarComboBoxEmpleados(JComboBox comboBox){
+    public void llenarComboBoxEmpleados(JComboBox<Persona> comboBox){
         
         comboBox.removeAllItems();
         
