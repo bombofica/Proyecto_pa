@@ -1,6 +1,5 @@
 package com.registro.obras.Modelo;
 
-import com.registro.obras.Modelo.Persona;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -74,7 +73,6 @@ public abstract class Obra {
     public int getNumeroEmpleados(){
         return this.numeroEmpleados;
     }
-    
     
     
     public String getNombreObra() {

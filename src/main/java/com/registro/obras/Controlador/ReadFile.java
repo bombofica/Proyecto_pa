@@ -1,7 +1,4 @@
 package com.registro.obras.Controlador;
-import com.registro.obras.Controlador.WriteFile;
-import com.registro.obras.Controlador.RegistroTrabajadores;
-import com.registro.obras.Controlador.RegistroObras;
 import com.registro.obras.Modelo.Persona;
 import com.registro.obras.Modelo.Obra;
 import com.registro.obras.Modelo.ObraConstruccion;

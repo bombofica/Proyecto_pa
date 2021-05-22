@@ -1406,6 +1406,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
+        comboBoxMoverEInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxMoverEInicialActionPerformed(evt);
+            }
+        });
+
         jLabelObraInicial.setText("Obra Inicial");
 
         jLabelObraObjetivo.setText("Obra objetivo");
@@ -1465,11 +1471,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(comboBoxMoverEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBotonMoverEmpleado)
-                    .addComponent(jBotonVolverMoverEmpleados))
-                .addContainerGap())
+                    .addComponent(jBotonVolverMoverEmpleados)
+                    .addComponent(jBotonMoverEmpleado))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout MoverEmpleadosLayout = new javax.swing.GroupLayout(MoverEmpleados.getContentPane());
@@ -2204,11 +2210,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         
         this.registroObr.llenarComboBoxObras(this.comboBoxMoverEInicial);
         this.registroObr.llenarComboBoxObras(this.comboBoxMoverEObjetivo);
-        
-        Obra obraPrimera = this.registroObr.retornarObra(0);
-        
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, obraPrimera.getNombreObra());
-        
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, "");
         
     }//GEN-LAST:event_moverEmpleadosActionPerformed
 
@@ -2970,6 +2972,18 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void jBotonMoverEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonMoverEmpleadoActionPerformed
         // TODO add your handling code here:
+        Obra obraInicial = (Obra) this.comboBoxMoverEInicial.getSelectedItem();
+        Obra obraObjetivo = (Obra) this.comboBoxMoverEObjetivo.getSelectedItem();
+        Trabajador trabajador = (Trabajador) this.comboBoxMoverEmpleado.getSelectedItem();
+        
+        if(obraInicial != null && obraObjetivo != null && trabajador != null){
+            obraInicial.despedirEmpleado(trabajador.getRut());
+            obraObjetivo.agregarPersona(trabajador);
+        }
+        
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, obraInicial.getNombreObra());
+        
+        
     }//GEN-LAST:event_jBotonMoverEmpleadoActionPerformed
 
     private void jBotonVolverMoverEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonVolverMoverEmpleadosActionPerformed
@@ -2986,6 +3000,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.comboBoxObra.removeAllItems();
         this.registroObr.llenarComboBoxObras(this.comboBoxObra, opcion);
     }//GEN-LAST:event_MostrarTodasLasObrasjComboBox2ActionPerformed
+
+
+    private void comboBoxMoverEInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMoverEInicialActionPerformed
+        // TODO add your handling code here:
+        Obra obraEscogida =(Obra) this.comboBoxMoverEInicial.getSelectedItem();
+        this.registroObr.llenarComboBoxEmpleadosRegistro(comboBoxMoverEmpleado, obraEscogida.getNombreObra());
+    }//GEN-LAST:event_comboBoxMoverEInicialActionPerformed
 
     private void generarInformejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarInformejButtonActionPerformed
         
@@ -3082,9 +3103,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_TiempoRestanteObrajButton2ActionPerformed
-
-
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AgregarObraFrame;
     private javax.swing.JComboBox<String> AgregarObrajComboBox2;
