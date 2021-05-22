@@ -7,6 +7,7 @@ package com.registro.obras.Controlador;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JTextArea;
 
 public class FechaHoy {
     
@@ -26,7 +27,7 @@ public class FechaHoy {
     }
     
     //Metodos publicos
-    public void obterFecha(char[] fechaComparar)
+    public void obterFecha(char[] fechaComparar, JTextArea jText)
     {
         if(!verificarEstructura(fechaComparar)) return;
         
@@ -47,9 +48,12 @@ public class FechaHoy {
             int diasR = diasRestantes(diaHoy, mesHoy, diaComparar, mesComparar) ;
             int MesesR = mesesRestantes(mesHoy, mesComparar);
             int yearR = yearRestante(yearComparar, yearHoy, mesHoy, mesComparar);
-            System.out.println("quedan: " + diasR + " dias");
+            jText.append("quedan: " + diasR + " dias"+'\n');
+            jText.append("quedan: " + MesesR + " meses"+'\n');
+            jText.append("quedan: " + yearR + " años"+'\n');
+            /*System.out.println("quedan: " + diasR + " dias");
             System.out.println("quedan: " + MesesR + " meses");
-            System.out.println("quedan: " + yearR + " años");
+            System.out.println("quedan: " + yearR + " años");*/
         }
     }
     
