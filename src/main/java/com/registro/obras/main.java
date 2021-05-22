@@ -7,9 +7,13 @@
 
 
 package com.registro.obras;
+import com.registro.obras.Controlador.ReadFile;
+import com.registro.obras.Controlador.RegistroObras;
+import com.registro.obras.Controlador.RegistroTrabajadores;
+import com.registro.obras.Vista.InterfazGrafica;
 import com.registro.obras.Vista.*;
 import com.registro.obras.Controlador.*;
-import static com.registro.obras.Vista.MenuConsola.inicio;
+import com.registro.obras.Modelo.*;
 import java.io.* ;
 //import java.text.SimpleDateFormat;
 
@@ -17,11 +21,11 @@ import java.io.* ;
 public class main{
     public static void main(String params[]) throws IOException
     {
-        
-        //ReadFile.leerArchivo("RegistroObras//RegistroObras.txt");
+
+        ReadFile.leerArchivo("RegistroObras//RegistroObras.txt");
         RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores(); //registro de todos los trabajdores de la aplicacion
         RegistroObras registroObras = new RegistroObras();//registro de todas las obras de la aplicacion
-        ReadFile.traerObras(',', 6,"RegistroObras" , registroDeTrabajadores, registroObras);//uso de archivos para obtener los datos
+        //ReadFile.traerObras(',', 6,"RegistroObras" , registroDeTrabajadores, registroObras);//uso de archivos para obtener los datos
         //WriteFile.escribirObras(',', registroObras);
         //WriteFile.imprimirTodasLasPersonas(registroDeTrabajadores);
         //registroTrabajadores.mostrarEspecialistas("Informático");
