@@ -45,7 +45,6 @@ public class ReadFile {
         }
         
         
-        
         for(int i = 0 ; i< texto.size() ; i++)
         {
             ReadFile.obtenerValoresSeparados(texto.get(i));

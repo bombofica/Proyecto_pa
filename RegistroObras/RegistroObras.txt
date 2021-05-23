@@ -1,7 +1,7 @@
 1,Aeropuerto Internacional Chacalluta,Arica y Parinacota,235000,10-03-2029,0,
 2,Complejo Fronterizo Chacalluta,Arica y Parinacota,789000,15-07-2023,0,
 2,Plaza de Armas Coyhaique,Aysen,650000,18-03-2035,0,
-3,Puente Presidente Iba?es,Aysen,435000,0.1,false,
+3,Puente Presidente Ibañes,Aysen,435000,0.1,false,
 1,Avenida Alemania,Valparaiso,2000000,20-07-2025,0,
 1,Plaza Victoria,Valparaiso,1000000,03-12-2030,0,
 2,Avenida Libertador Bernando,O'higgins,1200000,24-06-2022,0,

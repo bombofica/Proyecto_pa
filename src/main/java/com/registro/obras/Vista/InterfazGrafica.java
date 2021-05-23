@@ -24,6 +24,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Benjamín
@@ -141,6 +142,18 @@ public class InterfazGrafica extends javax.swing.JFrame {
         gastosTotalesjLabel22 = new javax.swing.JLabel();
         gastosTotalesjComboBox = new javax.swing.JComboBox<>();
         gastosTotalesjButton3 = new javax.swing.JButton();
+        gastosTotalesjButton1 = new javax.swing.JButton();
+        GenerarInformeFrame = new javax.swing.JFrame();
+        jFrameInforme = new javax.swing.JPanel();
+        comboBoxRegionesInforme = new javax.swing.JComboBox<>();
+        comboBoxObrasInforme = new javax.swing.JComboBox<>();
+        jButtonVolverInforme = new javax.swing.JButton();
+        jButtonCrearInformeInforme = new javax.swing.JButton();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         GastosTotalesjComboBox2 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane16 = new javax.swing.JScrollPane();
@@ -1027,6 +1040,104 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addComponent(gastosTotalesjButton3)
                 .addContainerGap())
+        );
+
+        GenerarInformeFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                GenerarInformeFrameWindowClosing(evt);
+            }
+        });
+
+        comboBoxRegionesInforme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxRegionesInformeActionPerformed(evt);
+            }
+        });
+
+        jButtonVolverInforme.setText("Volver");
+        jButtonVolverInforme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverInformeActionPerformed(evt);
+            }
+        });
+
+        jButtonCrearInformeInforme.setText("Crear Informe");
+        jButtonCrearInformeInforme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCrearInformeInformeActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane15.setViewportView(jTextArea1);
+
+        jLabel6.setText("Región");
+
+        jLabel22.setText("Obra");
+
+        jLabel23.setText("Ingrese Contenido (opcional)");
+
+        javax.swing.GroupLayout jFrameInformeLayout = new javax.swing.GroupLayout(jFrameInforme);
+        jFrameInforme.setLayout(jFrameInformeLayout);
+        jFrameInformeLayout.setHorizontalGroup(
+            jFrameInformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameInformeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrameInformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrameInformeLayout.createSequentialGroup()
+                        .addComponent(jButtonVolverInforme)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCrearInformeInforme)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jFrameInformeLayout.createSequentialGroup()
+                        .addGroup(jFrameInformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jFrameInformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(comboBoxRegionesInforme, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboBoxObrasInforme, 0, 127, Short.MAX_VALUE))
+                            .addComponent(jLabel22))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
+                    .addGroup(jFrameInformeLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                        .addComponent(jLabel23)
+                        .addGap(75, 75, 75))))
+        );
+        jFrameInformeLayout.setVerticalGroup(
+            jFrameInformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameInformeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrameInformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel23))
+                .addGap(5, 5, 5)
+                .addGroup(jFrameInformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrameInformeLayout.createSequentialGroup()
+                        .addComponent(comboBoxRegionesInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboBoxObrasInforme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 120, Short.MAX_VALUE))
+                    .addComponent(jScrollPane15))
+                .addGap(18, 18, 18)
+                .addGroup(jFrameInformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVolverInforme)
+                    .addComponent(jButtonCrearInformeInforme))
+                .addGap(26, 26, 26))
+        );
+
+        javax.swing.GroupLayout GenerarInformeFrameLayout = new javax.swing.GroupLayout(GenerarInformeFrame.getContentPane());
+        GenerarInformeFrame.getContentPane().setLayout(GenerarInformeFrameLayout);
+        GenerarInformeFrameLayout.setHorizontalGroup(
+            GenerarInformeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jFrameInforme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        GenerarInformeFrameLayout.setVerticalGroup(
+            GenerarInformeFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jFrameInforme, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         GestionEmpleadosFrame.setAlwaysOnTop(true);
@@ -3009,8 +3120,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void generarInformejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarInformejButtonActionPerformed
         
         this.GestionObrasFrame.setVisible(false) ;
-        this.generarInformejFrame.setVisible(true) ;
-        this.generarInformejFrame.setSize(450,500);
+        this.GenerarInformeFrame.setVisible(true) ;
+        this.GenerarInformeFrame.setSize(450,500);
+        
+        this.registroObr.llenarComoBoxRegiones(comboBoxRegionesInforme);
+        this.registroObr.llenarComboBoxObras(this.comboBoxObrasInforme, "Valparaiso");
         
         //this.registroObr.llenarComoBoxRegiones();
         
@@ -3102,6 +3216,56 @@ public class InterfazGrafica extends javax.swing.JFrame {
         
     }//GEN-LAST:event_TiempoRestanteObrajButton2ActionPerformed
 
+    private void comboBoxRegionesInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxRegionesInformeActionPerformed
+        // TODO add your handling code here:
+        String region = (String)this.comboBoxRegionesInforme.getSelectedItem();
+        if (region == null)
+            this.comboBoxObrasInforme.removeAllItems();
+        else
+            this.registroObr.llenarComboBoxObras(this.comboBoxObrasInforme, region);
+    }//GEN-LAST:event_comboBoxRegionesInformeActionPerformed
+
+    private void jButtonVolverInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverInformeActionPerformed
+        // TODO add your handling code here:
+        this.GenerarInformeFrame.setVisible(false);
+        this.GestionObrasFrame.setVisible(true);
+    }//GEN-LAST:event_jButtonVolverInformeActionPerformed
+
+    private void jButtonCrearInformeInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearInformeInformeActionPerformed
+        // TODO add your handling code here:
+        Obra obraEscogidaComboBox = (Obra) this.comboBoxObrasInforme.getSelectedItem();
+        
+        int tipo = obraEscogidaComboBox.getCodigo();
+        
+        
+        switch (tipo){
+            case 1:
+            {
+                ObraConstruccion obraEscogida = (ObraConstruccion) obraEscogidaComboBox;
+                obraEscogida.crearInforme(this.jTextArea1.getText());
+                break;
+            }
+            case 2:
+            {
+                ObraRestauracion obraEscogida = (ObraRestauracion) obraEscogidaComboBox;
+                obraEscogida.crearInforme(this.jTextArea1.getText());
+                
+                break;
+            }
+            case 3:
+            {
+                JOptionPane.showMessageDialog(rootPane, "No Se crean informes en las Obras tipo Mantenimiento");
+                break;
+            }
+
+        }
+    }//GEN-LAST:event_jButtonCrearInformeInformeActionPerformed
+
+    private void GenerarInformeFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GenerarInformeFrameWindowClosing
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_GenerarInformeFrameWindowClosing
+
     private void GastosTotalesjComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GastosTotalesjComboBox2ActionPerformed
         String opcion = (String) this.GastosTotalesjComboBox2.getSelectedItem() ;
         if(opcion != null)
@@ -3144,6 +3308,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_gastosTotalesjComboBoxActionPerformed
+
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AgregarObraFrame;
@@ -3164,6 +3329,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JFrame EliminarEmpleadoDeLaPlataforma;
     private javax.swing.JLabel EmpleadosObrasMostrarJLabel;
     private javax.swing.JFrame GastosTotalesObraFrame;
+    private javax.swing.JFrame GenerarInformeFrame;
     private javax.swing.JComboBox<String> GastosTotalesjComboBox2;
     private javax.swing.JTextArea GastosTotalesjTextArea;
     private javax.swing.JButton GestionEmpleados;
@@ -3226,6 +3392,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<Obra> comboBoxMoverEObjetivo;
     private javax.swing.JComboBox<Persona> comboBoxMoverEmpleado;
     private javax.swing.JComboBox<Obra> comboBoxObra;
+    private javax.swing.JComboBox<Obra> comboBoxObrasInforme;
+    private javax.swing.JComboBox<String> comboBoxRegionesInforme;
     private javax.swing.JComboBox<String> datosCDEJComboBox;
     private javax.swing.JButton despedirEmpleadoDeObrabtn;
     private javax.swing.JButton despedirEmpleadojButton3;
@@ -3247,13 +3415,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<Obra> gastosTotalesjComboBox;
     private javax.swing.JLabel gastosTotalesjLabel22;
     private javax.swing.JButton generarInformejButton;
-    private javax.swing.JFrame generarInformejFrame;
     private javax.swing.JButton gestionEmpleadosjButton3;
     private javax.swing.JButton jBotonMoverEmpleado;
     private javax.swing.JButton jBotonVolverMoverEmpleados;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonCrearInformeInforme;
+    private javax.swing.JButton jButtonVolverInforme;
+    private javax.swing.JPanel jFrameInforme;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3268,6 +3438,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -3302,6 +3474,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextNombreObra;
     private javax.swing.JTextField jTextRutCDV;

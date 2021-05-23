@@ -99,7 +99,7 @@ public class RegistroObras {
     
     public void llenarComboBoxObras(JComboBox<Obra> comboBoxObra, String region){
         
-        if(region.equals("Todas las regiones"))
+        if(region.equals("Todas las regiones") || (region == null))
         {
             llenarComboBoxObras(comboBoxObra) ;
             return ;

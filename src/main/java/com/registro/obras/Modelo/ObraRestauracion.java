@@ -6,6 +6,10 @@
 package com.registro.obras.Modelo;
 
 import com.registro.obras.Controlador.PoderInforme;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.ArrayList;
 
 /**
@@ -72,9 +76,20 @@ public class ObraRestauracion extends Obra implements PoderInforme{
         return this.presupuesto;
     }
     
-    public void crearInforme()
+       public void crearInforme(String opcional)
     {
-        
+        try {
+            FileWriter escritor = new FileWriter("Informes//Informe "+this.getNombreObra()+".doc");
+            escritor.write("Nombre Obra: "+this.getNombreObra()+'\n'+
+                    "Fase: "+this.getFase()+'\n'+
+                    "Región: "+ this.getNombreLugar()+'\n'+
+                    "Tiempo Restante: "+ this.getTiempoRestante()+'\n'+
+                    "Presupuesto: $"+ this.getPresupuesto()+'\n'+
+                    "Comentarios: \n"+opcional);
+            escritor.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ObraConstruccion.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }
     
     public void crearGrafico()
@@ -91,9 +106,16 @@ public class ObraRestauracion extends Obra implements PoderInforme{
     {
         return 0;
     }
+    
+    public void informe()
+    {
+        informes.crearInforme("");
+        informes.crearGrafico();
+        informes.calcularFase();
+        informes.calcularPresupuestoGastadoMensual();
+
 
     private void llenarArrayFases() {
-
     }
     
     
