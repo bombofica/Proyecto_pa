@@ -40,6 +40,9 @@ public abstract class Persona {
         return this.nombre;
     }
     
+    public abstract String descripcion();
+    
+    
     
     
 }

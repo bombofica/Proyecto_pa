@@ -15,6 +15,7 @@ public class ObraConstruccion extends Obra implements PoderInforme{
     private int fase ;
     private PoderInforme informes;
     private ArrayList<String> fasesConstruccion;
+    
     //private PoderInforme informes;
 
     //Constructor
@@ -55,9 +56,10 @@ public class ObraConstruccion extends Obra implements PoderInforme{
     
     //metodos publicos
 
+    @Override
     public long gastosObra()
     {
-
+        long gastosTotales;
         long sueldoEmpleados = 0;
         if(getNumeroEmpleados() != 0)
         {

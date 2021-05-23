@@ -61,4 +61,14 @@ public class Trabajador extends Persona{
         this.trabajando = trabajando;
     }
     
+    @Override
+    public String descripcion(){
+        String frase = "Nombre: " + this.getNombre()+'\n'+
+                "Cédula de Identidad: "+this.getRut()+'\n'+
+                "Estado: "+ this.isTrabajando()+'\n'+
+                "Especialización: " + this.getLaborProfesional()+'\n'+
+                "Sueldo: " + this.getSueldo() + "\n\n";
+        
+        return frase;
+    }
 }
