@@ -59,6 +59,7 @@ public class ObraConstruccion extends Obra implements PoderInforme{
     @Override
     public long gastosObra()
     {
+
         long gastosTotales;
         long sueldoEmpleados = 0;
         if(getNumeroEmpleados() != 0)

@@ -108,13 +108,6 @@ public class ObraRestauracion extends Obra implements PoderInforme{
         return 0;
     }
     
-    public void informe()
-    {
-        //informes.crearInforme("");
-        //informes.crearGrafico();
-        //informes.calcularFase();
-        //informes.calcularPresupuestoGastadoMensual();
-    }
 
     private void llenarArrayFases(){
         

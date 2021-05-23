@@ -217,30 +217,36 @@ public class RegistroObras {
     }*/
     
     
-    public void agregarObra(Obra obraAgregar){ //Listo
-        int entero = 1;
-        double real = 2;
+    public boolean agregarObra(Obra obraAgregar){ //Listo
         
-         int suma= 2147483647+109890;
-        double resultado = real/entero;
+        if(obraAgregar.getCodigo() != 3)
+        {
+            if(obraAgregar.getCodigo() == 1)
+            {
+                ObraConstruccion obraC = (ObraConstruccion) obraAgregar;
+                FechaHoy fechaObra = new FechaHoy();
+                if(!fechaObra.verificarEstructura(obraC.getTiempoRestante().toCharArray()))
+                {
+                    return false ;
+                }
+            }
+            if(obraAgregar.getCodigo() == 2)
+            {
+                ObraRestauracion obraR = (ObraRestauracion) obraAgregar;
+                FechaHoy fechaObra = new FechaHoy();
+                if(!fechaObra.verificarEstructura(obraR.getTiempoRestante().toCharArray()))
+                {
+                    return false ;
+                }
+            }
+        }
         
         TreeMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
-        if(region != null)
-        {
-            this.listaCompleta.add(obraAgregar);
-            this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
-            this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
-            
- 
-            if((obraAgregar.getCodigo() == 1) || (obraAgregar.getCodigo() == 2))
-                this.listaCompletaInterfaz.add((PoderInforme)obraAgregar);
-            this.contadorObras++;
-        }
-        else
-        {
-            System.out.println("La Región No Existe recuerde que las regiones van con la primera letra");
-            System.out.println("en matusculas ej: Valparaiso");
-        }
+        this.listaCompleta.add(obraAgregar);
+        this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
+        this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
+        this.contadorObras++;
+        return true;
     }
     
     
@@ -296,10 +302,14 @@ public class RegistroObras {
                     remplazo.cambiarNombre();
                     WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
                     WriteFile.escribirObras(',', registroActual );
-                    return;
+                    return ;
                 }
                 case 2: //Cambiar region
                 {
+                    TreeMap<String, Obra> verificador = new TreeMap() ;
+                    verificador = regiones.get(lugar) ;
+                    
+                    
                     remplazo.setNombreLugar(nuevoDato) ;
                     this.registro.remove(nombreObra) ;
                     this.regiones.get(lugar).remove(nombreObra) ;
@@ -308,7 +318,7 @@ public class RegistroObras {
                     this.regiones.get(nuevoDato).put(nombreObra, remplazo) ;
                     WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
                     WriteFile.escribirObras(',', registroActual );
-                    return;
+                    return ;
                 }
                 case 3: //Cambiar tiempo restante y cambiar el interes
                 {

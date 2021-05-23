@@ -79,13 +79,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
         AgregarObrajTextField2 = new javax.swing.JTextField();
         AgregarObrajLabel = new javax.swing.JLabel();
         AgregarObrajLabel3 = new javax.swing.JLabel();
-        AgregarObrajTextField3 = new javax.swing.JTextField();
         Región1 = new javax.swing.JComboBox<>();
         jTextNombreObra = new javax.swing.JTextField();
         agregarObraAlSistema = new javax.swing.JButton();
         agregarObrajButton3 = new javax.swing.JButton();
         AgregarObrajComboBox2 = new javax.swing.JComboBox<>();
         AgregarObrajLabel2 = new javax.swing.JLabel();
+        AgregarObrajTextField3 = new javax.swing.JTextField();
         MostrarTodasLasObrasFrame = new javax.swing.JFrame();
         jPanel9 = new javax.swing.JPanel();
         comboBoxObra = new javax.swing.JComboBox<>();
@@ -146,6 +146,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jButtonCrearInformeInforme = new javax.swing.JButton();
         jScrollPane15 = new javax.swing.JScrollPane();
         textoAdicionalCrearInforme = new javax.swing.JTextArea();
+        jTextArea1 = new javax.swing.JTextArea();
         jLabel24 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -248,7 +249,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Autores = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        OpcionesPrincipalesFrame.setAlwaysOnTop(true);
         OpcionesPrincipalesFrame.setResizable(false);
         OpcionesPrincipalesFrame.setSize(new java.awt.Dimension(394, 300));
         OpcionesPrincipalesFrame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -302,7 +302,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
-        GestionObrasFrame.setAlwaysOnTop(true);
         GestionObrasFrame.setResizable(false);
         GestionObrasFrame.setSize(new java.awt.Dimension(405, 306));
         GestionObrasFrame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -409,7 +408,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        AgregarObraFrame.setAlwaysOnTop(true);
         AgregarObraFrame.setResizable(false);
         AgregarObraFrame.setSize(new java.awt.Dimension(405, 275));
         AgregarObraFrame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -425,6 +423,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
         AgregarObrajTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarObrajTextField2ActionPerformed(evt);
+            }
+        });
+        AgregarObrajTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                AgregarObrajTextField2KeyTyped(evt);
             }
         });
 
@@ -488,14 +491,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
                             .addComponent(Región1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(AgregarObrajComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(71, 71, 71)
-                        .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AgregarObrajTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AgregarObrajLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(AgregarObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(AgregarObrajLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                             .addGroup(AgregarObraFrameLayout.createSequentialGroup()
                                 .addComponent(AgregarObrajLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(AgregarObrajLabel2))
-                            .addComponent(AgregarObrajTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AgregarObrajTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(AgregarObrajTextField3))
                         .addGap(0, 40, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarObraFrameLayout.createSequentialGroup()
                         .addContainerGap()
@@ -534,7 +537,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        MostrarTodasLasObrasFrame.setAlwaysOnTop(true);
         MostrarTodasLasObrasFrame.setResizable(false);
         MostrarTodasLasObrasFrame.setSize(new java.awt.Dimension(400, 300));
         MostrarTodasLasObrasFrame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -630,7 +632,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        CambiarDatoFrame.setAlwaysOnTop(true);
         CambiarDatoFrame.setResizable(false);
         CambiarDatoFrame.setSize(new java.awt.Dimension(400, 300));
         CambiarDatoFrame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1089,6 +1090,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addGroup(jFrameInformeLayout.createSequentialGroup()
                         .addComponent(jLabel24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(jLabel23)
                         .addGap(60, 60, 60))))
         );
@@ -1869,7 +1871,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        CambiarDatosEmpleado2.setAlwaysOnTop(true);
         CambiarDatosEmpleado2.setResizable(false);
         CambiarDatosEmpleado2.setSize(new java.awt.Dimension(400, 300));
         CambiarDatosEmpleado2.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -2168,22 +2169,33 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAgregarObraActionPerformed
 
     private void AgregarObrajTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarObrajTextField2ActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
     }//GEN-LAST:event_AgregarObrajTextField2ActionPerformed
 
     private void agregarObraAlSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarObraAlSistemaActionPerformed
         // TODO add your handling code here:
+        
+        if((this.jTextNombreObra.getText().isBlank()) || (this.AgregarObrajTextField2.getText().isBlank()) || (this.AgregarObrajTextField3.getText().isBlank()))
+        {
+            JOptionPane.showMessageDialog(rootPane, "Es obligatorio rellenar todos los datos");
+            return ;
+        }
+        long presupuesto = Long.parseLong(this.AgregarObrajTextField2.getText());
+        String tiempoAsignadoInteresAnual = this.AgregarObrajTextField3.getText();
         String nombreObra = this.jTextNombreObra.getText();
         String region = (String) this.Región1.getSelectedItem();
-        long presupuesto = Integer.parseInt(this.AgregarObrajTextField2.getText());
-        String tiempoAsignadoInteresAnual = this.AgregarObrajTextField3.getText();
-        
         switch(this.AgregarObrajComboBox2.getSelectedIndex())
         {
             case 1:
             {
                 ObraConstruccion nuevaObra = new ObraConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
-                this.registroObr.agregarObra(nuevaObra);
+                if(!this.registroObr.agregarObra(nuevaObra))
+                {
+                    JOptionPane.showMessageDialog(rootPane, "La estructura de la fecha no es correcta (dd-mm-aaaa)");
+                    return ;
+                }
                 try 
                 {
                     WriteFile.escribirObras(',', registroObr);
@@ -2196,8 +2208,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
             case 2:
             {
+                
                 ObraRestauracion nuevaObra = new ObraRestauracion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
-                this.registroObr.agregarObra(nuevaObra);
+                if(!this.registroObr.agregarObra(nuevaObra))
+                {
+                    JOptionPane.showMessageDialog(rootPane, "La estructura de la fecha no es correcta (dd-mm-aaaa)");
+                    return ;
+                }
                 try 
                 {
                 WriteFile.escribirObras(',', registroObr);
@@ -2219,12 +2236,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 }
                 catch(Exception e)
                 {
-                    //crear ventana de error
+                    JOptionPane.showMessageDialog(rootPane, "El interes debe ser un valor numerico");
                 }
             }
         }
-        //Obra obraAgregar = new ObraConstruccion(nombreObra,region,presupuesto,tiempoAsignado,1);
-        //this.registroObr.agregarObra(obraAgregar);
     }//GEN-LAST:event_agregarObraAlSistemaActionPerformed
 
     private void botonMostrarAllObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarAllObrasActionPerformed
@@ -2537,13 +2552,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void terminarObraJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarObraJButtonActionPerformed
         // TODO add your handling code here:
         Obra obraSeleccionada = (Obra) this.obraTerminadaComboBox.getSelectedItem();
+        
         try {
             this.registroObr.eliminarObra(obraSeleccionada.getNombreObra());
-            this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox);
         } catch (IOException ex) {
-            System.out.println("La obra no existe");
-            //Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox);
+        
         //this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox);
     }//GEN-LAST:event_terminarObraJButtonActionPerformed
 
@@ -2735,11 +2751,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void cambiarDatojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojButtonActionPerformed
         
+        if(this.cambiarDatojTextField1.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese el dato a modificar");
+            return ;
+        }
         Obra obraActual = (Obra) this.cambiarDatoComboBox.getSelectedItem();
         String nuevoDato = this.cambiarDatojTextField1.getText() ;
         
         int opcion = this.cambiarDatojComboBox2.getSelectedIndex() ;
-        
+       
         try {
             this.registroObr.modificarObra(obraActual.getNombreObra(), nuevoDato, opcion+1, registroObr);
         } catch (IOException ex) {
@@ -3224,6 +3245,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void comboBoxObrasInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObrasInformeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxObrasInformeActionPerformed
+    private void AgregarObrajTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgregarObrajTextField2KeyTyped
+        char letra = evt.getKeyChar() ;
+        if('0' > letra || letra > '9') evt.consume();
+    }//GEN-LAST:event_AgregarObrajTextField2KeyTyped
+
 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
