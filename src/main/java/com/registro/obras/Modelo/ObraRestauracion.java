@@ -6,6 +6,7 @@
 package com.registro.obras.Modelo;
 
 import com.registro.obras.Controlador.PoderInforme;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,7 +17,8 @@ public class ObraRestauracion extends Obra implements PoderInforme{
     long presupuesto ;
     String tiempoRestante ;
     int fase ;
-    PoderInforme informes;
+    private ArrayList<String> fasesRestauracion;
+    //PoderInforme informes;
     
     public ObraRestauracion(String nombreObra, String nombreRegion, String tiempoAsignado, long presupuesto)
     {
@@ -24,6 +26,8 @@ public class ObraRestauracion extends Obra implements PoderInforme{
         this.presupuesto = presupuesto ;
         this.tiempoRestante = tiempoAsignado ;
         this.fase = 0;
+        this.fasesRestauracion = new ArrayList();
+        llenarArrayFases() ;
     }
     public long getPresupuesto() {
         return presupuesto;
@@ -49,6 +53,25 @@ public class ObraRestauracion extends Obra implements PoderInforme{
         this.fase = fase;
     }
     
+    public long gastosObra()
+    {
+        long gastosTotales = 0;
+        long sueldoEmpleados = 0;
+        if(getNumeroEmpleados() != 0)
+        {
+            Trabajador[] listaEmpleados = new Trabajador[getNumeroEmpleados()] ;
+            getListadoPersonas(listaEmpleados);
+            for(int i = 0; i < listaEmpleados.length; i++)
+            {
+                sueldoEmpleados += (long)listaEmpleados[i].getSueldo() ;
+            }
+            gastosTotales = this.presupuesto - sueldoEmpleados;
+            return gastosTotales;
+        }
+        
+        return this.presupuesto;
+    }
+    
     public void crearInforme()
     {
         
@@ -68,13 +91,10 @@ public class ObraRestauracion extends Obra implements PoderInforme{
     {
         return 0;
     }
-    
-    public void informe()
-    {
-        informes.crearInforme();
-        informes.crearGrafico();
-        informes.calcularFase();
-        informes.calcularPresupuestoGastadoMensual();
-        
+
+    private void llenarArrayFases() {
+
     }
+    
+    
 }

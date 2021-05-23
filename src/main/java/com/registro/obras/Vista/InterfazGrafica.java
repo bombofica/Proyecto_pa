@@ -141,7 +141,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
         gastosTotalesjLabel22 = new javax.swing.JLabel();
         gastosTotalesjComboBox = new javax.swing.JComboBox<>();
         gastosTotalesjButton3 = new javax.swing.JButton();
-        gastosTotalesjButton1 = new javax.swing.JButton();
+        GastosTotalesjComboBox2 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        GastosTotalesjTextArea = new javax.swing.JTextArea();
         GestionEmpleadosFrame = new javax.swing.JFrame();
         anadirEmpleadoToPlataforma = new javax.swing.JButton();
         mostrarEmpleadosDeUnaObra = new javax.swing.JButton();
@@ -246,11 +249,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         cDECambiarDatonJButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         generarInformejFrame = new javax.swing.JFrame();
-        jSpinner1 = new javax.swing.JSpinner();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
         NombreProyecto = new javax.swing.JLabel();
         Autores = new javax.swing.JLabel();
@@ -710,13 +708,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
                             .addComponent(cambiarDatojButton))
                         .addGroup(jPanel10Layout.createSequentialGroup()
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(cambiarDatoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
+                                .addGroup(jPanel10Layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(cambiarDatoComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
                                 .addGroup(jPanel10Layout.createSequentialGroup()
                                     .addGap(56, 56, 56)
                                     .addComponent(cambiarDatojLabel)))
@@ -968,6 +964,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         gastosTotalesjLabel22.setText("Obra");
 
+        gastosTotalesjComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gastosTotalesjComboBoxActionPerformed(evt);
+            }
+        });
+
         gastosTotalesjButton3.setText("Volver");
         gastosTotalesjButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -975,42 +977,55 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        gastosTotalesjButton1.setText("Seleccionar");
-        gastosTotalesjButton1.addActionListener(new java.awt.event.ActionListener() {
+        GastosTotalesjComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gastosTotalesjButton1ActionPerformed(evt);
+                GastosTotalesjComboBox2ActionPerformed(evt);
             }
         });
+
+        jLabel6.setText("Region");
+
+        GastosTotalesjTextArea.setColumns(20);
+        GastosTotalesjTextArea.setRows(5);
+        jScrollPane16.setViewportView(GastosTotalesjTextArea);
 
         javax.swing.GroupLayout GastosTotalesObraFrameLayout = new javax.swing.GroupLayout(GastosTotalesObraFrame.getContentPane());
         GastosTotalesObraFrame.getContentPane().setLayout(GastosTotalesObraFrameLayout);
         GastosTotalesObraFrameLayout.setHorizontalGroup(
             GastosTotalesObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GastosTotalesObraFrameLayout.createSequentialGroup()
+            .addGroup(GastosTotalesObraFrameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(gastosTotalesjButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                 .addGroup(GastosTotalesObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(gastosTotalesjButton1)
-                    .addGroup(GastosTotalesObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(gastosTotalesjComboBox, 0, 84, Short.MAX_VALUE)
-                        .addComponent(gastosTotalesjLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(41, 41, 41))
+                    .addGroup(GastosTotalesObraFrameLayout.createSequentialGroup()
+                        .addGroup(GastosTotalesObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(gastosTotalesjLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(gastosTotalesjComboBox, 0, 120, Short.MAX_VALUE)
+                            .addComponent(GastosTotalesjComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE))
+                    .addGroup(GastosTotalesObraFrameLayout.createSequentialGroup()
+                        .addGroup(GastosTotalesObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(gastosTotalesjButton3)
+                            .addComponent(jLabel6))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         GastosTotalesObraFrameLayout.setVerticalGroup(
             GastosTotalesObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GastosTotalesObraFrameLayout.createSequentialGroup()
-                .addContainerGap(303, Short.MAX_VALUE)
-                .addComponent(gastosTotalesjLabel22)
+                .addGap(36, 36, 36)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(gastosTotalesjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(GastosTotalesObraFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(GastosTotalesObraFrameLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(gastosTotalesjButton3))
-                    .addGroup(GastosTotalesObraFrameLayout.createSequentialGroup()
+                        .addComponent(GastosTotalesjComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(gastosTotalesjLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(gastosTotalesjButton1)))
+                        .addComponent(gastosTotalesjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addComponent(gastosTotalesjButton3)
                 .addContainerGap())
         );
 
@@ -1969,10 +1984,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        jToggleButton1.setText("jToggleButton1");
-
-        jScrollPane15.setViewportView(jTextPane1);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 203, 123));
@@ -2094,7 +2105,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionObrasFrame.setVisible(false) ;
         this.GastosTotalesObraFrame.setVisible(true) ;
         this.GastosTotalesObraFrame.setSize(450,500);
-        registroObr.llenarComboBoxObras(gastosTotalesjComboBox);
+        registroObr.llenarComoBoxRegiones(this.GastosTotalesjComboBox2) ;
     }//GEN-LAST:event_gastosTotalesDeUnaObraActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -2291,11 +2302,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextRutCDVKeyTyped
 
     private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
-        // TODO add your handling code here:
-
         Obra valor = (Obra) this.comboBoxObra.getSelectedItem();
-        //Obra obraEscogida = (Obra) this.registroObr.retornarObra(valor);
-            
         if(valor != null)
         {
             int tipo = this.registroObr.retornarTipoObra(valor.getNombreObra()) ;
@@ -2323,14 +2330,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 this.mostrarObraTextArea.setText(textoFinal);
             }
         }
-        
-        
-        /*if(obraEscogida != null){
-            String textoFinal = "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'+"Región: "+obraEscogida.getNombreLugar()+'\n';
-                //+"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
-                //+"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
-            this.mostrarObraTextArea.setText(textoFinal);
-        }*/
+
         
     }//GEN-LAST:event_comboBoxObraActionPerformed
 
@@ -2908,11 +2908,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionObrasFrame.setVisible(true) ;
     }//GEN-LAST:event_gastosTotalesjButton3ActionPerformed
 
-    private void gastosTotalesjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastosTotalesjButton1ActionPerformed
-        this.flag = true;
-        repaint() ;
-    }//GEN-LAST:event_gastosTotalesjButton1ActionPerformed
-
     private void tiempoRestanteDeUnaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoRestanteDeUnaObraActionPerformed
         this.GestionObrasFrame.setVisible(false);
         this.TiempoRestanteObraFrame.setVisible(true);
@@ -2997,8 +2992,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void MostrarTodasLasObrasjComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarTodasLasObrasjComboBox2ActionPerformed
         // TODO add your handling code here:
         String opcion = (String) this.MostrarTodasLasObrasjComboBox2.getSelectedItem() ;
-        this.comboBoxObra.removeAllItems();
-        this.registroObr.llenarComboBoxObras(this.comboBoxObra, opcion);
+        if(opcion != null)
+        {
+            this.comboBoxObra.removeAllItems();
+            this.registroObr.llenarComboBoxObras(this.comboBoxObra, opcion);
+        } 
     }//GEN-LAST:event_MostrarTodasLasObrasjComboBox2ActionPerformed
 
 
@@ -3103,6 +3101,49 @@ public class InterfazGrafica extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_TiempoRestanteObrajButton2ActionPerformed
+
+    private void GastosTotalesjComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GastosTotalesjComboBox2ActionPerformed
+        String opcion = (String) this.GastosTotalesjComboBox2.getSelectedItem() ;
+        if(opcion != null)
+        {
+            this.comboBoxObra.removeAllItems();
+            this.registroObr.llenarComboBoxObras(this.gastosTotalesjComboBox, opcion);
+        } 
+    }//GEN-LAST:event_GastosTotalesjComboBox2ActionPerformed
+
+    private void gastosTotalesjComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastosTotalesjComboBoxActionPerformed
+        Obra valor = (Obra) this.gastosTotalesjComboBox.getSelectedItem();
+        long balance = 0;
+        if(valor != null)
+        {
+            int tipo = this.registroObr.retornarTipoObra(valor.getNombreObra()) ;
+            if(tipo == 1)
+            {
+                balance = this.registroObr.getGastosObra((ObraConstruccion)valor) ;
+            }
+            if(tipo == 2)
+            {
+                balance = this.registroObr.getGastosObra((ObraRestauracion)valor) ;
+            }
+            if(tipo == 3)
+            {
+                balance = this.registroObr.getGastosObra((ObraMantencion)valor) ;
+            }
+            if(balance < 0)
+            {
+                String textoFinal = "El balance general de la obra es "+"\n" + balance +"\n" + " usted esta perdiendo dinero con esta obra";
+                this.GastosTotalesjTextArea.setText(textoFinal);
+            }
+            if(balance > 0)
+            {
+                String textoFinal = "El balance general de la obra es"+"\n" + balance;
+                this.GastosTotalesjTextArea.setText(textoFinal);
+            }
+            
+        }
+
+        
+    }//GEN-LAST:event_gastosTotalesjComboBoxActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AgregarObraFrame;
@@ -3123,6 +3164,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JFrame EliminarEmpleadoDeLaPlataforma;
     private javax.swing.JLabel EmpleadosObrasMostrarJLabel;
     private javax.swing.JFrame GastosTotalesObraFrame;
+    private javax.swing.JComboBox<String> GastosTotalesjComboBox2;
+    private javax.swing.JTextArea GastosTotalesjTextArea;
     private javax.swing.JButton GestionEmpleados;
     private javax.swing.JFrame GestionEmpleadosFrame;
     private javax.swing.JButton GestionObras;
@@ -3200,7 +3243,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JTextArea estadoJTextArea;
     private javax.swing.JTextArea estadoJTextArea1;
     private javax.swing.JButton gastosTotalesDeUnaObra;
-    private javax.swing.JButton gastosTotalesjButton1;
     private javax.swing.JButton gastosTotalesjButton3;
     private javax.swing.JComboBox<Obra> gastosTotalesjComboBox;
     private javax.swing.JLabel gastosTotalesjLabel22;
@@ -3229,6 +3271,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -3244,14 +3287,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3260,13 +3302,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextNombreObra;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextField jTextRutCDV;
     private javax.swing.JTextField jTextRutSDV;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton mostrarEmpleadosDeUnaObra;
     private javax.swing.JButton mostrarEmpleadosjButton3;
     private javax.swing.JTextArea mostrarObraTextArea;
@@ -3294,7 +3333,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton terminarObraJButton;
     private javax.swing.JButton tiempoRestanteDeUnaObra;
     // End of variables declaration//GEN-END:variables
-    public void paint(Graphics g)
+    /*public void paint(Graphics g)
     {
         super.paint(g);
         if(this.flag == true)
@@ -3317,6 +3356,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             g.fillRect(250, 120, 20, 20);
             g.drawString("Gastos totales", 275, 165);
         }
-    }
+    }*/
 }
 

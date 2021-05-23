@@ -25,7 +25,7 @@ public class main{
         ReadFile.leerArchivo("RegistroObras//RegistroObras.txt");
         RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores(); //registro de todos los trabajdores de la aplicacion
         RegistroObras registroObras = new RegistroObras();//registro de todas las obras de la aplicacion
-        //ReadFile.traerObras(',', 6,"RegistroObras" , registroDeTrabajadores, registroObras);//uso de archivos para obtener los datos
+        ReadFile.traerObras(',', 6,"RegistroObras" , registroDeTrabajadores, registroObras);//uso de archivos para obtener los datos
         //WriteFile.escribirObras(',', registroObras);
         //WriteFile.imprimirTodasLasPersonas(registroDeTrabajadores);
         //registroTrabajadores.mostrarEspecialistas("Informático");

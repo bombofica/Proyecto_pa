@@ -152,7 +152,11 @@ public class RegistroObras {
             obraSeleccionada.llenarJTextAreaEmpleados(jTextArea, valor);
     }
     
-    
+    public long getGastosObra(Obra nombreObra)
+    {
+        long balance = nombreObra.gastosObra() ;
+        return balance;
+    }
     
     /*public void mostrarObras(String region){ // listo
 
