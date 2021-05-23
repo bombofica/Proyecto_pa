@@ -57,12 +57,10 @@ public class FechaHoy {
         }
     }
     
-    //Metodos privados
-    private boolean verificarEstructura(char[] fechaComparar) //se debe verificar que se cumpla la estructura base dd-MM-yyyy
+    public boolean verificarEstructura(char[] fechaComparar) //se debe verificar que se cumpla la estructura base dd-MM-yyyy
     {
         if((fechaComparar[2] != '-') || (fechaComparar[5] != '-'))
         {
-            System.out.println("ERROR la estructura de la fecha no es valida");
             return false;
         }
         try
@@ -78,12 +76,12 @@ public class FechaHoy {
         }
         catch(Exception e)
         {
-            System.out.println("ERROR la estructura de la fecha no es valida");
             return false;
         }
         return true;
     }
     
+    //Metodos privados
     private boolean verificarFechas(int yearHoy, int mesHoy, int diaHoy, int yearComparar, int mesComparar, int diaComparar)//Verificar que las fechas sean comparables 
     {
         if(yearHoy > yearComparar)

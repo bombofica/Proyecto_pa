@@ -4,7 +4,6 @@
   <NonVisualComponents>
     <Container class="javax.swing.JFrame" name="OpcionesPrincipalesFrame">
       <Properties>
-        <Property name="alwaysOnTop" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[394, 300]"/>
@@ -71,7 +70,6 @@
     </Container>
     <Container class="javax.swing.JFrame" name="GestionObrasFrame">
       <Properties>
-        <Property name="alwaysOnTop" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[405, 306]"/>
@@ -194,7 +192,6 @@
     </Container>
     <Container class="javax.swing.JFrame" name="AgregarObraFrame">
       <Properties>
-        <Property name="alwaysOnTop" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[405, 275]"/>
@@ -219,15 +216,15 @@
                               <Component id="AgregarObrajComboBox2" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="AgregarObrajTextField3" min="-2" pref="112" max="-2" attributes="0"/>
-                              <Component id="AgregarObrajLabel3" min="-2" pref="112" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="AgregarObrajLabel3" pref="112" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="AgregarObrajLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="AgregarObrajLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="AgregarObrajTextField2" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="AgregarObrajTextField2" pref="112" max="32767" attributes="0"/>
+                              <Component id="AgregarObrajTextField3" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
                       </Group>
@@ -294,6 +291,7 @@
         <Component class="javax.swing.JTextField" name="AgregarObrajTextField2">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AgregarObrajTextField2ActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="AgregarObrajTextField2KeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="AgregarObrajLabel">
@@ -305,8 +303,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Tiempo asignado"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="AgregarObrajTextField3">
         </Component>
         <Component class="javax.swing.JComboBox" name="Regi&#xf3;n1">
           <Properties>
@@ -380,11 +376,12 @@
             <Property name="text" type="java.lang.String" value="anual"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="AgregarObrajTextField3">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="MostrarTodasLasObrasFrame">
       <Properties>
-        <Property name="alwaysOnTop" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[400, 300]"/>
@@ -538,7 +535,6 @@
     </Container>
     <Container class="javax.swing.JFrame" name="CambiarDatoFrame">
       <Properties>
-        <Property name="alwaysOnTop" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[400, 300]"/>
@@ -1208,7 +1204,7 @@
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="143" max="32767" attributes="0"/>
                               <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
@@ -1222,7 +1218,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -1302,7 +1298,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Regi&#xf3;n"/>
               </Properties>
@@ -2563,7 +2559,6 @@
     </Container>
     <Container class="javax.swing.JFrame" name="CambiarDatosEmpleado2">
       <Properties>
-        <Property name="alwaysOnTop" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[400, 300]"/>
@@ -2763,7 +2758,6 @@
         </Container>
       </SubComponents>
     </Container>
-
     <Container class="javax.swing.JFrame" name="generarInformejFrame">
 
       <Layout>
@@ -2779,7 +2773,6 @@
         </DimensionLayout>
       </Layout>
     </Container>
-
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
