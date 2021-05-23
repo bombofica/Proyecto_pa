@@ -42,6 +42,7 @@ public class ObraMantencion extends Obra {
         this.operativo = operativo;
     }
     
+    @Override
     public long gastosObra()
     {
         double valorAgregado = this.mantenimientoMonetarioAnual * this.InteresAnual;

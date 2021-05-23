@@ -4,17 +4,9 @@
  * and open the template in the editor.
  */
 package com.registro.obras.Vista;
+import com.registro.obras.Modelo.*;
+import com.registro.obras.Controlador.*;
 
-import com.registro.obras.Controlador.FechaHoy;
-import com.registro.obras.Controlador.RegistroTrabajadores;
-import com.registro.obras.Controlador.RegistroObras;
-import com.registro.obras.Controlador.WriteFile;
-import com.registro.obras.Modelo.Persona;
-import com.registro.obras.Modelo.Obra;
-import com.registro.obras.Modelo.ObraConstruccion;
-import com.registro.obras.Modelo.ObraMantencion;
-import com.registro.obras.Modelo.ObraRestauracion;
-import com.registro.obras.Modelo.Trabajador;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.io.IOException;
@@ -153,6 +145,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jButtonVolverInforme = new javax.swing.JButton();
         jButtonCrearInformeInforme = new javax.swing.JButton();
         jScrollPane15 = new javax.swing.JScrollPane();
+        textoAdicionalCrearInforme = new javax.swing.JTextArea();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel24 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -184,19 +177,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         comboBoxEmpleadosObrasMostrar = new javax.swing.JComboBox<>();
         EmpleadosObrasMostrarJLabel = new javax.swing.JLabel();
-        nombreJLabel1 = new javax.swing.JLabel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        nombreEmpleadosObrasMostrarJTextArea = new javax.swing.JTextArea();
-        rutJLabel1 = new javax.swing.JLabel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        rutJTextArea1 = new javax.swing.JTextArea();
-        sueldoEmpleadosObrasMostrarJLabel1 = new javax.swing.JLabel();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        sueldoJTextArea1 = new javax.swing.JTextArea();
-        estadoEmpleadosObrasMostrarJLabel1 = new javax.swing.JLabel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        estadoJTextArea1 = new javax.swing.JTextArea();
         mostrarEmpleadosjButton3 = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextMostrarEmpleadosObra = new javax.swing.JTextArea();
         MoverEmpleados = new javax.swing.JFrame();
         jPanel7 = new javax.swing.JPanel();
         comboBoxMoverEInicial = new javax.swing.JComboBox<>();
@@ -1053,6 +1036,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
+        comboBoxObrasInforme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxObrasInformeActionPerformed(evt);
+            }
+        });
+
         jButtonVolverInforme.setText("Volver");
         jButtonVolverInforme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1067,9 +1056,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane15.setViewportView(jTextArea1);
+        textoAdicionalCrearInforme.setColumns(20);
+        textoAdicionalCrearInforme.setRows(5);
+        jScrollPane15.setViewportView(textoAdicionalCrearInforme);
 
         jLabel24.setText("Región");
 
@@ -1095,14 +1084,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
                                 .addComponent(comboBoxRegionesInforme, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(comboBoxObrasInforme, 0, 127, Short.MAX_VALUE))
                             .addComponent(jLabel22))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))
                     .addGroup(jFrameInformeLayout.createSequentialGroup()
                         .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(jLabel23)
-                        .addGap(75, 75, 75))))
+                        .addGap(60, 60, 60))))
         );
         jFrameInformeLayout.setVerticalGroup(
             jFrameInformeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1401,56 +1391,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         EmpleadosObrasMostrarJLabel.setText("Obra");
 
-        nombreJLabel1.setText("Nombre");
-
-        nombreEmpleadosObrasMostrarJTextArea.setColumns(20);
-        nombreEmpleadosObrasMostrarJTextArea.setRows(5);
-        nombreEmpleadosObrasMostrarJTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                nombreEmpleadosObrasMostrarJTextAreaKeyTyped(evt);
-            }
-        });
-        jScrollPane9.setViewportView(nombreEmpleadosObrasMostrarJTextArea);
-
-        rutJLabel1.setText("Rut");
-
-        rutJTextArea1.setColumns(20);
-        rutJTextArea1.setRows(5);
-        rutJTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                rutJTextArea1KeyTyped(evt);
-            }
-        });
-        jScrollPane10.setViewportView(rutJTextArea1);
-
-        sueldoEmpleadosObrasMostrarJLabel1.setText("Sueldo");
-
-        sueldoJTextArea1.setColumns(20);
-        sueldoJTextArea1.setRows(5);
-        sueldoJTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                sueldoJTextArea1KeyTyped(evt);
-            }
-        });
-        jScrollPane11.setViewportView(sueldoJTextArea1);
-
-        estadoEmpleadosObrasMostrarJLabel1.setText("Estado");
-
-        estadoJTextArea1.setColumns(20);
-        estadoJTextArea1.setRows(5);
-        estadoJTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                estadoJTextArea1KeyTyped(evt);
-            }
-        });
-        jScrollPane12.setViewportView(estadoJTextArea1);
-
         mostrarEmpleadosjButton3.setText("Volver");
         mostrarEmpleadosjButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mostrarEmpleadosjButton3ActionPerformed(evt);
             }
         });
+
+        jTextMostrarEmpleadosObra.setColumns(20);
+        jTextMostrarEmpleadosObra.setRows(5);
+        jScrollPane9.setViewportView(jTextMostrarEmpleadosObra);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1462,61 +1412,37 @@ public class InterfazGrafica extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboBoxEmpleadosObrasMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mostrarEmpleadosjButton3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nombreJLabel1))
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rutJLabel1))
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sueldoEmpleadosObrasMostrarJLabel1))
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(estadoEmpleadosObrasMostrarJLabel1)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(mostrarEmpleadosjButton3)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(EmpleadosObrasMostrarJLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rutJLabel1)
-                    .addComponent(nombreJLabel1)
-                    .addComponent(sueldoEmpleadosObrasMostrarJLabel1)
-                    .addComponent(estadoEmpleadosObrasMostrarJLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(EmpleadosObrasMostrarJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                            .addComponent(jScrollPane11)
-                            .addComponent(jScrollPane10)
-                            .addComponent(jScrollPane9))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(EmpleadosObrasMostrarJLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(comboBoxEmpleadosObrasMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(mostrarEmpleadosjButton3)
-                        .addGap(25, 25, 25))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                        .addComponent(mostrarEmpleadosjButton3)))
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout MostrarEmpleadosDeUnaObraLayout = new javax.swing.GroupLayout(MostrarEmpleadosDeUnaObra.getContentPane());
         MostrarEmpleadosDeUnaObra.getContentPane().setLayout(MostrarEmpleadosDeUnaObraLayout);
         MostrarEmpleadosDeUnaObraLayout.setHorizontalGroup(
             MostrarEmpleadosDeUnaObraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(MostrarEmpleadosDeUnaObraLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 25, Short.MAX_VALUE))
         );
         MostrarEmpleadosDeUnaObraLayout.setVerticalGroup(
             MostrarEmpleadosDeUnaObraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2640,45 +2566,33 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void comboBoxEmpleadosObrasMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxEmpleadosObrasMostrarActionPerformed
         // TODO add your handling code here:
         
-        this.nombreEmpleadosObrasMostrarJTextArea.setText("");
+        
+        
+/*        this.nombreEmpleadosObrasMostrarJTextArea.setText("");
         this.rutJTextArea1.setText("");
         this.sueldoJTextArea1.setText("");
         this.estadoJTextArea1.setText("");
-
+*/
         Obra obraEscogida =(Obra) this.comboBoxEmpleadosObrasMostrar.getSelectedItem();
-        
+        if(obraEscogida != null){
+            obraEscogida.llenarJTextAreaEmpleados(this.jTextMostrarEmpleadosObra);
+        }else
+            this.jTextMostrarEmpleadosObra.setText("");
         //this.registroObr.llenarComboBoxEmpleadosRegistro(this.empleadoEmpleadoObrasMostrarComboBox, nombreObra);
+        /*
         this.registroObr.llenarJTextAreaEmpleadosRegistro(this.nombreEmpleadosObrasMostrarJTextArea, 0, obraEscogida.getNombreObra());
         this.registroObr.llenarJTextAreaEmpleadosRegistro(this.rutJTextArea1, 1, obraEscogida.getNombreObra());
         this.registroObr.llenarJTextAreaEmpleadosRegistro(this.sueldoJTextArea1, 2, obraEscogida.getNombreObra());
-        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.estadoJTextArea1, 3, obraEscogida.getNombreObra());
+        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.estadoJTextArea1, 3, obraEscogida.getNombreObra());*/
     }//GEN-LAST:event_comboBoxEmpleadosObrasMostrarActionPerformed
-
-    private void nombreEmpleadosObrasMostrarJTextAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreEmpleadosObrasMostrarJTextAreaKeyTyped
-        // TODO add your handling code here:
-        
-        evt.consume();
-    }//GEN-LAST:event_nombreEmpleadosObrasMostrarJTextAreaKeyTyped
-
-    private void rutJTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rutJTextArea1KeyTyped
-        // TODO add your handling code here:
-        evt.consume();
-    }//GEN-LAST:event_rutJTextArea1KeyTyped
-
-    private void sueldoJTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sueldoJTextArea1KeyTyped
-        // TODO add your handling code here:
-        evt.consume();
-    }//GEN-LAST:event_sueldoJTextArea1KeyTyped
-
-    private void estadoJTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_estadoJTextArea1KeyTyped
-        // TODO add your handling code here:
-        evt.consume();
-    }//GEN-LAST:event_estadoJTextArea1KeyTyped
 
     private void eliminarEmpleadoObraComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoObraComboBoxActionPerformed
         // TODO add your handling code here:
-        String nombreObra = (String) this.eliminarEmpleadoObraComboBox.getSelectedItem();
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, nombreObra);
+        Obra nombreObra = (Obra) this.eliminarEmpleadoObraComboBox.getSelectedItem();
+        if(nombreObra != null)
+            this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, nombreObra.getNombreObra());
+        else
+            this.eliminarEmpleadoEmpleadoComboBox.removeAllItems();
         //String valor = (String) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem();
         
     }//GEN-LAST:event_eliminarEmpleadoObraComboBoxActionPerformed
@@ -3142,7 +3056,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GenerarInformeFrame.setSize(450,500);
         
         this.registroObr.llenarComoBoxRegiones(comboBoxRegionesInforme);
-        this.registroObr.llenarComboBoxObras(this.comboBoxObrasInforme, "Valparaiso");
+        this.registroObr.llenarComboBoxObrasInterfaz(this.comboBoxObrasInforme, "Todas las regiones");
+        this.textoAdicionalCrearInforme.setText("");
         
         //this.registroObr.llenarComoBoxRegiones();
         
@@ -3240,7 +3155,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         if (region == null)
             this.comboBoxObrasInforme.removeAllItems();
         else
-            this.registroObr.llenarComboBoxObras(this.comboBoxObrasInforme, region);
+            this.registroObr.llenarComboBoxObrasInterfaz(this.comboBoxObrasInforme, region);
     }//GEN-LAST:event_comboBoxRegionesInformeActionPerformed
 
     private void jButtonVolverInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverInformeActionPerformed
@@ -3260,13 +3175,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
             case 1:
             {
                 ObraConstruccion obraEscogida = (ObraConstruccion) obraEscogidaComboBox;
-                obraEscogida.crearInforme(this.jTextArea1.getText());
+                obraEscogida.crearInforme(this.textoAdicionalCrearInforme.getText());
                 break;
             }
             case 2:
             {
                 ObraRestauracion obraEscogida = (ObraRestauracion) obraEscogidaComboBox;
-                obraEscogida.crearInforme(this.jTextArea1.getText());
+                obraEscogida.crearInforme(this.textoAdicionalCrearInforme.getText());
                 
                 break;
             }
@@ -3327,10 +3242,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
         
     }//GEN-LAST:event_gastosTotalesjComboBoxActionPerformed
 
+    private void comboBoxObrasInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObrasInformeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxObrasInformeActionPerformed
     private void AgregarObrajTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgregarObrajTextField2KeyTyped
         char letra = evt.getKeyChar() ;
         if('0' > letra || letra > '9') evt.consume();
     }//GEN-LAST:event_AgregarObrajTextField2KeyTyped
+
 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3415,7 +3334,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<Obra> comboBoxMoverEObjetivo;
     private javax.swing.JComboBox<Persona> comboBoxMoverEmpleado;
     private javax.swing.JComboBox<Obra> comboBoxObra;
-    private javax.swing.JComboBox<Obra> comboBoxObrasInforme;
+    private javax.swing.JComboBox<PoderInforme> comboBoxObrasInforme;
     private javax.swing.JComboBox<String> comboBoxRegionesInforme;
     private javax.swing.JComboBox<String> datosCDEJComboBox;
     private javax.swing.JButton despedirEmpleadoDeObrabtn;
@@ -3429,10 +3348,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton eliminarEmpleadojButton3;
     private javax.swing.JLabel especialidadJLabel;
     private javax.swing.JComboBox<String> especializacionCombobox;
-    private javax.swing.JLabel estadoEmpleadosObrasMostrarJLabel1;
     private javax.swing.JLabel estadoJLabel;
     private javax.swing.JTextArea estadoJTextArea;
-    private javax.swing.JTextArea estadoJTextArea1;
     private javax.swing.JButton gastosTotalesDeUnaObra;
     private javax.swing.JButton gastosTotalesjButton3;
     private javax.swing.JComboBox<Obra> gastosTotalesjComboBox;
@@ -3485,9 +3402,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
@@ -3500,8 +3414,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextMostrarEmpleadosObra;
     private javax.swing.JTextField jTextNombreObra;
     private javax.swing.JTextField jTextRutCDV;
     private javax.swing.JTextField jTextRutSDV;
@@ -3512,24 +3426,19 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton mostrarTodosLosEmpleadosjButton3;
     private javax.swing.JButton moverEmpleados;
     private javax.swing.JTextField nombreEmpleadoJTextField;
-    private javax.swing.JTextArea nombreEmpleadosObrasMostrarJTextArea;
     private javax.swing.JLabel nombreJLabel;
-    private javax.swing.JLabel nombreJLabel1;
     private javax.swing.JTextArea nombreJTextArea;
     private javax.swing.JComboBox<Obra> nombreObraDespedirEmpeladoComboBox;
     private javax.swing.JComboBox<Obra> obraTerminadaComboBox;
     private javax.swing.JButton obraTerminadajButton3;
     private javax.swing.JPanel panelCambiarDatos;
     private javax.swing.JLabel rutJLabel;
-    private javax.swing.JLabel rutJLabel1;
     private javax.swing.JTextArea rutJTextArea;
-    private javax.swing.JTextArea rutJTextArea1;
-    private javax.swing.JLabel sueldoEmpleadosObrasMostrarJLabel1;
     private javax.swing.JLabel sueldoJLabel;
     private javax.swing.JTextArea sueldoJTextArea;
-    private javax.swing.JTextArea sueldoJTextArea1;
     private javax.swing.JTextField sueldoJTextField;
     private javax.swing.JButton terminarObraJButton;
+    private javax.swing.JTextArea textoAdicionalCrearInforme;
     private javax.swing.JButton tiempoRestanteDeUnaObra;
     // End of variables declaration//GEN-END:variables
     /*public void paint(Graphics g)

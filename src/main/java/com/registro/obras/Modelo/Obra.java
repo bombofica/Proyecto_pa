@@ -279,6 +279,17 @@ public abstract class Obra {
         }        
     }
     
+     public void llenarJTextAreaEmpleados(JTextArea jTextArea){
+         jTextArea.setText("");
+        if(this.listadoPersonas.size() > 0){
+            for(int i = 0 ; i< this.listadoPersonas.size() ; i++)
+            {
+                Trabajador current= this.listadoPersonas.get(i);
+                jTextArea.append(current.descripcion());
+            }
+        }         
+     }
+    
     @Override
     public String toString() {
         return this.nombreObra;

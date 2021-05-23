@@ -25,6 +25,7 @@ public class RegistroObras {
     private HashMap <String, Obra> registro ;
     private ArrayList<Obra> listaCompleta;
     private ArrayList<String> listadoRegiones;
+    private ArrayList<PoderInforme> listaCompletaInterfaz;
     
     int contadorObras ;
 
@@ -34,6 +35,7 @@ public class RegistroObras {
         this.listadoRegiones = new ArrayList();
         this.registro = new HashMap();
         this.listaCompleta = new ArrayList() ;
+        this.listaCompletaInterfaz = new ArrayList();
         this.contadorObras=0;
         this.regiones = new HashMap(); 
         llenarArray();
@@ -96,6 +98,16 @@ public class RegistroObras {
             comboBoxObra.addItem(current);
         }
     }
+
+    public void llenarComboBoxObrasInterfaz(JComboBox<PoderInforme> comboBoxObra){
+        comboBoxObra.removeAllItems();
+        PoderInforme current ;
+        for(int i = 0 ; i< listaCompletaInterfaz.size() ; i++)
+        {  
+            current = listaCompletaInterfaz.get(i);
+            comboBoxObra.addItem((PoderInforme)current);
+        }
+    }
     
     public void llenarComboBoxObras(JComboBox<Obra> comboBoxObra, String region){
         
@@ -113,6 +125,26 @@ public class RegistroObras {
             
             current = (Obra)me.getValue();
             comboBoxObra.addItem(current);
+        }
+    }
+
+    public void llenarComboBoxObrasInterfaz(JComboBox<PoderInforme> comboBoxObra, String region){
+        
+        if(region.equals("Todas las regiones") || (region == null))
+        {
+            llenarComboBoxObrasInterfaz(comboBoxObra) ;
+            return ;
+        }
+        
+        TreeMap<String, Obra> registroRegional = this.regiones.get(region) ;
+        comboBoxObra.removeAllItems();
+        Obra current ;
+        for(Map.Entry me : registroRegional.entrySet())
+        {       
+            current = (Obra)me.getValue();
+            
+            if( (current.getCodigo() == 1) || (current.getCodigo() == 2))
+                comboBoxObra.addItem((PoderInforme)current);
         }
     }
     
@@ -234,6 +266,7 @@ public class RegistroObras {
             this.registro.remove(nombreObra) ;
             this.regiones.get(lugar).remove(nombreObra) ;
             this.listaCompleta.remove(ObraEliminar);
+            this.listaCompletaInterfaz.remove( (PoderInforme) ObraEliminar);
             
             this.contadorObras=this.registro.size();
             
@@ -310,8 +343,9 @@ public class RegistroObras {
                                 double nuevoInteres = Double.parseDouble(nuevoDato) ;
                                 ((ObraMantencion)(remplazo)).setInteresAnual(nuevoInteres);
                             }
-                            catch(Exception e)
+                            catch(NumberFormatException e)
                             {
+                                System.out.println(e.getMessage());
                                 //ventana de error
                             }
                             
@@ -333,7 +367,7 @@ public class RegistroObras {
                                 ((ObraConstruccion)(remplazo)).setPresupuesto(nuevoPresupuesto);
                                 break;
                             }
-                            catch(Exception e)
+                            catch(NumberFormatException e)
                             {
                                 //ventana de error
                             }
@@ -347,7 +381,7 @@ public class RegistroObras {
                                 ((ObraRestauracion)(remplazo)).setPresupuesto(nuevoPresupuesto);
                                 break;
                             }
-                            catch(Exception e)
+                            catch(NumberFormatException e)
                             {
                                 //ventana de error
                             }
@@ -361,7 +395,7 @@ public class RegistroObras {
                                 ((ObraMantencion)(remplazo)).setMantenimientoMonetarioAnual(nuevoPresupuesto);
                                 break;
                             }
-                            catch(Exception e)
+                            catch(NumberFormatException e)
                             {
                                 //ventana de error
                             }
@@ -400,18 +434,13 @@ public class RegistroObras {
     {
         System.out.println(obra);
         Obra verificador = this.registro.get(obra) ;
-        if(verificador == null)
-        {
-            //System.out.println("ERROR La obra ingresada no existe");
-            return false ;
-        }
-        return true ;
+        return verificador != null ;
     }
     
     public void presupuestoGeneral() //presupuesto total de la compañia
     {
         Obra obraActual ;
-        long balanceObra = 0;
+        long balanceObra;
         long balanceTotal = 0;
         for(int i = 0 ; i < listaCompleta.size(); i++)
         {

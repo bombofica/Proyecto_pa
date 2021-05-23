@@ -57,6 +57,7 @@ public class ObraRestauracion extends Obra implements PoderInforme{
         this.fase = fase;
     }
     
+    @Override
     public long gastosObra()
     {
         long gastosTotales = 0;
@@ -108,7 +109,8 @@ public class ObraRestauracion extends Obra implements PoderInforme{
     }
     
 
-    private void llenarArrayFases() {
+    private void llenarArrayFases(){
+        
     }
     
     
