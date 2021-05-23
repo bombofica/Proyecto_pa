@@ -1,13 +1,17 @@
 package com.registro.obras.Modelo;
 
 import com.registro.obras.Controlador.PoderInforme;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ObraConstruccion extends Obra implements PoderInforme{
     
-    long presupuesto ;
-    String tiempoRestante ;
-    int fase ;
-    public PoderInforme informes;
+    private long presupuesto ;
+    private String tiempoRestante ;
+    private int fase ;
+    private PoderInforme informes;
     //Constructor
     public ObraConstruccion(String nombreObra, String nombreRegion,String tiempoAsignado,long presupuesto)
     {
@@ -43,29 +47,45 @@ public class ObraConstruccion extends Obra implements PoderInforme{
     }
     
     //metodos publicos
-    //@Override
-    public void crearInforme()
+    @Override
+    public void crearInforme(String opcional)
     {
-        
+        try {
+            
+            FileWriter escritor = new FileWriter("Informes//Informe "+this.getNombreObra()+".doc");
+
+            escritor.write("Nombre Obra: "+this.getNombreObra()+'\n'+
+                    "Fase: "+this.getFase()+'\n'+
+                    "Región: "+ this.getNombreLugar()+'\n'+
+                    "Tiempo Restante: "+ this.getTiempoRestante()+'\n'+
+                    "Presupuesto: $"+ this.getPresupuesto()+'\n'+
+                    "Comentarios: "+'\n'+opcional);
+            escritor.close();
+        } catch (IOException ex) {
+            Logger.getLogger(ObraConstruccion.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }
     
+    @Override
     public void crearGrafico()
     {
-        
+        // no disponible aún
     }
     
+    @Override
     public int calcularFase()
     {
         return 0;
     }
     
+    @Override
     public double calcularPresupuestoGastadoMensual()
     {
         return 0;
     }
     public void informe()
     {
-        informes.crearInforme();
+        informes.crearInforme("");
         informes.crearGrafico();
         informes.calcularFase();
         informes.calcularPresupuestoGastadoMensual();
