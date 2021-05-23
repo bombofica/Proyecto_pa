@@ -90,26 +90,16 @@ public abstract class Obra {
     public void setNombreLugar(String nombreLugar) {
         this.nombreLugar = nombreLugar;
     }
-
-/*    public double getPresupuestoObra() {
-        return presupuestoObra;
+    
+    public void getListadoPersonas(Trabajador[] listaEmpleados)
+    {
+        //Trabajador[] listaEmpleados = new Trabajador[listadoPersonas.size()] ;
+        for(int i = 0; i < listadoPersonas.size(); i++)
+        {
+            listaEmpleados[i] = listadoPersonas.get(i) ;
+        }
+        //return listaEmpleados;
     }
-
-    public void setPresupuestoObra(int presupuestoObra) {
-        this.presupuestoObra = presupuestoObra;
-    }
-
-    public void setPresupuestoObra(double presupuestoObra) {
-        this.presupuestoObra = (int) presupuestoObra;
-    }
-
-    public String getTiempoParaTerminarObra() {
-        return tiempoParaTerminarObra;
-    }
-
-    public void setTiempoParaTerminarObra(String tiempoParaTerminarObra) {
-        this.tiempoParaTerminarObra = tiempoParaTerminarObra;
-    }*/
 
     public void despedirEmpleado(String nombre) {
         Trabajador sujeto = tablaPersonasNombre.get(nombre);
@@ -225,6 +215,7 @@ public abstract class Obra {
         }
         return sumaSueldos ;
     }
+    public abstract long gastosObra();
     
     public void cambiarNombre()
     {

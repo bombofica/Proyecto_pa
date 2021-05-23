@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.ArrayList;
+
 
 public class ObraConstruccion extends Obra implements PoderInforme{
     
@@ -12,6 +14,9 @@ public class ObraConstruccion extends Obra implements PoderInforme{
     private String tiempoRestante ;
     private int fase ;
     private PoderInforme informes;
+    private ArrayList<String> fasesConstruccion;
+    //private PoderInforme informes;
+
     //Constructor
     public ObraConstruccion(String nombreObra, String nombreRegion,String tiempoAsignado,long presupuesto)
     {
@@ -19,6 +24,8 @@ public class ObraConstruccion extends Obra implements PoderInforme{
         this.presupuesto = presupuesto ;
         this.tiempoRestante = tiempoAsignado ;
         this.fase = 0;
+        this.fasesConstruccion = new ArrayList();
+        llenarArrayFases() ;
     }
     
     //seter y geters
@@ -47,6 +54,25 @@ public class ObraConstruccion extends Obra implements PoderInforme{
     }
     
     //metodos publicos
+
+    public long gastosObra()
+    {
+
+        long sueldoEmpleados = 0;
+        if(getNumeroEmpleados() != 0)
+        {
+            Trabajador[] listaEmpleados = new Trabajador[getNumeroEmpleados()] ;
+            getListadoPersonas(listaEmpleados);
+            for(int i = 0; i < listaEmpleados.length; i++)
+            {
+                sueldoEmpleados += (long)listaEmpleados[i].getSueldo() ;
+            }
+            gastosTotales = this.presupuesto - sueldoEmpleados;
+            return gastosTotales;
+        }
+        
+        return this.presupuesto;
+    }
     @Override
     public void crearInforme(String opcional)
     {
@@ -89,11 +115,18 @@ public class ObraConstruccion extends Obra implements PoderInforme{
         informes.crearGrafico();
         informes.calcularFase();
         informes.calcularPresupuestoGastadoMensual();
-        
     }
-    /*double calcularPresupuestoGastadoMensual();
-    int calcularFase();
-    void crearGrafico();*/
-    
+        
+
+    private void llenarArrayFases() {
+        this.fasesConstruccion.add("Cierre del área de espacio público") ;
+        this.fasesConstruccion.add("Terreno y cimentación") ;
+        this.fasesConstruccion.add("Estructura de la construcción") ;
+        this.fasesConstruccion.add("Instalaciones de la construcción") ;
+        this.fasesConstruccion.add("Aislamiento e impermeabilización") ;
+        this.fasesConstruccion.add("Acabados y cierres") ;
+
+    }
+
 }
 

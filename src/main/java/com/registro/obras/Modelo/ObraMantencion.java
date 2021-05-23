@@ -42,7 +42,27 @@ public class ObraMantencion extends Obra {
         this.operativo = operativo;
     }
     
-    
+    public long gastosObra()
+    {
+        double valorAgregado = this.mantenimientoMonetarioAnual * this.InteresAnual;
+        long gastosTotales = mantenimientoMonetarioAnual + (long)valorAgregado;
+        long sueldoEmpleados = 0;
+        if(getNumeroEmpleados() != 0)
+        {
+            Trabajador[] listaEmpleados = new Trabajador[getNumeroEmpleados()] ;
+            
+            getListadoPersonas(listaEmpleados);
+            for(int i = 0; i < listaEmpleados.length; i++)
+            {
+                sueldoEmpleados += (long)listaEmpleados[i].getSueldo() ;
+            }
+            gastosTotales = gastosTotales - sueldoEmpleados;
+            return gastosTotales;
+        }
+        
+        return gastosTotales;
+        
+    }
     
     
     
