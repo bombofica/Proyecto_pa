@@ -2,10 +2,8 @@ package com.registro.obras.Controlador;
 import com.registro.obras.Modelo.*;
 import java.io.BufferedReader;
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class ReadFile {
     

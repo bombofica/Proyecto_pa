@@ -2271,11 +2271,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void agregarObraAlSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarObraAlSistemaActionPerformed
         // TODO add your handling code here:
         
-        if((this.jTextNombreObra.getText().isBlank()) || (this.AgregarObrajTextField2.getText().isBlank()) || (this.AgregarObrajTextField3.getText().isBlank()))
+        /*if((this.jTextNombreObra.getText().isBlank()) || (this.AgregarObrajTextField2.getText().isBlank()) || (this.AgregarObrajTextField3.getText().isBlank()))
         {
             JOptionPane.showMessageDialog(rootPane, "Es obligatorio rellenar todos los datos");
             return ;
-        }
+        }*/
         long presupuesto = Long.parseLong(this.AgregarObrajTextField2.getText());
         String tiempoAsignadoInteresAnual = this.AgregarObrajTextField3.getText();
         String nombreObra = this.jTextNombreObra.getText();
@@ -2942,11 +2942,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void cambiarDatojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojButtonActionPerformed
         
-        if(this.cambiarDatojTextField1.getText().isBlank())
+        /*if(this.cambiarDatojTextField1.getText().isBlank())
         {
             JOptionPane.showMessageDialog(rootPane, "Ingrese el dato a modificar");
             return ;
-        }
+        }*/
         Obra obraActual = (Obra) this.cambiarDatoComboBox.getSelectedItem();
         String nuevoDato = this.cambiarDatojTextField1.getText() ;
         
