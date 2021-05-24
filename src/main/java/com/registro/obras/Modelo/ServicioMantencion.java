@@ -1,14 +1,14 @@
 package com.registro.obras.Modelo;
 
 
-public class ObraMantencion extends Obra {
+public class ServicioMantencion extends Obra {
     
     long mantenimientoMonetarioAnual ;
     double InteresAnual ;
     boolean operativo ;
     
 
-    public ObraMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, double InteresAnual, boolean operativo)
+    public ServicioMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, double InteresAnual, boolean operativo)
 
     {
         super(nombreObra, nombreRegion, 3) ;
