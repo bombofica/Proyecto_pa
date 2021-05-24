@@ -75,6 +75,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         gastosTotalesDeUnaObra = new javax.swing.JButton();
         VolverGestionObras = new javax.swing.JButton();
         generarInformejButton = new javax.swing.JButton();
+        FiltrarObrasjButton = new javax.swing.JButton();
         AgregarObraFrame = new javax.swing.JFrame();
         AgregarObrajLabel5 = new javax.swing.JLabel();
         AgregarObrajLabel4 = new javax.swing.JLabel();
@@ -245,6 +246,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
         cDECambiarDatonJButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         generarInformejFrame = new javax.swing.JFrame();
+        FiltrarObrasjFrame = new javax.swing.JFrame();
+        FiltrarObrasjButton2 = new javax.swing.JButton();
+        FiltrarObrasjComboBox = new javax.swing.JComboBox<>();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        FiltrarObrasjTextArea = new javax.swing.JTextArea();
+        jLabel25 = new javax.swing.JLabel();
+        FiltrarObrasjButton3 = new javax.swing.JButton();
+        FiltrarObrasjTextField = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         NombreProyecto = new javax.swing.JLabel();
         Autores = new javax.swing.JLabel();
@@ -370,6 +379,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
+        FiltrarObrasjButton.setText("Filtrar obras");
+        FiltrarObrasjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltrarObrasjButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout GestionObrasFrameLayout = new javax.swing.GroupLayout(GestionObrasFrame.getContentPane());
         GestionObrasFrame.getContentPane().setLayout(GestionObrasFrameLayout);
         GestionObrasFrameLayout.setHorizontalGroup(
@@ -384,7 +400,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addComponent(gastosTotalesDeUnaObra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(VolverGestionObras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cambiarDato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(generarInformejButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(generarInformejButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(FiltrarObrasjButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
         GestionObrasFrameLayout.setVerticalGroup(
@@ -399,14 +416,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonObraTerminada)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tiempoRestanteDeUnaObra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FiltrarObrasjButton)
+                .addGap(11, 11, 11)
                 .addComponent(gastosTotalesDeUnaObra)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(generarInformejButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tiempoRestanteDeUnaObra)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(VolverGestionObras)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         AgregarObraFrame.setResizable(false);
@@ -2018,6 +2037,82 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        FiltrarObrasjButton2.setText("Volver");
+        FiltrarObrasjButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltrarObrasjButton2ActionPerformed(evt);
+            }
+        });
+
+        FiltrarObrasjComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Menor que", "Mayor que", "Maximo", "Minimo" }));
+        FiltrarObrasjComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltrarObrasjComboBoxActionPerformed(evt);
+            }
+        });
+
+        FiltrarObrasjTextArea.setColumns(20);
+        FiltrarObrasjTextArea.setRows(5);
+        jScrollPane10.setViewportView(FiltrarObrasjTextArea);
+
+        jLabel25.setText("Presupuesto");
+
+        FiltrarObrasjButton3.setText("Aceptar");
+        FiltrarObrasjButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltrarObrasjButton3ActionPerformed(evt);
+            }
+        });
+
+        FiltrarObrasjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                FiltrarObrasjTextFieldKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FiltrarObrasjFrameLayout = new javax.swing.GroupLayout(FiltrarObrasjFrame.getContentPane());
+        FiltrarObrasjFrame.getContentPane().setLayout(FiltrarObrasjFrameLayout);
+        FiltrarObrasjFrameLayout.setHorizontalGroup(
+            FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
+                .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25)
+                            .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
+                                .addComponent(FiltrarObrasjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FiltrarObrasjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 175, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FiltrarObrasjFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane10))
+                    .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(FiltrarObrasjButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(FiltrarObrasjButton3)))
+                .addContainerGap())
+        );
+        FiltrarObrasjFrameLayout.setVerticalGroup(
+            FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FiltrarObrasjFrameLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FiltrarObrasjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FiltrarObrasjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FiltrarObrasjButton3)
+                    .addComponent(FiltrarObrasjButton2))
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 203, 123));
@@ -3358,6 +3453,70 @@ public class InterfazGrafica extends javax.swing.JFrame {
         if('0' > letra || letra > '9') evt.consume();
     }//GEN-LAST:event_AgregarObrajTextField2KeyTyped
 
+    private void FiltrarObrasjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjButtonActionPerformed
+        this.GestionObrasFrame.setVisible(false);
+        this.FiltrarObrasjFrame.setVisible(true);
+        this.FiltrarObrasjTextField.setText("");
+        this.FiltrarObrasjTextArea.setText("") ;
+        this.FiltrarObrasjFrame.setSize(450, 450);
+    }//GEN-LAST:event_FiltrarObrasjButtonActionPerformed
+
+    private void FiltrarObrasjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjButton3ActionPerformed
+        int opcion = (int) this.FiltrarObrasjComboBox.getSelectedIndex();
+        this.FiltrarObrasjTextArea.setText("") ;
+        
+        if((opcion == 0) || (opcion == 1))
+        {
+            if(this.FiltrarObrasjTextField.getText().isBlank())
+            {
+                JOptionPane.showMessageDialog(rootPane, "Selecciones un valor para evaluar");
+                return ;
+            }
+            int parametro = Integer.parseInt(this.FiltrarObrasjTextField.getText()) ;
+            Obra[] obrasFiltradas = this.registroObr.filtrarObrasPresupuesto(parametro, opcion) ;
+            this.FiltrarObrasjTextArea.append("El listado es el siguiente:"+'\n');
+            for(int i = 0; i < obrasFiltradas.length ; i++)
+            {
+                this.FiltrarObrasjTextArea.append(obrasFiltradas[i].getNombreObra()+'\n'+'\n');
+                
+            }
+        }
+        if(opcion == 2)
+        {
+            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(opcion) ;
+            
+            this.FiltrarObrasjTextArea.append("La obra que genera mayor gasto es"+'\n'+obraSeleccionada.getNombreObra()+'\n');
+        }
+        if(opcion == 3)
+        {
+            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(opcion) ;
+            this.FiltrarObrasjTextArea.append("La obra que genera menor gasto es"+'\n'+obraSeleccionada.getNombreObra()+'\n');
+        }
+    }//GEN-LAST:event_FiltrarObrasjButton3ActionPerformed
+
+    private void FiltrarObrasjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjButton2ActionPerformed
+        this.FiltrarObrasjFrame.setVisible(false);
+        this.GestionObrasFrame.setVisible(true);
+        this.FiltrarObrasjFrame.setSize(450, 450);
+    }//GEN-LAST:event_FiltrarObrasjButton2ActionPerformed
+
+    private void FiltrarObrasjTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FiltrarObrasjTextFieldKeyTyped
+        char letra = evt.getKeyChar() ;
+        if('0' > letra || letra > '9') evt.consume();
+    }//GEN-LAST:event_FiltrarObrasjTextFieldKeyTyped
+
+    private void FiltrarObrasjComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjComboBoxActionPerformed
+        int opcion = this.FiltrarObrasjComboBox.getSelectedIndex() ;
+        if(opcion == 0 || opcion == 1)
+        {
+            this.FiltrarObrasjTextField.setVisible(true);
+        }
+        if(opcion == 2 || opcion == 3)
+        {
+            this.FiltrarObrasjTextField.setVisible(false);
+        }
+    }//GEN-LAST:event_FiltrarObrasjComboBoxActionPerformed
+
 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3378,6 +3537,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JFrame DespedirEmpleados;
     private javax.swing.JFrame EliminarEmpleadoDeLaPlataforma;
     private javax.swing.JLabel EmpleadosObrasMostrarJLabel;
+    private javax.swing.JButton FiltrarObrasjButton;
+    private javax.swing.JButton FiltrarObrasjButton2;
+    private javax.swing.JButton FiltrarObrasjButton3;
+    private javax.swing.JComboBox<String> FiltrarObrasjComboBox;
+    private javax.swing.JFrame FiltrarObrasjFrame;
+    private javax.swing.JTextArea FiltrarObrasjTextArea;
+    private javax.swing.JTextField FiltrarObrasjTextField;
     private javax.swing.JFrame GastosTotalesObraFrame;
     private javax.swing.JComboBox<String> GastosTotalesjComboBox2;
     private javax.swing.JTextArea GastosTotalesjTextArea;
@@ -3490,6 +3656,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -3510,6 +3677,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;

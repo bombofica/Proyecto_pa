@@ -262,11 +262,172 @@ public class RegistroObras {
         
     }
     
+    public Obra[] filtrarObrasPresupuesto(int parametro, int opcion)
+    {
+        ArrayList<Obra> pupi = new ArrayList() ;
+        int i ;
+        if(opcion == 0) //menor que
+        {
+            for(i = 0; i < this.listaCompleta.size() ; i++)
+            {
+                if((listaCompleta.get(i).getCodigo() == 1) && ((ProyectoConstruccion)(listaCompleta.get(i))).getPresupuesto() < parametro)
+                {
+                    pupi.add(listaCompleta.get(i)) ;
+                }
+                if((listaCompleta.get(i).getCodigo() == 2) && ((ProyectoRestauracion)(listaCompleta.get(i))).getPresupuesto() < parametro)
+                {
+                    pupi.add(listaCompleta.get(i)) ;
+                }
+            }
+            Obra[] listadoFiltrado = new Obra[pupi.size()] ;
+            for(i = 0; i < pupi.size() ; i++)
+            {
+                listadoFiltrado[i] = pupi.get(i);
+            }
+            return listadoFiltrado ;
+        }
+        if(opcion == 1) //mayor que
+        {
+            for(i = 0; i < this.listaCompleta.size() ; i++)
+            {
+                if((listaCompleta.get(i).getCodigo() == 1) && ((ProyectoConstruccion)(listaCompleta.get(i))).getPresupuesto() > parametro)
+                {
+                    pupi.add(listaCompleta.get(i)) ;
+                }
+                if((listaCompleta.get(i).getCodigo() == 2) && ((ProyectoRestauracion)(listaCompleta.get(i))).getPresupuesto() > parametro)
+                {
+                    pupi.add(listaCompleta.get(i)) ;
+                }
+            }
+            Obra[] listadoFiltrado = new Obra[pupi.size()] ;
+            for(i = 0; i < pupi.size() ; i++)
+            {
+                listadoFiltrado[i] = pupi.get(i);
+            }
+            return listadoFiltrado ;
+        }
+        return null ;
+    }
     
+    public Obra filtrarObrasPresupuesto(int opcion)
+    {
+        int i ;
+        Obra obraSeleccionada = null;
+        for(i = 0; i < this.listaCompleta.size() ; i++)
+        {
+            if(this.listaCompleta.get(i).getCodigo() == 1)
+            {
+                obraSeleccionada = retornarObra(i) ;
+                break;
+            }
+            if(this.listaCompleta.get(i).getCodigo() == 1)
+            {
+                obraSeleccionada = retornarObra(i) ;
+                break;
+            }
+        }
+        if(obraSeleccionada != null)
+        {
+            if(opcion == 2) //maximo
+            {
+                int codigo;
+                for(i = 0; i < this.listaCompleta.size() ; i++)
+                {
+                    codigo = obraSeleccionada.getCodigo();
+                    if(codigo == 1)
+                    {
+                        if(this.listaCompleta.get(i).getCodigo() == 1)
+                        {
+                            if(((ProyectoConstruccion)(obraSeleccionada)).getPresupuesto() < ((ProyectoConstruccion)(this.listaCompleta.get(i))).getPresupuesto())
+                            {
+                                obraSeleccionada = this.listaCompleta.get(i) ;
+                                continue;
+                            }
+                        }
+                        if(this.listaCompleta.get(i).getCodigo() == 2)
+                        {
+                            if(((ProyectoConstruccion)(obraSeleccionada)).getPresupuesto() < ((ProyectoRestauracion)(this.listaCompleta.get(i))).getPresupuesto())
+                            {
+                                obraSeleccionada = this.listaCompleta.get(i) ;
+                                continue;
+                            }
+                        }
+                    }
+                    if(codigo == 2)
+                    {
+                        if(this.listaCompleta.get(i).getCodigo() == 1)
+                        {
+                            if(((ProyectoRestauracion)(obraSeleccionada)).getPresupuesto() < ((ProyectoConstruccion)(this.listaCompleta.get(i))).getPresupuesto())
+                            {
+                                obraSeleccionada = this.listaCompleta.get(i) ;
+                                continue;
+                            }
+                        }
+                        if(this.listaCompleta.get(i).getCodigo() == 2)
+                        {
+                            if(((ProyectoRestauracion)(obraSeleccionada)).getPresupuesto() < ((ProyectoRestauracion)(this.listaCompleta.get(i))).getPresupuesto())
+                            {
+                                obraSeleccionada = this.listaCompleta.get(i) ;
+                            }
+                        }
+                    }
+                }
+                return obraSeleccionada;
+            }
+            if(opcion == 3) //minimo
+            {
+                int codigo;
+                for(i = 0; i < this.listaCompleta.size() ; i++)
+                {
+                    codigo = obraSeleccionada.getCodigo();
+                    if(codigo == 1)
+                    {
+                        if(this.listaCompleta.get(i).getCodigo() == 1)
+                        {
+                            if(((ProyectoConstruccion)(obraSeleccionada)).getPresupuesto() > ((ProyectoConstruccion)(this.listaCompleta.get(i))).getPresupuesto())
+                            {
+                                obraSeleccionada = this.listaCompleta.get(i) ;
+                                continue;
+                            }
+                        }
+                        if(this.listaCompleta.get(i).getCodigo() == 2)
+                        {
+                            if(((ProyectoConstruccion)(obraSeleccionada)).getPresupuesto() > ((ProyectoRestauracion)(this.listaCompleta.get(i))).getPresupuesto())
+                            {
+                                obraSeleccionada = this.listaCompleta.get(i) ;
+                                continue;
+                            }
+                        }
+                    }
+                    if(codigo == 2)
+                    {
+                        if(this.listaCompleta.get(i).getCodigo() == 1)
+                        {
+                            if(((ProyectoRestauracion)(obraSeleccionada)).getPresupuesto() > ((ProyectoConstruccion)(this.listaCompleta.get(i))).getPresupuesto())
+                            {
+                                obraSeleccionada = this.listaCompleta.get(i) ;
+                                continue;
+                            }
+                        }
+                        if(this.listaCompleta.get(i).getCodigo() == 2)
+                        {
+                            if(((ProyectoRestauracion)(obraSeleccionada)).getPresupuesto() > ((ProyectoRestauracion)(this.listaCompleta.get(i))).getPresupuesto())
+                            {
+                                obraSeleccionada = this.listaCompleta.get(i) ;
+                            }
+                        }
+                    }
+                }
+                return obraSeleccionada;
+            }
+        }
+        
+        return null ;
+    }
+            
     public int numeroObras(){
         return this.contadorObras;
     }
-    
     
     public void eliminarObra(String nombreObra) throws IOException //Listo
     {
