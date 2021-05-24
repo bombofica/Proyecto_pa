@@ -1,15 +1,11 @@
 package com.registro.obras.Controlador;
-import com.registro.obras.Modelo.Persona;
-import com.registro.obras.Modelo.Obra;
-import com.registro.obras.Modelo.ObraConstruccion;
-import com.registro.obras.Modelo.ObraMantencion;
-import com.registro.obras.Modelo.ObraRestauracion;
-import com.registro.obras.Modelo.Trabajador;
+import com.registro.obras.Modelo.*;
 import java.io.BufferedReader;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ReadFile {
     
@@ -31,17 +27,15 @@ public class ReadFile {
         ArrayList<String> texto = new ArrayList();
         try{
             BufferedReader lector;
-            lector = new BufferedReader(new FileReader(direccion,StandardCharsets.UTF_8));
+            lector = new BufferedReader(new FileReader(direccion,StandardCharsets.ISO_8859_1)); // este charset permite leer las Ñ
             String linea;
             String temporal = "";
             while((linea = lector.readLine())!= null){
                 texto.add(linea);
             }
-            
-            
         }
         catch(IOException e){
-            
+        
         }
         
         
@@ -93,7 +87,7 @@ public class ReadFile {
         
             File ruta = new File(direccion);
         
-            FileReader entrada = new FileReader(ruta, StandardCharsets.UTF_8);
+            FileReader entrada = new FileReader(ruta, StandardCharsets.ISO_8859_1);
             
             int c;
             do {
@@ -172,12 +166,15 @@ public class ReadFile {
         
         try{
             Obra currentObra = null;
-            FileReader entrada = new FileReader(direccion+"//RegistroObras.txt",StandardCharsets.UTF_8);
+            FileReader entrada = new FileReader(direccion+"//RegistroObras.txt",StandardCharsets.ISO_8859_1);
             int c;
             do {
                 
                 c = entrada.read();
-                char caracter = (char) c;
+                char caracter =  (char) c;
+                //System.out.println(caracter);
+                
+                
                 
                 // En este if se verifica que el caracter que se está leyendo del archivo sea util
                 if ((caracter == separador)) {
@@ -201,20 +198,20 @@ public class ReadFile {
                 if (caracter == '\n' || c == -1) {
  
                     int valor = Integer.parseInt(valores[0]);
-                    System.out.println(valores[0]+" "+ valores[1]+" "+valores[2]+" " + valores[3]+" "+valores[4]+" "+valores[5]);                       // nombre_lugar(2)
+                    //System.out.println(valores[0]+" "+ valores[1]+" "+valores[2]+" " + valores[3]+" "+valores[4]+" "+valores[5]);                       // nombre_lugar(2)
                     switch(valor){
                         case 1:
-                            currentObra = new ObraConstruccion(valores[1], valores[2], valores[4],Long.parseLong(valores[3]));
+                            currentObra = new ProyectoConstruccion(valores[1], valores[2], valores[4],Long.parseLong(valores[3]));
                             ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[2]+"//"
                             +valores[1]+"//Empleados.txt",registroTrabajadores,currentObra);
                             break;
                         case 2:
-                            currentObra = new ObraRestauracion(valores[1], valores[2], valores[4], Long.parseLong(valores[3]));
+                            currentObra = new ProyectoRestauracion(valores[1], valores[2], valores[4], Long.parseLong(valores[3]));
                             ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[2]+"//"
                             +valores[1]+"//Empleados.txt",registroTrabajadores,currentObra);                                
                             break;
                         case 3:
-                            currentObra = new ObraMantencion(valores[1], valores[2], Long.parseLong(valores[3]), Double.parseDouble(valores[4]),Boolean.parseBoolean(valores[5]));
+                            currentObra = new ServicioMantencion(valores[1], valores[2], Long.parseLong(valores[3]), Double.parseDouble(valores[4]),Boolean.parseBoolean(valores[5]));
                             ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[2]+"//"
                             +valores[1]+"//Empleados.txt",registroTrabajadores,currentObra);                              
                             break;

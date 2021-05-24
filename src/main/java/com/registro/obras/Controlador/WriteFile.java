@@ -1,12 +1,7 @@
 package com.registro.obras.Controlador;
 
 //import java.io.FileReader;
-import com.registro.obras.Modelo.Persona;
-import com.registro.obras.Modelo.Obra;
-import com.registro.obras.Modelo.ObraConstruccion;
-import com.registro.obras.Modelo.ObraMantencion;
-import com.registro.obras.Modelo.ObraRestauracion;
-import com.registro.obras.Modelo.Trabajador;
+import com.registro.obras.Modelo.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
@@ -56,17 +51,17 @@ public class WriteFile {
                          
                        switch(valor){
                             case 1:
-                                ObraConstruccion obraActual = (ObraConstruccion) currentObra;
+                                ProyectoConstruccion obraActual = (ProyectoConstruccion) currentObra;
                                 Escritor.write("1,"+obraActual.getNombreObra()+','+obraActual.getNombreLugar()+','+
                                 obraActual.getPresupuesto()+','+obraActual.getTiempoRestante()+','+obraActual.getFase()+','+'\n');
                                 break;
                             case 2:
-                                ObraRestauracion obraActual2 = (ObraRestauracion) currentObra;
+                                ProyectoRestauracion obraActual2 = (ProyectoRestauracion) currentObra;
                                 Escritor.write("2,"+obraActual2.getNombreObra()+','+obraActual2.getNombreLugar()+','+
                                 obraActual2.getPresupuesto()+','+obraActual2.getTiempoRestante()+','+obraActual2.getFase()+','+'\n');                                
                                 break;
                             case 3:
-                                ObraMantencion obraActual3 = (ObraMantencion) currentObra;
+                                ServicioMantencion obraActual3 = (ServicioMantencion) currentObra;
                                 Escritor.write("3,"+obraActual3.getNombreObra()+','+obraActual3.getNombreLugar()+','+
                                 obraActual3.getMantenimientoMonetarioAnual()+','+
                                 obraActual3.getInteresAnual()+','+obraActual3.isOperativo()+','+'\n');                                
@@ -80,17 +75,17 @@ public class WriteFile {
                     {
                         switch(valor){
                             case 1:
-                                ObraConstruccion obraActual = (ObraConstruccion) currentObra;
+                                ProyectoConstruccion obraActual = (ProyectoConstruccion) currentObra;
                                 Escritor.write("1,"+obraActual.getNombreObra()+','+obraActual.getNombreLugar()+','+
                                 obraActual.getPresupuesto()+','+obraActual.getTiempoRestante()+','+obraActual.getFase()+',');
                                 break;
                             case 2:
-                                ObraRestauracion obraActual2 = (ObraRestauracion) currentObra;
+                                ProyectoRestauracion obraActual2 = (ProyectoRestauracion) currentObra;
                                 Escritor.write("2,"+obraActual2.getNombreObra()+','+obraActual2.getNombreLugar()+','+
                                 obraActual2.getPresupuesto()+','+obraActual2.getTiempoRestante()+','+obraActual2.getFase()+',');                                
                                 break;
                             case 3:
-                                ObraMantencion obraActual3 = (ObraMantencion) currentObra;
+                                ServicioMantencion obraActual3 = (ServicioMantencion) currentObra;
                                 Escritor.write("3,"+obraActual3.getNombreObra()+','+obraActual3.getNombreLugar()+','+
                                 obraActual3.getMantenimientoMonetarioAnual()+','+                                
                                 obraActual3.getInteresAnual()+','+obraActual3.isOperativo()+',');                                

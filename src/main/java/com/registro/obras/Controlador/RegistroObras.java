@@ -4,11 +4,7 @@
  * and open the template in the editor.
  */
 package com.registro.obras.Controlador;
-import com.registro.obras.Modelo.Obra;
-import com.registro.obras.Modelo.ObraConstruccion;
-import com.registro.obras.Modelo.ObraMantencion;
-import com.registro.obras.Modelo.ObraRestauracion;
-import com.registro.obras.Modelo.Persona;
+import com.registro.obras.Modelo.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
@@ -25,7 +21,7 @@ public class RegistroObras {
     private HashMap <String, Obra> registro ;
     private ArrayList<Obra> listaCompleta;
     private ArrayList<String> listadoRegiones;
-    private ArrayList<Reportable> listaCompletaInterfaz;
+    public ArrayList<ProyectoReportable> listaCompletaInterfaz;
     
     int contadorObras ;
 
@@ -99,13 +95,13 @@ public class RegistroObras {
         }
     }
 
-    public void llenarComboBoxObrasInterfaz(JComboBox<Reportable> comboBoxObra){
+    public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra){
         comboBoxObra.removeAllItems();
-        Reportable current ;
+        ProyectoReportable current ;
         for(int i = 0 ; i< listaCompletaInterfaz.size() ; i++)
         {  
             current = listaCompletaInterfaz.get(i);
-            comboBoxObra.addItem((Reportable)current);
+            comboBoxObra.addItem((ProyectoReportable)current);
         }
     }
     
@@ -128,7 +124,7 @@ public class RegistroObras {
         }
     }
 
-    public void llenarComboBoxObrasInterfaz(JComboBox<Reportable> comboBoxObra, String region){
+    public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra, String region){
         
         if(region.equals("Todas las regiones") || (region == null))
         {
@@ -144,7 +140,7 @@ public class RegistroObras {
             current = (Obra)me.getValue();
             
             if( (current.getCodigo() == 1) || (current.getCodigo() == 2))
-                comboBoxObra.addItem((Reportable)current);
+                comboBoxObra.addItem((ProyectoReportable)current);
         }
     }
     
@@ -223,7 +219,7 @@ public class RegistroObras {
         {
             if(obraAgregar.getCodigo() == 1)
             {
-                ObraConstruccion obraC = (ObraConstruccion) obraAgregar;
+                ProyectoConstruccion obraC = (ProyectoConstruccion) obraAgregar;
                 FechaHoy fechaObra = new FechaHoy();
                 if(!fechaObra.verificarEstructura(obraC.getTiempoRestante().toCharArray()))
                 {
@@ -233,7 +229,7 @@ public class RegistroObras {
             }
             if(obraAgregar.getCodigo() == 2)
             {
-                ObraRestauracion obraR = (ObraRestauracion) obraAgregar;
+                ProyectoRestauracion obraR = (ProyectoRestauracion) obraAgregar;
                 FechaHoy fechaObra = new FechaHoy();
                 if(!fechaObra.verificarEstructura(obraR.getTiempoRestante().toCharArray()))
                 {
@@ -243,13 +239,27 @@ public class RegistroObras {
             }
         }
         
+            
         TreeMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
-        this.listaCompleta.add(obraAgregar);
+            
+        if(region != null){
+            this.listaCompleta.add(obraAgregar);
 
-        this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
-        this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
-        this.contadorObras++;
-        return true;
+            this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
+            this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
+            this.contadorObras++;
+            return true;
+        }else
+        {
+            
+            System.out.println("region qlia: "+obraAgregar.getNombreLugar());
+            return false;
+        }
+        
+        
+            
+ 
+        
     }
     
     
@@ -269,7 +279,7 @@ public class RegistroObras {
             this.registro.remove(nombreObra) ;
             this.regiones.get(lugar).remove(nombreObra) ;
             this.listaCompleta.remove(ObraEliminar);
-            this.listaCompletaInterfaz.remove( (Reportable) ObraEliminar);
+            this.listaCompletaInterfaz.remove( (ProyectoReportable) ObraEliminar);
             
             this.contadorObras=this.registro.size();
             
@@ -331,12 +341,12 @@ public class RegistroObras {
                     {
                         case 1:
                         {
-                            ((ObraConstruccion)(remplazo)).setTiempoRestante(nuevoDato);
+                            ((ProyectoConstruccion)(remplazo)).setTiempoRestante(nuevoDato);
                             break;
                         }
                         case 2:
                         {
-                            ((ObraRestauracion)(remplazo)).setTiempoRestante(nuevoDato);
+                            ((ProyectoRestauracion)(remplazo)).setTiempoRestante(nuevoDato);
                             break;
                         }
                         case 3:
@@ -344,7 +354,7 @@ public class RegistroObras {
                             try
                             {
                                 double nuevoInteres = Double.parseDouble(nuevoDato) ;
-                                ((ObraMantencion)(remplazo)).setInteresAnual(nuevoInteres);
+                                ((ServicioMantencion)(remplazo)).setInteresAnual(nuevoInteres);
                             }
                             catch(NumberFormatException e)
                             {
@@ -367,7 +377,7 @@ public class RegistroObras {
                             try
                             {
                                 long nuevoPresupuesto = Long.parseLong(nuevoDato) ;
-                                ((ObraConstruccion)(remplazo)).setPresupuesto(nuevoPresupuesto);
+                                ((ProyectoConstruccion)(remplazo)).setPresupuesto(nuevoPresupuesto);
                                 break;
                             }
                             catch(NumberFormatException e)
@@ -381,7 +391,7 @@ public class RegistroObras {
                             try
                             {
                                 long nuevoPresupuesto = Long.parseLong(nuevoDato) ;
-                                ((ObraRestauracion)(remplazo)).setPresupuesto(nuevoPresupuesto);
+                                ((ProyectoRestauracion)(remplazo)).setPresupuesto(nuevoPresupuesto);
                                 break;
                             }
                             catch(NumberFormatException e)
@@ -395,7 +405,7 @@ public class RegistroObras {
                             try
                             {
                                 long nuevoPresupuesto = Long.parseLong(nuevoDato) ;
-                                ((ObraMantencion)(remplazo)).setMantenimientoMonetarioAnual(nuevoPresupuesto);
+                                ((ServicioMantencion)(remplazo)).setMantenimientoMonetarioAnual(nuevoPresupuesto);
                                 break;
                             }
                             catch(NumberFormatException e)
@@ -412,11 +422,11 @@ public class RegistroObras {
                 {
                     if(nuevoDato.equals("false"))
                     {
-                        ((ObraMantencion)(remplazo)).setOperativo(false);
+                        ((ServicioMantencion)(remplazo)).setOperativo(false);
                     }
                     else
                     {
-                        ((ObraMantencion)(remplazo)).setOperativo(true);
+                        ((ServicioMantencion)(remplazo)).setOperativo(true);
                     }
                 }
                 

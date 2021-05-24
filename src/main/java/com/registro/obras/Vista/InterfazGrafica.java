@@ -9,6 +9,7 @@ import com.registro.obras.Controlador.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -1488,22 +1489,21 @@ public class InterfazGrafica extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addComponent(jBotonVolverMoverEmpleados)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jBotonMoverEmpleado))
-                        .addGroup(jPanel7Layout.createSequentialGroup()
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabelObraInicial)
-                                .addComponent(comboBoxMoverEInicial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(comboBoxMoverEmpleado, 0, 125, Short.MAX_VALUE))
-                            .addGap(79, 79, 79)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(comboBoxMoverEObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelObraObjetivo)))))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jBotonVolverMoverEmpleados)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBotonMoverEmpleado))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelObraInicial)
+                            .addComponent(comboBoxMoverEInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(79, 79, 79)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboBoxMoverEObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelObraObjetivo)
+                            .addComponent(comboBoxMoverEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -1517,11 +1517,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxMoverEInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxMoverEObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(comboBoxMoverEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotonVolverMoverEmpleados)
                     .addComponent(jBotonMoverEmpleado))
@@ -2189,7 +2189,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         {
             case 1:
             {
-                ObraConstruccion nuevaObra = new ObraConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
+                ProyectoConstruccion nuevaObra = new ProyectoConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
                 if(!this.registroObr.agregarObra(nuevaObra))
                 {
                     JOptionPane.showMessageDialog(rootPane, "La estructura de la fecha no es correcta (dd-mm-aaaa)");
@@ -2208,7 +2208,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
             case 2:
             {
                 
-                ObraRestauracion nuevaObra = new ObraRestauracion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
+                ProyectoRestauracion nuevaObra = new ProyectoRestauracion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
                 if(!this.registroObr.agregarObra(nuevaObra))
                 {
                     JOptionPane.showMessageDialog(rootPane, "La estructura de la fecha no es correcta (dd-mm-aaaa)");
@@ -2229,7 +2229,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 try
                 {
                     double Interes = Double.parseDouble(tiempoAsignadoInteresAnual) ;
-                    ObraMantencion nuevaObra = new ObraMantencion(nombreObra, region, presupuesto , Interes, false) ;
+                    ServicioMantencion nuevaObra = new ServicioMantencion(nombreObra, region, presupuesto , Interes, false) ;
                     this.registroObr.agregarObra(nuevaObra);
                     WriteFile.escribirObras(',', registroObr);
                 }
@@ -2356,25 +2356,25 @@ public class InterfazGrafica extends javax.swing.JFrame {
             int tipo = this.registroObr.retornarTipoObra(valor.getNombreObra()) ;
             if(tipo == 1)
             {
-                String textoFinal = "Nombre Obra: "+((ObraConstruccion)(valor)).getNombreObra()+'\n'+"Región: "+
-                        ((ObraConstruccion)(valor)).getNombreLugar()+'\n'+"Presupuesto:"+((ObraConstruccion)(valor)).getPresupuesto()+
-                        '\n'+"Fecha de termino:"+((ObraConstruccion)(valor)).getTiempoRestante()+'\n'+
+                String textoFinal = "Nombre Obra: "+((ProyectoConstruccion)(valor)).getNombreObra()+'\n'+"Región: "+
+                        ((ProyectoConstruccion)(valor)).getNombreLugar()+'\n'+"Presupuesto:"+((ProyectoConstruccion)(valor)).getPresupuesto()+
+                        '\n'+"Fecha de termino:"+((ProyectoConstruccion)(valor)).getTiempoRestante()+'\n'+
                         "Fase:";
                 this.mostrarObraTextArea.setText(textoFinal);
             }
             if(tipo == 2)
             {
-                String textoFinal = "Nombre Obra: "+((ObraRestauracion)(valor)).getNombreObra()+'\n'+"Región: "+
-                        ((ObraRestauracion)(valor)).getNombreLugar()+'\n'+"Presupuesto:"+((ObraRestauracion)(valor)).getPresupuesto()+
-                        '\n'+"Fecha de termino:"+((ObraRestauracion)(valor)).getTiempoRestante()+'\n'+
+                String textoFinal = "Nombre Obra: "+((ProyectoRestauracion)(valor)).getNombreObra()+'\n'+"Región: "+
+                        ((ProyectoRestauracion)(valor)).getNombreLugar()+'\n'+"Presupuesto:"+((ProyectoRestauracion)(valor)).getPresupuesto()+
+                        '\n'+"Fecha de termino:"+((ProyectoRestauracion)(valor)).getTiempoRestante()+'\n'+
                         "Fase:";
                 this.mostrarObraTextArea.setText(textoFinal);
             }
             if(tipo == 3)
             {
-                String textoFinal = "Nombre Obra: "+((ObraMantencion)(valor)).getNombreObra()+'\n'+"Región: "+
-                        ((ObraMantencion)(valor)).getNombreLugar()+'\n'+"Presupuesto anual:"+((ObraMantencion)(valor)).getMantenimientoMonetarioAnual()+
-                        '\n'+"Interes anual:"+((ObraMantencion)(valor)).getInteresAnual()+'\n';
+                String textoFinal = "Nombre Obra: "+((ServicioMantencion)(valor)).getNombreObra()+'\n'+"Región: "+
+                        ((ServicioMantencion)(valor)).getNombreLugar()+'\n'+"Presupuesto anual:"+((ServicioMantencion)(valor)).getMantenimientoMonetarioAnual()+
+                        '\n'+"Interes anual:"+((ServicioMantencion)(valor)).getInteresAnual()+'\n';
                 this.mostrarObraTextArea.setText(textoFinal);
             }
         }
@@ -2422,82 +2422,178 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_sueldoJTextFieldKeyTyped
 
     private void OpcionesPrincipalesFrameWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_OpcionesPrincipalesFrameWindowClosed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);
         
     }//GEN-LAST:event_OpcionesPrincipalesFrameWindowClosed
 
     private void GestionObrasFrameWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GestionObrasFrameWindowClosed
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_GestionObrasFrameWindowClosed
 
     private void GestionObrasFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GestionObrasFrameWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_GestionObrasFrameWindowClosing
 
     private void AgregarObraFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AgregarObraFrameWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_AgregarObraFrameWindowClosing
 
     private void MostrarTodasLasObrasFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_MostrarTodasLasObrasFrameWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_MostrarTodasLasObrasFrameWindowClosing
 
     private void CambiarDatoFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CambiarDatoFrameWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_CambiarDatoFrameWindowClosing
 
     private void ObraTerminadaFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_ObraTerminadaFrameWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_ObraTerminadaFrameWindowClosing
 
     private void TiempoRestanteObraFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_TiempoRestanteObraFrameWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_TiempoRestanteObraFrameWindowClosing
 
     private void GastosTotalesObraFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GastosTotalesObraFrameWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_GastosTotalesObraFrameWindowClosing
 
     private void GestionEmpleadosFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GestionEmpleadosFrameWindowClosing
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }        
         System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_GestionEmpleadosFrameWindowClosing
 
     private void AnadirEmpleadoToPlataformWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_AnadirEmpleadoToPlataformWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }        
         System.exit(0);
     }//GEN-LAST:event_AnadirEmpleadoToPlataformWindowClosing
 
     private void MostrarEmpleadosDeUnaObraWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_MostrarEmpleadosDeUnaObraWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_MostrarEmpleadosDeUnaObraWindowClosing
 
     private void MoverEmpleadosWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_MoverEmpleadosWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_MoverEmpleadosWindowClosing
 
     private void MostrarTodosLosEmpleadosWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_MostrarTodosLosEmpleadosWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_MostrarTodosLosEmpleadosWindowClosing
 
     private void DespedirEmpleadosWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_DespedirEmpleadosWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_DespedirEmpleadosWindowClosing
 
     private void EliminarEmpleadoDeLaPlataformaWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_EliminarEmpleadoDeLaPlataformaWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_EliminarEmpleadoDeLaPlataformaWindowClosing
 
@@ -2511,19 +2607,19 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 case 1:
                     textoFinal = "Tipo: Construccion\n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
                         +"Región: "+obraEscogida.getNombreLugar()+'\n'+"Presupuesto: "+
-                        ((ObraConstruccion)obraEscogida).getPresupuesto()+ "\nFase: "+((ObraConstruccion)obraEscogida).getFase();
+                        ((ProyectoConstruccion)obraEscogida).getPresupuesto()+ "\nFase: "+((ProyectoConstruccion)obraEscogida).getFase();
                     break;
                 case 2:
                     textoFinal = "Tipo: Restauracion \n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
                         +"Región: "+obraEscogida.getNombreLugar()+'\n'+"Tiempo Restante: "+
-                        ((ObraRestauracion)obraEscogida).getTiempoRestante()
-                        +"\nFase: "+((ObraRestauracion)obraEscogida).getFase();
+                        ((ProyectoRestauracion)obraEscogida).getTiempoRestante()
+                        +"\nFase: "+((ProyectoRestauracion)obraEscogida).getFase();
                     break;
                 case 3:
                     textoFinal = "Tipo: Mantencion \n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
                         +"Región: "+obraEscogida.getNombreLugar()+'\n'
-                        +"Costo Mantenimiento: "+ ((ObraMantencion)obraEscogida).getMantenimientoMonetarioAnual()
-                        +"\nInteres Anual: "+((ObraMantencion)obraEscogida).getInteresAnual();
+                        +"Costo Mantenimiento: "+ ((ServicioMantencion)obraEscogida).getMantenimientoMonetarioAnual()
+                        +"\nInteres Anual: "+((ServicioMantencion)obraEscogida).getInteresAnual();
                     break;
                        
             }
@@ -2660,17 +2756,18 @@ public class InterfazGrafica extends javax.swing.JFrame {
         switch (tipo){
             case 1:
             {
-                obraEscogida = (ObraConstruccion) this.registroObr.retornarObra(nombreObra);
+                obraEscogida = (ProyectoConstruccion) this.registroObr.retornarObra(nombreObra);
                 break;
             }
             case 2:
             {
-                obraEscogida = (ObraMantencion) this.registroObr.retornarObra(nombreObra);
+                obraEscogida = (ProyectoRestauracion) this.registroObr.retornarObra(nombreObra);
                 break;
             }
             case 3:
             {
-                obraEscogida = (ObraRestauracion) this.registroObr.retornarObra(nombreObra);
+                obraEscogida = (ServicioMantencion) this.registroObr.retornarObra(nombreObra);
+                
             }
         }
         
@@ -2708,20 +2805,20 @@ public class InterfazGrafica extends javax.swing.JFrame {
             this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
             if(obraActual.getCodigo() == 1)
             {
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraConstruccion)(obraActual)).getPresupuesto()+'\n');
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraConstruccion)(obraActual)).getTiempoRestante()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoConstruccion)(obraActual)).getPresupuesto()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoConstruccion)(obraActual)).getTiempoRestante()+'\n');
                 this.cambiarDatojTextArea1.append("Fase: "+'\n');
             }
             if(obraActual.getCodigo() == 2)
             {
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraRestauracion)(obraActual)).getPresupuesto()+'\n');
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraRestauracion)(obraActual)).getTiempoRestante()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getPresupuesto()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getTiempoRestante()+'\n');
                 this.cambiarDatojTextArea1.append("Fase: "+'\n');
             }
             if(obraActual.getCodigo() == 3)
             {
-                this.cambiarDatojTextArea1.append("Presupuesto anual: "+((ObraMantencion)(obraActual)).getMantenimientoMonetarioAnual()+'\n');
-                this.cambiarDatojTextArea1.append("Interes anual: "+((ObraMantencion)(obraActual)).getInteresAnual()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto anual: "+((ServicioMantencion)(obraActual)).getMantenimientoMonetarioAnual()+'\n');
+                this.cambiarDatojTextArea1.append("Interes anual: "+((ServicioMantencion)(obraActual)).getInteresAnual()+'\n');
             }
         }
     }//GEN-LAST:event_cambiarDatoComboBoxActionPerformed
@@ -2772,20 +2869,20 @@ public class InterfazGrafica extends javax.swing.JFrame {
             this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
             if(obraActual.getCodigo() == 1)
             {
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraConstruccion)(obraActual)).getPresupuesto()+'\n');
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraConstruccion)(obraActual)).getTiempoRestante()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoConstruccion)(obraActual)).getPresupuesto()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoConstruccion)(obraActual)).getTiempoRestante()+'\n');
                 this.cambiarDatojTextArea1.append("Fase: "+'\n');
             }
             if(obraActual.getCodigo() == 2)
             {
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraRestauracion)(obraActual)).getPresupuesto()+'\n');
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ObraRestauracion)(obraActual)).getTiempoRestante()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getPresupuesto()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getTiempoRestante()+'\n');
                 this.cambiarDatojTextArea1.append("Fase: "+'\n');
             }
             if(obraActual.getCodigo() == 3)
             {
-                this.cambiarDatojTextArea1.append("Presupuesto anual: "+((ObraMantencion)(obraActual)).getMantenimientoMonetarioAnual()+'\n');
-                this.cambiarDatojTextArea1.append("Interes anual: "+((ObraMantencion)(obraActual)).getInteresAnual()+'\n');
+                this.cambiarDatojTextArea1.append("Presupuesto anual: "+((ServicioMantencion)(obraActual)).getMantenimientoMonetarioAnual()+'\n');
+                this.cambiarDatojTextArea1.append("Interes anual: "+((ServicioMantencion)(obraActual)).getInteresAnual()+'\n');
             }
         }
         
@@ -2890,6 +2987,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void CambiarDatosEmpleado2WindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CambiarDatosEmpleado2WindowClosing
         // TODO add your handling code here:
+                try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_CambiarDatosEmpleado2WindowClosing
 
@@ -3084,21 +3187,21 @@ public class InterfazGrafica extends javax.swing.JFrame {
             {
                 case 1:
                 {
-                    ObraConstruccion obraC = (ObraConstruccion) obraActual;
+                    ProyectoConstruccion obraC = (ProyectoConstruccion) obraActual;
                     char[] fechaComparar = obraC.getTiempoRestante().toCharArray() ;
                     fecha.obterFecha(fechaComparar, this.TiempoRestanteObrajTextArea);
                     break;
                 }
                 case 2:
                 {
-                    ObraRestauracion obraR = (ObraRestauracion) obraActual;
+                    ProyectoRestauracion obraR = (ProyectoRestauracion) obraActual;
                     char[] fechaComparar = obraR.getTiempoRestante().toCharArray() ;
                     fecha.obterFecha(fechaComparar, this.TiempoRestanteObrajTextArea);
                     break;
                 }
                 case 3:
                 {
-                    ObraMantencion obraM = (ObraMantencion) obraActual;
+                    ServicioMantencion obraM = (ServicioMantencion) obraActual;
                     this.TiempoRestanteObrajComboBox3.setVisible(true);
                     this.TiempoRestanteObrajButton2.setVisible(true);
                     System.out.println(obraM.isOperativo());
@@ -3173,13 +3276,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
         switch (tipo){
             case 1:
             {
-                ObraConstruccion obraEscogida = (ObraConstruccion) obraEscogidaComboBox;
+                ProyectoConstruccion obraEscogida = (ProyectoConstruccion) obraEscogidaComboBox;
                 obraEscogida.crearInforme(this.textoAdicionalCrearInforme.getText());
                 break;
             }
             case 2:
             {
-                ObraRestauracion obraEscogida = (ObraRestauracion) obraEscogidaComboBox;
+                ProyectoRestauracion obraEscogida = (ProyectoRestauracion) obraEscogidaComboBox;
                 obraEscogida.crearInforme(this.textoAdicionalCrearInforme.getText());
                 
                 break;
@@ -3195,6 +3298,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void GenerarInformeFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GenerarInformeFrameWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_GenerarInformeFrameWindowClosing
 
@@ -3215,15 +3324,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
             int tipo = this.registroObr.retornarTipoObra(valor.getNombreObra()) ;
             if(tipo == 1)
             {
-                balance = this.registroObr.getGastosObra((ObraConstruccion)valor) ;
+                balance = this.registroObr.getGastosObra((ProyectoConstruccion)valor) ;
             }
             if(tipo == 2)
             {
-                balance = this.registroObr.getGastosObra((ObraRestauracion)valor) ;
+                balance = this.registroObr.getGastosObra((ProyectoRestauracion)valor) ;
             }
             if(tipo == 3)
             {
-                balance = this.registroObr.getGastosObra((ObraMantencion)valor) ;
+                balance = this.registroObr.getGastosObra((ServicioMantencion)valor) ;
             }
             if(balance < 0)
             {
@@ -3333,7 +3442,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<Obra> comboBoxMoverEObjetivo;
     private javax.swing.JComboBox<Persona> comboBoxMoverEmpleado;
     private javax.swing.JComboBox<Obra> comboBoxObra;
-    private javax.swing.JComboBox<Reportable> comboBoxObrasInforme;
+    private javax.swing.JComboBox<ProyectoReportable> comboBoxObrasInforme;
     private javax.swing.JComboBox<String> comboBoxRegionesInforme;
     private javax.swing.JComboBox<String> datosCDEJComboBox;
     private javax.swing.JButton despedirEmpleadoDeObrabtn;
