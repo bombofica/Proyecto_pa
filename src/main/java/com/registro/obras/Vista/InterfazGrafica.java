@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 /**
  *
  * @author Benjamín
@@ -146,7 +147,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jButtonCrearInformeInforme = new javax.swing.JButton();
         jScrollPane15 = new javax.swing.JScrollPane();
         textoAdicionalCrearInforme = new javax.swing.JTextArea();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel24 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -1089,7 +1089,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
                         .addGap(25, 25, 25))
                     .addGroup(jFrameInformeLayout.createSequentialGroup()
                         .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(jLabel23)
                         .addGap(60, 60, 60))))
@@ -3334,7 +3333,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<Obra> comboBoxMoverEObjetivo;
     private javax.swing.JComboBox<Persona> comboBoxMoverEmpleado;
     private javax.swing.JComboBox<Obra> comboBoxObra;
-    private javax.swing.JComboBox<PoderInforme> comboBoxObrasInforme;
+    private javax.swing.JComboBox<Reportable> comboBoxObrasInforme;
     private javax.swing.JComboBox<String> comboBoxRegionesInforme;
     private javax.swing.JComboBox<String> datosCDEJComboBox;
     private javax.swing.JButton despedirEmpleadoDeObrabtn;

@@ -5,7 +5,7 @@
  */
 package com.registro.obras.Modelo;
 
-import com.registro.obras.Controlador.PoderInforme;
+import com.registro.obras.Controlador.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author Ceseo
  */
 //3000 - 5999
-public class ObraRestauracion extends Obra implements PoderInforme{
+public class ObraRestauracion extends Obra implements Reportable{
     long presupuesto ;
     String tiempoRestante ;
     int fase ;
