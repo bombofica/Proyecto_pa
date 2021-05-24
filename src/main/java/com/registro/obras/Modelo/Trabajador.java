@@ -16,10 +16,6 @@ public class Trabajador extends Persona{
     private String obraALaQuePertenece;
     private boolean trabajando;
     
-    public Trabajador(){
-        
-    }
-    
     // NombrePersona,Labor,Sueldo,Rut,Estado(Trabajando o no),
     public Trabajador(String nombre,String laborProfesional,int sueldo, int rut,boolean trabajando, String obraALaQuePertenece){
         super(nombre,rut);

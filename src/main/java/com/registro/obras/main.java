@@ -7,13 +7,8 @@
 
 
 package com.registro.obras;
-import com.registro.obras.Controlador.ReadFile;
-import com.registro.obras.Controlador.RegistroObras;
-import com.registro.obras.Controlador.RegistroTrabajadores;
-import com.registro.obras.Vista.InterfazGrafica;
 import com.registro.obras.Vista.*;
 import com.registro.obras.Controlador.*;
-import com.registro.obras.Modelo.*;
 import java.io.* ;
 //import java.text.SimpleDateFormat;
 
