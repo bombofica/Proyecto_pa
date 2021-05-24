@@ -1,6 +1,5 @@
 package com.registro.obras.Modelo;
 
-import com.registro.obras.Controlador.PoderInforme;
 
 public class ObraMantencion extends Obra {
     

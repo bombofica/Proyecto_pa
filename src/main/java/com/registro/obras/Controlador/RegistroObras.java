@@ -25,7 +25,7 @@ public class RegistroObras {
     private HashMap <String, Obra> registro ;
     private ArrayList<Obra> listaCompleta;
     private ArrayList<String> listadoRegiones;
-    private ArrayList<PoderInforme> listaCompletaInterfaz;
+    private ArrayList<Reportable> listaCompletaInterfaz;
     
     int contadorObras ;
 
@@ -99,13 +99,13 @@ public class RegistroObras {
         }
     }
 
-    public void llenarComboBoxObrasInterfaz(JComboBox<PoderInforme> comboBoxObra){
+    public void llenarComboBoxObrasInterfaz(JComboBox<Reportable> comboBoxObra){
         comboBoxObra.removeAllItems();
-        PoderInforme current ;
+        Reportable current ;
         for(int i = 0 ; i< listaCompletaInterfaz.size() ; i++)
         {  
             current = listaCompletaInterfaz.get(i);
-            comboBoxObra.addItem((PoderInforme)current);
+            comboBoxObra.addItem((Reportable)current);
         }
     }
     
@@ -128,7 +128,7 @@ public class RegistroObras {
         }
     }
 
-    public void llenarComboBoxObrasInterfaz(JComboBox<PoderInforme> comboBoxObra, String region){
+    public void llenarComboBoxObrasInterfaz(JComboBox<Reportable> comboBoxObra, String region){
         
         if(region.equals("Todas las regiones") || (region == null))
         {
@@ -144,7 +144,7 @@ public class RegistroObras {
             current = (Obra)me.getValue();
             
             if( (current.getCodigo() == 1) || (current.getCodigo() == 2))
-                comboBoxObra.addItem((PoderInforme)current);
+                comboBoxObra.addItem((Reportable)current);
         }
     }
     
@@ -229,6 +229,7 @@ public class RegistroObras {
                 {
                     return false ;
                 }
+                        this.listaCompletaInterfaz.add(obraC);
             }
             if(obraAgregar.getCodigo() == 2)
             {
@@ -238,11 +239,13 @@ public class RegistroObras {
                 {
                     return false ;
                 }
+                this.listaCompletaInterfaz.add(obraR);
             }
         }
         
         TreeMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
         this.listaCompleta.add(obraAgregar);
+
         this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
         this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
         this.contadorObras++;
@@ -266,7 +269,7 @@ public class RegistroObras {
             this.registro.remove(nombreObra) ;
             this.regiones.get(lugar).remove(nombreObra) ;
             this.listaCompleta.remove(ObraEliminar);
-            this.listaCompletaInterfaz.remove( (PoderInforme) ObraEliminar);
+            this.listaCompletaInterfaz.remove( (Reportable) ObraEliminar);
             
             this.contadorObras=this.registro.size();
             

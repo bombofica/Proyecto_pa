@@ -1,6 +1,6 @@
 package com.registro.obras.Modelo;
 
-import com.registro.obras.Controlador.PoderInforme;
+import com.registro.obras.Controlador.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -8,12 +8,12 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 
 
-public class ObraConstruccion extends Obra implements PoderInforme{
+public class ObraConstruccion extends Obra implements Reportable{
     
     private long presupuesto ;
     private String tiempoRestante ;
     private int fase ;
-    private PoderInforme informes;
+    private Reportable informes;
     private ArrayList<String> fasesConstruccion;
     
     //private PoderInforme informes;
