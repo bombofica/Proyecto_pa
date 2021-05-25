@@ -18,9 +18,9 @@ import java.util.ArrayList;
  */
 //3000 - 5999
 public class ProyectoRestauracion extends Obra implements ProyectoReportable{
-    long presupuesto ;
-    String tiempoRestante ;
-    int fase ;
+    private long presupuesto ;
+    private String tiempoRestante ;
+    private int fase ;
     private ArrayList<String> fasesRestauracion;
     //PoderInforme informes;
     

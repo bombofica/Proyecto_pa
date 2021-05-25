@@ -3,9 +3,9 @@ package com.registro.obras.Modelo;
 
 public class ServicioMantencion extends Obra {
     
-    long mantenimientoMonetarioAnual ;
-    double InteresAnual ;
-    boolean operativo ;
+    private long mantenimientoMonetarioAnual ;
+    private double InteresAnual ;
+    private boolean operativo ;
     
 
     public ServicioMantencion(String nombreObra, String nombreRegion, long mantenimientoMonetarioAnual, double InteresAnual, boolean operativo)

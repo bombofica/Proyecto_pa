@@ -2665,6 +2665,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="generarInformejFrame">
+      <Events>
+        <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="generarInformejFrameWindowClosing"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -2680,6 +2683,9 @@
       </Layout>
     </Container>
     <Container class="javax.swing.JFrame" name="FiltrarObrasjFrame">
+      <Events>
+        <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="FiltrarObrasjFrameWindowClosing"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -2792,6 +2798,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="FiltrarObrasjTextField">
           <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FiltrarObrasjTextFieldActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FiltrarObrasjTextFieldKeyTyped"/>
           </Events>
         </Component>

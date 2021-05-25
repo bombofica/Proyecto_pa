@@ -2026,6 +2026,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addComponent(panelCambiarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        generarInformejFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                generarInformejFrameWindowClosing(evt);
+            }
+        });
+
         javax.swing.GroupLayout generarInformejFrameLayout = new javax.swing.GroupLayout(generarInformejFrame.getContentPane());
         generarInformejFrame.getContentPane().setLayout(generarInformejFrameLayout);
         generarInformejFrameLayout.setHorizontalGroup(
@@ -2036,6 +2042,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
             generarInformejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
+
+        FiltrarObrasjFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                FiltrarObrasjFrameWindowClosing(evt);
+            }
+        });
 
         FiltrarObrasjButton2.setText("Volver");
         FiltrarObrasjButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -2064,6 +2076,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
+        FiltrarObrasjTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltrarObrasjTextFieldActionPerformed(evt);
+            }
+        });
         FiltrarObrasjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 FiltrarObrasjTextFieldKeyTyped(evt);
@@ -3472,7 +3489,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Selecciones un valor para evaluar");
                 return ;
             }
-            int parametro = Integer.parseInt(this.FiltrarObrasjTextField.getText()) ;
+            long parametro = Integer.parseInt(this.FiltrarObrasjTextField.getText()) ;
             Obra[] obrasFiltradas = this.registroObr.filtrarObrasPresupuesto(parametro, opcion) ;
             this.FiltrarObrasjTextArea.append("El listado es el siguiente:"+'\n');
             for(int i = 0; i < obrasFiltradas.length ; i++)
@@ -3516,6 +3533,20 @@ public class InterfazGrafica extends javax.swing.JFrame {
             this.FiltrarObrasjTextField.setVisible(false);
         }
     }//GEN-LAST:event_FiltrarObrasjComboBoxActionPerformed
+
+    private void FiltrarObrasjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FiltrarObrasjTextFieldActionPerformed
+
+    private void generarInformejFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_generarInformejFrameWindowClosing
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_generarInformejFrameWindowClosing
+
+    private void FiltrarObrasjFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_FiltrarObrasjFrameWindowClosing
+        // TODO add your handling code here:
+         System.exit(0);
+    }//GEN-LAST:event_FiltrarObrasjFrameWindowClosing
 
 
   
