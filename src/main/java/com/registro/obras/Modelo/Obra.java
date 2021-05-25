@@ -28,7 +28,7 @@ public abstract class Obra {
     
     private int numeroEmpleados;
     
-    int codigo;
+    private int codigo;
     
     
     //Constructores

@@ -18,9 +18,9 @@ import java.util.ArrayList;
  */
 //3000 - 5999
 public class ProyectoRestauracion extends Obra implements ProyectoReportable{
-    long presupuesto ;
-    String tiempoRestante ;
-    int fase ;
+    private long presupuesto ;
+    private String tiempoRestante ;
+    private int fase ;
     private ArrayList<String> fasesRestauracion;
     //PoderInforme informes;
     
@@ -110,7 +110,12 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
     
 
     private void llenarArrayFases(){
-        
+        this.fasesRestauracion.add("Analisis de la documentacion") ;
+        this.fasesRestauracion.add("Determinar el grado de intervencion") ;
+        this.fasesRestauracion.add("Consolidacion") ;
+        this.fasesRestauracion.add("Limpieza general") ;
+        this.fasesRestauracion.add("Reconstruccion") ;
+        this.fasesRestauracion.add("Acabados y cierres") ;
     }
     
     
