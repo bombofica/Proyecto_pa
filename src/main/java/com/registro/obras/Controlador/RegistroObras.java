@@ -262,7 +262,7 @@ public class RegistroObras {
         
     }
     
-    public Obra[] filtrarObrasPresupuesto(int parametro, int opcion)
+    public Obra[] filtrarObrasPresupuesto(long parametro, int opcion)
     {
         ArrayList<Obra> pupi = new ArrayList() ;
         int i ;
