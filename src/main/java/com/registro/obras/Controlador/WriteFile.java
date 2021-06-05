@@ -255,4 +255,43 @@ public class WriteFile {
                 System.out.println("Error, el fichero no existe 4");
             }
     }
+    
+    public static boolean generarReporte(String ruta,String nombre, RegistroTrabajadores registroTra, RegistroObras registroObr)
+    {
+        try(FileWriter Escritor = new FileWriter(ruta))
+        {
+           // Trabajador empleado;
+            ruta.concat(nombre) ;
+            ruta.concat(".txt") ;
+            Obra obraActual;
+            int i ;
+            int j ;
+            
+            for(i = 0; i < registroObr.numeroObras(); i++)
+            {
+                obraActual = registroObr.retornarObra(i) ;
+                Trabajador[] listaEmpleados = new Trabajador[obraActual.getNumeroEmpleados()] ;
+                obraActual.getListadoPersonas(listaEmpleados);
+                
+                for(j = 0; j < registroTra.numeroDeTrabajadores(); j++)
+                {
+                    if (i == registroTra.numeroDeTrabajadores()-1) //sin salto de linea
+                    {
+                        Escritor.write(listaEmpleados[j].getNombre()+','+obraActual.getNombreObra());
+                    }
+                    else //con salto de linea
+                    {
+                        Escritor.write(listaEmpleados[j].getNombre()+','+obraActual.getNombreObra()+'\n');
+                    }
+                }
+                
+            }
+            Escritor.close();
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+        return true;
+    }
 }

@@ -95,7 +95,6 @@ public class RegistroObras {
     }
     
     public boolean agregarObra(Obra obraAgregar){ //Listo
-        
         if(this.coleccionObras.agregarObra(obraAgregar)){
             this.contadorObras++;
             return true;
