@@ -6,6 +6,8 @@
 package com.registro.obras.Vista;
 import com.registro.obras.Modelo.*;
 import com.registro.obras.Controlador.*;
+import static com.registro.obras.Controlador.WriteFile.generarReporte;
+
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -161,6 +163,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         eliminarEmpleadoDePlataforma = new javax.swing.JButton();
         cambiarDatosDeEmpleado = new javax.swing.JButton();
         gestionEmpleadosjButton3 = new javax.swing.JButton();
+        GenerarReportejButton = new javax.swing.JButton();
         AnadirEmpleadoToPlataform = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
         anadirEmpleadobtn = new javax.swing.JButton();
@@ -254,6 +257,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         FiltrarObrasjButton3 = new javax.swing.JButton();
         FiltrarObrasjTextField = new javax.swing.JTextField();
+        GenerarReportejFrame = new javax.swing.JFrame();
+        GenerarReportejButton2 = new javax.swing.JButton();
+        GenerarReportejTextField1 = new javax.swing.JTextField();
+        GenerarReportejButton3 = new javax.swing.JButton();
+        GenerarReportejTextField2 = new javax.swing.JTextField();
+        GenerarReportejLabel2 = new javax.swing.JLabel();
+        GenerarReportejLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         NombreProyecto = new javax.swing.JLabel();
         Autores = new javax.swing.JLabel();
@@ -1218,6 +1228,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
+        GenerarReportejButton.setText("Generar un reporte");
+        GenerarReportejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GenerarReportejButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout GestionEmpleadosFrameLayout = new javax.swing.GroupLayout(GestionEmpleadosFrame.getContentPane());
         GestionEmpleadosFrame.getContentPane().setLayout(GestionEmpleadosFrameLayout);
         GestionEmpleadosFrameLayout.setHorizontalGroup(
@@ -1232,7 +1249,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addComponent(despedirEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(eliminarEmpleadoDePlataforma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cambiarDatosDeEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(gestionEmpleadosjButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(gestionEmpleadosjButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(GenerarReportejButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         GestionEmpleadosFrameLayout.setVerticalGroup(
@@ -1253,8 +1271,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cambiarDatosDeEmpleado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(GenerarReportejButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(gestionEmpleadosjButton3)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         AnadirEmpleadoToPlataform.setAlwaysOnTop(true);
@@ -2130,75 +2150,141 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        GenerarReportejFrame.setPreferredSize(new java.awt.Dimension(0, 0));
+        GenerarReportejFrame.setSize(new java.awt.Dimension(400, 300));
 
-        jPanel1.setBackground(new java.awt.Color(255, 203, 123));
-        jPanel1.setPreferredSize(new java.awt.Dimension(430, 275));
-
-        NombreProyecto.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        NombreProyecto.setText("Gestión de Obras");
-        NombreProyecto.setPreferredSize(new java.awt.Dimension(126, 22));
-
-        Autores.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        Autores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Autores.setText("Proyecto Creado por: Andrés Vidal Soto Benjamín Rojas Henríquez");
-        Autores.setToolTipText("");
-
-        jButton1.setText("Siguiente");
-        jButton1.setPreferredSize(new java.awt.Dimension(78, 23));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        GenerarReportejButton2.setText("Volver");
+        GenerarReportejButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                GenerarReportejButton2ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Autores, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(NombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(159, 159, 159)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(NombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Autores, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
-        );
+        GenerarReportejTextField1.setText("C:\\\\");
+            GenerarReportejTextField1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    GenerarReportejTextField1ActionPerformed(evt);
+                }
+            });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+            GenerarReportejButton3.setText("Generar");
+            GenerarReportejButton3.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    GenerarReportejButton3ActionPerformed(evt);
+                }
+            });
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+            GenerarReportejLabel2.setText("Ruta destino");
+
+            GenerarReportejLabel.setText("Nombre del archivo");
+
+            javax.swing.GroupLayout GenerarReportejFrameLayout = new javax.swing.GroupLayout(GenerarReportejFrame.getContentPane());
+            GenerarReportejFrame.getContentPane().setLayout(GenerarReportejFrameLayout);
+            GenerarReportejFrameLayout.setHorizontalGroup(
+                GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(GenerarReportejFrameLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(GenerarReportejTextField1)
+                        .addGroup(GenerarReportejFrameLayout.createSequentialGroup()
+                            .addComponent(GenerarReportejTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                            .addComponent(GenerarReportejButton3))
+                        .addGroup(GenerarReportejFrameLayout.createSequentialGroup()
+                            .addGroup(GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(GenerarReportejButton2)
+                                .addComponent(GenerarReportejLabel2)
+                                .addComponent(GenerarReportejLabel))
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap())
+            );
+            GenerarReportejFrameLayout.setVerticalGroup(
+                GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GenerarReportejFrameLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(GenerarReportejLabel2)
+                    .addGap(2, 2, 2)
+                    .addComponent(GenerarReportejTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(GenerarReportejLabel)
+                    .addGap(4, 4, 4)
+                    .addGroup(GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(GenerarReportejTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(GenerarReportejButton3))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                    .addComponent(GenerarReportejButton2)
+                    .addContainerGap())
+            );
+
+            setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+            jPanel1.setBackground(new java.awt.Color(255, 203, 123));
+            jPanel1.setPreferredSize(new java.awt.Dimension(430, 275));
+
+            NombreProyecto.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+            NombreProyecto.setText("Gestión de Obras");
+            NombreProyecto.setPreferredSize(new java.awt.Dimension(126, 22));
+
+            Autores.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+            Autores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            Autores.setText("Proyecto Creado por: Andrés Vidal Soto Benjamín Rojas Henríquez");
+            Autores.setToolTipText("");
+
+            jButton1.setText("Siguiente");
+            jButton1.setPreferredSize(new java.awt.Dimension(78, 23));
+            jButton1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButton1ActionPerformed(evt);
+                }
+            });
+
+            javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+            jPanel1.setLayout(jPanel1Layout);
+            jPanel1Layout.setHorizontalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(Autores, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(130, 130, 130)
+                                    .addComponent(NombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(159, 159, 159)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap())
+            );
+            jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(NombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Autores, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(46, 46, 46)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(91, Short.MAX_VALUE))
+            );
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+            getContentPane().setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            );
+
+            pack();
+        }// </editor-fold>//GEN-END:initComponents
 
     private void jTextNombreObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNombreObraActionPerformed
         // TODO add your handling code here:
@@ -3548,6 +3634,29 @@ public class InterfazGrafica extends javax.swing.JFrame {
          System.exit(0);
     }//GEN-LAST:event_FiltrarObrasjFrameWindowClosing
 
+    private void GenerarReportejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejButtonActionPerformed
+        this.GestionEmpleadosFrame.setVisible(false);
+        this.GenerarReportejFrame.setVisible(true);
+        this.GenerarReportejFrame.setSize(450, 450);
+    }//GEN-LAST:event_GenerarReportejButtonActionPerformed
+
+    private void GenerarReportejButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejButton2ActionPerformed
+        this.GenerarReportejFrame.setVisible(false);
+        this.GestionEmpleadosFrame.setVisible(true);
+        this.GestionEmpleadosFrame.setSize(450, 450);
+    }//GEN-LAST:event_GenerarReportejButton2ActionPerformed
+
+    private void GenerarReportejButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejButton3ActionPerformed
+        String ruta = this.GenerarReportejTextField1.getText() ;
+        String nombre = this.GenerarReportejTextField2.getText() ;
+        
+        generarReporte(ruta, nombre , this.registroTra, this.registroObr);
+    }//GEN-LAST:event_GenerarReportejButton3ActionPerformed
+
+    private void GenerarReportejTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GenerarReportejTextField1ActionPerformed
+
 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3579,6 +3688,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> GastosTotalesjComboBox2;
     private javax.swing.JTextArea GastosTotalesjTextArea;
     private javax.swing.JFrame GenerarInformeFrame;
+    private javax.swing.JButton GenerarReportejButton;
+    private javax.swing.JButton GenerarReportejButton2;
+    private javax.swing.JButton GenerarReportejButton3;
+    private javax.swing.JFrame GenerarReportejFrame;
+    private javax.swing.JLabel GenerarReportejLabel;
+    private javax.swing.JLabel GenerarReportejLabel2;
+    private javax.swing.JTextField GenerarReportejTextField1;
+    private javax.swing.JTextField GenerarReportejTextField2;
     private javax.swing.JButton GestionEmpleados;
     private javax.swing.JFrame GestionEmpleadosFrame;
     private javax.swing.JButton GestionObras;

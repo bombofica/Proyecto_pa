@@ -225,7 +225,7 @@ public class RegistroObras {
                 {
                     return false ;
                 }
-                        this.listaCompletaInterfaz.add(obraC);
+                this.listaCompletaInterfaz.add(obraC);
             }
             if(obraAgregar.getCodigo() == 2)
             {
@@ -251,15 +251,8 @@ public class RegistroObras {
             return true;
         }else
         {
-            
-            System.out.println("region qlia: "+obraAgregar.getNombreLugar());
             return false;
         }
-        
-        
-            
- 
-        
     }
     
     public Obra[] filtrarObrasPresupuesto(long parametro, int opcion)
