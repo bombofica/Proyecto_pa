@@ -5,6 +5,7 @@ import com.registro.obras.Modelo.Obra;
 import com.registro.obras.Modelo.Trabajador;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.JComboBox;
@@ -137,26 +138,23 @@ public class RegistroTrabajadores {
          
     }
     
-    public boolean eliminarEspecialista(String especialidad, int rut, Obra currentObra){
+    /*public boolean eliminarEspecialista(String especialidad, int rut, Obra currentObra){
         TreeMap<Integer,Trabajador> mapaEspecialidades = this.registroEspecializaciones.get(especialidad);
-        if(mapaEspecialidades == null){
-            System.out.println("No existe esa especialización");
-            return false;
-        }
-        
         Persona empleado = mapaEspecialidades.get(rut);
         
-        if(empleado == null){
-            System.out.println("El empleado No existe");
-            return false;
-        }
-        
         mapaEspecialidades.remove(rut);
+        
         if(currentObra != null){
             currentObra.despedirEmpleado(rut);
         }
-        
-        
+        /*if(mapaEspecialidades == null){
+            System.out.println("No existe esa especialización");
+            return false;
+        }
+        /*if(empleado == null){
+            System.out.println("El empleado No existe");
+            return false;
+        }
         return true;
     }
     
@@ -190,7 +188,7 @@ public class RegistroTrabajadores {
         }
         
         return true;
-    }
+    }*/
     
     public boolean modificarEspecialistaNombre(Trabajador especialista, String nombre){
         
@@ -234,7 +232,7 @@ public class RegistroTrabajadores {
             return false;
         }
         
-        this.eliminarEspecialista(especialista,null);
+//        this.eliminarEspecialista(especialista,null);
         
         empleado.setLaborProfesional(especialidadNueva);
         
@@ -367,5 +365,137 @@ public class RegistroTrabajadores {
         }   
         
     }
+    
+    public void despedirEmpleadoRegistro(Obra obraActual, Trabajador empleadoActual)
+    {
+        obraActual.despedirEmpleadoObra(empleadoActual.getNombre());
+        
+        TreeMap<Integer, Trabajador> mapaEspecializaciones = new TreeMap() ;
+        mapaEspecializaciones = this.registroEspecializaciones.get(empleadoActual.getLaborProfesional()) ;
+        mapaEspecializaciones.get(empleadoActual.getRut()).setTrabajando(false);
+        
+        for(int i = 0 ; i < this.arrayEmpleados.size() ; i++)
+        {
+            if(empleadoActual.getRut() == this.arrayEmpleados.get(i).getRut())
+            {
+                this.arrayEmpleados.get(i).setTrabajando(false);
+                break ;
+            }
+        }
+    }
 
+    public void eliminarEmpleado(Obra obraActual, Trabajador empleadoActual)
+    {
+        int i ;
+        Trabajador[] listaTrabajadores = new Trabajador[obraActual.getNumeroEmpleados()] ;
+        obraActual.getListadoPersonas(listaTrabajadores) ;
+        for(i = 0 ; i < listaTrabajadores.length ; i++)
+        {
+            if(empleadoActual.getRut() == listaTrabajadores[i].getRut())
+            {
+                listaTrabajadores[i] = empleadoActual ;
+                obraActual.setListadoPersonas(listaTrabajadores, i);
+                break ;
+            }
+        }
+        TreeMap<Integer, Trabajador> mapaEspecializaciones = new TreeMap() ;
+        mapaEspecializaciones = this.registroEspecializaciones.get(empleadoActual.getLaborProfesional()) ;
+        mapaEspecializaciones.remove(empleadoActual.getRut()) ;
+        for(i = 0 ; i < this.arrayEmpleados.size() ; i++)
+        {
+            if(empleadoActual.getRut() == this.arrayEmpleados.get(i).getRut())
+            {
+                this.arrayEmpleados.remove(i) ;
+                break ;
+            }
+        }
+    }
+    
+    public Trabajador[] filtrarPersonas(Obra obraActual, int opcion, long parametro) {
+        ArrayList<Trabajador> listadoEmpleadosPorParametro = new ArrayList() ;
+        Trabajador[] listaEmpleadosObra = new Trabajador[obraActual.getNumeroEmpleados()] ;
+        obraActual.getListadoPersonas(listaEmpleadosObra) ;
+        int i ;
+        if(opcion == 0) //menor que
+        {
+            for(i = 0; i < listaEmpleadosObra.length ; i++)
+            {
+                if(listaEmpleadosObra[i].getSueldo() < parametro)
+                {
+                    listadoEmpleadosPorParametro.add(listaEmpleadosObra[i]) ;
+                }
+            }
+            Trabajador[] EmpleadosFiltrados = new Trabajador[listadoEmpleadosPorParametro.size()] ;
+            
+            for(i = 0 ; i < listadoEmpleadosPorParametro.size() ; i++)
+            {
+                EmpleadosFiltrados[i] = listadoEmpleadosPorParametro.get(i) ;
+            }
+            return EmpleadosFiltrados ;
+        }
+        if(opcion == 1)//mayor que
+        {
+            for(i = 0; i < listaEmpleadosObra.length ; i++)
+            {
+                if(listaEmpleadosObra[i].getSueldo() > parametro)
+                {
+                    listadoEmpleadosPorParametro.add(listaEmpleadosObra[i]) ;
+                }
+            }
+            Trabajador[] EmpleadosFiltrados = new Trabajador[listadoEmpleadosPorParametro.size()] ;
+            
+            for(i = 0 ; i < listadoEmpleadosPorParametro.size() ; i++)
+            {
+                EmpleadosFiltrados[i] = listadoEmpleadosPorParametro.get(i) ;
+            }
+            return EmpleadosFiltrados ;
+        }
+        return null ;
+    }
+    
+    public Trabajador filtrarPersonas(Obra obraSeleccionada, int opcion)
+    {
+        int i ;
+        Trabajador[] listaEmpleados = new Trabajador[obraSeleccionada.getNumeroEmpleados()] ;
+        obraSeleccionada.getListadoPersonas(listaEmpleados);
+        Trabajador empleadoSeleccionado = listaEmpleados[0] ;
+        
+        if(opcion == 2) //maximo
+        {
+            for(i = 1; i < listaEmpleados.length ; i++)
+            {
+                if(empleadoSeleccionado.getSueldo() < listaEmpleados[i].getSueldo())
+                {
+                    empleadoSeleccionado = listaEmpleados[i] ;
+                }
+            }
+            return empleadoSeleccionado ;
+        }
+        if(opcion == 3) //minimo
+        {
+            for(i = 1; i < listaEmpleados.length ; i++)
+            {
+                if(empleadoSeleccionado.getSueldo() > listaEmpleados[i].getSueldo())
+                {
+                    empleadoSeleccionado = listaEmpleados[i] ;
+                }
+            }
+            return empleadoSeleccionado ;
+        }
+        
+        return null ;
+    }
+    /*public void cambiarNombre(Obra obraActual)
+    {
+        int i;
+        Trabajador[] listaEmpleados = new Trabajador[obraActual.getNumeroEmpleados()];
+        obraActual.getListadoPersonas(listaEmpleados);
+        for(i = 0 ; i < listaEmpleados.length ; i++)
+        {
+            listaEmpleados[i].setObraALaQuePertenece(obraActual.getNombreObra());
+            obraActual.setListadoPersonas(listaEmpleados);
+
+        }
+        
+    }*/
 }
