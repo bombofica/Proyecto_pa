@@ -97,7 +97,7 @@ public class WriteFile {
                         
                     }
                     cont++;
-
+                    System.out.println(cont+" "+registroObras.numeroObras());
                 }                
 
             }

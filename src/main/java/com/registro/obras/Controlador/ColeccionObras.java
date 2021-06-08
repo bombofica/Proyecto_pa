@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -157,9 +158,9 @@ public class ColeccionObras {
 
     public Boolean existenciaObra(String obra)
     {
-        System.out.println(obra);
         Obra verificador = this.registro.get(obra) ;
-        return verificador != null ;
+        if(verificador == null) return false ;        
+        return true ;
     }
     
     public void llenarComboBoxEmpleadosRegistro(JComboBox<Persona> comboBoxObra, String nombreObra, int contadorObras){
@@ -186,51 +187,51 @@ public class ColeccionObras {
     
     public boolean agregarObra(Obra obraAgregar){ //Listo
         
-        if(obraAgregar.getCodigo() != 3)
+        if(!existenciaObra(obraAgregar.getNombreObra()))
         {
-            if(obraAgregar.getCodigo() == 1)
+            if(obraAgregar.getCodigo() != 3)
             {
-                ProyectoConstruccion obraC = (ProyectoConstruccion) obraAgregar;
-                FechaHoy fechaObra = new FechaHoy();
-                if(!fechaObra.verificarEstructura(obraC.getTiempoRestante().toCharArray()))
+                if(obraAgregar.getCodigo() == 1)
                 {
-                    return false ;
+                    ProyectoConstruccion obraC = (ProyectoConstruccion) obraAgregar;
+                    FechaHoy fechaObra = new FechaHoy();
+                    if(!fechaObra.verificarEstructura(obraC.getTiempoRestante().toCharArray()))
+                    {
+                        return false ;
+                    }
+                    this.listaCompletaInterfaz.add(obraC);
                 }
-                        this.listaCompletaInterfaz.add(obraC);
-            }
-            if(obraAgregar.getCodigo() == 2)
-            {
-                ProyectoRestauracion obraR = (ProyectoRestauracion) obraAgregar;
-                FechaHoy fechaObra = new FechaHoy();
-                if(!fechaObra.verificarEstructura(obraR.getTiempoRestante().toCharArray()))
+                if(obraAgregar.getCodigo() == 2)
                 {
-                    return false ;
+                    ProyectoRestauracion obraR = (ProyectoRestauracion) obraAgregar;
+                    FechaHoy fechaObra = new FechaHoy();
+                    if(!fechaObra.verificarEstructura(obraR.getTiempoRestante().toCharArray()))
+                    {
+                        return false ;
+                    }
+                    this.listaCompletaInterfaz.add(obraR);
                 }
-                this.listaCompletaInterfaz.add(obraR);
             }
-        }
-        
-            
-        TreeMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
-            
-        if(region != null){
-            this.listaCompleta.add(obraAgregar);
 
-            this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
-            this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
-            return true;
-        }else
-        {
-            
-            System.out.println("region qlia: "+obraAgregar.getNombreLugar());
-            return false;
+
+            TreeMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
+
+            if(region != null){
+                this.listaCompleta.add(obraAgregar);
+                this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
+                this.regiones.get(obraAgregar.getNombreLugar()).put(obraAgregar.getNombreObra(), obraAgregar) ;
+                return true;
+            }else
+            {
+                return false ;
+            }
         }
-        
+        return false ;
     }
     
     public Obra[] filtrarObrasPresupuesto(long parametro, int opcion)
     {
-        ArrayList<Obra> pupi = new ArrayList() ;
+        ArrayList<Obra> listadoObrasPorParametro = new ArrayList() ;
         int i ;
         if(opcion == 0) //menor que
         {
@@ -238,17 +239,17 @@ public class ColeccionObras {
             {
                 if((listaCompleta.get(i).getCodigo() == 1) && ((ProyectoConstruccion)(listaCompleta.get(i))).getPresupuesto() < parametro)
                 {
-                    pupi.add(listaCompleta.get(i)) ;
+                    listadoObrasPorParametro.add(listaCompleta.get(i)) ;
                 }
                 if((listaCompleta.get(i).getCodigo() == 2) && ((ProyectoRestauracion)(listaCompleta.get(i))).getPresupuesto() < parametro)
                 {
-                    pupi.add(listaCompleta.get(i)) ;
+                    listadoObrasPorParametro.add(listaCompleta.get(i)) ;
                 }
             }
-            Obra[] listadoFiltrado = new Obra[pupi.size()] ;
-            for(i = 0; i < pupi.size() ; i++)
+            Obra[] listadoFiltrado = new Obra[listadoObrasPorParametro.size()] ;
+            for(i = 0; i < listadoObrasPorParametro.size() ; i++)
             {
-                listadoFiltrado[i] = pupi.get(i);
+                listadoFiltrado[i] = listadoObrasPorParametro.get(i);
             }
             return listadoFiltrado ;
         }
@@ -258,17 +259,17 @@ public class ColeccionObras {
             {
                 if((listaCompleta.get(i).getCodigo() == 1) && ((ProyectoConstruccion)(listaCompleta.get(i))).getPresupuesto() > parametro)
                 {
-                    pupi.add(listaCompleta.get(i)) ;
+                    listadoObrasPorParametro.add(listaCompleta.get(i)) ;
                 }
                 if((listaCompleta.get(i).getCodigo() == 2) && ((ProyectoRestauracion)(listaCompleta.get(i))).getPresupuesto() > parametro)
                 {
-                    pupi.add(listaCompleta.get(i)) ;
+                    listadoObrasPorParametro.add(listaCompleta.get(i)) ;
                 }
             }
-            Obra[] listadoFiltrado = new Obra[pupi.size()] ;
-            for(i = 0; i < pupi.size() ; i++)
+            Obra[] listadoFiltrado = new Obra[listadoObrasPorParametro.size()] ;
+            for(i = 0; i < listadoObrasPorParametro.size() ; i++)
             {
-                listadoFiltrado[i] = pupi.get(i);
+                listadoFiltrado[i] = listadoObrasPorParametro.get(i);
             }
             return listadoFiltrado ;
         }
@@ -286,7 +287,7 @@ public class ColeccionObras {
                 obraSeleccionada = retornarObra(i) ;
                 break;
             }
-            if(this.listaCompleta.get(i).getCodigo() == 1)
+            if(this.listaCompleta.get(i).getCodigo() == 2)
             {
                 obraSeleccionada = retornarObra(i) ;
                 break;
@@ -413,24 +414,21 @@ public class ColeccionObras {
         return -1;
     }
     
-    public void modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException //Listo
+    public boolean modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException //Listo
     {
         //en el archivo se elimina la obra anterior y se vuelve a crear esta pero con el dato cambiado
         
         //nombreObra es el nombre actual de la obra a editar
         //nuevoDato es el dato a editar que puedeser de cualquier atributo dentro del objeto Obra
         //opcion guardaria la hipotetica opcion a modificar por el usuario seleccionada en el menu
-        System.out.println(nombreObra);
         if(existenciaObra(nombreObra))
         {
-
             String lugar = this.registro.get(nombreObra).getNombreLugar() ;
             Obra remplazo = this.registro.get(nombreObra) ;
             switch(opcion)
             {
                 case 1: //Cambiar nombre
                 {
-                    
                     remplazo.setNombreObra(nuevoDato) ;
                     this.registro.remove(nombreObra) ;
                     this.regiones.get(lugar).remove(nombreObra) ;
@@ -440,39 +438,48 @@ public class ColeccionObras {
                     remplazo.cambiarNombre();
                     WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
                     WriteFile.escribirObras(',', registroActual );
-                    return ;
+                    return true;
                 }
                 case 2: //Cambiar region
                 {
-                    TreeMap<String, Obra> verificador = new TreeMap() ;
-                    verificador = regiones.get(lugar) ;
-                    
-                    
-                    remplazo.setNombreLugar(nuevoDato) ;
-                    this.registro.remove(nombreObra) ;
-                    this.regiones.get(lugar).remove(nombreObra) ;
-                    
-                    this.registro.put(remplazo.getNombreObra(), remplazo) ;
-                    this.regiones.get(nuevoDato).put(nombreObra, remplazo) ;
-                    WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
-                    WriteFile.escribirObras(',', registroActual );
-                    return ;
+                    if(verificarRegion(nuevoDato))
+                    {
+                        remplazo.setNombreLugar(nuevoDato) ;
+                        this.registro.remove(nombreObra) ;
+                        this.regiones.get(lugar).remove(nombreObra) ;
+
+                        this.registro.put(remplazo.getNombreObra(), remplazo) ;
+                        this.regiones.get(nuevoDato).put(nombreObra, remplazo) ;
+                        WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
+                        WriteFile.escribirObras(',', registroActual );
+                        return true;
+                    }
+                    return false ;
                 }
                 case 3: //Cambiar tiempo restante y cambiar el interes
                 {
-                    //remplazo.setTiempoParaTerminarObra(nuevoDato) ;
                     int tipoObra = retornarTipoObra(nombreObra);
                     switch(tipoObra)
                     {
                         case 1:
                         {
-                            ((ProyectoConstruccion)(remplazo)).setTiempoRestante(nuevoDato);
-                            break;
+                            FechaHoy fecha = new FechaHoy();
+                            if(fecha.verificarEstructura(nuevoDato.toCharArray()))
+                            {
+                                ((ProyectoConstruccion)(remplazo)).setTiempoRestante(nuevoDato);
+                                break;
+                            }
+                            else return false;
                         }
                         case 2:
                         {
-                            ((ProyectoRestauracion)(remplazo)).setTiempoRestante(nuevoDato);
-                            break;
+                            FechaHoy fecha = new FechaHoy();
+                            if(fecha.verificarEstructura(nuevoDato.toCharArray()))
+                            {
+                                ((ProyectoRestauracion)(remplazo)).setTiempoRestante(nuevoDato);
+                                break;
+                            }
+                            else return false;
                         }
                         case 3:
                         {
@@ -483,12 +490,9 @@ public class ColeccionObras {
                             }
                             catch(NumberFormatException e)
                             {
-                                System.out.println(e.getMessage());
-                                //ventana de error
+                                return false;
                             }
-                            
-                        }
-                        
+                        }                        
                     }
                     break;
                 }
@@ -507,9 +511,8 @@ public class ColeccionObras {
                             }
                             catch(NumberFormatException e)
                             {
-                                //ventana de error
-                            }
-                            
+                                return false;
+                            }                           
                         }
                         case 2:
                         {
@@ -521,9 +524,8 @@ public class ColeccionObras {
                             }
                             catch(NumberFormatException e)
                             {
-                                //ventana de error
-                            }
-                            
+                                return false;
+                            }                            
                         }
                         case 3:
                         {
@@ -535,15 +537,13 @@ public class ColeccionObras {
                             }
                             catch(NumberFormatException e)
                             {
-                                //ventana de error
-                            }
-                            
+                                return false;
+                            }                            
                         }
-                        
                     }
                     break;
                 }
-                case 5:
+                case 5: //Servicio de mantenimiento operativo
                 {
                     if(nuevoDato.equals("false"))
                     {
@@ -563,7 +563,9 @@ public class ColeccionObras {
             this.regiones.get(lugar).put(nombreObra, remplazo) ;
             WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
             WriteFile.escribirObras(',', registroActual );
+            return true;
         }
+        return false;
     }
     
     public void presupuestoGeneral() //presupuesto total de la compañia
@@ -577,7 +579,6 @@ public class ColeccionObras {
             balanceObra = presupuestoGeneral(obraActual.getNombreObra());
             balanceTotal += balanceObra;
         }
-        System.out.println(balanceTotal);
     }
     
     public long presupuestoGeneral(String nombreObra) //presupuesto particular de una obra
@@ -586,10 +587,6 @@ public class ColeccionObras {
         long balance ;
         obraEvaluar = this.registro.get(nombreObra) ;
         balance = obraEvaluar.retornarSueldos() ;
-        System.out.println(nombreObra) ;
-        System.out.println(balance) ;
-        //System.out.println(obraEvaluar.getPresupuestoObra()) ;
-        //balance = (long) (obraEvaluar.getPresupuestoObra() - balance) ;
         return balance;
     }
     
@@ -613,6 +610,17 @@ public class ColeccionObras {
         return ingresos;
     }
     
+    private boolean verificarRegion(String region)
+    {
+        for(int i = 0 ; i < this.listadoRegiones.size() ; i++)
+        {
+            if(this.listadoRegiones.get(i).equals(region))
+            {
+                return true ;
+            }
+        }
+        return false ;
+    }
     
     private void llenarArray()
     {

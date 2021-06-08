@@ -2702,28 +2702,33 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="FiltrarObrasjComboBox" min="-2" pref="99" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="FiltrarObrasjTextField" min="-2" pref="99" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="175" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane10" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jScrollPane10" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="FiltrarObrasjButton2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="FiltrarObrasjButton3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="FiltrarObrasjLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="FiltrarObrasjComboBox" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="FiltrarObrasjTextField" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="FiltrarObrasjLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="FiltrarObrasjComboBox2" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="FiltrarObrasjTextField2" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2734,10 +2739,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="FiltrarObrasjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="FiltrarObrasjLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="FiltrarObrasjComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="FiltrarObrasjComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="FiltrarObrasjTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="FiltrarObrasjTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2794,7 +2804,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel25">
+        <Component class="javax.swing.JLabel" name="FiltrarObrasjLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Presupuesto"/>
           </Properties>
@@ -2812,6 +2822,28 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FiltrarObrasjTextFieldActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="FiltrarObrasjTextFieldKeyTyped"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="FiltrarObrasjLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sueldo Empleados"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="FiltrarObrasjComboBox2">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Menor que"/>
+                <StringItem index="1" value="Mayor que"/>
+                <StringItem index="2" value="Maximo"/>
+                <StringItem index="3" value="Minimo"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="FiltrarObrasjTextField2">
         </Component>
       </SubComponents>
     </Container>

@@ -254,9 +254,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
         FiltrarObrasjComboBox = new javax.swing.JComboBox<>();
         jScrollPane10 = new javax.swing.JScrollPane();
         FiltrarObrasjTextArea = new javax.swing.JTextArea();
-        jLabel25 = new javax.swing.JLabel();
+        FiltrarObrasjLabel = new javax.swing.JLabel();
         FiltrarObrasjButton3 = new javax.swing.JButton();
         FiltrarObrasjTextField = new javax.swing.JTextField();
+        FiltrarObrasjLabel2 = new javax.swing.JLabel();
+        FiltrarObrasjComboBox2 = new javax.swing.JComboBox<>();
+        FiltrarObrasjTextField2 = new javax.swing.JTextField();
         GenerarReportejFrame = new javax.swing.JFrame();
         GenerarReportejButton2 = new javax.swing.JButton();
         GenerarReportejTextField1 = new javax.swing.JTextField();
@@ -2063,6 +2066,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        FiltrarObrasjFrame.setPreferredSize(new java.awt.Dimension(450, 300));
         FiltrarObrasjFrame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 FiltrarObrasjFrameWindowClosing(evt);
@@ -2087,7 +2091,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         FiltrarObrasjTextArea.setRows(5);
         jScrollPane10.setViewportView(FiltrarObrasjTextArea);
 
-        jLabel25.setText("Presupuesto");
+        FiltrarObrasjLabel.setText("Presupuesto");
 
         FiltrarObrasjButton3.setText("Aceptar");
         FiltrarObrasjButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -2107,39 +2111,51 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
+        FiltrarObrasjLabel2.setText("Sueldo Empleados");
+
+        FiltrarObrasjComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Menor que", "Mayor que", "Maximo", "Minimo" }));
+
         javax.swing.GroupLayout FiltrarObrasjFrameLayout = new javax.swing.GroupLayout(FiltrarObrasjFrame.getContentPane());
         FiltrarObrasjFrame.getContentPane().setLayout(FiltrarObrasjFrameLayout);
         FiltrarObrasjFrameLayout.setHorizontalGroup(
             FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel25)
-                            .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
-                                .addComponent(FiltrarObrasjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FiltrarObrasjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 175, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FiltrarObrasjFrameLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane10))
-                    .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(FiltrarObrasjButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(FiltrarObrasjButton3)))
+                        .addComponent(FiltrarObrasjButton3))
+                    .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
+                        .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FiltrarObrasjLabel)
+                            .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
+                                .addComponent(FiltrarObrasjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FiltrarObrasjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)
+                        .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(FiltrarObrasjFrameLayout.createSequentialGroup()
+                                .addComponent(FiltrarObrasjLabel2)
+                                .addGap(0, 14, Short.MAX_VALUE))
+                            .addComponent(FiltrarObrasjComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(FiltrarObrasjTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         FiltrarObrasjFrameLayout.setVerticalGroup(
             FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FiltrarObrasjFrameLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel25)
+                .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FiltrarObrasjLabel)
+                    .addComponent(FiltrarObrasjLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(FiltrarObrasjFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FiltrarObrasjComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FiltrarObrasjComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FiltrarObrasjTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FiltrarObrasjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
@@ -2150,7 +2166,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        GenerarReportejFrame.setPreferredSize(new java.awt.Dimension(0, 0));
         GenerarReportejFrame.setSize(new java.awt.Dimension(400, 300));
 
         GenerarReportejButton2.setText("Volver");
@@ -2372,13 +2387,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarObrajTextField2ActionPerformed
 
     private void agregarObraAlSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarObraAlSistemaActionPerformed
-        // TODO add your handling code here:
-        
-        /*if((this.jTextNombreObra.getText().isBlank()) || (this.AgregarObrajTextField2.getText().isBlank()) || (this.AgregarObrajTextField3.getText().isBlank()))
-        {
-            JOptionPane.showMessageDialog(rootPane, "Es obligatorio rellenar todos los datos");
-            return ;
-        }*/
+      
         long presupuesto = Long.parseLong(this.AgregarObrajTextField2.getText());
         String tiempoAsignadoInteresAnual = this.AgregarObrajTextField3.getText();
         String nombreObra = this.jTextNombreObra.getText();
@@ -2390,7 +2399,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 ProyectoConstruccion nuevaObra = new ProyectoConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
                 if(!this.registroObr.agregarObra(nuevaObra))
                 {
-                    JOptionPane.showMessageDialog(rootPane, "La estructura de la fecha no es correcta (dd-mm-aaaa)");
+                    JOptionPane.showMessageDialog(rootPane, "ERROR verifique la estructura de la fecha y recuerde que no puede repetir nombre de obras ");
                     return ;
                 }
                 try 
@@ -2517,6 +2526,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Trabajador trabajador;
         trabajador = new Trabajador(nombreEmpleado,especializacion,(int) salario,rut,false,"");
         this.registroTra.agregarEspecialista(trabajador);
+        WriteFile.imprimirTodasLasPersonas(registroTra);
     }//GEN-LAST:event_anadirEmpleadobtnActionPerformed
 
     private void jTextRutSDVKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextRutSDVKeyTyped
@@ -2548,31 +2558,31 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextRutCDVKeyTyped
 
     private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
-        Obra valor = (Obra) this.comboBoxObra.getSelectedItem();
-        if(valor != null)
+        Obra obraActual = (Obra) this.comboBoxObra.getSelectedItem();
+        if(obraActual != null)
         {
-            int tipo = this.registroObr.retornarTipoObra(valor.getNombreObra()) ;
+            int tipo = obraActual.getCodigo() ;
             if(tipo == 1)
             {
-                String textoFinal = "Nombre Obra: "+((ProyectoConstruccion)(valor)).getNombreObra()+'\n'+"Región: "+
-                        ((ProyectoConstruccion)(valor)).getNombreLugar()+'\n'+"Presupuesto:"+((ProyectoConstruccion)(valor)).getPresupuesto()+
-                        '\n'+"Fecha de termino:"+((ProyectoConstruccion)(valor)).getTiempoRestante()+'\n'+
+                String textoFinal = "Nombre Obra: "+((ProyectoConstruccion)(obraActual)).getNombreObra()+'\n'+"Región: "+
+                        ((ProyectoConstruccion)(obraActual)).getNombreLugar()+'\n'+"Presupuesto:"+((ProyectoConstruccion)(obraActual)).getPresupuesto()+
+                        '\n'+"Fecha de termino:"+((ProyectoConstruccion)(obraActual)).getTiempoRestante()+'\n'+
                         "Fase:";
                 this.mostrarObraTextArea.setText(textoFinal);
             }
             if(tipo == 2)
             {
-                String textoFinal = "Nombre Obra: "+((ProyectoRestauracion)(valor)).getNombreObra()+'\n'+"Región: "+
-                        ((ProyectoRestauracion)(valor)).getNombreLugar()+'\n'+"Presupuesto:"+((ProyectoRestauracion)(valor)).getPresupuesto()+
-                        '\n'+"Fecha de termino:"+((ProyectoRestauracion)(valor)).getTiempoRestante()+'\n'+
+                String textoFinal = "Nombre Obra: "+((ProyectoRestauracion)(obraActual)).getNombreObra()+'\n'+"Región: "+
+                        ((ProyectoRestauracion)(obraActual)).getNombreLugar()+'\n'+"Presupuesto:"+((ProyectoRestauracion)(obraActual)).getPresupuesto()+
+                        '\n'+"Fecha de termino:"+((ProyectoRestauracion)(obraActual)).getTiempoRestante()+'\n'+
                         "Fase:";
                 this.mostrarObraTextArea.setText(textoFinal);
             }
             if(tipo == 3)
             {
-                String textoFinal = "Nombre Obra: "+((ServicioMantencion)(valor)).getNombreObra()+'\n'+"Región: "+
-                        ((ServicioMantencion)(valor)).getNombreLugar()+'\n'+"Presupuesto anual:"+((ServicioMantencion)(valor)).getMantenimientoMonetarioAnual()+
-                        '\n'+"Interes anual:"+((ServicioMantencion)(valor)).getInteresAnual()+'\n';
+                String textoFinal = "Nombre Obra: "+((ServicioMantencion)(obraActual)).getNombreObra()+'\n'+"Región: "+
+                        ((ServicioMantencion)(obraActual)).getNombreLugar()+'\n'+"Presupuesto anual:"+((ServicioMantencion)(obraActual)).getMantenimientoMonetarioAnual()+
+                        '\n'+"Interes anual:"+((ServicioMantencion)(obraActual)).getInteresAnual()+'\n';
                 this.mostrarObraTextArea.setText(textoFinal);
             }
         }
@@ -2931,51 +2941,37 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminarEmpleadoEmpleadoComboBoxActionPerformed
 
     private void despedirEmpleadoDeObrabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEmpleadoDeObrabtnActionPerformed
-        // TODO add your handling code here:
-        Persona currentPersonaComboBox=(Persona) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
-        Obra obraEscogida = (Obra) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
-//        Obra obra = this.registroObr.retornarObra(nombreObra);
-        obraEscogida.despedirEmpleado(currentPersonaComboBox.getRut());
-        
-        this.jTextArea2.setText("");
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, obraEscogida.getNombreObra());        
-       
-        
+
+        Persona personaActual = (Persona) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
+        Obra obraActual = (Obra) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
+        if(obraActual != null && personaActual != null)
+        {
+            registroTra.despedirEmpleadoRegistro(obraActual, (Trabajador) personaActual) ;
+            try {
+                WriteFile.escribirObras(',', registroObr);
+                WriteFile.imprimirTodasLasPersonas(registroTra);
+            } catch (IOException ex) {
+                Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            this.jTextArea2.setText("");
+            this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, obraActual.getNombreObra());        
+        }
     }//GEN-LAST:event_despedirEmpleadoDeObrabtnActionPerformed
 
     private void eliminarEmpleadojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadojButtonActionPerformed
         
         Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
-        String nombreObra = (String) this.eliminarEmpleadoObraComboBox.getSelectedItem();
-        
-        int tipo = this.registroObr.retornarTipoObra(nombreObra);
-        Obra obraEscogida = null;
-        
-        switch (tipo){
-            case 1:
-            {
-                obraEscogida = (ProyectoConstruccion) this.registroObr.retornarObra(nombreObra);
-                break;
+        Obra obraActual = (Obra) this.eliminarEmpleadoObraComboBox.getSelectedItem();
+        if(empleado != null && obraActual != null)
+        {
+            registroTra.eliminarEmpleado(obraActual, empleado) ;
+            try {
+                WriteFile.escribirObras(',', registroObr);
+            } catch (IOException ex) {
+                Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
             }
-            case 2:
-            {
-                obraEscogida = (ProyectoRestauracion) this.registroObr.retornarObra(nombreObra);
-                break;
-            }
-            case 3:
-            {
-                obraEscogida = (ServicioMantencion) this.registroObr.retornarObra(nombreObra);
-                
-            }
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         }
-        
-        
-        if(obraEscogida != null){
-            this.registroTra.eliminarEspecialista(empleado,obraEscogida) ;  
-        }
-        
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, nombreObra);
-        
     }//GEN-LAST:event_eliminarEmpleadojButtonActionPerformed
 
     private void cambiarDatoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoComboBoxActionPerformed
@@ -3045,18 +3041,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void cambiarDatojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojButtonActionPerformed
         
-        /*if(this.cambiarDatojTextField1.getText().isBlank())
-        {
-            JOptionPane.showMessageDialog(rootPane, "Ingrese el dato a modificar");
-            return ;
-        }*/
         Obra obraActual = (Obra) this.cambiarDatoComboBox.getSelectedItem();
         String nuevoDato = this.cambiarDatojTextField1.getText() ;
         
         int opcion = this.cambiarDatojComboBox2.getSelectedIndex() ;
        
         try {
-            this.registroObr.modificarObra(obraActual.getNombreObra(), nuevoDato, opcion+1, registroObr);
+            if(!this.registroObr.modificarObra(obraActual.getNombreObra(), nuevoDato, opcion+1, registroObr))
+            {
+                JOptionPane.showMessageDialog(rootPane, "ERROR revise sus datos nuevamente");
+            }
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3315,7 +3309,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Trabajador trabajador = (Trabajador) this.comboBoxMoverEmpleado.getSelectedItem();
         
         if(obraInicial != null && obraObjetivo != null && trabajador != null){
-            obraInicial.despedirEmpleado(trabajador.getRut());
+            obraInicial.despedirEmpleadoObra(trabajador.getRut());
             obraObjetivo.agregarPersona(trabajador);
         }
         
@@ -3333,7 +3327,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_jBotonVolverMoverEmpleadosActionPerformed
 
     private void MostrarTodasLasObrasjComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarTodasLasObrasjComboBox2ActionPerformed
-        // TODO add your handling code here:
         String opcion = (String) this.MostrarTodasLasObrasjComboBox2.getSelectedItem() ;
         if(opcion != null)
         {
@@ -3565,35 +3558,116 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_FiltrarObrasjButtonActionPerformed
 
     private void FiltrarObrasjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjButton3ActionPerformed
-        int opcion = (int) this.FiltrarObrasjComboBox.getSelectedIndex();
+        int comboBoxPresupuestos = (int) this.FiltrarObrasjComboBox.getSelectedIndex();
+        int comboBoxSueldos = (int) this.FiltrarObrasjComboBox2.getSelectedIndex() ;
         this.FiltrarObrasjTextArea.setText("") ;
         
-        if((opcion == 0) || (opcion == 1))
+        if((comboBoxPresupuestos == 0) || (comboBoxPresupuestos == 1))
         {
+            int i ;
             if(this.FiltrarObrasjTextField.getText().isBlank())
             {
-                JOptionPane.showMessageDialog(rootPane, "Selecciones un valor para evaluar");
+                JOptionPane.showMessageDialog(rootPane, "Selecciones un valor para evaluar"+"\n");
                 return ;
             }
-            long parametro = Integer.parseInt(this.FiltrarObrasjTextField.getText()) ;
-            Obra[] obrasFiltradas = this.registroObr.filtrarObrasPresupuesto(parametro, opcion) ;
-            this.FiltrarObrasjTextArea.append("El listado es el siguiente:"+'\n');
-            for(int i = 0; i < obrasFiltradas.length ; i++)
+            long parametroPresupuesto = Integer.parseInt(this.FiltrarObrasjTextField.getText()) ;
+            
+            Obra[] obrasFiltradas = this.registroObr.filtrarObrasPresupuesto(parametroPresupuesto, comboBoxPresupuestos) ;
+            
+            if(comboBoxSueldos == 0 || comboBoxSueldos == 1)
             {
-                this.FiltrarObrasjTextArea.append(obrasFiltradas[i].getNombreObra()+'\n'+'\n');
+                long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText()) ;
+                if(this.FiltrarObrasjTextField2.getText().isBlank())
+                {
+                    JOptionPane.showMessageDialog(rootPane, "Selecciones un valor para evaluar"+"\n");
+                    return ;
+                }
+                this.FiltrarObrasjTextArea.append("El listado es el siguiente:"+"\n"+"\n");
+                for(i = 0; i < obrasFiltradas.length ; i++)
+                {
+                    Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obrasFiltradas[i], comboBoxSueldos, parametroSueldos) ;
+                    this.FiltrarObrasjTextArea.append(i+1+".-"+obrasFiltradas[i].getNombreObra()+"\n"+"\n");
+                    mostrarFiltrado(personasFiltradas, i) ;
+                }
+                return ;
+            }
+            if(comboBoxSueldos == 2)
+            {
+                for(i = 0; i < obrasFiltradas.length ; i++)
+                {
+                    try
+                    {
+                         this.FiltrarObrasjTextArea.append(i+1+".-"+obrasFiltradas[i].getNombreObra()+"\n"+"\n");
+                        Trabajador empleado = registroTra.filtrarPersonas(obrasFiltradas[i], comboBoxSueldos) ;
+                        this.FiltrarObrasjTextArea.append("\tEl empleado con mayor sueldo de la obra es\n\t"+empleado.getNombre()+" con un sueldo de "+ empleado.getSueldo()+"\n\n") ;
+                    }
+                    catch(Exception e)
+                    {
+                        this.FiltrarObrasjTextArea.append("\tEsta obra no tiene ningun empleado\n\n") ;
+                    }
+                }
+                
                 
             }
+            if(comboBoxSueldos == 3)
+            {
+                for(i = 0; i < obrasFiltradas.length ; i++)
+                {
+                    try
+                    {
+                         this.FiltrarObrasjTextArea.append(i+1+".-"+obrasFiltradas[i].getNombreObra()+"\n"+"\n");
+                        Trabajador empleado = registroTra.filtrarPersonas(obrasFiltradas[i], comboBoxSueldos) ;
+                        this.FiltrarObrasjTextArea.append("\tEl empleado con menor sueldo de la obra es\n\t"+empleado.getNombre()+" con un sueldo de "+ empleado.getSueldo()+"\n\n") ;
+                    }
+                    catch(Exception e)
+                    {
+                        this.FiltrarObrasjTextArea.append("\tEsta obra no tiene ningun empleado\n\n") ;
+                    }
+                }
+            }
         }
-        if(opcion == 2)
+        if(comboBoxPresupuestos == 2)
         {
-            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(opcion) ;
-            
-            this.FiltrarObrasjTextArea.append("La obra que genera mayor gasto es"+'\n'+obraSeleccionada.getNombreObra()+'\n');
+            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(comboBoxPresupuestos) ;
+            this.FiltrarObrasjTextArea.append("La obra de mayor presupuesto es"+'\n'+obraSeleccionada.getNombreObra()+'\n'+'\n');
+            if(comboBoxSueldos == 0 || comboBoxSueldos == 1)
+            {
+                long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText()) ;
+                Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos, parametroSueldos) ;
+                mostrarFiltrado(personasFiltradas, 0) ;
+            }
+            if(comboBoxSueldos == 2)
+            {
+                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
+                this.FiltrarObrasjTextArea.append("El empleado con mayor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
+                
+            }
+            if(comboBoxSueldos == 3)
+            {
+                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
+                this.FiltrarObrasjTextArea.append("El empleado con menor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
+            }
         }
-        if(opcion == 3)
+        if(comboBoxPresupuestos == 3)
         {
-            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(opcion) ;
-            this.FiltrarObrasjTextArea.append("La obra que genera menor gasto es"+'\n'+obraSeleccionada.getNombreObra()+'\n');
+            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(comboBoxPresupuestos) ;
+            this.FiltrarObrasjTextArea.append("La obra de menor presupuesto es"+'\n'+obraSeleccionada.getNombreObra()+'\n');
+            if(comboBoxSueldos == 0 || comboBoxSueldos == 1)
+            {
+                long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText()) ;
+                Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos, parametroSueldos) ;
+                mostrarFiltrado(personasFiltradas, 0) ;
+            }
+            if(comboBoxSueldos == 2)
+            {
+                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
+                this.FiltrarObrasjTextArea.append("El empleado con mayor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
+            }
+            if(comboBoxSueldos == 3)
+            {
+                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
+                this.FiltrarObrasjTextArea.append("El empleado con menor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
+            }
         }
     }//GEN-LAST:event_FiltrarObrasjButton3ActionPerformed
 
@@ -3681,9 +3755,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JButton FiltrarObrasjButton2;
     private javax.swing.JButton FiltrarObrasjButton3;
     private javax.swing.JComboBox<String> FiltrarObrasjComboBox;
+    private javax.swing.JComboBox<String> FiltrarObrasjComboBox2;
     private javax.swing.JFrame FiltrarObrasjFrame;
+    private javax.swing.JLabel FiltrarObrasjLabel;
+    private javax.swing.JLabel FiltrarObrasjLabel2;
     private javax.swing.JTextArea FiltrarObrasjTextArea;
     private javax.swing.JTextField FiltrarObrasjTextField;
+    private javax.swing.JTextField FiltrarObrasjTextField2;
     private javax.swing.JFrame GastosTotalesObraFrame;
     private javax.swing.JComboBox<String> GastosTotalesjComboBox2;
     private javax.swing.JTextArea GastosTotalesjTextArea;
@@ -3804,7 +3882,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -3865,29 +3942,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JTextArea textoAdicionalCrearInforme;
     private javax.swing.JButton tiempoRestanteDeUnaObra;
     // End of variables declaration//GEN-END:variables
-    /*public void paint(Graphics g)
-    {
-        super.paint(g);
-        if(this.flag == true)
+
+    private void mostrarFiltrado(Trabajador[] personasFiltradas, int i) {
+        for(int j = 0 ; j < personasFiltradas.length ; j++)
         {
-            long gastos = registroObr.gatosTotales();
-            long ingresos = registroObr.ingresosTotales();
-
-            long total = gastos + ingresos;
-
-            long gradosIngreso = ingresos * 360 / total;
-            long gradosGastos = gastos * 360 / total;
-
-            g.setColor(new Color (255,0,0));
-            g.fillArc(25, 80, 200, 200, 0, (int) gradosIngreso);
-            g.fillRect(250, 120, 20, 20);
-            g.drawString("Ingresos totales", 275, 135);
-
-            g.setColor(new Color (0,0,255));
-            g.fillArc(25, 80, 200, 200, (int) gradosIngreso, (int) gradosGastos);
-            g.fillRect(250, 120, 20, 20);
-            g.drawString("Gastos totales", 275, 165);
+            this.FiltrarObrasjTextArea.append("\t"+(i+1)+"."+(j+1)+" "+personasFiltradas[j].getNombre()+"\n");
+            this.FiltrarObrasjTextArea.append("\t"+"sueldo: "+personasFiltradas[j].getSueldo()+"\n"+"\n") ;
         }
-    }*/
+        this.FiltrarObrasjTextArea.append("\n");
+    }
+
 }
 

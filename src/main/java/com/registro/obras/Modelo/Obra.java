@@ -93,27 +93,68 @@ public abstract class Obra {
     
     public void getListadoPersonas(Trabajador[] listaEmpleados)
     {
-        //Trabajador[] listaEmpleados = new Trabajador[listadoPersonas.size()] ;
         for(int i = 0; i < listadoPersonas.size(); i++)
         {
             listaEmpleados[i] = listadoPersonas.get(i) ;
         }
-        //return listaEmpleados;
+    }
+    
+    public void setListadoPersonas(Trabajador[] listaEmpleados)
+    {
+        this.listadoPersonas.removeAll(listadoPersonas) ;
+        for(int i = 0 ; i < listaEmpleados.length ; i++)
+        {
+            listadoPersonas.add(listaEmpleados[i]) ;
+        }
+        actualizarHashMaps(listaEmpleados) ;
+    }
+    
+    public void setListadoPersonas(Trabajador[] listaEmpleados, int index)
+    {
+        this.listadoPersonas.remove(index) ;
+        actualizarHashMaps(listaEmpleados[index]) ;
+    }
+    
+    private void actualizarHashMaps(Trabajador empleado)
+    {
+        this.tablaPersonasNombre.remove(empleado.getNombre()) ;
+        this.tablaPersonasRut.remove(empleado.getRut()) ;
+    }
+    
+    private void actualizarHashMaps(Trabajador[] listaEmpleados)
+    {
+        this.tablaPersonasNombre = null ;
+        this.tablaPersonasRut = null ;
+        for(int i = 0 ; i < listaEmpleados.length ; i++)
+        {
+            this.tablaPersonasNombre.put(listaEmpleados[i].getNombre(), listaEmpleados[i]) ;
+            this.tablaPersonasRut.put(listaEmpleados[i].getRut(), listaEmpleados[i]) ;        
+        }
+    }
+    
+    
+    public Trabajador buscarPersona(int rut) {
+        Trabajador Empleado = tablaPersonasRut.get(rut);
+        return Empleado;
     }
 
-    public void despedirEmpleado(String nombre) {
+    public Trabajador buscarPersona(String nombre) {
+        Trabajador Empleado = tablaPersonasNombre.get(nombre);
+        return Empleado;
+    }
+    
+    public void despedirEmpleadoObra(String nombre) {
         Trabajador sujeto = tablaPersonasNombre.get(nombre);
         if(sujeto != null){
             eliminarDelListado(sujeto.getRut());
             tablaPersonasNombre.remove(nombre);
             tablaPersonasRut.remove(sujeto.getRut());
             this.numeroEmpleados= tablaPersonasNombre.size();
-            sujeto.setTrabajando(false);
-            System.out.println("El sujeto ha sido eliminado");
+            //sujeto.setTrabajando(false);
         }
     }
     
-    public void despedirEmpleado(int rut) {
+    public void despedirEmpleadoObra(int rut) {
         Trabajador sujeto = tablaPersonasRut.get(rut);
         
         if(sujeto != null){
@@ -122,14 +163,12 @@ public abstract class Obra {
             tablaPersonasNombre.remove(sujeto.getNombre());
             this.numeroEmpleados= tablaPersonasNombre.size();
             sujeto.setTrabajando(false);
-            System.out.println("El sujeto ha sido eliminado");
         }
     }
     
-    public void eliminarDelListado(int rut){
-        Persona sujeto = tablaPersonasRut.get(rut);
+    private void eliminarDelListado(int rut){
         
-        System.out.println(this.listadoPersonas.size());
+        Persona sujeto = tablaPersonasRut.get(rut);
         
         if(sujeto != null && this.listadoPersonas.size() > 0){
             for(int i = 0 ; i< this.listadoPersonas.size() ; i++)
@@ -140,23 +179,6 @@ public abstract class Obra {
                 }  
             }
         }
-        System.out.println(this.listadoPersonas.size());
-    }
-
-    
-/*
-    public void cambiarPresupuesto(double presupuestoObra) {
-        this.presupuestoObra = presupuestoObra;
-    }*/
-
-    public Persona buscarPersona(int rut) {
-        Persona valor = tablaPersonasRut.get(rut);
-        return valor;
-    }
-
-    public Persona buscarPersona(String nombre) {
-        Persona valor = tablaPersonasNombre.get(nombre);
-        return valor;
     }
 
     public void agregarPersona(Trabajador serHumano) {

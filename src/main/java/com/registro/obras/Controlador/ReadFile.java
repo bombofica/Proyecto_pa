@@ -196,7 +196,7 @@ public class ReadFile {
                 if (caracter == '\n' || c == -1) {
  
                     int valor = Integer.parseInt(valores[0]);
-                    //System.out.println(valores[0]+" "+ valores[1]+" "+valores[2]+" " + valores[3]+" "+valores[4]+" "+valores[5]);                       // nombre_lugar(2)
+                    System.out.println(valores[0]+" "+ valores[1]+" "+valores[2]+" " + valores[3]+" "+valores[4]+" "+valores[5]);                       // nombre_lugar(2)
                     switch(valor){
                         case 1:
                             currentObra = new ProyectoConstruccion(valores[1], valores[2], valores[4],Long.parseLong(valores[3]));

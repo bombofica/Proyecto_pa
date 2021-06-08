@@ -127,9 +127,13 @@ public class RegistroObras {
         }
     }
                 
-    public void modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException //Listo
+    public boolean modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException //Listo
     {
-        this.coleccionObras.modificarObra(nombreObra, nuevoDato, opcion, registroActual);
+        if(this.coleccionObras.modificarObra(nombreObra, nuevoDato, opcion, registroActual))
+        {
+            return true ;
+        }
+        return false ;
         
     }
     
