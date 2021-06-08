@@ -28,22 +28,92 @@ public class WriteFile {
         donde se imprimen los datos correspondientes a cada empleado
     */
     public static void escribirObras(char separador, RegistroObras registroObras) throws IOException{
-        
-                
-
         try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
+        int cont = 1;
+        ColeccionRegionalObra[] coleccionNacional = registroObras.obtenerColeccionNacionalArray();
+        
+        for(int indexi = 0; indexi < coleccionNacional.length; indexi++){
+            
+            System.out.println("Nombre Region:" + coleccionNacional[indexi].getNombreRegion());
+                
+            Obra[] pepillo =coleccionNacional[indexi].retornarArray();
+            
+            
+            for(int indexj = 0; indexj < pepillo.length ; indexj++){
+                System.out.println('\t'+"Nombre Obra: "+pepillo[indexj].getNombreObra());
+                    Obra currentObra = pepillo[indexj];
+                    int valor = currentObra.getCodigo();
+                    
+                    if (cont < registroObras.numeroObras()){
+                         
+                       switch(valor){
+                            case 1:
+                                ProyectoConstruccion obraActual = (ProyectoConstruccion) currentObra;
+                                Escritor.write("1,"+obraActual.getNombreObra()+','+obraActual.getNombreLugar()+','+
+                                obraActual.getPresupuesto()+','+obraActual.getTiempoRestante()+','+obraActual.getFase()+','+'\n');
+                                break;
+                            case 2:
+                                ProyectoRestauracion obraActual2 = (ProyectoRestauracion) currentObra;
+                                Escritor.write("2,"+obraActual2.getNombreObra()+','+obraActual2.getNombreLugar()+','+
+                                obraActual2.getPresupuesto()+','+obraActual2.getTiempoRestante()+','+obraActual2.getFase()+','+'\n');                                
+                                break;
+                            case 3:
+                                ServicioMantencion obraActual3 = (ServicioMantencion) currentObra;
+                                Escritor.write("3,"+obraActual3.getNombreObra()+','+obraActual3.getNombreLugar()+','+
+                                obraActual3.getMantenimientoMonetarioAnual()+','+
+                                obraActual3.getInteresAnual()+','+obraActual3.isOperativo()+','+'\n');                                
+                                break;
+                        }
+                        
+                            //Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
+                                //currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+','+'\n');
+                    }
+                    else
+                    {
+                        switch(valor){
+                            case 1:
+                                ProyectoConstruccion obraActual = (ProyectoConstruccion) currentObra;
+                                Escritor.write("1,"+obraActual.getNombreObra()+','+obraActual.getNombreLugar()+','+
+                                obraActual.getPresupuesto()+','+obraActual.getTiempoRestante()+','+obraActual.getFase()+',');
+                                break;
+                            case 2:
+                                ProyectoRestauracion obraActual2 = (ProyectoRestauracion) currentObra;
+                                Escritor.write("2,"+obraActual2.getNombreObra()+','+obraActual2.getNombreLugar()+','+
+                                obraActual2.getPresupuesto()+','+obraActual2.getTiempoRestante()+','+obraActual2.getFase()+',');                                
+                                break;
+                            case 3:
+                                ServicioMantencion obraActual3 = (ServicioMantencion) currentObra;
+                                Escritor.write("3,"+obraActual3.getNombreObra()+','+obraActual3.getNombreLugar()+','+
+                                obraActual3.getMantenimientoMonetarioAnual()+','+                                
+                                obraActual3.getInteresAnual()+','+obraActual3.isOperativo()+',');                                
+                                break;
+                        }
+                        
+                            //Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
+                            //    currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+',');
+                        
+                    }
+                    cont++;                
+
+            }
+            }
+        }catch(Exception e){
+            System.out.println("Error, WriteFile.escribirObras falla");
+        }
+
+        //try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
       
             /*Imprime en "RegistroObras.txt" los datos correspondientes a cada obra que se encuentra en un Objeto de tipo "RegistroObras",
                 más específicamente en el ArrayList de RegistroObras*/ 
             
-            HashMap <String, TreeMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
-
-            
-            
+           /* HashMap <String, TreeMap<String, Obra>> regiones = registroObras.obtenerHashRegiones();
+ 
+                
             int cont = 1;
             for (Map.Entry HashObras : regiones.entrySet()) {
                 
                 TreeMap<String, Obra> currentHashObras =(TreeMap) HashObras.getValue();
+                
                 for (Map.Entry obra : currentHashObras.entrySet()) {
                     Obra currentObra = (Obra) obra.getValue();
                     int valor = currentObra.getCodigo();
@@ -147,7 +217,7 @@ public class WriteFile {
                 
                 }                
             //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
-            }
+            }*/
         
         
         
@@ -258,11 +328,13 @@ public class WriteFile {
     
     public static boolean generarReporte(String ruta,String nombre, RegistroTrabajadores registroTra, RegistroObras registroObr)
     {
+        ruta = ruta.concat("\\"+nombre+".txt");
         try(FileWriter Escritor = new FileWriter(ruta))
         {
            // Trabajador empleado;
-            ruta.concat(nombre) ;
-            ruta.concat(".txt") ;
+
+            
+            
             Obra obraActual;
             int i ;
             int j ;
@@ -273,17 +345,23 @@ public class WriteFile {
                 Trabajador[] listaEmpleados = new Trabajador[obraActual.getNumeroEmpleados()] ;
                 obraActual.getListadoPersonas(listaEmpleados);
                 
-                for(j = 0; j < registroTra.numeroDeTrabajadores(); j++)
+                Escritor.write("Obra:"+obraActual.getNombreObra()+":\n");
+                if(obraActual.getNumeroEmpleados() == 0){
+                    Escritor.write("\tEsta Obra no tiene empleados\n");
+                }
+                
+                for(j = 0; j < listaEmpleados.length; j++)
                 {
-                    if (i == registroTra.numeroDeTrabajadores()-1) //sin salto de linea
+                    if (i == obraActual.getNumeroEmpleados() -1) //sin salto de linea
                     {
-                        Escritor.write(listaEmpleados[j].getNombre()+','+obraActual.getNombreObra());
+                        Escritor.write('\t'+listaEmpleados[j].getNombre());
                     }
                     else //con salto de linea
                     {
-                        Escritor.write(listaEmpleados[j].getNombre()+','+obraActual.getNombreObra()+'\n');
+                        Escritor.write('\t'+listaEmpleados[j].getNombre()+"\n");
                     }
                 }
+                Escritor.write('\n');
                 
             }
             Escritor.close();

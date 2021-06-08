@@ -92,16 +92,40 @@ public class RegistroTrabajadores {
         }
     }
     
+        public void llenarJTextAreaEmpleados(JTextArea jTextArea, boolean bandera){
+        
+        jTextArea.setText("");
+        if(this.arrayEmpleados.size() > 0){
+            for(int i = 0 ; i< this.arrayEmpleados.size() ; i++)
+            {
+                Trabajador current= this.arrayEmpleados.get(i);
+                if(bandera){
+                    
+                    jTextArea.append(current.descripcion());
+                }
+                else
+                {
+                    if(!current.isTrabajando())
+                        jTextArea.append(current.descripcion());
+                }
+            
+            }
+        } 
+            
+    }
+    
+    
+    
     
     public boolean agregarEspecialista(Trabajador trabajador){
             
         if (this.registroEspecializaciones.get(trabajador.getLaborProfesional()) == null){
-            System.out.println("Esa especialidad no existe");  
+            //System.out.println("Esa especialidad no existe");  
             return false;  
         }
         
         if(this.registroEspecializaciones.get(trabajador.getLaborProfesional()).containsKey(trabajador.getRut())){
-            System.out.println("El usuario ya se encuentra");
+            //System.out.println("El usuario ya se encuentra");
             return false;
         }
         
@@ -157,6 +181,12 @@ public class RegistroTrabajadores {
         mapaEspecialidades.remove(rut);
         if(currentObra != null){
             currentObra.despedirEmpleado(rut);
+        }
+        
+        for (int i = 0; i < this.arrayEmpleados.size(); i++){
+            if(arrayEmpleados.get(i).getRut() == empleado.getRut()){
+                arrayEmpleados.remove(i);
+            }
         }
         
         return true;
@@ -319,14 +349,23 @@ public class RegistroTrabajadores {
         return this.arrayEmpleados.size();
     }
       
-    public void llenarComboBoxDePersonas(JComboBox comboBox){
+    public void llenarComboBoxDePersonas(JComboBox comboBox, boolean estado){
         
         comboBox.removeAllItems();
         for(int i = 0 ; i< this.arrayEmpleados.size() ; i++)
         {
+            
             Persona current=this.arrayEmpleados.get(i);
-            comboBox.addItem(current);
-        }        
+            if((estado == false && !((Trabajador) current).isTrabajando())){
+                comboBox.addItem(current);
+            }
+            else
+                if(estado == true){
+                    comboBox.addItem(current);
+            }
+        
+        }   
+        
     }
 
 }

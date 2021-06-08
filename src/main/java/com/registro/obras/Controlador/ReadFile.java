@@ -213,9 +213,10 @@ public class ReadFile {
                             ReadFile.tomarContenidosPersonas(',',5,"RegistroObras//"+valores[2]+"//"
                             +valores[1]+"//Empleados.txt",registroTrabajadores,currentObra);                              
                             break;
-                        }
+                    }
                     
-                    registroObras.agregarObra(currentObra);
+                    if(null != currentObra.getNombreObra())
+                        registroObras.agregarObra(currentObra);
                                         
                     valores = new String[num];
                     cont = 0;

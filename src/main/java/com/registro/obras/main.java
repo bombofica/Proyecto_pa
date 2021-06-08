@@ -9,6 +9,7 @@
 package com.registro.obras;
 import com.registro.obras.Vista.*;
 import com.registro.obras.Controlador.*;
+import com.registro.obras.Modelo.ProyectoConstruccion;
 import java.io.* ;
 //import java.text.SimpleDateFormat;
 
@@ -20,7 +21,9 @@ public class main{
         //ReadFile.leerArchivo("RegistroObras//RegistroObras.txt");
         RegistroTrabajadores registroDeTrabajadores = new RegistroTrabajadores(); //registro de todos los trabajdores de la aplicacion
         RegistroObras registroObras = new RegistroObras();//registro de todas las obras de la aplicacion
+
         ReadFile.traerObras(',', 6,"RegistroObras" , registroDeTrabajadores, registroObras);//uso de archivos para obtener los datos
+        ReadFile.tomarContenidosPersonas(',', 5, "RegistroObras//RegistroTrabajadores.txt", registroDeTrabajadores, null);
         //WriteFile.escribirObras(',', registroObras);
         //WriteFile.imprimirTodasLasPersonas(registroDeTrabajadores);
         //registroTrabajadores.mostrarEspecialistas("Informático");

@@ -175,8 +175,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         sueldoJTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextRutSDV = new javax.swing.JTextField();
-        jTextRutCDV = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         AnadirEmpleadojButton3 = new javax.swing.JButton();
         MostrarEmpleadosDeUnaObra = new javax.swing.JFrame();
         jPanel3 = new javax.swing.JPanel();
@@ -1325,19 +1323,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             }
         });
 
-        jTextRutCDV.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextRutCDVActionPerformed(evt);
-            }
-        });
-        jTextRutCDV.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextRutCDVKeyTyped(evt);
-            }
-        });
-
-        jLabel5.setText("-");
-
         AnadirEmpleadojButton3.setText("Volver");
         AnadirEmpleadojButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1363,14 +1348,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(anadirEmpleadobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextRutSDV, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextRutCDV, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextRutSDV, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(sueldoJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
@@ -1392,9 +1372,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(especializacionCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextRutSDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextRutCDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextRutSDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addComponent(anadirEmpleadobtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
@@ -2150,8 +2128,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        GenerarReportejFrame.setPreferredSize(new java.awt.Dimension(0, 0));
         GenerarReportejFrame.setSize(new java.awt.Dimension(400, 300));
+        GenerarReportejFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                GenerarReportejFrameWindowClosing(evt);
+            }
+        });
 
         GenerarReportejButton2.setText("Volver");
         GenerarReportejButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -2329,7 +2311,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.MostrarEmpleadosDeUnaObra.setVisible(true);
         this.GestionEmpleadosFrame.setVisible(false);
         this.MostrarEmpleadosDeUnaObra.setSize(800,450);
-        this.registroObr.llenarComboBoxObras(this.comboBoxEmpleadosObrasMostrar);
+        
+        
+        this.registroObr.llenarComboBoxObras(this.comboBoxEmpleadosObrasMostrar,true);
         //this.registroObr.llenarComboBoxEmpleadosRegistro(this.empleadoEmpleadoObrasMostrarComboBox, obra.getNombreObra());
     }//GEN-LAST:event_mostrarEmpleadosDeUnaObraActionPerformed
 
@@ -2393,14 +2377,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "La estructura de la fecha no es correcta (dd-mm-aaaa)");
                     return ;
                 }
-                try 
-                {
-                    WriteFile.escribirObras(',', registroObr);
-                }
-                catch (IOException ex)
-                {
-                    Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
-                }
+
                 break;
             }
             case 2:
@@ -2412,14 +2389,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "La estructura de la fecha no es correcta (dd-mm-aaaa)");
                     return ;
                 }
-                try 
-                {
-                WriteFile.escribirObras(',', registroObr);
-                } 
-                catch (IOException ex) 
-                {
-                    Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
-                }
+
                 break;
             }
             case 3:
@@ -2429,7 +2399,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     double Interes = Double.parseDouble(tiempoAsignadoInteresAnual) ;
                     ServicioMantencion nuevaObra = new ServicioMantencion(nombreObra, region, presupuesto , Interes, false) ;
                     this.registroObr.agregarObra(nuevaObra);
-                    WriteFile.escribirObras(',', registroObr);
                 }
                 catch(Exception e)
                 {
@@ -2465,9 +2434,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.MoverEmpleados.setVisible(true);
         this.MoverEmpleados.setSize(500,500);
         
-        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEInicial);
-        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEObjetivo);
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, "");
+        comboBoxMoverEInicial.removeAllItems();
+        
+        this.comboBoxMoverEInicial.addItem(new ProyectoConstruccion("Sin Obra","Metropolitana","",225));
+        this.registroTra.llenarComboBoxDePersonas(this.comboBoxMoverEmpleado, false);
+        
+        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEInicial,true);
+        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEObjetivo,true);
+        //this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, "");
         
     }//GEN-LAST:event_moverEmpleadosActionPerformed
 
@@ -2476,7 +2450,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionEmpleadosFrame.setVisible(false);
         this.DespedirEmpleados.setVisible(true);
         this.DespedirEmpleados.setSize(500,400);
-        this.registroObr.llenarComboBoxObras(this.nombreObraDespedirEmpeladoComboBox);
+        this.registroObr.llenarComboBoxObras(this.nombreObraDespedirEmpeladoComboBox,false);
         this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, this.registroObr.retornarObra(0).getNombreObra());
     }//GEN-LAST:event_despedirEmpleadosActionPerformed
 
@@ -2486,8 +2460,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionEmpleadosFrame.setVisible(false);
         this.EliminarEmpleadoDeLaPlataforma.setVisible(true);
         this.EliminarEmpleadoDeLaPlataforma.setSize(800,450);
-        this.registroObr.llenarComboBoxObras(this.eliminarEmpleadoObraComboBox);
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, "");
+        
+        eliminarEmpleadoObraComboBox.removeAllItems();
+        this.registroTra.llenarComboBoxDePersonas(this.eliminarEmpleadoEmpleadoComboBox, false);     
+        this.registroObr.llenarComboBoxObras(this.eliminarEmpleadoObraComboBox,true);
         
     }//GEN-LAST:event_eliminarEmpleadoDePlataformaActionPerformed
 
@@ -2496,7 +2472,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionEmpleadosFrame.setVisible(false);
         this.CambiarDatosEmpleado2.setVisible(true);
         this.CambiarDatosEmpleado2.setSize(500,500);
-        this.registroTra.llenarComboBoxDePersonas(this.cDENombreJComboBox);
+        this.registroTra.llenarComboBoxDePersonas(this.cDENombreJComboBox, true);
         this.registroTra.llenarComboBoxEspecialidad(this.cDEEspecializacionJComboBox);
         
         this.cDESueldoJLabel.setVisible(false);
@@ -2532,20 +2508,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTextRutSDVKeyTyped
-
-    private void jTextRutCDVKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextRutCDVKeyTyped
-        // TODO add your handling code here:
-        
-        if(evt.getKeyChar() != 'k' && !Character.isDigit(evt.getKeyChar())){
-            evt.consume();
-        }
-        
-        if(this.jTextRutCDV.getText().length()<1 ){
-        } else {
-            evt.consume();
-        }
-        
-    }//GEN-LAST:event_jTextRutCDVKeyTyped
 
     private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
         Obra valor = (Obra) this.comboBoxObra.getSelectedItem();
@@ -2604,10 +2566,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sueldoJTextFieldActionPerformed
 
-    private void jTextRutCDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextRutCDVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextRutCDVActionPerformed
-
     private void sueldoJTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sueldoJTextFieldKeyTyped
         // TODO add your handling code here:
         
@@ -2623,11 +2581,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.exit(0);
-        
     }//GEN-LAST:event_OpcionesPrincipalesFrameWindowClosed
 
     private void GestionObrasFrameWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GestionObrasFrameWindowClosed
@@ -2635,6 +2593,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2646,6 +2605,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2657,6 +2617,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2668,6 +2629,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2679,6 +2641,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2690,6 +2653,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2701,6 +2665,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2712,6 +2677,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2722,9 +2688,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
         System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_GestionEmpleadosFrameWindowClosing
@@ -2734,9 +2701,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
         System.exit(0);
     }//GEN-LAST:event_AnadirEmpleadoToPlataformWindowClosing
 
@@ -2745,6 +2713,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2756,6 +2725,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2767,6 +2737,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2778,6 +2749,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2789,6 +2761,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2839,7 +2812,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.ObraTerminadaFrame.setVisible(true);
         this.GestionObrasFrame.setVisible(false);
         this.ObraTerminadaFrame.setSize(500,500);
-        this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox);
+        this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox,false);
     }//GEN-LAST:event_botonObraTerminadaActionPerformed
 
     private void terminarObraJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarObraJButtonActionPerformed
@@ -2847,11 +2820,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Obra obraSeleccionada = (Obra) this.obraTerminadaComboBox.getSelectedItem();
         
         try {
-            this.registroObr.eliminarObra(obraSeleccionada.getNombreObra());
+            this.registroObr.eliminarObra(obraSeleccionada.getNombreObra(), this.registroObr);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox);
+        this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox,false);
         
         //this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox);
     }//GEN-LAST:event_terminarObraJButtonActionPerformed
@@ -2868,7 +2841,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
 */
         Obra obraEscogida =(Obra) this.comboBoxEmpleadosObrasMostrar.getSelectedItem();
         if(obraEscogida != null){
-            obraEscogida.llenarJTextAreaEmpleados(this.jTextMostrarEmpleadosObra);
+            
+            if(!obraEscogida.getNombreObra().equals("Sin Obra"))
+                obraEscogida.llenarJTextAreaEmpleados(this.jTextMostrarEmpleadosObra);
+            else
+                registroTra.llenarJTextAreaEmpleados(this.jTextMostrarEmpleadosObra, false);
         }else
             this.jTextMostrarEmpleadosObra.setText("");
         //this.registroObr.llenarComboBoxEmpleadosRegistro(this.empleadoEmpleadoObrasMostrarComboBox, nombreObra);
@@ -2881,11 +2858,24 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void eliminarEmpleadoObraComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoObraComboBoxActionPerformed
         // TODO add your handling code here:
-        Obra nombreObra = (Obra) this.eliminarEmpleadoObraComboBox.getSelectedItem();
-        if(nombreObra != null)
-            this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, nombreObra.getNombreObra());
+        Obra obraEscogida = (Obra) this.eliminarEmpleadoObraComboBox.getSelectedItem();
+        /*if(obraEscogida != null)
+            this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, obraEscogida.getNombreObra());
         else
-            this.eliminarEmpleadoEmpleadoComboBox.removeAllItems();
+            this.eliminarEmpleadoEmpleadoComboBox.removeAllItems();*/
+        
+        if(obraEscogida!= null && !obraEscogida.getNombreObra().equals("Sin Obra"))
+            this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, obraEscogida.getNombreObra());
+        else{
+            if(obraEscogida!= null && obraEscogida.getNombreObra().equals("Sin Obra")){
+                //System.out.println("aaaaaaaah");
+                this.registroTra.llenarComboBoxDePersonas(this.eliminarEmpleadoEmpleadoComboBox, false);
+            }
+            
+            if(obraEscogida == null){
+                this.eliminarEmpleadoEmpleadoComboBox.removeAllItems();
+            }
+        }
         //String valor = (String) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem();
         
     }//GEN-LAST:event_eliminarEmpleadoObraComboBoxActionPerformed
@@ -2894,7 +2884,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         Obra nombreObra = (Obra) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, nombreObra.getNombreObra());
+        
+        if(nombreObra != null)
+            this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, nombreObra.getNombreObra());
         
 
     }//GEN-LAST:event_nombreObraDespedirEmpeladoComboBoxActionPerformed
@@ -2946,25 +2938,25 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void eliminarEmpleadojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadojButtonActionPerformed
         
         Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
-        String nombreObra = (String) this.eliminarEmpleadoObraComboBox.getSelectedItem();
+        Obra nombreObra = (Obra) this.eliminarEmpleadoObraComboBox.getSelectedItem();
         
-        int tipo = this.registroObr.retornarTipoObra(nombreObra);
+        int tipo = nombreObra.getCodigo();
         Obra obraEscogida = null;
         
         switch (tipo){
             case 1:
             {
-                obraEscogida = (ProyectoConstruccion) this.registroObr.retornarObra(nombreObra);
+                obraEscogida = (ProyectoConstruccion) this.registroObr.retornarObra(nombreObra.getNombreObra());
                 break;
             }
             case 2:
             {
-                obraEscogida = (ProyectoRestauracion) this.registroObr.retornarObra(nombreObra);
+                obraEscogida = (ProyectoRestauracion) this.registroObr.retornarObra(nombreObra.getNombreObra());
                 break;
             }
             case 3:
             {
-                obraEscogida = (ServicioMantencion) this.registroObr.retornarObra(nombreObra);
+                obraEscogida = (ServicioMantencion) this.registroObr.retornarObra(nombreObra.getNombreObra());
                 
             }
         }
@@ -2974,7 +2966,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
             this.registroTra.eliminarEspecialista(empleado,obraEscogida) ;  
         }
         
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, nombreObra);
+        this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, obraEscogida.getNombreObra());
         
     }//GEN-LAST:event_eliminarEmpleadojButtonActionPerformed
 
@@ -3026,7 +3018,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.CambiarDatoFrame.setVisible(true);
         this.CambiarDatoFrame.setSize(450,400);
         this.cambiarDatoComboBox.removeAllItems();
-        this.registroObr.llenarComboBoxObras(this.cambiarDatoComboBox) ;
+        this.registroObr.llenarComboBoxObras(this.cambiarDatoComboBox,false) ;
         /*this.cambiarDatojComboBox2.removeAllItems();
         this.cambiarDatojComboBox2.addItem("Nombre");
         this.cambiarDatojComboBox2.addItem("Region");
@@ -3179,15 +3171,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 break;
 
         }
-        this.registroTra.llenarComboBoxDePersonas(this.cDENombreJComboBox);
+        this.registroTra.llenarComboBoxDePersonas(this.cDENombreJComboBox, true);
         
     }//GEN-LAST:event_cDECambiarDatonJButtonActionPerformed
 
     private void CambiarDatosEmpleado2WindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CambiarDatosEmpleado2WindowClosing
         // TODO add your handling code here:
-                try {
+        try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3314,13 +3307,35 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Obra obraObjetivo = (Obra) this.comboBoxMoverEObjetivo.getSelectedItem();
         Trabajador trabajador = (Trabajador) this.comboBoxMoverEmpleado.getSelectedItem();
         
-        if(obraInicial != null && obraObjetivo != null && trabajador != null){
-            obraInicial.despedirEmpleado(trabajador.getRut());
-            obraObjetivo.agregarPersona(trabajador);
+        if(obraInicial != null && obraObjetivo != null && trabajador != null && !obraInicial.getNombreObra().equals(obraObjetivo.getNombreObra())){
+            
+            if((!obraInicial.getNombreObra().equals("Sin Obra") && !(obraObjetivo.getNombreObra().equals("Sin Obra")))){
+                obraInicial.despedirEmpleado(trabajador.getRut());
+                obraObjetivo.agregarPersona(trabajador);
+
+            }
+            else
+            {
+                if((obraInicial.getNombreObra().equals("Sin Obra"))){
+                    trabajador.setTrabajando(true);
+                    obraObjetivo.agregarPersona(trabajador);
+                }
+                else
+                {
+                    if(obraObjetivo.getNombreObra().equals("Sin Obra")){
+                        obraInicial.despedirEmpleado(trabajador.getRut());
+                        trabajador.setTrabajando(false);
+                    }
+                }
+            }
         }
         
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, obraInicial.getNombreObra());
-        
+        if(obraInicial.getNombreObra().equals("Sin Obra"))
+            this.registroTra.llenarComboBoxDePersonas(comboBoxMoverEmpleado, false);
+        else
+            this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, obraInicial.getNombreObra());
+          
+                
         
     }//GEN-LAST:event_jBotonMoverEmpleadoActionPerformed
 
@@ -3338,7 +3353,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         if(opcion != null)
         {
             this.comboBoxObra.removeAllItems();
-            this.registroObr.llenarComboBoxObras(this.comboBoxObra, opcion);
+            this.registroObr.llenarComboBoxObras(this.comboBoxObra, opcion,false);
         } 
     }//GEN-LAST:event_MostrarTodasLasObrasjComboBox2ActionPerformed
 
@@ -3346,7 +3361,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void comboBoxMoverEInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMoverEInicialActionPerformed
         // TODO add your handling code here:
         Obra obraEscogida =(Obra) this.comboBoxMoverEInicial.getSelectedItem();
-        this.registroObr.llenarComboBoxEmpleadosRegistro(comboBoxMoverEmpleado, obraEscogida.getNombreObra());
+        if(obraEscogida!= null && !obraEscogida.getNombreObra().equals("Sin Obra"))
+            this.registroObr.llenarComboBoxEmpleadosRegistro(comboBoxMoverEmpleado, obraEscogida.getNombreObra());
+        else{
+            if(obraEscogida!= null && obraEscogida.getNombreObra().equals("Sin Obra")){
+                //System.out.println("aaaaaaaah");
+                this.registroTra.llenarComboBoxDePersonas(comboBoxMoverEmpleado, false);
+            }
+        }
     }//GEN-LAST:event_comboBoxMoverEInicialActionPerformed
 
     private void generarInformejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarInformejButtonActionPerformed
@@ -3367,7 +3389,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         String opcion = (String) this.TiempoRestanteObrajComboBox.getSelectedItem() ;
         if(opcion != null)
         {
-            this.registroObr.llenarComboBoxObras(this.TiempoRestanteObrajComboBox2, opcion);
+            this.registroObr.llenarComboBoxObras(this.TiempoRestanteObrajComboBox2, opcion,false);
         }
         
     }//GEN-LAST:event_TiempoRestanteObrajComboBoxActionPerformed
@@ -3499,6 +3521,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3510,7 +3533,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         if(opcion != null)
         {
             this.comboBoxObra.removeAllItems();
-            this.registroObr.llenarComboBoxObras(this.gastosTotalesjComboBox, opcion);
+            this.registroObr.llenarComboBoxObras(this.gastosTotalesjComboBox, opcion,false);
         } 
     }//GEN-LAST:event_GastosTotalesjComboBox2ActionPerformed
 
@@ -3626,12 +3649,26 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void generarInformejFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_generarInformejFrameWindowClosing
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_generarInformejFrameWindowClosing
 
     private void FiltrarObrasjFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_FiltrarObrasjFrameWindowClosing
         // TODO add your handling code here:
-         System.exit(0);
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);
     }//GEN-LAST:event_FiltrarObrasjFrameWindowClosing
 
     private void GenerarReportejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejButtonActionPerformed
@@ -3656,6 +3693,18 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void GenerarReportejTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_GenerarReportejTextField1ActionPerformed
+
+    private void GenerarReportejFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GenerarReportejFrameWindowClosing
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);
+    }//GEN-LAST:event_GenerarReportejFrameWindowClosing
 
 
   
@@ -3807,7 +3856,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3841,7 +3889,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextMostrarEmpleadosObra;
     private javax.swing.JTextField jTextNombreObra;
-    private javax.swing.JTextField jTextRutCDV;
     private javax.swing.JTextField jTextRutSDV;
     private javax.swing.JButton mostrarEmpleadosDeUnaObra;
     private javax.swing.JButton mostrarEmpleadosjButton3;
