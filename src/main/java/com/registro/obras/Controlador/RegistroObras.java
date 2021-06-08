@@ -443,21 +443,11 @@ public class RegistroObras {
         }
         return -1;
     }
-<<<<<<< HEAD
-                
+
+    
     public boolean modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException //Listo
     {
-        if(this.coleccionObras.modificarObra(nombreObra, nuevoDato, opcion, registroActual))
-        {
-            return true ;
-        }
-        return false ;
-=======
-    
-    public void modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException //Listo
-    {
         //en el archivo se elimina la obra anterior y se vuelve a crear esta pero con el dato cambiado
->>>>>>> origin/ramabenja2
         
         //nombreObra es el nombre actual de la obra a editar
         //nuevoDato es el dato a editar que puedeser de cualquier atributo dentro del objeto Obra
@@ -486,7 +476,7 @@ public class RegistroObras {
                     remplazo.cambiarNombre();
                     WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
                     WriteFile.escribirObras(',', registroActual );
-                    return ;
+                    return true;
                 }
                 case 2: //Cambiar region
                 {
@@ -507,7 +497,7 @@ public class RegistroObras {
                     
                     WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
                     WriteFile.escribirObras(',', registroActual );
-                    return ;
+                    return true;
                 }
                 case 3: //Cambiar tiempo restante y cambiar el interes
                 {
@@ -572,6 +562,7 @@ public class RegistroObras {
                             }
                             catch(NumberFormatException e)
                             {
+                                return false;
                                 //ventana de error
                             }
                             
@@ -586,6 +577,7 @@ public class RegistroObras {
                             }
                             catch(NumberFormatException e)
                             {
+                                return false;
                                 //ventana de error
                             }
                             
@@ -619,7 +611,9 @@ public class RegistroObras {
             
             WriteFile.eliminarDefinitivo(new File("RegistroObras//"+lugar+"//"+nombreObra));
             WriteFile.escribirObras(',', registroActual );
+            return true;
         }
+        return false;
     }
     
     public void presupuestoGeneral() //presupuesto total de la compañia
