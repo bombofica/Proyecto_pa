@@ -1524,15 +1524,9 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="anadirEmpleadobtn" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextRutSDV" min="-2" pref="89" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextRutCDV" min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextRutSDV" min="-2" pref="89" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="sueldoJTextField" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                               </Group>
@@ -1564,8 +1558,6 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="especializacionCombobox" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextRutSDV" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextRutCDV" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="anadirEmpleadobtn" min="-2" max="-2" attributes="0"/>
@@ -1635,17 +1627,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextRutSDVActionPerformed"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextRutSDVKeyTyped"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextRutCDV">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextRutCDVActionPerformed"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextRutCDVKeyTyped"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="AnadirEmpleadojButton3">
               <Properties>
@@ -1861,11 +1842,6 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JComboBox" name="comboBoxMoverEInicial">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
-                </Property>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxMoverEInicialActionPerformed"/>
               </Events>
@@ -2853,6 +2829,9 @@
           <Dimension value="[400, 300]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="GenerarReportejFrameWindowClosing"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
