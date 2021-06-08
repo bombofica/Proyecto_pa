@@ -2953,8 +2953,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void eliminarEmpleadojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadojButtonActionPerformed
         
-        Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
-<<<<<<< HEAD
+       Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
         Obra obraActual = (Obra) this.eliminarEmpleadoObraComboBox.getSelectedItem();
         if(empleado != null && obraActual != null)
         {
@@ -2963,42 +2962,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 WriteFile.escribirObras(',', registroObr);
             } catch (IOException ex) {
                 Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
-=======
-        Obra nombreObra = (Obra) this.eliminarEmpleadoObraComboBox.getSelectedItem();
-        
-        int tipo = nombreObra.getCodigo();
-        Obra obraEscogida = null;
-        
-        switch (tipo){
-            case 1:
-            {
-                obraEscogida = (ProyectoConstruccion) this.registroObr.retornarObra(nombreObra.getNombreObra());
-                break;
-            }
-            case 2:
-            {
-                obraEscogida = (ProyectoRestauracion) this.registroObr.retornarObra(nombreObra.getNombreObra());
-                break;
-            }
-            case 3:
-            {
-                obraEscogida = (ServicioMantencion) this.registroObr.retornarObra(nombreObra.getNombreObra());
-                
->>>>>>> origin/ramabenja2
             }
             WriteFile.imprimirTodasLasPersonas(registroTra);
         }
-<<<<<<< HEAD
-=======
-        
-        
-        if(obraEscogida != null){
-            this.registroTra.eliminarEspecialista(empleado,obraEscogida) ;  
-        }
-        
-        this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, obraEscogida.getNombreObra());
-        
->>>>>>> origin/ramabenja2
     }//GEN-LAST:event_eliminarEmpleadojButtonActionPerformed
 
     private void cambiarDatoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoComboBoxActionPerformed
@@ -3336,15 +3302,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Obra obraObjetivo = (Obra) this.comboBoxMoverEObjetivo.getSelectedItem();
         Trabajador trabajador = (Trabajador) this.comboBoxMoverEmpleado.getSelectedItem();
         
-<<<<<<< HEAD
-        if(obraInicial != null && obraObjetivo != null && trabajador != null){
-            obraInicial.despedirEmpleadoObra(trabajador.getRut());
-            obraObjetivo.agregarPersona(trabajador);
-=======
+
         if(obraInicial != null && obraObjetivo != null && trabajador != null && !obraInicial.getNombreObra().equals(obraObjetivo.getNombreObra())){
             
             if((!obraInicial.getNombreObra().equals("Sin Obra") && !(obraObjetivo.getNombreObra().equals("Sin Obra")))){
-                obraInicial.despedirEmpleado(trabajador.getRut());
+                obraInicial.despedirEmpleadoObra(trabajador.getRut());
                 obraObjetivo.agregarPersona(trabajador);
 
             }
@@ -3357,12 +3319,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 else
                 {
                     if(obraObjetivo.getNombreObra().equals("Sin Obra")){
-                        obraInicial.despedirEmpleado(trabajador.getRut());
+                        obraInicial.despedirEmpleadoObra(trabajador.getRut());
                         trabajador.setTrabajando(false);
                     }
                 }
             }
->>>>>>> origin/ramabenja2
         }
         
         if(obraInicial.getNombreObra().equals("Sin Obra"))
