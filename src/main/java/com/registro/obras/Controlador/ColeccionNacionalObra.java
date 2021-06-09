@@ -29,7 +29,8 @@ public class ColeccionNacionalObra {
         return null;
     }
     
-    public boolean agregarObra(Obra obra){
+    public boolean agregarObra(Obra obra){ // retorna true si la obra ha sido agregada correctamente, 
+        //false si la obra ya se encuentra o si no se ha agregado
         
         if(coleccionNacional.containsKey(obra.getNombreLugar()))
         {

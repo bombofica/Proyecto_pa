@@ -19,6 +19,7 @@
 3,Puente Covadonga,Maule,204500,0.1,true,
 2,Hospital Castro Dr. Agusto Riffart,Los Lagos,135000,31-10-2028,0,
 3,Terminal de buces municipal de Puerto Montt,Los Lagos,535000,0.1,true,
+1,Estadio Monumental,Metropolitana,44564654,11-11-2050,0,
 3,Hospital Clinico UC Christus,Metropolitana,1450000,0.1,true,
 1,Caleta Chanavaya,Tarapaca,1570000,14-09-2026,0,
 2,Iglesia de la Tirana,Tarapaca,800000,23-04-2022,0,

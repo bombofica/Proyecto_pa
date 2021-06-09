@@ -28,74 +28,77 @@ public class WriteFile {
         donde se imprimen los datos correspondientes a cada empleado
     */
     public static void escribirObras(char separador, RegistroObras registroObras) throws IOException{
-        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
-        int cont = 1;
+        
         ColeccionRegionalObra[] coleccionNacional = registroObras.obtenerColeccionNacionalArray();
         
-        for(int indexi = 0; indexi < coleccionNacional.length; indexi++){
+        try (FileWriter Escritor = new FileWriter("RegistroObras//RegistroObras.txt")) {
             
-            System.out.println("Nombre Region:" + coleccionNacional[indexi].getNombreRegion());
+            int cont = 1;
+            
+        
+            for(int indexi = 0; indexi < coleccionNacional.length; indexi++){
+            
+                System.out.println("Nombre Region:" + coleccionNacional[indexi].getNombreRegion());
                 
-            Obra[] pepillo =coleccionNacional[indexi].retornarArray();
+                Obra[] pepillo =coleccionNacional[indexi].retornarArray();
             
-            
-            for(int indexj = 0; indexj < pepillo.length ; indexj++){
-                System.out.println('\t'+"Nombre Obra: "+pepillo[indexj].getNombreObra());
-                    Obra currentObra = pepillo[indexj];
-                    int valor = currentObra.getCodigo();
+                for(int indexj = 0; indexj < pepillo.length ; indexj++){
+                    System.out.println('\t'+"Nombre Obra: "+pepillo[indexj].getNombreObra());
+                        Obra currentObra = pepillo[indexj];
+                        int valor = currentObra.getCodigo();
                     
-                    if (cont < registroObras.numeroObras()){
+                        if (cont < registroObras.numeroObras()){
                          
-                       switch(valor){
-                            case 1:
-                                ProyectoConstruccion obraActual = (ProyectoConstruccion) currentObra;
-                                Escritor.write("1,"+obraActual.getNombreObra()+','+obraActual.getNombreLugar()+','+
-                                obraActual.getPresupuesto()+','+obraActual.getTiempoRestante()+','+obraActual.getFase()+','+'\n');
-                                break;
-                            case 2:
-                                ProyectoRestauracion obraActual2 = (ProyectoRestauracion) currentObra;
-                                Escritor.write("2,"+obraActual2.getNombreObra()+','+obraActual2.getNombreLugar()+','+
-                                obraActual2.getPresupuesto()+','+obraActual2.getTiempoRestante()+','+obraActual2.getFase()+','+'\n');                                
-                                break;
-                            case 3:
-                                ServicioMantencion obraActual3 = (ServicioMantencion) currentObra;
-                                Escritor.write("3,"+obraActual3.getNombreObra()+','+obraActual3.getNombreLugar()+','+
-                                obraActual3.getMantenimientoMonetarioAnual()+','+
-                                obraActual3.getInteresAnual()+','+obraActual3.isOperativo()+','+'\n');                                
-                                break;
-                        }
+                            switch(valor){
+                                case 1:
+                                    ProyectoConstruccion obraActual = (ProyectoConstruccion) currentObra;
+                                    Escritor.write("1,"+obraActual.getNombreObra()+','+obraActual.getNombreLugar()+','+
+                                    obraActual.getPresupuesto()+','+obraActual.getTiempoRestante()+','+obraActual.getFase()+','+'\n');
+                                    break;
+                                case 2:
+                                    ProyectoRestauracion obraActual2 = (ProyectoRestauracion) currentObra;
+                                    Escritor.write("2,"+obraActual2.getNombreObra()+','+obraActual2.getNombreLugar()+','+
+                                    obraActual2.getPresupuesto()+','+obraActual2.getTiempoRestante()+','+obraActual2.getFase()+','+'\n');                                
+                                    break;
+                                case 3:
+                                    ServicioMantencion obraActual3 = (ServicioMantencion) currentObra;
+                                    Escritor.write("3,"+obraActual3.getNombreObra()+','+obraActual3.getNombreLugar()+','+
+                                    obraActual3.getMantenimientoMonetarioAnual()+','+
+                                    obraActual3.getInteresAnual()+','+obraActual3.isOperativo()+','+'\n');                                
+                                    break;
+                            }
                         
                             //Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
                                 //currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+','+'\n');
-                    }
-                    else
-                    {
-                        switch(valor){
-                            case 1:
-                                ProyectoConstruccion obraActual = (ProyectoConstruccion) currentObra;
-                                Escritor.write("1,"+obraActual.getNombreObra()+','+obraActual.getNombreLugar()+','+
-                                obraActual.getPresupuesto()+','+obraActual.getTiempoRestante()+','+obraActual.getFase()+',');
-                                break;
-                            case 2:
-                                ProyectoRestauracion obraActual2 = (ProyectoRestauracion) currentObra;
-                                Escritor.write("2,"+obraActual2.getNombreObra()+','+obraActual2.getNombreLugar()+','+
-                                obraActual2.getPresupuesto()+','+obraActual2.getTiempoRestante()+','+obraActual2.getFase()+',');                                
-                                break;
-                            case 3:
-                                ServicioMantencion obraActual3 = (ServicioMantencion) currentObra;
-                                Escritor.write("3,"+obraActual3.getNombreObra()+','+obraActual3.getNombreLugar()+','+
-                                obraActual3.getMantenimientoMonetarioAnual()+','+                                
-                                obraActual3.getInteresAnual()+','+obraActual3.isOperativo()+',');                                
-                                break;
                         }
+                        else
+                        {
+                            switch(valor){
+                                case 1:
+                                    ProyectoConstruccion obraActual = (ProyectoConstruccion) currentObra;
+                                    Escritor.write("1,"+obraActual.getNombreObra()+','+obraActual.getNombreLugar()+','+
+                                    obraActual.getPresupuesto()+','+obraActual.getTiempoRestante()+','+obraActual.getFase()+',');
+                                    break;
+                                case 2:
+                                    ProyectoRestauracion obraActual2 = (ProyectoRestauracion) currentObra;
+                                    Escritor.write("2,"+obraActual2.getNombreObra()+','+obraActual2.getNombreLugar()+','+
+                                    obraActual2.getPresupuesto()+','+obraActual2.getTiempoRestante()+','+obraActual2.getFase()+',');                                
+                                    break;
+                                case 3:
+                                    ServicioMantencion obraActual3 = (ServicioMantencion) currentObra;
+                                    Escritor.write("3,"+obraActual3.getNombreObra()+','+obraActual3.getNombreLugar()+','+
+                                    obraActual3.getMantenimientoMonetarioAnual()+','+                                
+                                    obraActual3.getInteresAnual()+','+obraActual3.isOperativo()+',');                                
+                                    break;
+                            }
                         
                             //Escritor.write(currentObra.getNombreObra()+','+currentObra.getNombreLugar()+','+
                             //    currentObra.getPresupuestoObra()+','+currentObra.getTiempoParaTerminarObra()+',');
                         
-                    }
+                        }
                     cont++;                
 
-            }
+                }
             }
         }catch(Exception e){
             System.out.println("Error, WriteFile.escribirObras falla");
@@ -186,7 +189,7 @@ public class WriteFile {
                 Obra currentObra = (Obra) obra.getValue();      
                 
                 addExistenciaDirectorioObra(currentObra);
-            // terminar estoooooooooooooooooo
+            
                 
                 
                 try (FileWriter Escritor = new FileWriter("RegistroObras//"+currentObra.getNombreLugar()+"//"+currentObra.getNombreObra()+"//Empleados.txt")) {
@@ -219,8 +222,46 @@ public class WriteFile {
             //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
             }*/
         
-        
-        
+                for(int indexi = 0; indexi < coleccionNacional.length; indexi++){
+            
+                    System.out.println("Nombre Region:" + coleccionNacional[indexi].getNombreRegion());
+                
+                    Obra[] pepillo =coleccionNacional[indexi].retornarArray();
+            
+                    for(int indexj = 0; indexj < pepillo.length ; indexj++){
+                        
+                        WriteFile.addExistenciaDirectorioObra(pepillo[indexj]);
+                        
+                        
+                        
+                        try (FileWriter Escritor = new FileWriter("RegistroObras//"+pepillo[indexj].getNombreLugar()+"//"+pepillo[indexj].getNombreObra()+"//Empleados.txt")) {
+                
+                            Trabajador currentPersona;
+                
+                            for(int k=0; k < pepillo[indexj].getNumeroEmpleados(); k++){
+                                currentPersona = pepillo[indexj].devolverPersonaI(k);
+                             
+                            //currentPersona = currentObra.devolverPersonaI(j);
+                        
+                                if (k == pepillo[indexj].getNumeroEmpleados()-1){
+                                    Escritor.write(currentPersona.getNombre()+','+currentPersona.getLaborProfesional()+','+currentPersona.getSueldo()
+                                    +','+currentPersona.getRut()+','+currentPersona.isTrabajando()+',');                       
+                                }
+                                else
+                                {
+                                    Escritor.write(currentPersona.getNombre()+','+currentPersona.getLaborProfesional()+','+currentPersona.getSueldo()
+                                    +','+currentPersona.getRut()+','+currentPersona.isTrabajando()+','+'\n');                        
+                                }
+                    
+                    //System.out.println(currentPersona.getNombre());
+                            }
+                
+                            Escritor.close();
+                        } catch (IOException e) {
+                            System.out.println("Error, el fichero no existe 45");
+                        }  
+                    }
+                }
         
 
     }
@@ -269,7 +310,7 @@ public class WriteFile {
                 }
                 else
                 {
-                    System.out.println("No esxxiste 2");
+                    System.out.println("No existe 2");
                 }
             }
    

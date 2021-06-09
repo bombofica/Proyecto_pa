@@ -34,10 +34,17 @@ public class ColeccionRegionalObra {
     
     
     public boolean agregarObra(Obra obra){
-        if(obra != null){
-            this.coleccionRegional.put(obra.getNombreObra(), obra);
-            return true;
+        if(obra != null ){
+            if(!coleccionRegional.containsKey(obra.getNombreObra())){
+                this.coleccionRegional.put(obra.getNombreObra(), obra);
+                return true;
+            }
+            else
+            {
+                System.out.println("La obra ya ha sido ingresada");
+            }
         }
+        
         return false;
     }
     

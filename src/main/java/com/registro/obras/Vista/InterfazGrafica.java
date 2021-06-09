@@ -2500,8 +2500,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         String especializacion = (String) this.especializacionCombobox.getSelectedItem();
         double salario = Double.parseDouble(this.sueldoJTextField.getText());
         int rut = Integer.parseInt(this.jTextRutSDV.getText());
-        Trabajador trabajador;
-        trabajador = new Trabajador(nombreEmpleado,especializacion,(int) salario,rut,false,"");
+        Trabajador trabajador = new Trabajador(nombreEmpleado,especializacion,(int) salario,rut,false,"");
+ 
         this.registroTra.agregarEspecialista(trabajador);
         WriteFile.imprimirTodasLasPersonas(registroTra);
     }//GEN-LAST:event_anadirEmpleadobtnActionPerformed
