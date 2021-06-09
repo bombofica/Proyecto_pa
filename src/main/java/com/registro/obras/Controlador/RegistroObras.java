@@ -21,11 +21,10 @@ public class RegistroObras {
     int contadorObras ;
 //    private HashMap <String, TreeMap<String, Obra>> regiones;
     
-    private ColeccionNacionalObra coleccionNacionalObra;  
+    private ColeccionNacionalObra coleccionNacionalObra;
     private HashMap <String, Obra> registro ;
     private ArrayList<Obra> listaCompleta;
     private ArrayList<String> listadoRegiones;
-    
     public ArrayList<ProyectoReportable> listaCompletaInterfaz;
     
     public RegistroObras(){
@@ -625,7 +624,7 @@ public class RegistroObras {
         Obra obraEvaluar;
         long balance ;
         obraEvaluar = this.registro.get(nombreObra) ;
-        balance = obraEvaluar.retornarSueldos() ;
+        balance = obraEvaluar.getSumaSueldos() ;
         System.out.println(nombreObra) ;
         System.out.println(balance) ;
         //System.out.println(obraEvaluar.getPresupuestoObra()) ;
@@ -638,7 +637,7 @@ public class RegistroObras {
         long gastos = 0;
         for(int i = 0; i < listaCompleta.size() ; i++)
         {
-            gastos += listaCompleta.get(i).retornarSueldos() ;
+            gastos += listaCompleta.get(i).getSumaSueldos() ;
         }
         return gastos;
     }

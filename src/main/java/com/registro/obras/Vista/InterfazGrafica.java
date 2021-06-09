@@ -3631,7 +3631,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                         this.FiltrarObrasjTextArea.append("\tEsta obra no tiene ningun empleado\n\n") ;
                     }
                 }
-                
+                return ;
                 
             }
             if(comboBoxSueldos == 3)
@@ -3649,6 +3649,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                         this.FiltrarObrasjTextArea.append("\tEsta obra no tiene ningun empleado\n\n") ;
                     }
                 }
+                return ;
             }
         }
         if(comboBoxPresupuestos == 2)
@@ -3660,17 +3661,19 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText()) ;
                 Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos, parametroSueldos) ;
                 mostrarFiltrado(personasFiltradas, 0) ;
+                return ;
             }
             if(comboBoxSueldos == 2)
             {
                 Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
                 this.FiltrarObrasjTextArea.append("El empleado con mayor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
-                
+                return ;
             }
             if(comboBoxSueldos == 3)
             {
                 Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
                 this.FiltrarObrasjTextArea.append("El empleado con menor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
+                return ;
             }
         }
         if(comboBoxPresupuestos == 3)
@@ -3682,11 +3685,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText()) ;
                 Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos, parametroSueldos) ;
                 mostrarFiltrado(personasFiltradas, 0) ;
+                return ;
             }
             if(comboBoxSueldos == 2)
             {
                 Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
                 this.FiltrarObrasjTextArea.append("El empleado con mayor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
+                return ;
             }
             if(comboBoxSueldos == 3)
             {

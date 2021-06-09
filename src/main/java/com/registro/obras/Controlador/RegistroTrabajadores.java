@@ -16,7 +16,7 @@ public class RegistroTrabajadores {
 
     private ArrayList<Trabajador> arrayEmpleados; 
     private String[] especializaciones;
-    private HashMap<String, TreeMap<Integer,Trabajador>> registroEspecializaciones; 
+    private HashMap<String, TreeMap<Integer,Trabajador>> registroEspecializaciones;
     
     public RegistroTrabajadores() {
         
@@ -115,8 +115,7 @@ public class RegistroTrabajadores {
             
     }
     
-    
-    
+
     
     public boolean agregarEspecialista(Trabajador trabajador){
             
@@ -371,7 +370,7 @@ public class RegistroTrabajadores {
     
     public void despedirEmpleadoRegistro(Obra obraActual, Trabajador empleadoActual)
     {
-        obraActual.despedirEmpleadoObra(empleadoActual.getNombre());
+        obraActual.despedirEmpleadoObra(empleadoActual.getRut());
         
         TreeMap<Integer, Trabajador> mapaEspecializaciones = new TreeMap() ;
         mapaEspecializaciones = this.registroEspecializaciones.get(empleadoActual.getLaborProfesional()) ;
@@ -388,23 +387,12 @@ public class RegistroTrabajadores {
     }
 
     public void eliminarEmpleado(Obra obraActual, Trabajador empleadoActual)
-    {
-        int i ;
-        Trabajador[] listaTrabajadores = new Trabajador[obraActual.getNumeroEmpleados()] ;
-        obraActual.getListadoPersonas(listaTrabajadores) ;
-        for(i = 0 ; i < listaTrabajadores.length ; i++)
-        {
-            if(empleadoActual.getRut() == listaTrabajadores[i].getRut())
-            {
-                listaTrabajadores[i] = empleadoActual ;
-                obraActual.setListadoPersonas(listaTrabajadores, i);
-                break ;
-            }
-        }
-        TreeMap<Integer, Trabajador> mapaEspecializaciones = new TreeMap() ;
-        mapaEspecializaciones = this.registroEspecializaciones.get(empleadoActual.getLaborProfesional()) ;
-        mapaEspecializaciones.remove(empleadoActual.getRut()) ;
-        for(i = 0 ; i < this.arrayEmpleados.size() ; i++)
+    {  
+        
+        obraActual.despedirEmpleadoObra(empleadoActual.getRut());
+        
+        this.registroEspecializaciones.get(empleadoActual.getLaborProfesional()).remove(empleadoActual.getRut()) ;
+        for(int i = 0 ; i < this.arrayEmpleados.size() ; i++)
         {
             if(empleadoActual.getRut() == this.arrayEmpleados.get(i).getRut())
             {
