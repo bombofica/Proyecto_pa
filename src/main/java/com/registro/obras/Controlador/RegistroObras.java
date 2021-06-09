@@ -21,11 +21,11 @@ public class RegistroObras {
     int contadorObras ;
 //    private HashMap <String, TreeMap<String, Obra>> regiones;
     
-    private ColeccionNacionalObra coleccionNacionalObra;
-    
+    private ColeccionNacionalObra coleccionNacionalObra;  
     private HashMap <String, Obra> registro ;
     private ArrayList<Obra> listaCompleta;
     private ArrayList<String> listadoRegiones;
+    
     public ArrayList<ProyectoReportable> listaCompletaInterfaz;
     
     public RegistroObras(){
@@ -43,7 +43,6 @@ public class RegistroObras {
         {
             this.coleccionNacionalObra.agregarColeccionRegional(listadoRegiones.get(i));
             
-//            this.regiones.put(listadoRegiones.get(i), new TreeMap()) ;
         }          
     }
     
@@ -234,23 +233,14 @@ public class RegistroObras {
         
         if(obraAgregar != null && existenciaRegion(obraAgregar.getNombreLugar())){
             //TreeMap<String, Obra> region = regiones.get(obraAgregar.getNombreLugar());
-            
-                this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
-                this.listaCompleta.add(obraAgregar);
-                return this.coleccionNacionalObra.agregarObra(obraAgregar);
-            
-            /*if(region != null && existenciaRegion(obraAgregar.getNombreLugar())){
-                this.listaCompleta.add(obraAgregar);
-
-                
-                if((this.regiones.get(obraAgregar.getNombreLugar())) != null){
-                        (this.regiones.get(obraAgregar.getNombreLugar())).put(obraAgregar.getNombreObra(), obraAgregar) ;
+                if (this.coleccionNacionalObra.agregarObra(obraAgregar)){
+                    this.registro.put(obraAgregar.getNombreObra(), obraAgregar);
+                    this.listaCompleta.add(obraAgregar);
+                    
+                    return true;
                 }
-                return true;
-            }else
-            {
                 return false;
-            }*/
+            
         }
         
         return false;

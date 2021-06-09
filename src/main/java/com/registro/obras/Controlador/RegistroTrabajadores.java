@@ -126,7 +126,7 @@ public class RegistroTrabajadores {
         }
         
         if(this.registroEspecializaciones.get(trabajador.getLaborProfesional()).containsKey(trabajador.getRut())){
-            //System.out.println("El usuario ya se encuentra");
+            System.out.println("El usuario ya se encuentra");
             return false;
         }
         
@@ -293,7 +293,10 @@ public class RegistroTrabajadores {
     public Trabajador buscarEspecialista(String especialidad, int rut){
         
         if (this.registroEspecializaciones.get(especialidad) == null){
-            //System.out.println("Esa especialidad no existe");
+            
+            System.out.println("Esa especialidad no existe");
+            return null;
+            
         }
         Trabajador valor = (this.registroEspecializaciones.get(especialidad)).get(rut);
         if(valor == null){
