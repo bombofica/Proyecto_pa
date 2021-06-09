@@ -16,6 +16,9 @@ import javax.swing.JComboBox;
  */
 public class ColeccionRegionalObra {
 
+    private TreeMap<String,Obra> coleccionRegional ;
+    private String nombreRegion;    
+    
     public String getNombreRegion() {
         return nombreRegion;
     }
@@ -29,8 +32,7 @@ public class ColeccionRegionalObra {
         this.coleccionRegional = new TreeMap();
     }
     
-    private TreeMap<String,Obra> coleccionRegional ;
-    private String nombreRegion;
+
     
     
     public boolean agregarObra(Obra obra){

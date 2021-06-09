@@ -19,33 +19,35 @@ public abstract class Obra {
     private String nombreObra;
     
     private String nombreLugar;
+    
+    private int numeroEmpleados;
+    
+    private int codigo;
 
-    private HashMap<String, Trabajador> tablaPersonasNombre;
+    //private HashMap<String, Trabajador> tablaPersonasNombre;
 
     private HashMap<Integer, Trabajador> tablaPersonasRut;
     
     private ArrayList<Trabajador> listadoPersonas;
     
-    private int numeroEmpleados;
-    
-    private int codigo;
+
     
     
     //Constructores
-    public Obra() {
+/*    public Obra() {
         this.tablaPersonasNombre = new HashMap();
         this.tablaPersonasRut = new HashMap();
         this.numeroEmpleados = tablaPersonasNombre.size();
         this.listadoPersonas = new ArrayList();
-    }
+    }*/
 
     public Obra(String nombreObra, String nombreLugar, int codigo) {
         this.codigo = codigo ;
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
-        this.tablaPersonasNombre = new HashMap();
+ //       this.tablaPersonasNombre = new HashMap();
         this.tablaPersonasRut = new HashMap();
-        this.numeroEmpleados = tablaPersonasNombre.size();
+        this.numeroEmpleados = 0;
         this.listadoPersonas = new ArrayList();
     }
     
@@ -106,16 +108,16 @@ public abstract class Obra {
         {
             listadoPersonas.add(listaEmpleados[i]) ;
         }
-        actualizarHashMaps(listaEmpleados) ;
+//        actualizarHashMaps(listaEmpleados) ;
     }
     
     public void setListadoPersonas(Trabajador[] listaEmpleados, int index)
     {
         this.listadoPersonas.remove(index) ;
-        actualizarHashMaps(listaEmpleados[index]) ;
+//        actualizarHashMaps(listaEmpleados[index]) ;
     }
     
-    private void actualizarHashMaps(Trabajador empleado)
+ /*   private void actualizarHashMaps(Trabajador empleado)
     {
         this.tablaPersonasNombre.remove(empleado.getNombre()) ;
         this.tablaPersonasRut.remove(empleado.getRut()) ;
@@ -130,7 +132,7 @@ public abstract class Obra {
             this.tablaPersonasNombre.put(listaEmpleados[i].getNombre(), listaEmpleados[i]) ;
             this.tablaPersonasRut.put(listaEmpleados[i].getRut(), listaEmpleados[i]) ;        
         }
-    }
+    }*/
     
     
     public Trabajador buscarPersona(int rut) {
@@ -138,21 +140,22 @@ public abstract class Obra {
         return Empleado;
     }
 
-    public Trabajador buscarPersona(String nombre) {
+/*    public Trabajador buscarPersona(String nombre) {
         Trabajador Empleado = tablaPersonasNombre.get(nombre);
         return Empleado;
-    }
+    }*/
     
-    public void despedirEmpleadoObra(String nombre) {
+/*    public void despedirEmpleadoObra(String nombre) {
         Trabajador sujeto = tablaPersonasNombre.get(nombre);
         if(sujeto != null){
             eliminarDelListado(sujeto.getRut());
             tablaPersonasNombre.remove(nombre);
             tablaPersonasRut.remove(sujeto.getRut());
-            this.numeroEmpleados= tablaPersonasNombre.size();
-            //sujeto.setTrabajando(false);
+            this.numeroEmpleados = tablaPersonasNombre.size();
+            this.numeroEmpleados--;
+            sujeto.setTrabajando(false);
         }
-    }
+    }*/
     
     public void despedirEmpleadoObra(int rut) {
         Trabajador sujeto = tablaPersonasRut.get(rut);
@@ -160,8 +163,8 @@ public abstract class Obra {
         if(sujeto != null){
             eliminarDelListado(rut);
             tablaPersonasRut.remove(rut);
-            tablaPersonasNombre.remove(sujeto.getNombre());
-            this.numeroEmpleados= tablaPersonasNombre.size();
+//            tablaPersonasNombre.remove(sujeto.getNombre());
+            this.numeroEmpleados--;
             sujeto.setTrabajando(false);
         }
     }
@@ -183,9 +186,9 @@ public abstract class Obra {
 
     public void agregarPersona(Trabajador serHumano) {
         tablaPersonasRut.put(serHumano.getRut(), serHumano);
-        tablaPersonasNombre.put(serHumano.getNombre(), serHumano);
+//        tablaPersonasNombre.put(serHumano.getNombre(), serHumano);
         this.listadoPersonas.add(serHumano);
-        this.numeroEmpleados= this.tablaPersonasNombre.size();
+        this.numeroEmpleados++;
         serHumano.setTrabajando(true);
     }
     
@@ -202,37 +205,24 @@ public abstract class Obra {
     
     public void eliminarObra(){ //crear un getEmpleados y mover los metodos a registroObras
         
-        Trabajador current ;
-        for (Map.Entry persona : tablaPersonasNombre.entrySet()) {
-            
-            current = (Trabajador) persona.getValue();
-            current.setTrabajando(false) ;
-        }        
+        
+        for (int i = 0; i < this.listadoPersonas.size(); i++) {
+            listadoPersonas.get(i).setTrabajando(false);
+        }
+ 
     }
     
     public Trabajador devolverPersonaI(int index){
-        
-        Trabajador current = null;
-        int cont =0;
-        
-        for (Map.Entry persona : tablaPersonasNombre.entrySet()) {
-
-          //System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
-            current = (Trabajador) persona.getValue();        
-            if(cont == index) break;
-            cont++;
-        }
-        return current;
+        return this.listadoPersonas.get(index);
     }
 
-    public long retornarSueldos()
+    public long getSumaSueldos()
     {
         long sumaSueldos = 0;
         Trabajador personaActual ;
         
-        for (Map.Entry me : this.tablaPersonasNombre.entrySet()) {
-            personaActual = (Trabajador) me.getValue();
-            //System.out.println(sumaSueldos);
+        for (int i = 0; i < this.listadoPersonas.size(); i++){
+            personaActual = this.listadoPersonas.get(i);
             sumaSueldos += personaActual.getSueldo() ;
         }
         return sumaSueldos ;
