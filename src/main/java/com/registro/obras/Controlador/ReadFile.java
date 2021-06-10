@@ -70,7 +70,7 @@ public class ReadFile {
         int cont = 0;
         
         
-        
+        //System.out.println("xd");
         //BufferedReader lectorql = new BufferedReader (new InputStreamReader(System.in));
         
         try{
@@ -82,13 +82,14 @@ public class ReadFile {
                 return;
             }
         }
-        
+        //System.out.println("xd");
             File ruta = new File(direccion);
         
             FileReader entrada = new FileReader(ruta, StandardCharsets.ISO_8859_1);
             
             int c;
             do {
+                System.out.println("asd");
                 c = entrada.read();
                 char caracter = (char) c;
                 //System.out.print((char) c);
@@ -114,10 +115,12 @@ public class ReadFile {
                     
                     
                     if(currentObra != null){
+                        
                         currentPersona = new Trabajador(valores[0], valores[1], Integer.parseInt(valores[2]),
                                 Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]),
-                                //currentObra.getNombreObra());
+                                //currentObra.getNombreObra());                                
                         currentObra.toString());
+                        System.out.println(currentPersona.getNombre()+" "+currentObra.getNombreObra());
                                 currentObra.agregarPersona(currentPersona);
                     }
                     else

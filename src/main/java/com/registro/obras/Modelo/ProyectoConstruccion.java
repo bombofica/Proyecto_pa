@@ -46,8 +46,11 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
         this.fechaEntrega = tiempoRestante;
     }
 
-    public String getFase() {
+    public String getFaseActual(){
         return this.fasesConstruccion.get(fase) ;
+    }
+    public int getFase() {
+        return fase ;
     }
 
     public void setFase() {
