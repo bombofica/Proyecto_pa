@@ -43,7 +43,7 @@ public class ColeccionNacionalObra {
     
     public void eliminarObra(Obra obra){
         
-        if(coleccionNacional.containsKey(obra.getNombreLugar())){
+        if(obra != null && coleccionNacional.containsKey(obra.getNombreLugar())){
             this.coleccionNacional.get(obra.getNombreLugar()).eliminarObra(obra);
         }
     }

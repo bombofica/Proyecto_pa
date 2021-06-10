@@ -49,12 +49,12 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
         this.tiempoRestante = tiempoRestante;
     }
 
-    public int getFase() {
-        return fase;
+    public String getFase() {
+        return this.fasesRestauracion.get(fase) ;
     }
 
-    public void setFase(int fase) {
-        this.fase = fase;
+    public void setFase() {
+        this.fase++ ;
     }
     
     @Override

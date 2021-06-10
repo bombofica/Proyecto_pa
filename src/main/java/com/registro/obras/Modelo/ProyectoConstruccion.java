@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     
     private long presupuesto ;
-    private String tiempoRestante ;
+    private String fechaEntrega ;
     private int fase ;
     private ProyectoReportable informes;
     private ArrayList<String> fasesConstruccion;
@@ -23,7 +23,7 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     {
         super(nombreObra, nombreRegion, 1) ;
         this.presupuesto = presupuesto ;
-        this.tiempoRestante = tiempoAsignado ;
+        this.fechaEntrega = tiempoAsignado ;
         this.fase = 0;
         this.fasesConstruccion = new ArrayList();
         llenarArrayFases() ;
@@ -39,19 +39,19 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     }
 
     public String getTiempoRestante() {
-        return tiempoRestante;
+        return fechaEntrega;
     }
 
     public void setTiempoRestante(String tiempoRestante) {
-        this.tiempoRestante = tiempoRestante;
+        this.fechaEntrega = tiempoRestante;
     }
 
-    public int getFase() {
-        return fase;
+    public String getFase() {
+        return this.fasesConstruccion.get(fase) ;
     }
 
-    public void setFase(int fase) {
-        this.fase = fase;
+    public void setFase() {
+        this.fase++ ;
     }
     
     //metodos publicos
