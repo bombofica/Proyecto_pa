@@ -19,6 +19,11 @@ public class ColeccionRegionalObra {
     private TreeMap<String,Obra> coleccionRegional ;
     private String nombreRegion;    
     
+    public ColeccionRegionalObra(String nombreRegion){
+        this.nombreRegion = nombreRegion;
+        this.coleccionRegional = new TreeMap();
+    }
+    
     public String getNombreRegion() {
         return nombreRegion;
     }
@@ -27,10 +32,7 @@ public class ColeccionRegionalObra {
         this.nombreRegion = nombreRegion;
     }
     
-    public ColeccionRegionalObra(String nombreRegion){
-        this.nombreRegion = nombreRegion;
-        this.coleccionRegional = new TreeMap();
-    }
+    
     
 
     
@@ -43,7 +45,7 @@ public class ColeccionRegionalObra {
             }
             else
             {
-                System.out.println("La obra ya ha sido ingresada");
+                System.out.println("La obra ya ha sido ingresada");//aweonao
             }
         }
         
