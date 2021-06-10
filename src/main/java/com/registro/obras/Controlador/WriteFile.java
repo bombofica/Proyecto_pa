@@ -38,12 +38,12 @@ public class WriteFile {
         
             for(int indexi = 0; indexi < coleccionNacional.length; indexi++){
             
-                System.out.println("Nombre Region:" + coleccionNacional[indexi].getNombreRegion());
+                //System.out.println("Nombre Region:" + coleccionNacional[indexi].getNombreRegion());
                 
                 Obra[] pepillo =coleccionNacional[indexi].retornarArray();
             
                 for(int indexj = 0; indexj < pepillo.length ; indexj++){
-                    System.out.println('\t'+"Nombre Obra: "+pepillo[indexj].getNombreObra());
+                    //System.out.println('\t'+"Nombre Obra: "+pepillo[indexj].getNombreObra());
                         Obra currentObra = pepillo[indexj];
                         int valor = currentObra.getCodigo();
                     
@@ -224,7 +224,7 @@ public class WriteFile {
         
                 for(int indexi = 0; indexi < coleccionNacional.length; indexi++){
             
-                    System.out.println("Nombre Region:" + coleccionNacional[indexi].getNombreRegion());
+                    //System.out.println("Nombre Region:" + coleccionNacional[indexi].getNombreRegion());
                 
                     Obra[] pepillo =coleccionNacional[indexi].retornarArray();
             

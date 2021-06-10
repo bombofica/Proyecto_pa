@@ -29,7 +29,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     boolean flag;
     RegistroObras registroObr; 
-    
+  
     RegistroTrabajadores registroTra;
     
     public InterfazGrafica(RegistroTrabajadores registroTra, RegistroObras registroObr ) {
@@ -37,6 +37,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.registroObr = registroObr;
         this.registroTra = registroTra;
+        
+        
+        
         OpcionesPrincipalesFrame.setLocationRelativeTo(null);
         GestionObrasFrame.setLocationRelativeTo(null);
         AgregarObraFrame.setLocationRelativeTo(null);
@@ -1298,7 +1301,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         jLabel2.setText("Especializacion");
 
-        especializacionCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingeniero Civil", "Arquitecto", "Topografo", "Ingeniero Ambiental", "Prevencionista de Riesgos", "Obrero" }));
+        especializacionCombobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                especializacionComboboxActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Sueldo");
 
@@ -1342,11 +1349,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(AnadirEmpleadojButton3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1)
-                            .addComponent(nombreEmpleadoJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nombreEmpleadoJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(jLabel2)
-                            .addComponent(especializacionCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(especializacionCombobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(59, 59, 59)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(anadirEmpleadobtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1355,7 +1362,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextRutSDV, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(sueldoJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1378,7 +1385,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addComponent(jTextRutSDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addComponent(anadirEmpleadobtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(AnadirEmpleadojButton3)
                 .addContainerGap())
         );
@@ -2044,7 +2051,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        FiltrarObrasjFrame.setPreferredSize(new java.awt.Dimension(450, 300));
         FiltrarObrasjFrame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 FiltrarObrasjFrameWindowClosing(evt);
@@ -2320,6 +2326,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.AnadirEmpleadoToPlataform.setVisible(true);
         this.GestionEmpleadosFrame.setVisible(false);
         this.AnadirEmpleadoToPlataform.setSize(500,450);
+        
+        this.especializacionCombobox.removeAllItems();
+        registroTra.llenarComboBoxEspecialidad(this.especializacionCombobox);
     }//GEN-LAST:event_anadirEmpleadoToPlataformaActionPerformed
 
     private void mostrarEmpleadosDeUnaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarEmpleadosDeUnaObraActionPerformed
@@ -3786,6 +3795,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
         }
         System.exit(0);
     }//GEN-LAST:event_GenerarReportejFrameWindowClosing
+
+    private void especializacionComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especializacionComboboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_especializacionComboboxActionPerformed
 
 
   
