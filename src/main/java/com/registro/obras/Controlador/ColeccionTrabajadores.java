@@ -18,7 +18,12 @@ public class ColeccionTrabajadores {
     
     public ColeccionTrabajadores()
     {
-        coleccionTrabajdores = new HashMap() ; 
+        coleccionTrabajdores = new HashMap();
+        
+    }
+    
+    public void agregarColeccionPorProfesion(String nombreProfesion){
+        coleccionTrabajdores.put(nombreProfesion, new ColeccionPorProfecion(nombreProfesion));
     }
     
     public ColeccionTrabajadores(String profecion)
@@ -39,8 +44,32 @@ public class ColeccionTrabajadores {
     {        
         if(empleado != null && coleccionTrabajdores.containsKey(empleado.getLaborProfesional()))
         {
-            
+            this.coleccionTrabajdores.get(empleado.getLaborProfesional()).eliminarEmpleado(empleado);
         }
     }
+
+    public boolean agregarEspecialista(Trabajador empleado) {
+        if(empleado != null)
+        {
+            this.coleccionTrabajdores.get(empleado.getLaborProfesional()).agregarEspecialista(empleado) ;
+            return true ;
+        }
+        return false ;
+    }
     
+    public boolean existenciaEspecializacion(String especializacion)
+    {
+        if(this.coleccionTrabajdores.containsKey(especializacion)) return true ;
+            
+        return false ;
+        
+    }
+
+    public boolean existenciaEmpleado(Trabajador especialista) 
+    {
+        if(!this.coleccionTrabajdores.get(especialista.getLaborProfesional()).existenciaEmpleado(especialista)) return false ;
+        
+        return true ;
+    }
 }
+
