@@ -125,7 +125,7 @@ public class RegistroTrabajadores {
         }
         
         if(this.registroEspecializaciones.get(trabajador.getLaborProfesional()).containsKey(trabajador.getRut())){
-            System.out.println("El usuario ya se encuentra");
+            //System.out.println("El usuario ya se encuentra");
             return false;
         }
         

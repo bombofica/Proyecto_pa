@@ -57,7 +57,7 @@ public class FechaHoy {
         }
     }
     
-    public boolean verificarEstructura(char[] fechaComparar) //se debe verificar que se cumpla la estructura base dd-MM-yyyy
+    public static boolean verificarEstructura(char[] fechaComparar) //se debe verificar que se cumpla la estructura base dd-MM-yyyy
     {
         if((fechaComparar[2] != '-') || (fechaComparar[5] != '-'))
         {

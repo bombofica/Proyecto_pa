@@ -1514,11 +1514,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="AnadirEmpleadojButton3" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="nombreEmpleadoJTextField" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="nombreEmpleadoJTextField" alignment="0" pref="100" max="32767" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="especializacionCombobox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="especializacionCombobox" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1532,7 +1532,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                      <EmptySpace pref="93" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1561,7 +1561,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="anadirEmpleadobtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="58" max="32767" attributes="0"/>
+                      <EmptySpace pref="56" max="32767" attributes="0"/>
                       <Component id="AnadirEmpleadojButton3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1592,16 +1592,12 @@
             <Component class="javax.swing.JComboBox" name="especializacionCombobox">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="Ingeniero Civil"/>
-                    <StringItem index="1" value="Arquitecto"/>
-                    <StringItem index="2" value="Topografo"/>
-                    <StringItem index="3" value="Ingeniero Ambiental"/>
-                    <StringItem index="4" value="Prevencionista de Riesgos"/>
-                    <StringItem index="5" value="Obrero"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="especializacionComboboxActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
