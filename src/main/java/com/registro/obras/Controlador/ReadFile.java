@@ -89,7 +89,6 @@ public class ReadFile {
             
             int c;
             do {
-                System.out.println("asd");
                 c = entrada.read();
                 char caracter = (char) c;
                 //System.out.print((char) c);
