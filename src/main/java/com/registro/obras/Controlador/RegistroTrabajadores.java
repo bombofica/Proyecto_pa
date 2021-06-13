@@ -12,18 +12,15 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
 public class RegistroTrabajadores {
-
-    private ArrayList<Trabajador> arrayEmpleados;
+    
     private String[] especializaciones;
+    private ListaTrabajadores listadoTrabajadores ;
     private ColeccionTrabajadores coleccionTrabajadores;
-    //private HashMap<String, TreeMap<Integer,Trabajador>> registroEspecializaciones;
 
     public RegistroTrabajadores() {
 
-        this.arrayEmpleados = new ArrayList();
-
-        //this.registroEspecializaciones = new HashMap();
-        this.coleccionTrabajadores = new ColeccionTrabajadores();
+        this.listadoTrabajadores = new ListaTrabajadores() ;
+        this.coleccionTrabajadores = new ColeccionTrabajadores() ;
 
         this.especializaciones = new String[10];
         this.especializaciones[0] = new String("Ingeniero Civil");
@@ -85,34 +82,17 @@ public class RegistroTrabajadores {
         }
     }
 
-    public void llenarJTextAreaEmpleados(JTextArea jTextArea, boolean bandera) {
-
-        jTextArea.setText("");
-        if (this.arrayEmpleados.size() > 0) {
-            for (int i = 0; i < this.arrayEmpleados.size(); i++) {
-                Trabajador current = this.arrayEmpleados.get(i);
-                if (bandera) {
-
-                    jTextArea.append(current.descripcion());
-                } else {
-                    if (!current.isTrabajando()) {
-                        jTextArea.append(current.descripcion());
-                    }
-                }
-
-            }
-        }
-
+    public void llenarJTextAreaEmpleados(JTextArea jTextArea, boolean bandera) 
+    {
+        this.listadoTrabajadores.llenarJTextAreaEmpleados(jTextArea, bandera) ;
     }
 
     public boolean agregarEspecialista(Trabajador trabajador) {
         if (trabajador == null) {
             return false;
         }
-        
-        
         if( this.coleccionTrabajadores.agregarEspecialista(trabajador)){
-            this.arrayEmpleados.add(trabajador) ;
+            this.listadoTrabajadores.agregarTrabajador(trabajador) ;
             return true ;
         }
         
@@ -132,13 +112,8 @@ public class RegistroTrabajadores {
 
         empleado.setNombre(nuevoNombre);
         filtradoProfecion.setEmpleado(empleado);
-
-        for (int i = 0; i < this.arrayEmpleados.size(); i++) {
-            if (especialista.getRut() == this.arrayEmpleados.get(i).getRut()) {
-                this.arrayEmpleados.remove(i);
-                this.arrayEmpleados.add(especialista);
-            }
-        }
+        
+        this.listadoTrabajadores.modificarEmpleado(empleado) ;
         return true;
     }
 
@@ -151,14 +126,8 @@ public class RegistroTrabajadores {
         this.coleccionTrabajadores.eliminarEmpleado(especialista);
         especialista.setLaborProfesional(especialidadNueva);
         this.coleccionTrabajadores.agregarEspecialista(especialista);
-
-        for (int i = 0; i < this.arrayEmpleados.size(); i++) {
-            if (especialista.getRut() == this.arrayEmpleados.get(i).getRut()) {
-                this.arrayEmpleados.remove(i);
-                this.arrayEmpleados.add(especialista);
-            }
-        }
-
+        
+        this.listadoTrabajadores.modificarEmpleado(especialista) ;
         return true;
     }
 
@@ -176,12 +145,7 @@ public class RegistroTrabajadores {
         empleado.setSueldo(nuevoSueldo);
         filtradoProfecion.setEmpleado(empleado);
 
-        for (int i = 0; i < this.arrayEmpleados.size(); i++) {
-            if (especialista.getRut() == this.arrayEmpleados.get(i).getRut()) {
-                this.arrayEmpleados.remove(i);
-                this.arrayEmpleados.add(especialista);
-            }
-        }
+        this.listadoTrabajadores.modificarEmpleado(empleado) ;
         return true;
     }
 
@@ -198,27 +162,17 @@ public class RegistroTrabajadores {
     }
 
     public Trabajador devolverPersona(int index) {
-        return this.arrayEmpleados.get(index);
+        return this.listadoTrabajadores.retornarIndex(index) ;
     }
 
     public int numeroDeTrabajadores() {
-        return this.arrayEmpleados.size();
+        return this.listadoTrabajadores.retornarNumeroTrabajadores() ;
     }
 
     public void llenarComboBoxDePersonas(JComboBox comboBox, boolean estado) {
 
-        comboBox.removeAllItems();
-        for (int i = 0; i < this.arrayEmpleados.size(); i++) {
-
-            Persona current = this.arrayEmpleados.get(i);
-            if ((estado == false && !((Trabajador) current).isTrabajando())) {
-                comboBox.addItem(current);
-            } else if (estado == true) {
-                comboBox.addItem(current);
-            }
-
-        }
-
+        this.listadoTrabajadores.llenarComboBoxDePersonas(comboBox, estado) ;
+        
     }
 
     public void despedirEmpleadoRegistro(Obra obraActual, Trabajador empleadoActual) {
@@ -226,27 +180,18 @@ public class RegistroTrabajadores {
         ColeccionPorProfecion listadoEmpleados = this.coleccionTrabajadores.getFiltradoPorProfecion(empleadoActual.getLaborProfesional());
         empleadoActual.setTrabajando(false);
         listadoEmpleados.setEmpleado(empleadoActual);
-
-        for (int i = 0; i < this.arrayEmpleados.size(); i++) {
-            if (empleadoActual.getRut() == this.arrayEmpleados.get(i).getRut()) {
-                this.arrayEmpleados.get(i).setTrabajando(false);
-                break;
-            }
-        }
+        
+        this.listadoTrabajadores.despedirEmpleado(empleadoActual) ;
+        
     }
 
     public void eliminarEmpleado(Obra obraActual, Trabajador empleadoActual) {
 
         obraActual.despedirEmpleadoObra(empleadoActual.getRut());
 
-        obraActual.despedirEmpleadoObra(empleadoActual.getRut());
         this.coleccionTrabajadores.eliminarEmpleado(empleadoActual);
-        for (int i = 0; i < this.arrayEmpleados.size(); i++) {
-            if (empleadoActual.getRut() == this.arrayEmpleados.get(i).getRut()) {
-                this.arrayEmpleados.remove(i);
-                break;
-            }
-        }
+        this.listadoTrabajadores.eliminarEmpleado(empleadoActual) ;
+        
     }
 
     public Trabajador[] filtrarPersonas(Obra obraActual, int opcion, long parametro) {
