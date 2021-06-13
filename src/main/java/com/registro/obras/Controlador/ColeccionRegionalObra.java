@@ -31,12 +31,7 @@ public class ColeccionRegionalObra {
     public void setNombreRegion(String nombreRegion) {
         this.nombreRegion = nombreRegion;
     }
-    
-    
-    
 
-    
-    
     public boolean agregarObra(Obra obra){
         if(obra != null ){
             if(!coleccionRegional.containsKey(obra.getNombreObra())){
@@ -103,4 +98,6 @@ public class ColeccionRegionalObra {
         
         return obrasRegionales;
     }
+
+    
 }

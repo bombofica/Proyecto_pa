@@ -186,7 +186,25 @@ public class RegistroObras {
     public boolean agregarObra(Obra obraAgregar) { //Listo        
 
         if (obraAgregar != null && !existenciaObra(obraAgregar.getNombreObra())) {
+            if (obraAgregar.getCodigo() != 3) {
+                switch (obraAgregar.getCodigo()) {
+                    case 1:
+                        if (FechaHoy.verificarEstructura(((ProyectoConstruccion) obraAgregar).getTiempoRestante().toCharArray())) {
+                            this.listaCompletaInterfaz.agregarObra((ProyectoConstruccion) obraAgregar);
+                        }
+                        else return false ; 
+                        
+                        break;
 
+                    case 2:
+                        if (FechaHoy.verificarEstructura(((ProyectoRestauracion) obraAgregar).getTiempoRestante().toCharArray())) {
+                            this.listaCompletaInterfaz.agregarObra((ProyectoRestauracion) obraAgregar);
+                        }
+                        else return false ; 
+                        
+                        break;
+                }
+            }
             if (!this.coleccionGeneralObra.agregarObra(obraAgregar)) {
                 return false;
             }
@@ -194,26 +212,6 @@ public class RegistroObras {
             if (!this.coleccionNacionalObra.agregarObra(obraAgregar)) {
                 return false;
             }
-
-            if (obraAgregar.getCodigo() != 3) {
-                switch (obraAgregar.getCodigo()) {
-                    case 1:
-                        if (FechaHoy.verificarEstructura(((ProyectoConstruccion) obraAgregar).getTiempoRestante().toCharArray())) {
-                            this.listaCompletaInterfaz.agregarObra((ProyectoConstruccion) obraAgregar);
-                            //this.listaCompletaInterfaz.add((ProyectoConstruccion) obraAgregar);
-
-                        }
-                        break;
-
-                    case 2:
-                        if (FechaHoy.verificarEstructura(((ProyectoRestauracion) obraAgregar).getTiempoRestante().toCharArray())) {
-                            this.listaCompletaInterfaz.agregarObra((ProyectoRestauracion) obraAgregar);
-                            //this.listaCompletaInterfaz.add((ProyectoRestauracion) obraAgregar);
-                        }
-                        break;
-                }
-            }
-
             return true;
         }
         return false;
@@ -283,20 +281,14 @@ public class RegistroObras {
                 }
                 case 2: //Cambiar region
                 {
-
+                    if(!this.listadoRegiones.contains(nuevoDato)) return false ;
                     this.coleccionGeneralObra.eliminarObra(remplazo);
-
                     this.coleccionNacionalObra.eliminarObra(remplazo);
-
                     remplazo.setNombreLugar(nuevoDato);
 
-                    this.coleccionNacionalObra.agregarObra(remplazo);
+                    if(this.coleccionNacionalObra.agregarObra(remplazo));
                     this.coleccionGeneralObra.agregarObra(remplazo);
-                    //this.registro.remove(nombreObra);
 
-                    //                 this.regiones.get(lugar).remove(nombreObra) ;
-                    //this.registro.put(remplazo.getNombreObra(), remplazo);
-                    //                 this.regiones.get(nuevoDato).put(nombreObra, remplazo) ;
                     this.coleccionNacionalObra.obtenerColeccionRegion(lugar).agregarObra(remplazo);
 
                     WriteFile.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
@@ -377,10 +369,28 @@ public class RegistroObras {
                         ((ServicioMantencion) (remplazo)).setOperativo(true);
                     }
                 }
+                case 6:{
+                    this.coleccionGeneralObra.eliminarObra(remplazo);
+                    this.coleccionNacionalObra.eliminarObra(remplazo);
+
+                    if(remplazo.getCodigo() == 1)
+                    {
+                        ((ProyectoConstruccion)(remplazo)).setFase();
+                    }
+                    if(remplazo.getCodigo() == 2)
+                    {
+                        ((ProyectoRestauracion)(remplazo)).setFase();
+                    }
+                    this.coleccionNacionalObra.agregarObra(remplazo);
+                    this.coleccionGeneralObra.agregarObra(remplazo);
+                    WriteFile.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
+                    WriteFile.escribirObras(',', registroActual);
+                    return true;
+                }
 
             }
 
-            WriteFile.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
+            WriteFile.eliminarDefinitivo(new File("RegistroObras//" + remplazo.getNombreLugar() + "//" + remplazo.getNombreObra()));
             WriteFile.escribirObras(',', registroActual);
             return true;
         }
@@ -440,4 +450,5 @@ public class RegistroObras {
         return this.coleccionGeneralObra.numeroObras();
     }
 
+    
 }

@@ -3024,7 +3024,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
             {
                 this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getPresupuesto()+'\n');
                 this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getTiempoRestante()+'\n');
-               // this.cambiarDatojTextArea1.append("Fase: "+((ProyectoRestauracion)(obraActual)).getFaseActual()+'\n');
+
+                this.cambiarDatojTextArea1.append("Fase: "+((ProyectoRestauracion)(obraActual)).getFaseActual()+'\n');
+
             }
             if(obraActual.getCodigo() == 3)
             {
