@@ -2351,6 +2351,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 

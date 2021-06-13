@@ -23,12 +23,13 @@ public class RegistroObras {
     private ArrayList<String> listadoRegiones;
     private ColeccionNacionalObra coleccionNacionalObra;
     private ColeccionGeneralObra coleccionGeneralObra;
-
-    public ArrayList<ProyectoReportable> listaCompletaInterfaz;
+    public ListaProyectoInterfaz listaCompletaInterfaz;
+    //public ArrayList<ProyectoReportable> listaCompletaInterfaz;
 
     public RegistroObras() {
         this.listadoRegiones = new ArrayList();
-        this.listaCompletaInterfaz = new ArrayList();
+        this.listaCompletaInterfaz = new ListaProyectoInterfaz();
+        //this.listaCompletaInterfaz = new ArrayList();
         this.coleccionNacionalObra = new ColeccionNacionalObra();
         this.coleccionGeneralObra = new ColeccionGeneralObra();
         llenarArray();
@@ -37,12 +38,12 @@ public class RegistroObras {
             this.coleccionNacionalObra.agregarColeccionRegional(listadoRegiones.get(i));
         }
     }
-  
+
     public Obra retornarObra(int index) {
 
         return this.coleccionGeneralObra.retornarObra(index);//listaCompleta.get(index);
     }
- 
+
     public Obra retornarObra(String nombreObra) {
 
         if (this.existenciaObra(nombreObra)) {
@@ -81,12 +82,14 @@ public class RegistroObras {
 
 // modificar    
     public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra) {
-        comboBoxObra.removeAllItems();
+
+        this.listaCompletaInterfaz.llenarComboBoxObrasInterfaz(comboBoxObra);
+        /*comboBoxObra.removeAllItems();
         ProyectoReportable current;
         for (int i = 0; i < listaCompletaInterfaz.size(); i++) {
             current = listaCompletaInterfaz.get(i);
             comboBoxObra.addItem((ProyectoReportable) current);
-        }
+        }*/
     }
 
     public void llenarComboBoxObras(JComboBox<Obra> comboBoxObra, String region, boolean bandera) {
@@ -196,13 +199,16 @@ public class RegistroObras {
                 switch (obraAgregar.getCodigo()) {
                     case 1:
                         if (FechaHoy.verificarEstructura(((ProyectoConstruccion) obraAgregar).getTiempoRestante().toCharArray())) {
-                            this.listaCompletaInterfaz.add((ProyectoConstruccion) obraAgregar);
+                            this.listaCompletaInterfaz.agregarObra((ProyectoConstruccion) obraAgregar);
+                            //this.listaCompletaInterfaz.add((ProyectoConstruccion) obraAgregar);
+
                         }
                         break;
 
                     case 2:
                         if (FechaHoy.verificarEstructura(((ProyectoRestauracion) obraAgregar).getTiempoRestante().toCharArray())) {
-                            this.listaCompletaInterfaz.add((ProyectoRestauracion) obraAgregar);
+                            this.listaCompletaInterfaz.agregarObra((ProyectoRestauracion) obraAgregar);
+                            //this.listaCompletaInterfaz.add((ProyectoRestauracion) obraAgregar);
                         }
                         break;
                 }
@@ -233,10 +239,11 @@ public class RegistroObras {
 
             coleccionNacionalObra.eliminarObra(ObraEliminar);
             this.coleccionGeneralObra.eliminarObra(ObraEliminar);
-            this.listaCompletaInterfaz.remove((ProyectoReportable) ObraEliminar);
+            this.listaCompletaInterfaz.eliminarObra((ProyectoReportable) ObraEliminar);
+            //this.listaCompletaInterfaz.remove((ProyectoReportable) ObraEliminar);
 
-            WriteFile.eliminarDefinitivo(new File("RegistroObras//" + ObraEliminar.getNombreLugar() + "//" + ObraEliminar.getNombreObra()));
-            WriteFile.escribirObras(',', registroObras);
+            //WriteFile.eliminarDefinitivo(new File("RegistroObras//" + ObraEliminar.getNombreLugar() + "//" + ObraEliminar.getNombreObra()));
+            //WriteFile.escribirObras(',', registroObras);
 
             //return this.registro.size();
             return this.coleccionGeneralObra.numeroObras();
