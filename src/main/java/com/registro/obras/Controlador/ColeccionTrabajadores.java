@@ -26,10 +26,7 @@ public class ColeccionTrabajadores {
         coleccionTrabajdores.put(nombreProfesion, new ColeccionPorProfesion(nombreProfesion));
     }
     
-    public ColeccionTrabajadores(String profecion)
-    {
-        coleccionTrabajdores.put(profecion, new ColeccionPorProfesion(profecion));
-    }
+
     
     public ColeccionPorProfesion getFiltradoPorProfesion(String profecion)
     {

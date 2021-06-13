@@ -2405,7 +2405,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         {
             case 1:
             {
-                ProyectoConstruccion nuevaObra = new ProyectoConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
+                ProyectoConstruccion nuevaObra = new ProyectoConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto,0) ;
                 if(!this.registroObr.agregarObra(nuevaObra))
                 {
                     JOptionPane.showMessageDialog(rootPane, "ERROR verifique la estructura de la fecha y recuerde que no puede repetir nombre de obras ");
@@ -2418,7 +2418,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
             case 2:
             {
                 
-                ProyectoRestauracion nuevaObra = new ProyectoRestauracion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto) ;
+                ProyectoRestauracion nuevaObra = new ProyectoRestauracion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto,0) ;
                 if(!this.registroObr.agregarObra(nuevaObra))
                 {
                     JOptionPane.showMessageDialog(rootPane, "ERROR verifique la estructura de la fecha y recuerde que no puede repetir nombre de obras");
@@ -2471,7 +2471,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         
         comboBoxMoverEInicial.removeAllItems();
         
-        this.comboBoxMoverEInicial.addItem(new ProyectoConstruccion("Sin Obra","Metropolitana","",225));
+        this.comboBoxMoverEInicial.addItem(new ProyectoConstruccion("Sin Obra","Metropolitana","",225,0));
         this.registroTra.llenarComboBoxDePersonas(this.comboBoxMoverEmpleado, false);
         
         this.registroObr.llenarComboBoxObras(this.comboBoxMoverEInicial,true);
@@ -3024,7 +3024,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
             {
                 this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getPresupuesto()+'\n');
                 this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getTiempoRestante()+'\n');
+
                 this.cambiarDatojTextArea1.append("Fase: "+((ProyectoRestauracion)(obraActual)).getFaseActual()+'\n');
+
             }
             if(obraActual.getCodigo() == 3)
             {

@@ -19,12 +19,12 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     //private PoderInforme informes;
 
     //Constructor
-    public ProyectoConstruccion(String nombreObra, String nombreRegion,String tiempoAsignado,long presupuesto)
+    public ProyectoConstruccion(String nombreObra, String nombreRegion,String tiempoAsignado,long presupuesto, int fase)
     {
         super(nombreObra, nombreRegion, 1) ;
         this.presupuesto = presupuesto ;
         this.fechaEntrega = tiempoAsignado ;
-        this.fase = 0;
+        this.fase = fase;
         this.fasesConstruccion = new ArrayList();
         llenarArrayFases() ;
     }
