@@ -51,7 +51,7 @@ public class RegistroTrabajadores {
 
     public void llenarJTextAreaEspecialidad(JTextArea jTextArea, String especialidad, int valor) {
 
-        ColeccionPorProfecion filtradoProfecion = this.coleccionTrabajadores.getFiltradoPorProfecion(especialidad);
+        ColeccionPorProfesion filtradoProfecion = this.coleccionTrabajadores.getFiltradoPorProfesion(especialidad);
 
         Trabajador[] listaEmpleados = filtradoProfecion.getListado();
         if (listaEmpleados != null) {
@@ -91,9 +91,14 @@ public class RegistroTrabajadores {
         if (trabajador == null) {
             return false;
         }
-        if( this.coleccionTrabajadores.agregarEspecialista(trabajador)){
+        if(!this.coleccionTrabajadores.existenciaEmpleado(trabajador)){
+            this.coleccionTrabajadores.agregarEspecialista(trabajador);
             this.listadoTrabajadores.agregarTrabajador(trabajador) ;
             return true ;
+        }
+        else
+        {
+            System.out.println("El usuario ya se encuentra papurri");
         }
         
         return false ;
@@ -102,18 +107,18 @@ public class RegistroTrabajadores {
     public boolean modificarEspecialistaNombre(Trabajador especialista, String nuevoNombre) {
 
         int rut = especialista.getRut();
-        ColeccionPorProfecion filtradoProfecion;
-        filtradoProfecion = this.coleccionTrabajadores.getFiltradoPorProfecion(especialista.getLaborProfesional());
+        ColeccionPorProfesion filtradoProfesion;
+        filtradoProfesion = this.coleccionTrabajadores.getFiltradoPorProfesion(especialista.getLaborProfesional());
 
-        Trabajador empleado = filtradoProfecion.getEmpleado(rut);
+        Trabajador empleado = filtradoProfesion.getEmpleado(rut);
         if (empleado == null) {
             return false;
         }
 
         empleado.setNombre(nuevoNombre);
-        filtradoProfecion.setEmpleado(empleado);
+        filtradoProfesion.setEmpleado(empleado);
         
-        this.listadoTrabajadores.modificarEmpleado(empleado) ;
+        //this.listadoTrabajadores.modificarEmpleado(empleado) ;
         return true;
     }
 
@@ -127,31 +132,31 @@ public class RegistroTrabajadores {
         especialista.setLaborProfesional(especialidadNueva);
         this.coleccionTrabajadores.agregarEspecialista(especialista);
         
-        this.listadoTrabajadores.modificarEmpleado(especialista) ;
+        //this.listadoTrabajadores.modificarEmpleado(especialista) ;
         return true;
     }
 
     public boolean modificarEspecialistaSueldo(Trabajador especialista, int nuevoSueldo) {
 
         int rut = especialista.getRut();
-        ColeccionPorProfecion filtradoProfecion;
-        filtradoProfecion = this.coleccionTrabajadores.getFiltradoPorProfecion(especialista.getLaborProfesional());
+        ColeccionPorProfesion filtradoProfesion;
+        filtradoProfesion = this.coleccionTrabajadores.getFiltradoPorProfesion(especialista.getLaborProfesional());
 
-        Trabajador empleado = filtradoProfecion.getEmpleado(rut);
+        Trabajador empleado = filtradoProfesion.getEmpleado(rut);
         if (empleado == null) {
             return false;
         }
 
         empleado.setSueldo(nuevoSueldo);
-        filtradoProfecion.setEmpleado(empleado);
+        filtradoProfesion.setEmpleado(empleado);
 
-        this.listadoTrabajadores.modificarEmpleado(empleado) ;
+        //this.listadoTrabajadores.modificarEmpleado(empleado) ;
         return true;
     }
 
     public Trabajador buscarEspecialista(String especialidad, int rut) {
 
-        ColeccionPorProfecion listadoEmpleados = this.coleccionTrabajadores.getFiltradoPorProfecion(especialidad);
+        ColeccionPorProfesion listadoEmpleados = this.coleccionTrabajadores.getFiltradoPorProfesion(especialidad);
         Trabajador empleado = listadoEmpleados.getEmpleado(rut);
 
         if (empleado == null) {
@@ -177,7 +182,7 @@ public class RegistroTrabajadores {
 
     public void despedirEmpleadoRegistro(Obra obraActual, Trabajador empleadoActual) {
         obraActual.despedirEmpleadoObra(empleadoActual.getRut());
-        ColeccionPorProfecion listadoEmpleados = this.coleccionTrabajadores.getFiltradoPorProfecion(empleadoActual.getLaborProfesional());
+        ColeccionPorProfesion listadoEmpleados = this.coleccionTrabajadores.getFiltradoPorProfesion(empleadoActual.getLaborProfesional());
         empleadoActual.setTrabajando(false);
         listadoEmpleados.setEmpleado(empleadoActual);
         

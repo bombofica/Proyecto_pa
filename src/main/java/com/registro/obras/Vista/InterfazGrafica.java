@@ -279,6 +279,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 OpcionesPrincipalesFrameWindowClosed(evt);
             }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                OpcionesPrincipalesFrameWindowClosing(evt);
+            }
         });
 
         GestionObras.setText("Gestión de Obras");
@@ -2221,6 +2224,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
             );
 
             setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+            addWindowListener(new java.awt.event.WindowAdapter() {
+                public void windowClosing(java.awt.event.WindowEvent evt) {
+                    formWindowClosing(evt);
+                }
+            });
 
             jPanel1.setBackground(new java.awt.Color(255, 203, 123));
             jPanel1.setPreferredSize(new java.awt.Dimension(430, 275));
@@ -3820,6 +3828,30 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void especializacionComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especializacionComboboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_especializacionComboboxActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);        
+    }//GEN-LAST:event_formWindowClosing
+
+    private void OpcionesPrincipalesFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_OpcionesPrincipalesFrameWindowClosing
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            WriteFile.escribirObras(',', this.registroObr);
+            WriteFile.imprimirTodasLasPersonas(registroTra);
+        } catch (IOException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);          
+    }//GEN-LAST:event_OpcionesPrincipalesFrameWindowClosing
 
 
   

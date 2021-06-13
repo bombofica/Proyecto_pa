@@ -13,13 +13,13 @@ import java.util.TreeMap;
  *
  * @author Ceseo
  */
-public class ColeccionPorProfecion {
+public class ColeccionPorProfesion {
 
     //hashmap(String, treemap) -> treemap (integer,trabajador)
     private String profecion;
     private TreeMap<Integer, Trabajador> listadoEmpleados;
 
-    public ColeccionPorProfecion(String profecion) {
+    public ColeccionPorProfesion(String profecion) {
         this.profecion = profecion;
         this.listadoEmpleados = new TreeMap();
     }
