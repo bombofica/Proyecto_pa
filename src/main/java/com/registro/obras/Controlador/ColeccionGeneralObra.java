@@ -44,9 +44,9 @@ public class ColeccionGeneralObra {
     }
 
     public Boolean existenciaObra(String obra) {
-        //System.out.println(obra);
-        Obra verificador = this.registro.get(obra);
-        return verificador != null;
+        //Obra verificador = this.registro.get(obra);
+        
+        return this.registro.containsKey(obra) ;
     }
 
     public boolean agregarObra(Obra obraAgregar) { //Listo
@@ -243,5 +243,7 @@ public class ColeccionGeneralObra {
     public int numeroObras(){
         return this.registro.size();
     }
+
+    
 
 }
