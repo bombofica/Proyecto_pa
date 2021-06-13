@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class ColeccionTrabajadores {
     
-    private HashMap<String, ColeccionPorProfecion> coleccionTrabajdores;
+    private HashMap<String, ColeccionPorProfesion> coleccionTrabajdores;
     
     public ColeccionTrabajadores()
     {
@@ -23,15 +23,15 @@ public class ColeccionTrabajadores {
     }
     
     public void agregarColeccionPorProfesion(String nombreProfesion){
-        coleccionTrabajdores.put(nombreProfesion, new ColeccionPorProfecion(nombreProfesion));
+        coleccionTrabajdores.put(nombreProfesion, new ColeccionPorProfesion(nombreProfesion));
     }
     
     public ColeccionTrabajadores(String profecion)
     {
-        coleccionTrabajdores.put(profecion, new ColeccionPorProfecion(profecion));
+        coleccionTrabajdores.put(profecion, new ColeccionPorProfesion(profecion));
     }
     
-    public ColeccionPorProfecion getFiltradoPorProfecion(String profecion)
+    public ColeccionPorProfesion getFiltradoPorProfesion(String profecion)
     {
         if(coleccionTrabajdores.containsKey(profecion))
         {
@@ -49,6 +49,7 @@ public class ColeccionTrabajadores {
     }
 
     public boolean agregarEspecialista(Trabajador empleado) {
+        
         if(empleado != null)
         {
             this.coleccionTrabajdores.get(empleado.getLaborProfesional()).agregarEspecialista(empleado) ;

@@ -33,6 +33,7 @@ public class ListaTrabajadores {
             if (empleado.getRut() == this.listaTrabajadores.get(i).getRut()) {
                 this.listaTrabajadores.remove(i);
                 this.listaTrabajadores.add(empleado);
+                break;
             }
         }
     }
