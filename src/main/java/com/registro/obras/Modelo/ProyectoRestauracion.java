@@ -24,12 +24,12 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
     private ArrayList<String> fasesRestauracion;
     //PoderInforme informes;
     
-    public ProyectoRestauracion(String nombreObra, String nombreRegion, String tiempoAsignado, long presupuesto)
+    public ProyectoRestauracion(String nombreObra, String nombreRegion, String tiempoAsignado, long presupuesto, int fase)
     {
         super(nombreObra, nombreRegion, 2) ;
         this.presupuesto = presupuesto ;
         this.tiempoRestante = tiempoAsignado ;
-        this.fase = 0;
+        this.fase = fase;
         this.fasesRestauracion = new ArrayList();
         llenarArrayFases() ;
     }

@@ -70,7 +70,7 @@ public class RegistroObras {
         comboBoxObra.removeAllItems();
 
         if (bandera == true) {
-            comboBoxObra.addItem(new ProyectoConstruccion("Sin Obra", "Metropolitana", "25-11-2056", 556));
+            comboBoxObra.addItem(new ProyectoConstruccion("Sin Obra", "Metropolitana", "25-11-2056", 556,0));
         }
 
         Obra current;
