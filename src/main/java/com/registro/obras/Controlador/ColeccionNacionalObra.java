@@ -18,10 +18,12 @@ public class ColeccionNacionalObra {
         coleccionNacional = new HashMap();
     }
     
+    // agrega una ColeccionRegionalObra segun sea la región
     public void agregarColeccionRegional(String nombre){
         coleccionNacional.put(nombre,new ColeccionRegionalObra(nombre));
     }
-    
+    /*Esta funcion se utiliza para obtener una instancia de ColeccionRegionalObra para que sea mas facil retornar
+    una instancia de la clase Obra*/
     public ColeccionRegionalObra obtenerColeccionRegion(String nombreRegion){
         if(coleccionNacional.containsKey(nombreRegion)){
             return coleccionNacional.get(nombreRegion);
@@ -40,14 +42,15 @@ public class ColeccionNacionalObra {
         return false;
      
     }
-    
+    /* Elimina una Obra del registro a traves de una instancia de clase de ColeccionRegionalObra*/
     public void eliminarObra(Obra obra){
         
         if(obra != null && coleccionNacional.containsKey(obra.getNombreLugar())){
             this.coleccionNacional.get(obra.getNombreLugar()).eliminarObra(obra);
         }
     }
-    
+    /*Retorna un Array de objetos de tipo ColeccionRegionalObra, la existencia de esta funcion permite una mayor facilidad
+    de acceso a los objetos tipo Obra a la hora de escribirlos en un archivo de texto*/
     public ColeccionRegionalObra[] retornarColeccionNacional(){
         ColeccionRegionalObra [] coleccion = new ColeccionRegionalObra[this.coleccionNacional.size()];
 
@@ -65,7 +68,4 @@ public class ColeccionNacionalObra {
         return coleccion;
     }
 
-  
-    
-    
 }

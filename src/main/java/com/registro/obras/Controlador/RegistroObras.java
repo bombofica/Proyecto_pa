@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.registro.obras.Controlador;
 
 import com.registro.obras.Modelo.*;
@@ -24,12 +19,10 @@ public class RegistroObras {
     private ColeccionNacionalObra coleccionNacionalObra;
     private ColeccionGeneralObra coleccionGeneralObra;
     public ListaProyectoInterfaz listaCompletaInterfaz;
-    //public ArrayList<ProyectoReportable> listaCompletaInterfaz;
 
     public RegistroObras() {
         this.listadoRegiones = new ArrayList();
         this.listaCompletaInterfaz = new ListaProyectoInterfaz();
-        //this.listaCompletaInterfaz = new ArrayList();
         this.coleccionNacionalObra = new ColeccionNacionalObra();
         this.coleccionGeneralObra = new ColeccionGeneralObra();
         llenarArray();
@@ -39,6 +32,8 @@ public class RegistroObras {
         }
     }
 
+// Las funciones retornarObra, retornan la Obra que ha sido pedida por el usuario o por el indice del "ArrayList" que 
+// está en la clase ColeccionGeneral o por su nombre y región Correspondiente
     public Obra retornarObra(int index) {
 
         return this.coleccionGeneralObra.retornarObra(index);//listaCompleta.get(index);
@@ -54,14 +49,23 @@ public class RegistroObras {
     }
 
     public Obra retornarObra(String nombre, String nombreRegion) {
+        
         return this.coleccionNacionalObra.obtenerColeccionRegion(nombreRegion).obtenerObra(nombre);
     }
 
+    /* retorna el tipo de la Obra, puede tomar 3 valores
+    1: si es un ProyectoConstruccion
+    2: Si es un ProyectoRestauración
+    3; si es un ServicioMantencion
+    
+     */
     public int retornarTipoObra(String nombreObra) {
         Obra obraEvaluar = this.retornarObra(nombreObra);
         return obraEvaluar.getCodigo();
     }
 
+    /*Retorna un Array con todas las Obras, tiene como proposito que la Clase que esté utilizando 
+    este metodo pueda acceder a todas las Obras de forma mas facil*/
     public ColeccionRegionalObra[] obtenerColeccionNacionalArray() {
         return this.coleccionNacionalObra.retornarColeccionNacional();
     }
@@ -70,7 +74,7 @@ public class RegistroObras {
         comboBoxObra.removeAllItems();
 
         if (bandera == true) {
-            comboBoxObra.addItem(new ProyectoConstruccion("Sin Obra", "Metropolitana", "25-11-2056", 556,0));
+            comboBoxObra.addItem(new ProyectoConstruccion("Sin Obra", "Metropolitana", "25-11-2056", 556, 0));
         }
 
         Obra current;
@@ -80,7 +84,7 @@ public class RegistroObras {
         }
     }
 
-// modificar    
+// Las siguientes funciones llenan los combobox de la interfaz grafica   
     public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra) {
 
         this.listaCompletaInterfaz.llenarComboBoxObrasInterfaz(comboBoxObra);
@@ -144,7 +148,9 @@ public class RegistroObras {
         }
 
     }
-    
+
+    // no se utiliza, pero es propensa a utilizarse
+
     public void llenarComboBoxEmpleadosRegistro(JComboBox<Persona> comboBoxObra, String nombreObra, int contadorObras) {
 
         Obra obraSeleccionada = this.coleccionGeneralObra.retornarObra(nombreObra);// this.registro.get(nombreObra);
@@ -169,6 +175,11 @@ public class RegistroObras {
 
     
 
+    /*retorna true si la obra ya existe en el Registro*/
+    public Boolean existenciaObra(String obra) {
+        return this.coleccionGeneralObra.existenciaObra(obra);
+    }
+
     public void llenarJTextAreaEmpleadosRegistro(JTextArea jTextArea, int valor, String nombreObra) {
         Obra obraSeleccionada = this.coleccionGeneralObra.retornarObra(nombreObra);//this.registro.get(nombreObra);
         if (obraSeleccionada != null) {
@@ -180,6 +191,7 @@ public class RegistroObras {
         return nombreObra.gastosObra();
     }
 
+    /* Agrega una obra al registroObras*/
     public boolean agregarObra(Obra obraAgregar) { //Listo        
 
         if (obraAgregar != null && !existenciaObra(obraAgregar.getNombreObra())) {
@@ -188,17 +200,19 @@ public class RegistroObras {
                     case 1:
                         if (FechaHoy.verificarEstructura(((ProyectoConstruccion) obraAgregar).getTiempoRestante().toCharArray())) {
                             this.listaCompletaInterfaz.agregarObra((ProyectoConstruccion) obraAgregar);
+                        } else {
+                            return false;
                         }
-                        else return false ; 
-                        
+
                         break;
 
                     case 2:
                         if (FechaHoy.verificarEstructura(((ProyectoRestauracion) obraAgregar).getTiempoRestante().toCharArray())) {
                             this.listaCompletaInterfaz.agregarObra((ProyectoRestauracion) obraAgregar);
+                        } else {
+                            return false;
                         }
-                        else return false ; 
-                        
+
                         break;
                 }
             }
@@ -209,16 +223,20 @@ public class RegistroObras {
             if (!this.coleccionNacionalObra.agregarObra(obraAgregar)) {
                 return false;
             }
+
+            this.contadorObras++;
             return true;
         }
         return false;
     }
 
+    /*Filtra un conjunto de obras, estas obras tienen que estar dentro de cierto rango*/
     public Obra[] filtrarObrasPresupuesto(long parametro, int opcion) {
 
         return this.coleccionGeneralObra.filtrarObrasPresupuesto(parametro, opcion);
     }
 
+    /*Filtra un conjunto de obras, la obra escogida es la que tiene mayor o menor presupuesto, segun sea la opcion*/
     public Obra filtrarObrasPresupuesto(int opcion) {
 
         return this.coleccionGeneralObra.filtrarObrasPresupuesto(opcion);
@@ -235,12 +253,7 @@ public class RegistroObras {
             coleccionNacionalObra.eliminarObra(ObraEliminar);
             this.coleccionGeneralObra.eliminarObra(ObraEliminar);
             this.listaCompletaInterfaz.eliminarObra((ProyectoReportable) ObraEliminar);
-            //this.listaCompletaInterfaz.remove((ProyectoReportable) ObraEliminar);
-
-            //WriteFile.eliminarDefinitivo(new File("RegistroObras//" + ObraEliminar.getNombreLugar() + "//" + ObraEliminar.getNombreObra()));
-            //WriteFile.escribirObras(',', registroObras);
-
-            //return this.registro.size();
+            this.contadorObras--;
             return this.coleccionGeneralObra.numeroObras();
         }
         return -1;
@@ -278,12 +291,14 @@ public class RegistroObras {
                 }
                 case 2: //Cambiar region
                 {
-                    if(!this.listadoRegiones.contains(nuevoDato)) return false ;
+                    if (!this.listadoRegiones.contains(nuevoDato)) {
+                        return false;
+                    }
                     this.coleccionGeneralObra.eliminarObra(remplazo);
                     this.coleccionNacionalObra.eliminarObra(remplazo);
                     remplazo.setNombreLugar(nuevoDato);
 
-                    if(this.coleccionNacionalObra.agregarObra(remplazo));
+                    if (this.coleccionNacionalObra.agregarObra(remplazo));
                     this.coleccionGeneralObra.agregarObra(remplazo);
 
                     this.coleccionNacionalObra.obtenerColeccionRegion(lugar).agregarObra(remplazo);
@@ -366,17 +381,15 @@ public class RegistroObras {
                         ((ServicioMantencion) (remplazo)).setOperativo(true);
                     }
                 }
-                case 6:{
+                case 6: {
                     this.coleccionGeneralObra.eliminarObra(remplazo);
                     this.coleccionNacionalObra.eliminarObra(remplazo);
 
-                    if(remplazo.getCodigo() == 1)
-                    {
-                        ((ProyectoConstruccion)(remplazo)).setFase();
+                    if (remplazo.getCodigo() == 1) {
+                        ((ProyectoConstruccion) (remplazo)).setFase();
                     }
-                    if(remplazo.getCodigo() == 2)
-                    {
-                        ((ProyectoRestauracion)(remplazo)).setFase();
+                    if (remplazo.getCodigo() == 2) {
+                        ((ProyectoRestauracion) (remplazo)).setFase();
                     }
                     this.coleccionNacionalObra.agregarObra(remplazo);
                     this.coleccionGeneralObra.agregarObra(remplazo);
@@ -386,7 +399,7 @@ public class RegistroObras {
                 }
 
             }
-
+            /*Imprime en la base de datos para actualizar la informacion*/
             WriteFile.eliminarDefinitivo(new File("RegistroObras//" + remplazo.getNombreLugar() + "//" + remplazo.getNombreObra()));
             WriteFile.escribirObras(',', registroActual);
             return true;
@@ -400,7 +413,7 @@ public class RegistroObras {
 
     }
 
-// modificar    
+    // Retorna los gastos previstos de una Obra, con la informacion que entrega se puede inferir más facilmente si una obra produce perdidas o ganancias
     public long gatosTotales() {
 
         return this.coleccionGeneralObra.gatosTotales();
@@ -432,10 +445,10 @@ public class RegistroObras {
         this.listadoRegiones.add("Ñuble");
     }
 
+    // verifica si existe la region que ha sido ingresada por el usuario
     boolean existenciaRegion(String nombre) {
         for (int i = 0; i < this.listadoRegiones.size(); i++) {
             if (nombre.equals(this.listadoRegiones.get(i))) {
-                //System.out.println(nombre +" "+ listadoRegiones.get(i));
                 return true;
             }
         }
@@ -443,9 +456,7 @@ public class RegistroObras {
     }
 
     long numeroObras() {
-        //System.out.println(this.registro.size());
         return this.coleccionGeneralObra.numeroObras();
     }
 
-    
 }

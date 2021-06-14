@@ -7,11 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
 //import java.util.Iterator;
-//crear un getEmpleados y mover los metodos a registroObras
-//crear un getEmpleados y mover los metodos a registroObras
-//crear un getEmpleados y mover los metodos a registroObras
-//crear un getEmpleados y mover los metodos a registroObras
-//crear un getEmpleados y mover los metodos a registroObras
+
 
 public abstract class Obra {
     

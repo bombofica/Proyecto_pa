@@ -8,7 +8,6 @@ package com.registro.obras.Controlador;
 import com.registro.obras.Modelo.Obra;
 import com.registro.obras.Modelo.ProyectoConstruccion;
 import com.registro.obras.Modelo.ProyectoRestauracion;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -93,8 +92,7 @@ public class ColeccionGeneralObra {
         }
         return null;
     }
-    
-    
+
     public Obra filtrarObrasPresupuesto(int opcion) {
         int i;
         Obra obraSeleccionada = null;
@@ -183,19 +181,18 @@ public class ColeccionGeneralObra {
 
         return null;
     }
-    
-    
+
     public int eliminarObra(Obra obraEliminar) throws IOException //Listo
     {
         //en el archivo se elimina la obra original y se vuelve a crear el registro sin esta
-        if (existenciaObra(obraEliminar.getNombreObra())) {            
+        if (existenciaObra(obraEliminar.getNombreObra())) {
             this.registro.remove(obraEliminar.getNombreObra());
             this.listaCompleta.remove(obraEliminar);
-            return this.registro.size();   
+            return this.registro.size();
         }
         return -1;
     }
-    
+
     public void presupuestoGeneral() //presupuesto total de la compañia
     {
         Obra obraActual;
@@ -208,7 +205,7 @@ public class ColeccionGeneralObra {
         }
         System.out.println(balanceTotal);
     }
-    
+
     public long presupuestoGeneral(String nombreObra) //presupuesto particular de una obra
     {
         Obra obraEvaluar;
@@ -221,7 +218,7 @@ public class ColeccionGeneralObra {
         //balance = (long) (obraEvaluar.getPresupuestoObra() - balance) ;
         return balance;
     }
-    
+
     public long gatosTotales() {
         long gastos = 0;
         for (int i = 0; i < listaCompleta.size(); i++) {
@@ -237,11 +234,9 @@ public class ColeccionGeneralObra {
         }
         return ingresos;
     }
-    
-    public int numeroObras(){
+
+    public int numeroObras() {
         return this.registro.size();
     }
-
-    
 
 }

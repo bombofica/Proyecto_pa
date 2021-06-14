@@ -1,13 +1,7 @@
 package com.registro.obras.Controlador;
 
-import com.registro.obras.Modelo.Persona;
-import com.registro.obras.Modelo.Obra;
-import com.registro.obras.Modelo.Trabajador;
-import java.util.HashMap;
+import com.registro.obras.Modelo.*;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.TreeMap;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
@@ -98,7 +92,10 @@ public class RegistroTrabajadores {
             this.coleccionTrabajadores.agregarEspecialista(trabajador);
             this.listadoTrabajadores.agregarTrabajador(trabajador) ;
             return true ;
-        }        
+
+        }
+        
+
         return false ;
     }
 
