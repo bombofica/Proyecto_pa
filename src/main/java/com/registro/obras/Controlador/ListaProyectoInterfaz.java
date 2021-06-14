@@ -16,8 +16,8 @@ import javax.swing.JComboBox;
 public class ListaProyectoInterfaz {
 
     public ArrayList<ProyectoReportable> listaCompletaInterfaz;
-    
-    public ListaProyectoInterfaz(){
+
+    public ListaProyectoInterfaz() {
         this.listaCompletaInterfaz = new ArrayList();
     }
 
@@ -41,9 +41,9 @@ public class ListaProyectoInterfaz {
             this.listaCompletaInterfaz.add(obraAgregar);
         }
     }
-    
-    public void eliminarObra(ProyectoReportable proyecto){
-        if(proyecto != null){
+
+    public void eliminarObra(ProyectoReportable proyecto) {
+        if (proyecto != null) {
             this.listaCompletaInterfaz.remove(proyecto);
         }
     }

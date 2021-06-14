@@ -42,20 +42,7 @@ public class ReadFile {
             ReadFile.obtenerValoresSeparados(texto.get(i));
             //System.out.println(texto.get(i));
         }
-        //System.out.print(texto);
-        
-        /*try {
-            FileReader entrada = new FileReader(direccion,StandardCharsets.UTF_8);
-            int c = 5;
-            while (c != -1) {
-                c = entrada.read();
-                char caracter = (char) c;
-                System.out.print(caracter);
-            }
-            entrada.close();
-        } catch (IOException e) {
-            System.out.println("El fichero no existe");
-        }*/
+
     }
     
     /* El método "tomarContenidosPersonas" lee el archivo que corresponde a los empleados de una Obra o de la lista con 
@@ -68,10 +55,7 @@ public class ReadFile {
         String[] valores = new String[num];// para almacenar los datos que se encuentran en una linea
         Trabajador currentPersona;
         int cont = 0;
-        
-        
-        //System.out.println("xd");
-        //BufferedReader lectorql = new BufferedReader (new InputStreamReader(System.in));
+
         
         try{
         // Verifica si el txt de los empleados de una obra tiene Personas, si no tiene
@@ -82,7 +66,7 @@ public class ReadFile {
                 return;
             }
         }
-        //System.out.println("xd");
+     
             File ruta = new File(direccion);
         
             FileReader entrada = new FileReader(ruta, StandardCharsets.ISO_8859_1);
@@ -91,7 +75,7 @@ public class ReadFile {
             do {
                 c = entrada.read();
                 char caracter = (char) c;
-                //System.out.print((char) c);
+      
                 //En este if se verifica si el caracter es un salto de linea o se ha terminado el archivo
                 if ((caracter == separador)) {
                     cont++;
