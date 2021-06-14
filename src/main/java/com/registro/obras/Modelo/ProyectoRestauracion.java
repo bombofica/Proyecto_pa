@@ -56,7 +56,10 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
     }
 
     public void setFase() {
-        this.fase++ ;
+        if(fase != 5)
+        {
+            this.fase++ ;
+        }
     }
     
     @Override

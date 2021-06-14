@@ -54,7 +54,10 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     }
 
     public void setFase() {
-        this.fase++ ;
+        if(fase != 5)
+        {
+            this.fase++ ;
+        }
     }
     
     //metodos publicos

@@ -88,6 +88,20 @@ public class RegistroObras {
     public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra) {
 
         this.listaCompletaInterfaz.llenarComboBoxObrasInterfaz(comboBoxObra);
+    }
+    
+    public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra, String region) {
+
+            if (region.equals("Todas las regiones") || (region == null)) {
+                llenarComboBoxObrasInterfaz(comboBoxObra);
+                return;
+            }
+
+            ColeccionRegionalObra coleccionRegional = this.coleccionNacionalObra.obtenerColeccionRegion(region);
+
+            comboBoxObra.removeAllItems();
+
+            coleccionRegional.llenarComboBoxObrasInterfaz(comboBoxObra);
 
     }
 
@@ -106,21 +120,7 @@ public class RegistroObras {
     }
 
 //modificar    
-    public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra, String region) {
-
-        if (region.equals("Todas las regiones") || (region == null)) {
-            llenarComboBoxObrasInterfaz(comboBoxObra);
-            return;
-        }
-
-        ColeccionRegionalObra coleccionRegional = this.coleccionNacionalObra.obtenerColeccionRegion(region);
-
-        comboBoxObra.removeAllItems();
-
-        coleccionRegional.llenarComboBoxObrasInterfaz(comboBoxObra);
-
-    }
-
+    
     public void llenarComoBoxRegiones(JComboBox<String> comboBoxRegiones) {
 
         comboBoxRegiones.removeAllItems();
@@ -150,6 +150,7 @@ public class RegistroObras {
     }
 
     // no se utiliza, pero es propensa a utilizarse
+
     public void llenarComboBoxEmpleadosRegistro(JComboBox<Persona> comboBoxObra, String nombreObra, int contadorObras) {
 
         Obra obraSeleccionada = this.coleccionGeneralObra.retornarObra(nombreObra);// this.registro.get(nombreObra);
@@ -165,6 +166,14 @@ public class RegistroObras {
         }
 
     }
+    
+    public Boolean existenciaObra(String obra) {
+        //System.out.println(obra);        
+        return this.coleccionGeneralObra.existenciaObra(obra);
+
+    }
+
+    
 
     /*retorna true si la obra ya existe en el Registro*/
     public Boolean existenciaObra(String obra) {

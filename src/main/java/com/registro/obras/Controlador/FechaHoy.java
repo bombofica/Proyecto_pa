@@ -29,16 +29,18 @@ public class FechaHoy {
     //Metodos publicos
     public void obterFecha(char[] fechaComparar, JTextArea jText)
     {
+        //se verifica que la fecha ingresada cumpla con la estructura que se utilizara
         if(!verificarEstructura(fechaComparar)) return;
         
-        char[] fechaHoy = formato.format(fecha).toCharArray(); //la funcion crea una variable con la fecha de hoy        
+        //la funcion crea una variable con la fecha de hoy con el formato de la linea 25       
+        char[] fechaHoy = formato.format(fecha).toCharArray(); 
         
         //datos de la fecha de hoy
         int yearHoy = obtenerYear(fechaHoy);
         int mesHoy = obtenerMes(fechaHoy);
         int diaHoy = obtenerDia(fechaHoy);
         
-        //datos de la fecha a comparar
+        //datos de la fecha a comparar/ingresada
         int yearComparar = obtenerYear(fechaComparar);
         int mesComparar = obtenerMes(fechaComparar);
         int diaComparar = obtenerDia(fechaComparar);
@@ -51,9 +53,6 @@ public class FechaHoy {
             jText.append("quedan: " + diasR + " dias"+'\n');
             jText.append("quedan: " + MesesR + " meses"+'\n');
             jText.append("quedan: " + yearR + " años"+'\n');
-            /*System.out.println("quedan: " + diasR + " dias");
-            System.out.println("quedan: " + MesesR + " meses");
-            System.out.println("quedan: " + yearR + " años");*/
         }
     }
     
@@ -84,26 +83,29 @@ public class FechaHoy {
     //Metodos privados
     private boolean verificarFechas(int yearHoy, int mesHoy, int diaHoy, int yearComparar, int mesComparar, int diaComparar)//Verificar que las fechas sean comparables 
     {
+        //Si la fecha ya paso se retornara false 
         if(yearHoy > yearComparar)
         {
-            System.out.println("La obra esta fuera de fecha");
+            //System.out.println("La obra esta fuera de fecha");
             return false ;
         }
         if((yearHoy == yearComparar) && (mesHoy > mesComparar))
         {
-            System.out.println("La obra esta fuera de fecha");
+            //System.out.println("La obra esta fuera de fecha");
             return false;
         }
         if((yearHoy == yearComparar) && (mesHoy == mesComparar) && (diaHoy > diaComparar))
         {
-            System.out.println("La obra esta fuera de fecha");
+            //System.out.println("La obra esta fuera de fecha");
             return false;
         }
+        //En caso que la fecha aun no haya ocurido retornaremos true
         return true;
     }
     
     private int obtenerYear(char[] fechaComparar)
     {
+        //Se obtiene el año de la fecha a comparar
         int i;
         int j;
         int year = 0;
@@ -116,6 +118,7 @@ public class FechaHoy {
     }
     private int obtenerMes(char[] fechaComparar)
     {
+        //Se obtiene el mes de la fecha a comparar
         int i;
         int j;
         int mes = 0;
@@ -128,6 +131,7 @@ public class FechaHoy {
     }
     private int obtenerDia(char[] fechaComparar)
     {
+        //Se obtiene el dia de la fecha a comparar
         int i;
         int j;
         int dia = 0;
@@ -141,40 +145,42 @@ public class FechaHoy {
     
     private int diasRestantes(int diaHoy, int mesHoy, int diaComparar, int mesComparar)
     {
-        /*
-            se calculan los dias que faltan para terminar el termino del mes de fechaHoy
-            ej: si el dia de hoy es 21 de mayo faltan 10 dias para terminar el mes
-            a su vez se calculan los dias que pasaron de fechaComparar
-            ej: si la fecha a comparar es 19 de octubre han pasado 19 dias desde el comienzo del mes
-            estos 2 valores se suman dando como resultado se suma dando 29 dias restantes
-        */
+        //existe un contador de dias
         int contadorDias = 0;
+        //año bisiesto
         if((mesComparar == 2) && (diaComparar == 29))
         {
             contadorDias++;
         }
         int i ;
+        //se cuentan los dias que faltan para terminar el mes
         for(i = diaHoy ; i < meses.get(mesHoy) ; i++)
         {
             contadorDias++;
         }
+        //se cuentan los dias que tiene el mes objetivo ej: 12 de diciembre -> este mes tiene 12 dias extras
         for(i = diaComparar - 1 ; i > 0 ; i--)
         {
             contadorDias++;
         }
+        //En caso de tener mas de un mes en relacion a los dias estos deben ser restados en 30
         if(contadorDias > 29) contadorDias = contadorDias - 30;
         return contadorDias;
     }
     
     private int mesesRestantes(int mesHoy, int mesComparar) {
-        
+        //se restan los meses
         int mesesRestantes = mesComparar - mesHoy;
+        //en base a los dias esta condicion se debe complir
         if(mesesRestantes > 0)
         {
+            //ya que este mes es parte del mismo año y la relacion de el contador de dias nos daria un mes extra
             mesesRestantes--;
         }
         if(mesesRestantes < 0)
         {
+            //Aqui estamos hablando de un mes de el proximo año por lo que debemos aumentar los meses en 12
+            //y volver a restar
             mesComparar = mesComparar + 12 ;
             mesesRestantes = mesComparar - mesHoy;
         }
@@ -182,13 +188,16 @@ public class FechaHoy {
         return mesesRestantes;
     }
     private int yearRestante(int yearComparar, int yearHoy, int mesHoy, int mesComparar) {
+        //este es el caso de que el mes a comparar sea del proximo año
         if(mesComparar - mesHoy < 0)
         {
+            //por lo que se debe restar un año y añadir 12 meses
             return yearComparar - yearHoy - 1 ;
         }
         return yearComparar - yearHoy;
     }
     private void llenarMeses() {
+        //Los mese del año
         this.meses.add(31) ;
         this.meses.add(28) ;
         this.meses.add(31) ;
