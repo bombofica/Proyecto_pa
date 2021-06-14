@@ -33,19 +33,12 @@ public abstract class Obra {
 
     
     
-    //Constructores
-/*    public Obra() {
-        this.tablaPersonasNombre = new HashMap();
-        this.tablaPersonasRut = new HashMap();
-        this.numeroEmpleados = tablaPersonasNombre.size();
-        this.listadoPersonas = new ArrayList();
-    }*/
+    //Constructor
 
     public Obra(String nombreObra, String nombreLugar, int codigo) {
         this.codigo = codigo ;
         this.nombreObra = nombreObra;
         this.nombreLugar = nombreLugar;
- //       this.tablaPersonasNombre = new HashMap();
         this.tablaPersonasRut = new HashMap();
         this.numeroEmpleados = 0;
         this.listadoPersonas = new ArrayList();
@@ -99,63 +92,12 @@ public abstract class Obra {
         {
             listaEmpleados[i] = listadoPersonas.get(i) ;
         }
-    }
-    
-    public void setListadoPersonas(Trabajador[] listaEmpleados)
-    {
-        this.listadoPersonas.removeAll(listadoPersonas) ;
-        for(int i = 0 ; i < listaEmpleados.length ; i++)
-        {
-            listadoPersonas.add(listaEmpleados[i]) ;
-        }
-//        actualizarHashMaps(listaEmpleados) ;
-    }
-    
-    public void setListadoPersonas(Trabajador[] listaEmpleados, int index)
-    {
-        this.listadoPersonas.remove(index) ;
-//        actualizarHashMaps(listaEmpleados[index]) ;
-    }
-    
- /*   private void actualizarHashMaps(Trabajador empleado)
-    {
-        this.tablaPersonasNombre.remove(empleado.getNombre()) ;
-        this.tablaPersonasRut.remove(empleado.getRut()) ;
-    }
-    
-    private void actualizarHashMaps(Trabajador[] listaEmpleados)
-    {
-        this.tablaPersonasNombre = null ;
-        this.tablaPersonasRut = null ;
-        for(int i = 0 ; i < listaEmpleados.length ; i++)
-        {
-            this.tablaPersonasNombre.put(listaEmpleados[i].getNombre(), listaEmpleados[i]) ;
-            this.tablaPersonasRut.put(listaEmpleados[i].getRut(), listaEmpleados[i]) ;        
-        }
-    }*/
-    
+    }    
     
     public Trabajador buscarPersona(int rut) {
         Trabajador Empleado = tablaPersonasRut.get(rut);
         return Empleado;
     }
-
-/*    public Trabajador buscarPersona(String nombre) {
-        Trabajador Empleado = tablaPersonasNombre.get(nombre);
-        return Empleado;
-    }*/
-    
-/*    public void despedirEmpleadoObra(String nombre) {
-        Trabajador sujeto = tablaPersonasNombre.get(nombre);
-        if(sujeto != null){
-            eliminarDelListado(sujeto.getRut());
-            tablaPersonasNombre.remove(nombre);
-            tablaPersonasRut.remove(sujeto.getRut());
-            this.numeroEmpleados = tablaPersonasNombre.size();
-            this.numeroEmpleados--;
-            sujeto.setTrabajando(false);
-        }
-    }*/
     
     public void despedirEmpleadoObra(int rut) {
         Trabajador sujeto = tablaPersonasRut.get(rut);
@@ -163,7 +105,6 @@ public abstract class Obra {
         if(sujeto != null){
             eliminarDelListado(rut);
             tablaPersonasRut.remove(rut);
-//            tablaPersonasNombre.remove(sujeto.getNombre());
             this.numeroEmpleados--;
             sujeto.setTrabajando(false);
         }
@@ -186,30 +127,15 @@ public abstract class Obra {
 
     public void agregarPersona(Trabajador serHumano) {
         tablaPersonasRut.put(serHumano.getRut(), serHumano);
-//        tablaPersonasNombre.put(serHumano.getNombre(), serHumano);
         this.listadoPersonas.add(serHumano);
         this.numeroEmpleados++;
         serHumano.setTrabajando(true);
     }
     
-    public void mostrarEmpleados()
-    {
-        for (Map.Entry me : tablaPersonasRut.entrySet()) {
-            Trabajador current = (Trabajador) me.getValue();
-            System.out.print("Nombre: " + current.getNombre());
-            System.out.print(" Rut: " + current.getRut());
-            System.out.print(" Sueldo: " + current.getSueldo());
-            System.out.println(" Labor: " + current.getLaborProfesional());
-        }
-    }
-    
     public void eliminarObra(){ //crear un getEmpleados y mover los metodos a registroObras
-        
-        
         for (int i = 0; i < this.listadoPersonas.size(); i++) {
             listadoPersonas.get(i).setTrabajando(false);
         }
- 
     }
     
     public Trabajador devolverPersonaI(int index){

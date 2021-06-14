@@ -84,12 +84,21 @@ public class RegistroObras {
     public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra) {
 
         this.listaCompletaInterfaz.llenarComboBoxObrasInterfaz(comboBoxObra);
-        /*comboBoxObra.removeAllItems();
-        ProyectoReportable current;
-        for (int i = 0; i < listaCompletaInterfaz.size(); i++) {
-            current = listaCompletaInterfaz.get(i);
-            comboBoxObra.addItem((ProyectoReportable) current);
-        }*/
+    }
+    
+    public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra, String region) {
+
+            if (region.equals("Todas las regiones") || (region == null)) {
+                llenarComboBoxObrasInterfaz(comboBoxObra);
+                return;
+            }
+
+            ColeccionRegionalObra coleccionRegional = this.coleccionNacionalObra.obtenerColeccionRegion(region);
+
+            comboBoxObra.removeAllItems();
+
+            coleccionRegional.llenarComboBoxObrasInterfaz(comboBoxObra);
+
     }
 
     public void llenarComboBoxObras(JComboBox<Obra> comboBoxObra, String region, boolean bandera) {
@@ -107,21 +116,7 @@ public class RegistroObras {
     }
 
 //modificar    
-    public void llenarComboBoxObrasInterfaz(JComboBox<ProyectoReportable> comboBoxObra, String region) {
-
-        if (region.equals("Todas las regiones") || (region == null)) {
-            llenarComboBoxObrasInterfaz(comboBoxObra);
-            return;
-        }
-
-        ColeccionRegionalObra coleccionRegional = this.coleccionNacionalObra.obtenerColeccionRegion(region);
-
-        comboBoxObra.removeAllItems();
-
-        coleccionRegional.llenarComboBoxObrasInterfaz(comboBoxObra);
-
-    }
-
+    
     public void llenarComoBoxRegiones(JComboBox<String> comboBoxRegiones) {
 
         comboBoxRegiones.removeAllItems();
@@ -149,13 +144,7 @@ public class RegistroObras {
         }
 
     }
-
-    public Boolean existenciaObra(String obra) {
-        //System.out.println(obra);        
-        return this.coleccionGeneralObra.existenciaObra(obra);
-
-    }
-
+    
     public void llenarComboBoxEmpleadosRegistro(JComboBox<Persona> comboBoxObra, String nombreObra, int contadorObras) {
 
         Obra obraSeleccionada = this.coleccionGeneralObra.retornarObra(nombreObra);// this.registro.get(nombreObra);
@@ -171,6 +160,14 @@ public class RegistroObras {
         }
 
     }
+    
+    public Boolean existenciaObra(String obra) {
+        //System.out.println(obra);        
+        return this.coleccionGeneralObra.existenciaObra(obra);
+
+    }
+
+    
 
     public void llenarJTextAreaEmpleadosRegistro(JTextArea jTextArea, int valor, String nombreObra) {
         Obra obraSeleccionada = this.coleccionGeneralObra.retornarObra(nombreObra);//this.registro.get(nombreObra);

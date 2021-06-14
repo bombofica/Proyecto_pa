@@ -43,9 +43,7 @@ public class ColeccionGeneralObra {
         return null;
     }
 
-    public Boolean existenciaObra(String obra) {
-        //Obra verificador = this.registro.get(obra);
-        
+    public Boolean existenciaObra(String obra) {        
         return this.registro.containsKey(obra) ;
     }
 

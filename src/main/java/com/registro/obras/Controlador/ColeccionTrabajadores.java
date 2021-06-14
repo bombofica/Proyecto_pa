@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class ColeccionTrabajadores {
     
-    private HashMap<String, ColeccionPorProfesion> coleccionTrabajdores;
+    private HashMap<String, ColeccionPorProfesion> coleccionTrabajdores; //TreeMap que contiene todos los trabajadores con una profecion en particular
     
     public ColeccionTrabajadores()
     {
@@ -23,6 +23,7 @@ public class ColeccionTrabajadores {
     }
     
     public void agregarColeccionPorProfesion(String nombreProfesion){
+        //Este metodo es llamado al comienzo para añadir cada una de las profeciones de los empleados
         coleccionTrabajdores.put(nombreProfesion, new ColeccionPorProfesion(nombreProfesion));
     }
     
@@ -30,6 +31,7 @@ public class ColeccionTrabajadores {
     
     public ColeccionPorProfesion getFiltradoPorProfesion(String profecion)
     {
+        //Se verifica que exista la profecion
         if(coleccionTrabajdores.containsKey(profecion))
         {
             return coleccionTrabajdores.get(profecion) ;
@@ -39,6 +41,7 @@ public class ColeccionTrabajadores {
     
     public void eliminarEmpleado(Trabajador empleado)
     {        
+        //Se verifica que exista la profecion y el empleado
         if(empleado != null && coleccionTrabajdores.containsKey(empleado.getLaborProfesional()))
         {
             this.coleccionTrabajdores.get(empleado.getLaborProfesional()).eliminarEmpleado(empleado);
@@ -46,7 +49,7 @@ public class ColeccionTrabajadores {
     }
 
     public boolean agregarEspecialista(Trabajador empleado) {
-        
+        //Se verifica que exista el empleado
         if(empleado != null)
         {
             this.coleccionTrabajdores.get(empleado.getLaborProfesional()).agregarEspecialista(empleado) ;
@@ -57,16 +60,16 @@ public class ColeccionTrabajadores {
     
     public boolean existenciaEspecializacion(String especializacion)
     {
-        if(this.coleccionTrabajdores.containsKey(especializacion)) return true ;
-            
+        //Se verifica que exista la profecion
+        if(this.coleccionTrabajdores.containsKey(especializacion)) return true ;            
         return false ;
         
     }
 
     public boolean existenciaEmpleado(Trabajador especialista) 
     {
-        if(!this.coleccionTrabajdores.get(especialista.getLaborProfesional()).existenciaEmpleado(especialista)) return false ;
-        
+        //Se verifica que exista del empleado
+        if(!this.coleccionTrabajdores.get(especialista.getLaborProfesional()).existenciaEmpleado(especialista)) return false ;        
         return true ;
     }
 }

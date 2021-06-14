@@ -2529,6 +2529,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
  
         this.registroTra.agregarEspecialista(trabajador);
         WriteFile.imprimirTodasLasPersonas(registroTra);
+       // JOptionPane.showMessageDialog(rootPane, "Empleado añadido");
     }//GEN-LAST:event_anadirEmpleadobtnActionPerformed
 
     private void jTextRutSDVKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextRutSDVKeyTyped
@@ -2855,6 +2856,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         
         try {
             this.registroObr.eliminarObra(obraSeleccionada.getNombreObra(), this.registroObr);
+            JOptionPane.showMessageDialog(rootPane, "Obra eliminada");
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2864,15 +2866,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_terminarObraJButtonActionPerformed
 
     private void comboBoxEmpleadosObrasMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxEmpleadosObrasMostrarActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-/*        this.nombreEmpleadosObrasMostrarJTextArea.setText("");
-        this.rutJTextArea1.setText("");
-        this.sueldoJTextArea1.setText("");
-        this.estadoJTextArea1.setText("");
-*/
+
         Obra obraEscogida =(Obra) this.comboBoxEmpleadosObrasMostrar.getSelectedItem();
         if(obraEscogida != null){
             
@@ -2882,12 +2876,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 registroTra.llenarJTextAreaEmpleados(this.jTextMostrarEmpleadosObra, false);
         }else
             this.jTextMostrarEmpleadosObra.setText("");
-        //this.registroObr.llenarComboBoxEmpleadosRegistro(this.empleadoEmpleadoObrasMostrarComboBox, nombreObra);
-        /*
-        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.nombreEmpleadosObrasMostrarJTextArea, 0, obraEscogida.getNombreObra());
-        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.rutJTextArea1, 1, obraEscogida.getNombreObra());
-        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.sueldoJTextArea1, 2, obraEscogida.getNombreObra());
-        this.registroObr.llenarJTextAreaEmpleadosRegistro(this.estadoJTextArea1, 3, obraEscogida.getNombreObra());*/
+        
     }//GEN-LAST:event_comboBoxEmpleadosObrasMostrarActionPerformed
 
     private void eliminarEmpleadoObraComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoObraComboBoxActionPerformed
@@ -3082,6 +3071,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "ERROR revise sus datos nuevamente");
                 return ;
             }
+            JOptionPane.showMessageDialog(rootPane, "Obra actualizada");
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3094,14 +3084,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
             {
                 this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoConstruccion)(obraActual)).getPresupuesto()+'\n');
                 this.cambiarDatojTextArea1.append("Fecha de termino: "+((ProyectoConstruccion)(obraActual)).getTiempoRestante()+'\n');
-                this.cambiarDatojTextArea1.append("Fase: "+((ProyectoConstruccion)(obraActual)).getFase()+'\n');
+                this.cambiarDatojTextArea1.append("Fase: "+((ProyectoConstruccion)(obraActual)).getFaseActual()+'\n');
                 return ;
             }
             if(obraActual.getCodigo() == 2)
             {
                 this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getPresupuesto()+'\n');
                 this.cambiarDatojTextArea1.append("Fecha de termino: "+((ProyectoRestauracion)(obraActual)).getTiempoRestante()+'\n');
-                this.cambiarDatojTextArea1.append("Fase: "+((ProyectoRestauracion)(obraActual)).getFase()+'\n');
+                this.cambiarDatojTextArea1.append("Fase: "+((ProyectoRestauracion)(obraActual)).getFaseActual()+'\n');
                 return ;
             }
             if(obraActual.getCodigo() == 3)
@@ -3533,13 +3523,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
             {
                 ProyectoConstruccion obraEscogida = (ProyectoConstruccion) obraEscogidaComboBox;
                 obraEscogida.crearInforme(this.textoAdicionalCrearInforme.getText());
+                JOptionPane.showMessageDialog(rootPane, "Informe generado");
                 break;
             }
             case 2:
             {
                 ProyectoRestauracion obraEscogida = (ProyectoRestauracion) obraEscogidaComboBox;
                 obraEscogida.crearInforme(this.textoAdicionalCrearInforme.getText());
-                
+                JOptionPane.showMessageDialog(rootPane, "Informe generado");
                 break;
             }
             case 3:

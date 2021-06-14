@@ -33,9 +33,12 @@ public class ColeccionPorProfesion {
     }
 
     public Trabajador[] getListado() {
+        //Se verifica que existan empleados con esta especialidad
         if (this.listadoEmpleados.size() > 0) {
+            //Se crea el array que sera retornado
             Trabajador[] listadoEmpleados = new Trabajador[this.listadoEmpleados.size()];
             int i = 0;
+            //Se llena el array
             for (Map.Entry<Integer, Trabajador> entry : this.listadoEmpleados.entrySet()) {
                 listadoEmpleados[i] = entry.getValue();
                 i++;
@@ -58,7 +61,6 @@ public class ColeccionPorProfesion {
         if (this.listadoEmpleados.containsKey(empleado.getRut())) {
             return true;
         }
-
         return false;
     }
 
