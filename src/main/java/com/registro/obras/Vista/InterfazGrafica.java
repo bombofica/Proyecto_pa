@@ -3028,7 +3028,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "ERROR revise sus datos nuevamente");
                 return;
             }
-            JOptionPane.showMessageDialog(rootPane, "Obra actualizada");
+            //JOptionPane.showMessageDialog(rootPane, "Obra actualizada");
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -166,13 +166,16 @@ public class RegistroObras {
         }
 
     }
-    
-    
-
     /*retorna true si la obra ya existe en el Registro*/
     public Boolean existenciaObra(String obra) {
+        //System.out.println(obra);        
         return this.coleccionGeneralObra.existenciaObra(obra);
+
     }
+
+    
+
+    
 
     public void llenarJTextAreaEmpleadosRegistro(JTextArea jTextArea, int valor, String nombreObra) {
         Obra obraSeleccionada = this.coleccionGeneralObra.retornarObra(nombreObra);//this.registro.get(nombreObra);

@@ -21,6 +21,7 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
     private long presupuesto ;
     private String tiempoRestante ;
     private int fase ;
+    int xdddd;
     private ArrayList<String> fasesRestauracion; // encapsular
     //PoderInforme informes;
     
