@@ -13,8 +13,7 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     private long presupuesto ;
     private String fechaEntrega ;
     private int fase ;
-    private ProyectoReportable informes;
-    private ArrayList<String> fasesConstruccion;
+    private ArrayList<String> fasesConstruccion; // encapsular
     
     //private PoderInforme informes;
 
@@ -118,14 +117,17 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     {
         return 0;
     }
-    public void informe()
+    public void informe() // editar (Importante)
     {
-        informes.crearInforme("");
-        informes.crearGrafico();
-        informes.calcularFase();
-        informes.calcularPresupuestoGastadoMensual();
+        crearInforme("");
+        crearGrafico();
+        calcularFase();
+        calcularPresupuestoGastadoMensual();
     }
+    
+    public void crearInforme(){
         
+    }
 
     private void llenarArrayFases() {
         this.fasesConstruccion.add("Cierre del área de espacio público") ;

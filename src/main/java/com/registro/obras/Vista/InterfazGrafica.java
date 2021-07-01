@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package com.registro.obras.Vista;
+
 import com.registro.obras.Modelo.*;
 import com.registro.obras.Controlador.*;
 import static com.registro.obras.Controlador.WriteFile.generarReporte;
-
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -21,6 +21,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+
 /**
  *
  * @author Benjamín
@@ -28,18 +29,16 @@ import javax.swing.JTextArea;
 public class InterfazGrafica extends javax.swing.JFrame {
 
     boolean flag;
-    RegistroObras registroObr; 
-  
+    RegistroObras registroObr;
+
     RegistroTrabajadores registroTra;
-    
-    public InterfazGrafica(RegistroTrabajadores registroTra, RegistroObras registroObr ) {
+
+    public InterfazGrafica(RegistroTrabajadores registroTra, RegistroObras registroObr) {
         initComponents();
         setLocationRelativeTo(null);
         this.registroObr = registroObr;
         this.registroTra = registroTra;
-        
-        
-        
+
         OpcionesPrincipalesFrame.setLocationRelativeTo(null);
         GestionObrasFrame.setLocationRelativeTo(null);
         AgregarObraFrame.setLocationRelativeTo(null);
@@ -249,7 +248,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
         cDESueldoJTextField = new javax.swing.JTextField();
         cDECambiarDatonJButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        generarInformejFrame = new javax.swing.JFrame();
         FiltrarObrasjFrame = new javax.swing.JFrame();
         FiltrarObrasjButton2 = new javax.swing.JButton();
         FiltrarObrasjComboBox = new javax.swing.JComboBox<>();
@@ -794,7 +792,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        ObraTerminadaFrame.setAlwaysOnTop(true);
         ObraTerminadaFrame.setResizable(false);
         ObraTerminadaFrame.setSize(new java.awt.Dimension(400, 300));
         ObraTerminadaFrame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -2037,23 +2034,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addComponent(panelCambiarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        generarInformejFrame.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                generarInformejFrameWindowClosing(evt);
-            }
-        });
-
-        javax.swing.GroupLayout generarInformejFrameLayout = new javax.swing.GroupLayout(generarInformejFrame.getContentPane());
-        generarInformejFrame.getContentPane().setLayout(generarInformejFrameLayout);
-        generarInformejFrameLayout.setHorizontalGroup(
-            generarInformejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        generarInformejFrameLayout.setVerticalGroup(
-            generarInformejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
         FiltrarObrasjFrame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 FiltrarObrasjFrameWindowClosing(evt);
@@ -2304,7 +2284,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void Región1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Región1ActionPerformed
         // TODO add your handling code here:
-       // String coco =(String) this.Región1.getSelectedItem();
+        // String coco =(String) this.Región1.getSelectedItem();
         //System.out.println(coco);
     }//GEN-LAST:event_Región1ActionPerformed
 
@@ -2314,11 +2294,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+
         OpcionesPrincipalesFrame.setVisible(true);
-        OpcionesPrincipalesFrame.setSize(450,450);
+        OpcionesPrincipalesFrame.setSize(450, 450);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void GestionObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionObrasActionPerformed
@@ -2326,15 +2306,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.OpcionesPrincipalesFrame.setVisible(false);
         this.GestionObrasFrame.setVisible(true);
         //jFrame2.setVisible(rootPaneCheckingEnabled);
-        this.GestionObrasFrame.setSize(450,450);        
+        this.GestionObrasFrame.setSize(450, 450);
     }//GEN-LAST:event_GestionObrasActionPerformed
 
     private void anadirEmpleadoToPlataformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirEmpleadoToPlataformaActionPerformed
         // TODO add your handling code here:
         this.AnadirEmpleadoToPlataform.setVisible(true);
         this.GestionEmpleadosFrame.setVisible(false);
-        this.AnadirEmpleadoToPlataform.setSize(500,450);
-        
+        this.AnadirEmpleadoToPlataform.setSize(500, 450);
+
         this.especializacionCombobox.removeAllItems();
         registroTra.llenarComboBoxEspecialidad(this.especializacionCombobox);
     }//GEN-LAST:event_anadirEmpleadoToPlataformaActionPerformed
@@ -2343,18 +2323,17 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.MostrarEmpleadosDeUnaObra.setVisible(true);
         this.GestionEmpleadosFrame.setVisible(false);
-        this.MostrarEmpleadosDeUnaObra.setSize(800,450);
-        
-        
-        this.registroObr.llenarComboBoxObras(this.comboBoxEmpleadosObrasMostrar,true);
+        this.MostrarEmpleadosDeUnaObra.setSize(800, 450);
+
+        this.registroObr.llenarComboBoxObras(this.comboBoxEmpleadosObrasMostrar, true);
         //this.registroObr.llenarComboBoxEmpleadosRegistro(this.empleadoEmpleadoObrasMostrarComboBox, obra.getNombreObra());
     }//GEN-LAST:event_mostrarEmpleadosDeUnaObraActionPerformed
 
     private void gastosTotalesDeUnaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastosTotalesDeUnaObraActionPerformed
-        this.GestionObrasFrame.setVisible(false) ;
-        this.GastosTotalesObraFrame.setVisible(true) ;
-        this.GastosTotalesObraFrame.setSize(450,500);
-        registroObr.llenarComoBoxRegiones(this.GastosTotalesjComboBox2) ;
+        this.GestionObrasFrame.setVisible(false);
+        this.GastosTotalesObraFrame.setVisible(true);
+        this.GastosTotalesObraFrame.setSize(450, 500);
+        registroObr.llenarComoBoxRegiones(this.GastosTotalesjComboBox2);
     }//GEN-LAST:event_gastosTotalesDeUnaObraActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
@@ -2386,59 +2365,54 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionObrasFrame.setVisible(false);
         this.AgregarObraFrame.setVisible(true);
         this.AgregarObraFrame.setSize(450, 450);
-        
+
     }//GEN-LAST:event_botonAgregarObraActionPerformed
 
     private void AgregarObrajTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarObrajTextField2ActionPerformed
-        
-        
-        
+
+
     }//GEN-LAST:event_AgregarObrajTextField2ActionPerformed
 
     private void agregarObraAlSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarObraAlSistemaActionPerformed
-      
+
         long presupuesto = Long.parseLong(this.AgregarObrajTextField2.getText());
         String tiempoAsignadoInteresAnual = this.AgregarObrajTextField3.getText();
         String nombreObra = this.jTextNombreObra.getText();
         String region = (String) this.Región1.getSelectedItem();
-        switch(this.AgregarObrajComboBox2.getSelectedIndex())
-        {
-            case 1:
-            {
-                ProyectoConstruccion nuevaObra = new ProyectoConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto,0) ;
-                if(!this.registroObr.agregarObra(nuevaObra))
-                {
+        switch (this.AgregarObrajComboBox2.getSelectedIndex()) {
+            case 1: {
+                ProyectoConstruccion nuevaObra = new ProyectoConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto, 0);
+                if (!this.registroObr.agregarObra(nuevaObra)) {
                     JOptionPane.showMessageDialog(rootPane, "ERROR verifique la estructura de la fecha y recuerde que no puede repetir nombre de obras ");
-                    return ;
+                    return;
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Obra agregada a la aplicacion");
                 }
-                else JOptionPane.showMessageDialog(rootPane, "Obra agregada a la aplicacion");
 
                 break;
             }
-            case 2:
-            {
-                
-                ProyectoRestauracion nuevaObra = new ProyectoRestauracion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto,0) ;
-                if(!this.registroObr.agregarObra(nuevaObra))
-                {
+            case 2: {
+
+                ProyectoRestauracion nuevaObra = new ProyectoRestauracion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto, 0);
+                if (!this.registroObr.agregarObra(nuevaObra)) {
                     JOptionPane.showMessageDialog(rootPane, "ERROR verifique la estructura de la fecha y recuerde que no puede repetir nombre de obras");
-                    return ;
+                    return;
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Obra agregada a la aplicacion");
                 }
-                else JOptionPane.showMessageDialog(rootPane, "Obra agregada a la aplicacion");
-                
+
                 break;
             }
-            case 3:
-            {
-                try
-                {
-                    double Interes = Double.parseDouble(tiempoAsignadoInteresAnual) ;
-                    ServicioMantencion nuevaObra = new ServicioMantencion(nombreObra, region, presupuesto , Interes, false) ;
-                    if(this.registroObr.agregarObra(nuevaObra)) JOptionPane.showMessageDialog(rootPane, "Obra agregada a la aplicacion");
-                    else JOptionPane.showMessageDialog(rootPane, "recuerde que no puede repetir nombre de obras");
-                }
-                catch(Exception e)
-                {
+            case 3: {
+                try {
+                    double Interes = Double.parseDouble(tiempoAsignadoInteresAnual);
+                    ServicioMantencion nuevaObra = new ServicioMantencion(nombreObra, region, presupuesto, Interes, false);
+                    if (this.registroObr.agregarObra(nuevaObra)) {
+                        JOptionPane.showMessageDialog(rootPane, "Obra agregada a la aplicacion");
+                    } else {
+                        JOptionPane.showMessageDialog(rootPane, "recuerde que no puede repetir nombre de obras");
+                    }
+                } catch (Exception e) {
                     JOptionPane.showMessageDialog(rootPane, "El interes debe ser un valor numerico");
                 }
             }
@@ -2449,8 +2423,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         this.MostrarTodasLasObrasFrame.setVisible(true);
         this.GestionObrasFrame.setVisible(false);
-        this.MostrarTodasLasObrasFrame.setSize(450,500);
-        registroObr.llenarComoBoxRegiones(this.MostrarTodasLasObrasjComboBox2) ;
+        this.MostrarTodasLasObrasFrame.setSize(450, 500);
+        registroObr.llenarComoBoxRegiones(this.MostrarTodasLasObrasjComboBox2);
     }//GEN-LAST:event_botonMostrarAllObrasActionPerformed
 
     private void mostrarTodosLosEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarTodosLosEmpleadosActionPerformed
@@ -2458,34 +2432,34 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionEmpleadosFrame.setVisible(false);
         this.MostrarTodosLosEmpleados.setVisible(true);
         //this.comboBoxEspecialidad.
-        this.MostrarTodosLosEmpleados.setSize(800,500);
+        this.MostrarTodosLosEmpleados.setSize(800, 500);
         this.registroTra.llenarComboBoxEspecialidad(this.comboBoxEspecialidad);
-        
+
     }//GEN-LAST:event_mostrarTodosLosEmpleadosActionPerformed
 
     private void moverEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moverEmpleadosActionPerformed
         // TODO add your handling code here:
         this.GestionEmpleadosFrame.setVisible(false);
         this.MoverEmpleados.setVisible(true);
-        this.MoverEmpleados.setSize(500,500);
-        
+        this.MoverEmpleados.setSize(500, 500);
+
         comboBoxMoverEInicial.removeAllItems();
-        
-        this.comboBoxMoverEInicial.addItem(new ProyectoConstruccion("Sin Obra","Metropolitana","",225,0));
+
+        this.comboBoxMoverEInicial.addItem(new ProyectoConstruccion("Sin Obra", "Metropolitana", "", 225, 0));
         this.registroTra.llenarComboBoxDePersonas(this.comboBoxMoverEmpleado, false);
-        
-        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEInicial,true);
-        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEObjetivo,true);
+
+        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEInicial, true);
+        this.registroObr.llenarComboBoxObras(this.comboBoxMoverEObjetivo, true);
         //this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, "");
-        
+
     }//GEN-LAST:event_moverEmpleadosActionPerformed
 
     private void despedirEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEmpleadosActionPerformed
         // TODO add your handling code here:
         this.GestionEmpleadosFrame.setVisible(false);
         this.DespedirEmpleados.setVisible(true);
-        this.DespedirEmpleados.setSize(500,400);
-        this.registroObr.llenarComboBoxObras(this.nombreObraDespedirEmpeladoComboBox,false);
+        this.DespedirEmpleados.setSize(500, 400);
+        this.registroObr.llenarComboBoxObras(this.nombreObraDespedirEmpeladoComboBox, false);
         this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, this.registroObr.retornarObra(0).getNombreObra());
     }//GEN-LAST:event_despedirEmpleadosActionPerformed
 
@@ -2494,22 +2468,22 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         this.GestionEmpleadosFrame.setVisible(false);
         this.EliminarEmpleadoDeLaPlataforma.setVisible(true);
-        this.EliminarEmpleadoDeLaPlataforma.setSize(800,450);
-        
+        this.EliminarEmpleadoDeLaPlataforma.setSize(800, 450);
+
         eliminarEmpleadoObraComboBox.removeAllItems();
-        this.registroTra.llenarComboBoxDePersonas(this.eliminarEmpleadoEmpleadoComboBox, false);     
-        this.registroObr.llenarComboBoxObras(this.eliminarEmpleadoObraComboBox,true);
-        
+        this.registroTra.llenarComboBoxDePersonas(this.eliminarEmpleadoEmpleadoComboBox, false);
+        this.registroObr.llenarComboBoxObras(this.eliminarEmpleadoObraComboBox, true);
+
     }//GEN-LAST:event_eliminarEmpleadoDePlataformaActionPerformed
 
     private void cambiarDatosDeEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatosDeEmpleadoActionPerformed
         // TODO add your handling code here:
         this.GestionEmpleadosFrame.setVisible(false);
         this.CambiarDatosEmpleado2.setVisible(true);
-        this.CambiarDatosEmpleado2.setSize(500,500);
+        this.CambiarDatosEmpleado2.setSize(500, 500);
         this.registroTra.llenarComboBoxDePersonas(this.cDENombreJComboBox, true);
         this.registroTra.llenarComboBoxEspecialidad(this.cDEEspecializacionJComboBox);
-        
+
         this.cDESueldoJLabel.setVisible(false);
         this.cDESueldoJTextField.setVisible(false);
         this.cDEEspecializacionJComboBox.setVisible(false);
@@ -2525,20 +2499,20 @@ public class InterfazGrafica extends javax.swing.JFrame {
         String especializacion = (String) this.especializacionCombobox.getSelectedItem();
         double salario = Double.parseDouble(this.sueldoJTextField.getText());
         int rut = Integer.parseInt(this.jTextRutSDV.getText());
-        Trabajador trabajador = new Trabajador(nombreEmpleado,especializacion,(int) salario,rut,false,"");
- 
+        Trabajador trabajador = new Trabajador(nombreEmpleado, especializacion, (int) salario, rut, false, "");
+
         this.registroTra.agregarEspecialista(trabajador);
         WriteFile.imprimirTodasLasPersonas(registroTra);
-       // JOptionPane.showMessageDialog(rootPane, "Empleado añadido");
+        // JOptionPane.showMessageDialog(rootPane, "Empleado añadido");
     }//GEN-LAST:event_anadirEmpleadobtnActionPerformed
 
     private void jTextRutSDVKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextRutSDVKeyTyped
         char caracterIngresado = evt.getKeyChar();
-        if(Character.isLetter(caracterIngresado)){
+        if (Character.isLetter(caracterIngresado)) {
             evt.consume();
         }
 
-        if(this.jTextRutSDV.getText().length()<8 ){
+        if (this.jTextRutSDV.getText().length() < 8) {
         } else {
             evt.consume();
         }
@@ -2546,35 +2520,31 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
         Obra obraActual = (Obra) this.comboBoxObra.getSelectedItem();
-        if(obraActual != null)
-        {
-            int tipo = obraActual.getCodigo() ;
-            if(tipo == 1)
-            {
-                String textoFinal = "Nombre Obra: "+((ProyectoConstruccion)(obraActual)).getNombreObra()+'\n'+"Región: "+
-                        ((ProyectoConstruccion)(obraActual)).getNombreLugar()+'\n'+"Presupuesto: "+((ProyectoConstruccion)(obraActual)).getPresupuesto()+
-                        '\n'+"Fecha de termino: "+((ProyectoConstruccion)(obraActual)).getTiempoRestante()+'\n'+
-                        "Fase: "+((ProyectoConstruccion)(obraActual)).getFaseActual();
+        if (obraActual != null) {
+            int tipo = obraActual.getCodigo();
+            if (tipo == 1) {
+                String textoFinal = "Nombre Obra: " + ((ProyectoConstruccion) (obraActual)).getNombreObra() + '\n' + "Región: "
+                        + ((ProyectoConstruccion) (obraActual)).getNombreLugar() + '\n' + "Presupuesto: " + ((ProyectoConstruccion) (obraActual)).getPresupuesto()
+                        + '\n' + "Fecha de termino: " + ((ProyectoConstruccion) (obraActual)).getTiempoRestante() + '\n'
+                        + "Fase: " + ((ProyectoConstruccion) (obraActual)).getFaseActual();
                 this.mostrarObraTextArea.setText(textoFinal);
             }
-            if(tipo == 2)
-            {
-                String textoFinal = "Nombre Obra: "+((ProyectoRestauracion)(obraActual)).getNombreObra()+'\n'+"Región: "+
-                        ((ProyectoRestauracion)(obraActual)).getNombreLugar()+'\n'+"Presupuesto: "+((ProyectoRestauracion)(obraActual)).getPresupuesto()+
-                        '\n'+"Fecha de termino: "+((ProyectoRestauracion)(obraActual)).getTiempoRestante()+'\n'+
-                        "Fase: "+((ProyectoRestauracion)(obraActual)).getFaseActual();
+            if (tipo == 2) {
+                String textoFinal = "Nombre Obra: " + ((ProyectoRestauracion) (obraActual)).getNombreObra() + '\n' + "Región: "
+                        + ((ProyectoRestauracion) (obraActual)).getNombreLugar() + '\n' + "Presupuesto: " + ((ProyectoRestauracion) (obraActual)).getPresupuesto()
+                        + '\n' + "Fecha de termino: " + ((ProyectoRestauracion) (obraActual)).getTiempoRestante() + '\n'
+                        + "Fase: " + ((ProyectoRestauracion) (obraActual)).getFaseActual();
                 this.mostrarObraTextArea.setText(textoFinal);
             }
-            if(tipo == 3)
-            {
-                String textoFinal = "Nombre Obra: "+((ServicioMantencion)(obraActual)).getNombreObra()+'\n'+"Región: "+
-                        ((ServicioMantencion)(obraActual)).getNombreLugar()+'\n'+"Presupuesto anual: "+((ServicioMantencion)(obraActual)).getMantenimientoMonetarioAnual()+
-                        '\n'+"Interes anual: "+((ServicioMantencion)(obraActual)).getInteresAnual()+'\n';
+            if (tipo == 3) {
+                String textoFinal = "Nombre Obra: " + ((ServicioMantencion) (obraActual)).getNombreObra() + '\n' + "Región: "
+                        + ((ServicioMantencion) (obraActual)).getNombreLugar() + '\n' + "Presupuesto anual: " + ((ServicioMantencion) (obraActual)).getMantenimientoMonetarioAnual()
+                        + '\n' + "Interes anual: " + ((ServicioMantencion) (obraActual)).getInteresAnual() + '\n';
                 this.mostrarObraTextArea.setText(textoFinal);
             }
         }
 
-        
+
     }//GEN-LAST:event_comboBoxObraActionPerformed
 
     private void comboBoxEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxEspecialidadActionPerformed
@@ -2583,14 +2553,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.rutJTextArea.setText("");
         this.sueldoJTextArea.setText("");
         this.estadoJTextArea.setText("");
-        String especialidad =(String) this.comboBoxEspecialidad.getSelectedItem();
+        String especialidad = (String) this.comboBoxEspecialidad.getSelectedItem();
         this.registroTra.llenarJTextAreaEspecialidad(this.nombreJTextArea, especialidad, 0);
         this.registroTra.llenarJTextAreaEspecialidad(this.rutJTextArea, especialidad, 1);
         this.registroTra.llenarJTextAreaEspecialidad(this.sueldoJTextArea, especialidad, 2);
         this.registroTra.llenarJTextAreaEspecialidad(this.estadoJTextArea, especialidad, 3);
-        
-        
-        
+
+
     }//GEN-LAST:event_comboBoxEspecialidadActionPerformed
 
     private void jTextRutSDVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextRutSDVActionPerformed
@@ -2603,11 +2572,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void sueldoJTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sueldoJTextFieldKeyTyped
         // TODO add your handling code here:
-        
-        if(sueldoJTextField.getText().contains(".") && evt.getKeyChar() == '.'){
-             evt.consume();
+
+        if (sueldoJTextField.getText().contains(".") && evt.getKeyChar() == '.') {
+            evt.consume();
         }
-        if(!(Character.isDigit(evt.getKeyChar()) || evt.getKeyChar() == '.')){
+        if (!(Character.isDigit(evt.getKeyChar()) || evt.getKeyChar() == '.')) {
             evt.consume();
         }
     }//GEN-LAST:event_sueldoJTextFieldKeyTyped
@@ -2806,38 +2775,36 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void obraTerminadaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obraTerminadaComboBoxActionPerformed
         // TODO add your handling code here:
         Obra obraEscogida = (Obra) this.obraTerminadaComboBox.getSelectedItem();
-        
-        if(obraEscogida != null){
+
+        if (obraEscogida != null) {
             String textoFinal = "";
-            switch(obraEscogida.getCodigo()){
+            switch (obraEscogida.getCodigo()) {
                 case 1:
-                    textoFinal = "Tipo: Construccion\n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
-                        +"Región: "+obraEscogida.getNombreLugar()+'\n'+"Presupuesto: "+
-                        ((ProyectoConstruccion)obraEscogida).getPresupuesto()+ "\nFase: "+((ProyectoConstruccion)obraEscogida).getFase();
+                    textoFinal = "Tipo: Construccion\n" + "Nombre Obra: " + obraEscogida.getNombreObra() + '\n'
+                            + "Región: " + obraEscogida.getNombreLugar() + '\n' + "Presupuesto: "
+                            + ((ProyectoConstruccion) obraEscogida).getPresupuesto() + "\nFase: " + ((ProyectoConstruccion) obraEscogida).getFase();
                     break;
                 case 2:
-                    textoFinal = "Tipo: Restauracion \n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
-                        +"Región: "+obraEscogida.getNombreLugar()+'\n'+"Tiempo Restante: "+
-                        ((ProyectoRestauracion)obraEscogida).getTiempoRestante()
-                        +"\nFase: "+((ProyectoRestauracion)obraEscogida).getFase();
+                    textoFinal = "Tipo: Restauracion \n" + "Nombre Obra: " + obraEscogida.getNombreObra() + '\n'
+                            + "Región: " + obraEscogida.getNombreLugar() + '\n' + "Tiempo Restante: "
+                            + ((ProyectoRestauracion) obraEscogida).getTiempoRestante()
+                            + "\nFase: " + ((ProyectoRestauracion) obraEscogida).getFase();
                     break;
                 case 3:
-                    textoFinal = "Tipo: Mantencion \n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
-                        +"Región: "+obraEscogida.getNombreLugar()+'\n'
-                        +"Costo Mantenimiento: "+ ((ServicioMantencion)obraEscogida).getMantenimientoMonetarioAnual()
-                        +"\nInteres Anual: "+((ServicioMantencion)obraEscogida).getInteresAnual();
+                    textoFinal = "Tipo: Mantencion \n" + "Nombre Obra: " + obraEscogida.getNombreObra() + '\n'
+                            + "Región: " + obraEscogida.getNombreLugar() + '\n'
+                            + "Costo Mantenimiento: " + ((ServicioMantencion) obraEscogida).getMantenimientoMonetarioAnual()
+                            + "\nInteres Anual: " + ((ServicioMantencion) obraEscogida).getInteresAnual();
                     break;
-                       
+
             }
             this.InfoObraTerminadaJTextArea.setText(textoFinal);
-            
+
             //textoFinal = "Tipo: Construccion\n" + "Nombre Obra: "+obraEscogida.getNombreObra()+'\n'
-                //+"Región: "+obraEscogida.getNombreLugar()+'\n';
+            //+"Región: "+obraEscogida.getNombreLugar()+'\n';
 //                +"Presupuesto: "+obraEscogida.getPresupuestoObra()+'\n'
 //                +"Tiempo para Terminar Obra: "+obraEscogida.getTiempoParaTerminarObra();
-        }
-        else
-        {
+        } else {
             this.InfoObraTerminadaJTextArea.setText("");
         }
     }//GEN-LAST:event_obraTerminadaComboBoxActionPerformed
@@ -2846,37 +2813,39 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.ObraTerminadaFrame.setVisible(true);
         this.GestionObrasFrame.setVisible(false);
-        this.ObraTerminadaFrame.setSize(500,500);
-        this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox,false);
+        this.ObraTerminadaFrame.setSize(500, 500);
+        this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox, false);
     }//GEN-LAST:event_botonObraTerminadaActionPerformed
 
     private void terminarObraJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarObraJButtonActionPerformed
         // TODO add your handling code here:
         Obra obraSeleccionada = (Obra) this.obraTerminadaComboBox.getSelectedItem();
-        
+
         try {
             this.registroObr.eliminarObra(obraSeleccionada.getNombreObra(), this.registroObr);
             JOptionPane.showMessageDialog(rootPane, "Obra eliminada");
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox,false);
-        
+        this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox, false);
+
         //this.registroObr.llenarComboBoxObras(this.obraTerminadaComboBox);
     }//GEN-LAST:event_terminarObraJButtonActionPerformed
 
     private void comboBoxEmpleadosObrasMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxEmpleadosObrasMostrarActionPerformed
 
-        Obra obraEscogida =(Obra) this.comboBoxEmpleadosObrasMostrar.getSelectedItem();
-        if(obraEscogida != null){
-            
-            if(!obraEscogida.getNombreObra().equals("Sin Obra"))
+        Obra obraEscogida = (Obra) this.comboBoxEmpleadosObrasMostrar.getSelectedItem();
+        if (obraEscogida != null) {
+
+            if (!obraEscogida.getNombreObra().equals("Sin Obra")) {
                 obraEscogida.llenarJTextAreaEmpleados(this.jTextMostrarEmpleadosObra);
-            else
+            } else {
                 registroTra.llenarJTextAreaEmpleados(this.jTextMostrarEmpleadosObra, false);
-        }else
+            }
+        } else {
             this.jTextMostrarEmpleadosObra.setText("");
-        
+        }
+
     }//GEN-LAST:event_comboBoxEmpleadosObrasMostrarActionPerformed
 
     private void eliminarEmpleadoObraComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoObraComboBoxActionPerformed
@@ -2886,62 +2855,63 @@ public class InterfazGrafica extends javax.swing.JFrame {
             this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, obraEscogida.getNombreObra());
         else
             this.eliminarEmpleadoEmpleadoComboBox.removeAllItems();*/
-        
-        if(obraEscogida!= null && !obraEscogida.getNombreObra().equals("Sin Obra"))
+
+        if (obraEscogida != null && !obraEscogida.getNombreObra().equals("Sin Obra")) {
             this.registroObr.llenarComboBoxEmpleadosRegistro(this.eliminarEmpleadoEmpleadoComboBox, obraEscogida.getNombreObra());
-        else{
-            if(obraEscogida!= null && obraEscogida.getNombreObra().equals("Sin Obra")){
+        } else {
+            if (obraEscogida != null && obraEscogida.getNombreObra().equals("Sin Obra")) {
                 //System.out.println("aaaaaaaah");
                 this.registroTra.llenarComboBoxDePersonas(this.eliminarEmpleadoEmpleadoComboBox, false);
             }
-            
-            if(obraEscogida == null){
+
+            if (obraEscogida == null) {
                 this.eliminarEmpleadoEmpleadoComboBox.removeAllItems();
             }
         }
         //String valor = (String) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem();
-        
+
     }//GEN-LAST:event_eliminarEmpleadoObraComboBoxActionPerformed
 
     private void nombreObraDespedirEmpeladoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreObraDespedirEmpeladoComboBoxActionPerformed
         // TODO add your handling code here:
-        
+
         Obra nombreObra = (Obra) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
-        
-        if(nombreObra != null)
+
+        if (nombreObra != null) {
             this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, nombreObra.getNombreObra());
-        
+        }
+
 
     }//GEN-LAST:event_nombreObraDespedirEmpeladoComboBoxActionPerformed
 
     private void NombreEmpeladoDespedirEmpleadoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreEmpeladoDespedirEmpleadoComboBoxActionPerformed
         // TODO add your handling code here:
         //Obra currentObraComboBox = this.registroObr.retornarObra(nombreObra);
-        
-        Trabajador currentPersonaComboBox=(Trabajador) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
-        if(currentPersonaComboBox != null){
+
+        Trabajador currentPersonaComboBox = (Trabajador) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
+        if (currentPersonaComboBox != null) {
             System.out.println(currentPersonaComboBox.getNombre());
-                this.jTextArea2.setText("");
-                this.jTextArea2.append(currentPersonaComboBox.getNombre()+'\n');
-                this.jTextArea2.append(currentPersonaComboBox.getLaborProfesional()+'\n');
-                this.jTextArea2.append(String.valueOf(currentPersonaComboBox.getRut())+'\n');
-                this.jTextArea2.append(String.valueOf(currentPersonaComboBox.getSueldo()));     
+            this.jTextArea2.setText("");
+            this.jTextArea2.append(currentPersonaComboBox.getNombre() + '\n');
+            this.jTextArea2.append(currentPersonaComboBox.getLaborProfesional() + '\n');
+            this.jTextArea2.append(String.valueOf(currentPersonaComboBox.getRut()) + '\n');
+            this.jTextArea2.append(String.valueOf(currentPersonaComboBox.getSueldo()));
         }
     }//GEN-LAST:event_NombreEmpeladoDespedirEmpleadoComboBoxActionPerformed
 
     private void eliminarEmpleadoEmpleadoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadoEmpleadoComboBoxActionPerformed
         // TODO add your handling code here:
-        
+
         Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem();
-        
-        if(empleado != null){
+
+        if (empleado != null) {
             this.eliminarEmpleadoJText.setText("");
-            this.eliminarEmpleadoJText.append("Nombre: "+empleado.getNombre()+'\n');
-            this.eliminarEmpleadoJText.append("Labor: "+empleado.getLaborProfesional()+'\n');
-            this.eliminarEmpleadoJText.append("Rut: "+String.valueOf(empleado.getRut())+'\n') ;
-            this.eliminarEmpleadoJText.append("Sueldo: "+String.valueOf(empleado.getSueldo())) ;
+            this.eliminarEmpleadoJText.append("Nombre: " + empleado.getNombre() + '\n');
+            this.eliminarEmpleadoJText.append("Labor: " + empleado.getLaborProfesional() + '\n');
+            this.eliminarEmpleadoJText.append("Rut: " + String.valueOf(empleado.getRut()) + '\n');
+            this.eliminarEmpleadoJText.append("Sueldo: " + String.valueOf(empleado.getSueldo()));
         }
-       //this.eliminarEmpleadoJText.append(empleado.getRut());
+        //this.eliminarEmpleadoJText.append(empleado.getRut());
         //this.eliminarEmpleadoJText.append(empleado.getSueldo());
     }//GEN-LAST:event_eliminarEmpleadoEmpleadoComboBoxActionPerformed
 
@@ -2949,9 +2919,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         Persona personaActual = (Persona) this.NombreEmpeladoDespedirEmpleadoComboBox.getSelectedItem();
         Obra obraActual = (Obra) this.nombreObraDespedirEmpeladoComboBox.getSelectedItem();
-        if(obraActual != null && personaActual != null)
-        {
-            registroTra.despedirEmpleadoRegistro(obraActual, (Trabajador) personaActual) ;
+        if (obraActual != null && personaActual != null) {
+            registroTra.despedirEmpleadoRegistro(obraActual, (Trabajador) personaActual);
             try {
                 WriteFile.escribirObras(',', registroObr);
                 WriteFile.imprimirTodasLasPersonas(registroTra);
@@ -2959,17 +2928,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
             }
             this.jTextArea2.setText("");
-            this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, obraActual.getNombreObra());        
+            this.registroObr.llenarComboBoxEmpleadosRegistro(this.NombreEmpeladoDespedirEmpleadoComboBox, obraActual.getNombreObra());
         }
     }//GEN-LAST:event_despedirEmpleadoDeObrabtnActionPerformed
 
     private void eliminarEmpleadojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadojButtonActionPerformed
-        
-       Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem() ;
+
+        Trabajador empleado = (Trabajador) this.eliminarEmpleadoEmpleadoComboBox.getSelectedItem();
         Obra obraActual = (Obra) this.eliminarEmpleadoObraComboBox.getSelectedItem();
-        if(empleado != null && obraActual != null)
-        {
-            registroTra.eliminarEmpleado(obraActual, empleado) ;
+        if (empleado != null && obraActual != null) {
+            registroTra.eliminarEmpleado(obraActual, empleado);
             try {
                 WriteFile.escribirObras(',', registroObr);
             } catch (IOException ex) {
@@ -2980,47 +2948,40 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_eliminarEmpleadojButtonActionPerformed
 
     private void cambiarDatoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoComboBoxActionPerformed
-        Obra obraActual = (Obra) this.cambiarDatoComboBox.getSelectedItem() ;
+        Obra obraActual = (Obra) this.cambiarDatoComboBox.getSelectedItem();
         this.cambiarDatojComboBox2.removeAllItems();
-        if((obraActual != null) && (obraActual.getCodigo() == 3))
-        {
+        if ((obraActual != null) && (obraActual.getCodigo() == 3)) {
             this.cambiarDatojComboBox2.addItem("Nombre");
             this.cambiarDatojComboBox2.addItem("Region");
             this.cambiarDatojComboBox2.addItem("Interes anual");
             this.cambiarDatojComboBox2.addItem("Presupuesto anual");
-        }
-        else
-        {
+        } else {
             this.cambiarDatojComboBox2.addItem("Nombre");
             this.cambiarDatojComboBox2.addItem("Region");
             this.cambiarDatojComboBox2.addItem("Fecha Objetivo");
             this.cambiarDatojComboBox2.addItem("Presupuesto");
             this.cambiarDatojComboBox2.addItem("Fase");
         }
-        
 
-        if(obraActual != null){
+        if (obraActual != null) {
             this.cambiarDatojTextArea1.setText("");
-            this.cambiarDatojTextArea1.append("Nombre: "+obraActual.getNombreObra()+'\n');
-            this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
-            if(obraActual.getCodigo() == 1)
-            {
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoConstruccion)(obraActual)).getPresupuesto()+'\n');
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoConstruccion)(obraActual)).getTiempoRestante()+'\n');
-                this.cambiarDatojTextArea1.append("Fase: "+((ProyectoConstruccion)(obraActual)).getFaseActual()+'\n');
+            this.cambiarDatojTextArea1.append("Nombre: " + obraActual.getNombreObra() + '\n');
+            this.cambiarDatojTextArea1.append("Region: " + obraActual.getNombreLugar() + '\n');
+            if (obraActual.getCodigo() == 1) {
+                this.cambiarDatojTextArea1.append("Presupuesto: " + ((ProyectoConstruccion) (obraActual)).getPresupuesto() + '\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: " + ((ProyectoConstruccion) (obraActual)).getTiempoRestante() + '\n');
+                this.cambiarDatojTextArea1.append("Fase: " + ((ProyectoConstruccion) (obraActual)).getFaseActual() + '\n');
             }
-            if(obraActual.getCodigo() == 2)
-            {
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getPresupuesto()+'\n');
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getTiempoRestante()+'\n');
+            if (obraActual.getCodigo() == 2) {
+                this.cambiarDatojTextArea1.append("Presupuesto: " + ((ProyectoRestauracion) (obraActual)).getPresupuesto() + '\n');
+                this.cambiarDatojTextArea1.append("Presupuesto: " + ((ProyectoRestauracion) (obraActual)).getTiempoRestante() + '\n');
 
-                this.cambiarDatojTextArea1.append("Fase: "+((ProyectoRestauracion)(obraActual)).getFaseActual()+'\n');
+                this.cambiarDatojTextArea1.append("Fase: " + ((ProyectoRestauracion) (obraActual)).getFaseActual() + '\n');
 
             }
-            if(obraActual.getCodigo() == 3)
-            {
-                this.cambiarDatojTextArea1.append("Presupuesto anual: "+((ServicioMantencion)(obraActual)).getMantenimientoMonetarioAnual()+'\n');
-                this.cambiarDatojTextArea1.append("Interes anual: "+((ServicioMantencion)(obraActual)).getInteresAnual()+'\n');
+            if (obraActual.getCodigo() == 3) {
+                this.cambiarDatojTextArea1.append("Presupuesto anual: " + ((ServicioMantencion) (obraActual)).getMantenimientoMonetarioAnual() + '\n');
+                this.cambiarDatojTextArea1.append("Interes anual: " + ((ServicioMantencion) (obraActual)).getInteresAnual() + '\n');
             }
         }
     }//GEN-LAST:event_cambiarDatoComboBoxActionPerformed
@@ -3028,9 +2989,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void cambiarDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatoActionPerformed
         this.GestionObrasFrame.setVisible(false);
         this.CambiarDatoFrame.setVisible(true);
-        this.CambiarDatoFrame.setSize(450,400);
+        this.CambiarDatoFrame.setSize(450, 400);
         this.cambiarDatoComboBox.removeAllItems();
-        this.registroObr.llenarComboBoxObras(this.cambiarDatoComboBox,false) ;
+        this.registroObr.llenarComboBoxObras(this.cambiarDatoComboBox, false);
         /*this.cambiarDatojComboBox2.removeAllItems();
         this.cambiarDatojComboBox2.addItem("Nombre");
         this.cambiarDatojComboBox2.addItem("Region");
@@ -3039,17 +3000,14 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_cambiarDatoActionPerformed
 
     private void cambiarDatojComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojComboBox2ActionPerformed
-        if(4 == this.cambiarDatojComboBox2.getSelectedIndex())
-        {
+        if (4 == this.cambiarDatojComboBox2.getSelectedIndex()) {
             this.cambiarDatojTextField1.setVisible(false);
-            this.cambiarDatojLabel3.setVisible(false) ;
-        }
-        else
-        {
+            this.cambiarDatojLabel3.setVisible(false);
+        } else {
             this.cambiarDatojTextField1.setVisible(true);
-            this.cambiarDatojLabel3.setVisible(true) ;
+            this.cambiarDatojLabel3.setVisible(true);
         }
-     
+
     }//GEN-LAST:event_cambiarDatojComboBox2ActionPerformed
 
     private void cambiarDatojTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cambiarDatojTextField1KeyTyped
@@ -3057,61 +3015,57 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_cambiarDatojTextField1KeyTyped
 
     private void cambiarDatojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojButtonActionPerformed
-        
+
         Obra obraActual = (Obra) this.cambiarDatoComboBox.getSelectedItem();
-        int opcion = this.cambiarDatojComboBox2.getSelectedIndex() ;
-        if(opcion == 4) //actualizar Fase
+        int opcion = this.cambiarDatojComboBox2.getSelectedIndex();
+        if (opcion == 4) //actualizar Fase
         {
-            opcion = 5; 
+            opcion = 5;
         }
-        String nuevoDato = this.cambiarDatojTextField1.getText() ;
+        String nuevoDato = this.cambiarDatojTextField1.getText();
         try {
-            if(!this.registroObr.modificarObra(obraActual.getNombreObra(), nuevoDato, opcion+1, registroObr))
-            {
+            if (!this.registroObr.modificarObra(obraActual.getNombreObra(), nuevoDato, opcion + 1, registroObr)) {
                 JOptionPane.showMessageDialog(rootPane, "ERROR revise sus datos nuevamente");
-                return ;
+                return;
             }
             JOptionPane.showMessageDialog(rootPane, "Obra actualizada");
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if(obraActual != null){
+
+        if (obraActual != null) {
             this.cambiarDatojTextArea1.setText("");
-            this.cambiarDatojTextArea1.append("Nombre: "+obraActual.getNombreObra()+'\n');
-            this.cambiarDatojTextArea1.append("Region: "+obraActual.getNombreLugar()+'\n');
-            if(obraActual.getCodigo() == 1)
-            {
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoConstruccion)(obraActual)).getPresupuesto()+'\n');
-                this.cambiarDatojTextArea1.append("Fecha de termino: "+((ProyectoConstruccion)(obraActual)).getTiempoRestante()+'\n');
-                this.cambiarDatojTextArea1.append("Fase: "+((ProyectoConstruccion)(obraActual)).getFaseActual()+'\n');
-                return ;
+            this.cambiarDatojTextArea1.append("Nombre: " + obraActual.getNombreObra() + '\n');
+            this.cambiarDatojTextArea1.append("Region: " + obraActual.getNombreLugar() + '\n');
+            if (obraActual.getCodigo() == 1) {
+                this.cambiarDatojTextArea1.append("Presupuesto: " + ((ProyectoConstruccion) (obraActual)).getPresupuesto() + '\n');
+                this.cambiarDatojTextArea1.append("Fecha de termino: " + ((ProyectoConstruccion) (obraActual)).getTiempoRestante() + '\n');
+                this.cambiarDatojTextArea1.append("Fase: " + ((ProyectoConstruccion) (obraActual)).getFaseActual() + '\n');
+                return;
             }
-            if(obraActual.getCodigo() == 2)
-            {
-                this.cambiarDatojTextArea1.append("Presupuesto: "+((ProyectoRestauracion)(obraActual)).getPresupuesto()+'\n');
-                this.cambiarDatojTextArea1.append("Fecha de termino: "+((ProyectoRestauracion)(obraActual)).getTiempoRestante()+'\n');
-                this.cambiarDatojTextArea1.append("Fase: "+((ProyectoRestauracion)(obraActual)).getFaseActual()+'\n');
-                return ;
+            if (obraActual.getCodigo() == 2) {
+                this.cambiarDatojTextArea1.append("Presupuesto: " + ((ProyectoRestauracion) (obraActual)).getPresupuesto() + '\n');
+                this.cambiarDatojTextArea1.append("Fecha de termino: " + ((ProyectoRestauracion) (obraActual)).getTiempoRestante() + '\n');
+                this.cambiarDatojTextArea1.append("Fase: " + ((ProyectoRestauracion) (obraActual)).getFaseActual() + '\n');
+                return;
             }
-            if(obraActual.getCodigo() == 3)
-            {
-                this.cambiarDatojTextArea1.append("Presupuesto anual: "+((ServicioMantencion)(obraActual)).getMantenimientoMonetarioAnual()+'\n');
-                this.cambiarDatojTextArea1.append("Interes anual: "+((ServicioMantencion)(obraActual)).getInteresAnual()+'\n');
+            if (obraActual.getCodigo() == 3) {
+                this.cambiarDatojTextArea1.append("Presupuesto anual: " + ((ServicioMantencion) (obraActual)).getMantenimientoMonetarioAnual() + '\n');
+                this.cambiarDatojTextArea1.append("Interes anual: " + ((ServicioMantencion) (obraActual)).getInteresAnual() + '\n');
             }
         }
-        
-        
+
+
     }//GEN-LAST:event_cambiarDatojButtonActionPerformed
 
     private void cambiarDatojButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarDatojButton2ActionPerformed
-        this.CambiarDatoFrame.setVisible(false) ;
-        this.GestionObrasFrame.setVisible(true) ;
+        this.CambiarDatoFrame.setVisible(false);
+        this.GestionObrasFrame.setVisible(true);
     }//GEN-LAST:event_cambiarDatojButton2ActionPerformed
 
     private void agregarObrajButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarObrajButton3ActionPerformed
-        this.AgregarObraFrame.setVisible(false) ;
-        this.GestionObrasFrame.setVisible(true) ;
+        this.AgregarObraFrame.setVisible(false);
+        this.GestionObrasFrame.setVisible(true);
     }//GEN-LAST:event_agregarObrajButton3ActionPerformed
 
     private void VolverGestionObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverGestionObrasActionPerformed
@@ -3120,13 +3074,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_VolverGestionObrasActionPerformed
 
     private void MostrarObrasjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarObrasjButton3ActionPerformed
-        this.MostrarTodasLasObrasFrame.setVisible(false) ;
-        this.GestionObrasFrame.setVisible(true) ;
+        this.MostrarTodasLasObrasFrame.setVisible(false);
+        this.GestionObrasFrame.setVisible(true);
     }//GEN-LAST:event_MostrarObrasjButton3ActionPerformed
 
     private void obraTerminadajButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obraTerminadajButton3ActionPerformed
-        this.ObraTerminadaFrame.setVisible(false) ;
-        this.GestionObrasFrame.setVisible(true) ;
+        this.ObraTerminadaFrame.setVisible(false);
+        this.GestionObrasFrame.setVisible(true);
     }//GEN-LAST:event_obraTerminadajButton3ActionPerformed
 
     private void cDENombreJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDENombreJComboBoxActionPerformed
@@ -3135,10 +3089,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void datosCDEJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datosCDEJComboBoxActionPerformed
         // TODO add your handling code here:
-        
+
         int valor = this.datosCDEJComboBox.getSelectedIndex();
-        
-        switch(valor){
+
+        switch (valor) {
             case 0: // nombre
                 this.cDENombreCambioJLabel.setVisible(true);
                 this.cDENombreCambiojTextField.setVisible(true);
@@ -3146,7 +3100,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 this.cDESueldoJTextField.setVisible(false);
                 this.cDEEspecializacionJComboBox.setVisible(false);
                 this.cDEEspecializacionCambioJLabel.setVisible(false);
-            break;//sueldo
+                break;//sueldo
             case 1:
                 this.cDESueldoJLabel.setVisible(true);
                 this.cDESueldoJTextField.setVisible(true);
@@ -3154,9 +3108,9 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 this.cDEEspecializacionCambioJLabel.setVisible(false);
                 this.cDENombreCambioJLabel.setVisible(false);
                 this.cDENombreCambiojTextField.setVisible(false);
-            //this.jLabel16.setVisible(true);
-            //this.jComboBox1.setVisible(true);
-            break;
+                //this.jLabel16.setVisible(true);
+                //this.jComboBox1.setVisible(true);
+                break;
             case 2:// especialización
                 this.cDESueldoJLabel.setVisible(false);
                 this.cDESueldoJTextField.setVisible(false);
@@ -3164,40 +3118,40 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 this.cDEEspecializacionCambioJLabel.setVisible(true);
                 this.cDENombreCambioJLabel.setVisible(false);
                 this.cDENombreCambiojTextField.setVisible(false);
-                
-            //this.jLabel16.setVisible(false);
-            //this.jComboBox1.setVisible(false);
-            break;
+
+                //this.jLabel16.setVisible(false);
+                //this.jComboBox1.setVisible(false);
+                break;
         }
     }//GEN-LAST:event_datosCDEJComboBoxActionPerformed
 
     private void cDESueldoJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDESueldoJTextFieldActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_cDESueldoJTextFieldActionPerformed
 
     private void cDECambiarDatonJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDECambiarDatonJButtonActionPerformed
         // TODO add your handling code here:
         Trabajador especialista = (Trabajador) this.cDENombreJComboBox.getSelectedItem();
         int valor = this.datosCDEJComboBox.getSelectedIndex();
-        switch(valor){
-            
+        switch (valor) {
+
             case 0:
                 String nombreNuevo = this.cDENombreCambiojTextField.getText();
                 this.registroTra.modificarEspecialistaNombre(especialista, nombreNuevo);
                 break;
             case 1:
                 int sueldoNuevo = Integer.parseInt(this.cDESueldoJTextField.getText());
-                this.registroTra.modificarEspecialistaSueldo(especialista, sueldoNuevo);           
+                this.registroTra.modificarEspecialistaSueldo(especialista, sueldoNuevo);
                 break;
             case 2:
-                String especialidadNueva =(String) this.cDEEspecializacionJComboBox.getSelectedItem();
+                String especialidadNueva = (String) this.cDEEspecializacionJComboBox.getSelectedItem();
                 this.registroTra.modificarEspecialistaLaborProfesional(especialista, especialidadNueva);
                 break;
 
         }
         this.registroTra.llenarComboBoxDePersonas(this.cDENombreJComboBox, true);
-        
+
     }//GEN-LAST:event_cDECambiarDatonJButtonActionPerformed
 
     private void CambiarDatosEmpleado2WindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_CambiarDatosEmpleado2WindowClosing
@@ -3214,15 +3168,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
     private void cDENombreCambiojTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDENombreCambiojTextFieldActionPerformed
         // TODO add your handling code here:
-        
 
-        
-        
+
     }//GEN-LAST:event_cDENombreCambiojTextFieldActionPerformed
 
     private void cDESueldoJTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cDESueldoJTextFieldKeyTyped
         // TODO add your handling code here:
-        if(!Character.isDigit(evt.getKeyChar())){
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.consume();
         }
     }//GEN-LAST:event_cDESueldoJTextFieldKeyTyped
@@ -3231,22 +3183,22 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.CambiarDatosEmpleado2.setVisible(false);
         this.GestionEmpleadosFrame.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void AnadirEmpleadojButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnadirEmpleadojButton3ActionPerformed
-        this.AnadirEmpleadoToPlataform.setVisible(false) ;
-        this.GestionEmpleadosFrame.setVisible(true) ;
+        this.AnadirEmpleadoToPlataform.setVisible(false);
+        this.GestionEmpleadosFrame.setVisible(true);
     }//GEN-LAST:event_AnadirEmpleadojButton3ActionPerformed
 
     private void mostrarEmpleadosjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarEmpleadosjButton3ActionPerformed
-        this.MostrarEmpleadosDeUnaObra.setVisible(false) ;
-        this.GestionEmpleadosFrame.setVisible(true) ;
+        this.MostrarEmpleadosDeUnaObra.setVisible(false);
+        this.GestionEmpleadosFrame.setVisible(true);
     }//GEN-LAST:event_mostrarEmpleadosjButton3ActionPerformed
 
     private void mostrarTodosLosEmpleadosjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarTodosLosEmpleadosjButton3ActionPerformed
-        this.MostrarTodosLosEmpleados.setVisible(false) ;
-        this.GestionEmpleadosFrame.setVisible(true) ;
+        this.MostrarTodosLosEmpleados.setVisible(false);
+        this.GestionEmpleadosFrame.setVisible(true);
     }//GEN-LAST:event_mostrarTodosLosEmpleadosjButton3ActionPerformed
 
     private void despedirEmpleadojButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_despedirEmpleadojButton3ActionPerformed
@@ -3255,8 +3207,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_despedirEmpleadojButton3ActionPerformed
 
     private void eliminarEmpleadojButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarEmpleadojButton3ActionPerformed
-        this.EliminarEmpleadoDeLaPlataforma.setVisible(false) ;
-        this.GestionEmpleadosFrame.setVisible(true) ;
+        this.EliminarEmpleadoDeLaPlataforma.setVisible(false);
+        this.GestionEmpleadosFrame.setVisible(true);
     }//GEN-LAST:event_eliminarEmpleadojButton3ActionPerformed
 
     private void gestionEmpleadosjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionEmpleadosjButton3ActionPerformed
@@ -3265,8 +3217,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_gestionEmpleadosjButton3ActionPerformed
 
     private void gastosTotalesjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastosTotalesjButton3ActionPerformed
-        this.GastosTotalesObraFrame.setVisible(false) ;
-        this.GestionObrasFrame.setVisible(true) ;
+        this.GastosTotalesObraFrame.setVisible(false);
+        this.GestionObrasFrame.setVisible(true);
     }//GEN-LAST:event_gastosTotalesjButton3ActionPerformed
 
     private void tiempoRestanteDeUnaObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoRestanteDeUnaObraActionPerformed
@@ -3274,17 +3226,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.TiempoRestanteObraFrame.setVisible(true);
         this.TiempoRestanteObraFrame.setSize(450, 450);
         this.registroObr.llenarComoBoxRegiones(this.TiempoRestanteObrajComboBox);
-        
+
     }//GEN-LAST:event_tiempoRestanteDeUnaObraActionPerformed
 
     private void AgregarObrajComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarObrajComboBox2ActionPerformed
-        
+
         int opcion = AgregarObrajComboBox2.getSelectedIndex();
-        
-        switch(opcion)
-        {
-            case 0:
-            {
+
+        switch (opcion) {
+            case 0: {
                 this.AgregarObrajLabel.setVisible(false);
                 this.AgregarObrajLabel2.setVisible(false);
                 this.AgregarObrajLabel3.setVisible(false);
@@ -3292,8 +3242,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 this.AgregarObrajTextField3.setVisible(false);
                 break;
             }
-            case 1:
-            {
+            case 1: {
                 this.AgregarObrajLabel2.setVisible(false);
                 this.AgregarObrajLabel.setVisible(true);
                 this.AgregarObrajLabel3.setText("Tiempo asignado");
@@ -3302,8 +3251,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 this.AgregarObrajTextField3.setVisible(true);
                 break;
             }
-            case 2:
-            {
+            case 2: {
                 this.AgregarObrajLabel2.setVisible(false);
                 this.AgregarObrajLabel.setVisible(true);
                 this.AgregarObrajLabel3.setText("Tiempo asignado");
@@ -3312,8 +3260,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 this.AgregarObrajTextField3.setVisible(true);
                 break;
             }
-            case 3:
-            {
+            case 3: {
                 this.AgregarObrajLabel.setVisible(true);
                 this.AgregarObrajLabel2.setVisible(true);
                 this.AgregarObrajLabel3.setText("Interes anual");
@@ -3322,7 +3269,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 this.AgregarObrajTextField3.setVisible(true);
             }
         }
-        
+
     }//GEN-LAST:event_AgregarObrajComboBox2ActionPerformed
 
 
@@ -3331,65 +3278,59 @@ public class InterfazGrafica extends javax.swing.JFrame {
         Obra obraInicial = (Obra) this.comboBoxMoverEInicial.getSelectedItem();
         Obra obraObjetivo = (Obra) this.comboBoxMoverEObjetivo.getSelectedItem();
         Trabajador trabajador = (Trabajador) this.comboBoxMoverEmpleado.getSelectedItem();
-        
 
-        if(obraInicial != null && obraObjetivo != null && trabajador != null && !obraInicial.getNombreObra().equals(obraObjetivo.getNombreObra())){
-            
-            if((!obraInicial.getNombreObra().equals("Sin Obra") && !(obraObjetivo.getNombreObra().equals("Sin Obra")))){
+        if (obraInicial != null && obraObjetivo != null && trabajador != null && !obraInicial.getNombreObra().equals(obraObjetivo.getNombreObra())) {
+
+            if ((!obraInicial.getNombreObra().equals("Sin Obra") && !(obraObjetivo.getNombreObra().equals("Sin Obra")))) {
                 obraInicial.despedirEmpleadoObra(trabajador.getRut());
                 obraObjetivo.agregarPersona(trabajador);
 
-            }
-            else
-            {
-                if((obraInicial.getNombreObra().equals("Sin Obra"))){
+            } else {
+                if ((obraInicial.getNombreObra().equals("Sin Obra"))) {
                     trabajador.setTrabajando(true);
                     obraObjetivo.agregarPersona(trabajador);
-                }
-                else
-                {
-                    if(obraObjetivo.getNombreObra().equals("Sin Obra")){
+                } else {
+                    if (obraObjetivo.getNombreObra().equals("Sin Obra")) {
                         obraInicial.despedirEmpleadoObra(trabajador.getRut());
                         trabajador.setTrabajando(false);
                     }
                 }
             }
         }
-        
-        if(obraInicial.getNombreObra().equals("Sin Obra"))
+
+        if (obraInicial.getNombreObra().equals("Sin Obra")) {
             this.registroTra.llenarComboBoxDePersonas(comboBoxMoverEmpleado, false);
-        else
+        } else {
             this.registroObr.llenarComboBoxEmpleadosRegistro(this.comboBoxMoverEmpleado, obraInicial.getNombreObra());
-          
-                
-        
+        }
+
+
     }//GEN-LAST:event_jBotonMoverEmpleadoActionPerformed
 
     private void jBotonVolverMoverEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonVolverMoverEmpleadosActionPerformed
         // TODO add your handling code here:
-        
+
         this.MoverEmpleados.setVisible(false);
         this.GestionEmpleadosFrame.setVisible(true);
-        
+
     }//GEN-LAST:event_jBotonVolverMoverEmpleadosActionPerformed
 
     private void MostrarTodasLasObrasjComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarTodasLasObrasjComboBox2ActionPerformed
-        String opcion = (String) this.MostrarTodasLasObrasjComboBox2.getSelectedItem() ;
-        if(opcion != null)
-        {
+        String opcion = (String) this.MostrarTodasLasObrasjComboBox2.getSelectedItem();
+        if (opcion != null) {
             this.comboBoxObra.removeAllItems();
-            this.registroObr.llenarComboBoxObras(this.comboBoxObra, opcion,false);
-        } 
+            this.registroObr.llenarComboBoxObras(this.comboBoxObra, opcion, false);
+        }
     }//GEN-LAST:event_MostrarTodasLasObrasjComboBox2ActionPerformed
 
 
     private void comboBoxMoverEInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMoverEInicialActionPerformed
         // TODO add your handling code here:
-        Obra obraEscogida =(Obra) this.comboBoxMoverEInicial.getSelectedItem();
-        if(obraEscogida!= null && !obraEscogida.getNombreObra().equals("Sin Obra"))
+        Obra obraEscogida = (Obra) this.comboBoxMoverEInicial.getSelectedItem();
+        if (obraEscogida != null && !obraEscogida.getNombreObra().equals("Sin Obra"))
             this.registroObr.llenarComboBoxEmpleadosRegistro(comboBoxMoverEmpleado, obraEscogida.getNombreObra());
-        else{
-            if(obraEscogida!= null && obraEscogida.getNombreObra().equals("Sin Obra")){
+        else {
+            if (obraEscogida != null && obraEscogida.getNombreObra().equals("Sin Obra")) {
                 //System.out.println("aaaaaaaah");
                 this.registroTra.llenarComboBoxDePersonas(comboBoxMoverEmpleado, false);
             }
@@ -3397,73 +3338,64 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_comboBoxMoverEInicialActionPerformed
 
     private void generarInformejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarInformejButtonActionPerformed
-        
-        this.GestionObrasFrame.setVisible(false) ;
-        this.GenerarInformeFrame.setVisible(true) ;
-        this.GenerarInformeFrame.setSize(450,500);
-        
+
+        this.GestionObrasFrame.setVisible(false);
+        this.GenerarInformeFrame.setVisible(true);
+        this.GenerarInformeFrame.setSize(450, 500);
+
         this.registroObr.llenarComoBoxRegiones(comboBoxRegionesInforme);
         this.registroObr.llenarComboBoxObrasInterfaz(this.comboBoxObrasInforme, "Todas las regiones");
         this.textoAdicionalCrearInforme.setText("");
-        
+
         //this.registroObr.llenarComoBoxRegiones();
-        
+
     }//GEN-LAST:event_generarInformejButtonActionPerformed
 
     private void TiempoRestanteObrajComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiempoRestanteObrajComboBoxActionPerformed
-        String opcion = (String) this.TiempoRestanteObrajComboBox.getSelectedItem() ;
-        if(opcion != null)
-        {
-            this.registroObr.llenarComboBoxObras(this.TiempoRestanteObrajComboBox2, opcion,false);
+        String opcion = (String) this.TiempoRestanteObrajComboBox.getSelectedItem();
+        if (opcion != null) {
+            this.registroObr.llenarComboBoxObras(this.TiempoRestanteObrajComboBox2, opcion, false);
         }
-        
+
     }//GEN-LAST:event_TiempoRestanteObrajComboBoxActionPerformed
 
     private void TiempoRestanteObrajComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiempoRestanteObrajComboBox2ActionPerformed
         FechaHoy fecha = new FechaHoy();
-        Obra obraActual = (Obra)this.TiempoRestanteObrajComboBox2.getSelectedItem() ;
+        Obra obraActual = (Obra) this.TiempoRestanteObrajComboBox2.getSelectedItem();
         this.TiempoRestanteObrajComboBox3.setVisible(false);
         this.TiempoRestanteObrajButton2.setVisible(false);
-        if(obraActual != null)
-        {
-            int tipo = registroObr.retornarTipoObra(obraActual.getNombreObra()) ;
+        if (obraActual != null) {
+            int tipo = registroObr.retornarTipoObra(obraActual.getNombreObra());
             this.TiempoRestanteObrajTextArea.setText("");
-            switch(tipo)
-            {
-                case 1:
-                {
+            switch (tipo) {
+                case 1: {
                     ProyectoConstruccion obraC = (ProyectoConstruccion) obraActual;
-                    char[] fechaComparar = obraC.getTiempoRestante().toCharArray() ;
+                    char[] fechaComparar = obraC.getTiempoRestante().toCharArray();
                     fecha.obterFecha(fechaComparar, this.TiempoRestanteObrajTextArea);
                     break;
                 }
-                case 2:
-                {
+                case 2: {
                     ProyectoRestauracion obraR = (ProyectoRestauracion) obraActual;
-                    char[] fechaComparar = obraR.getTiempoRestante().toCharArray() ;
+                    char[] fechaComparar = obraR.getTiempoRestante().toCharArray();
                     fecha.obterFecha(fechaComparar, this.TiempoRestanteObrajTextArea);
                     break;
                 }
-                case 3:
-                {
+                case 3: {
                     ServicioMantencion obraM = (ServicioMantencion) obraActual;
                     this.TiempoRestanteObrajComboBox3.setVisible(true);
                     this.TiempoRestanteObrajButton2.setVisible(true);
                     System.out.println(obraM.isOperativo());
-                    if(obraM.isOperativo() == true)
-                    {
-                        this.TiempoRestanteObrajTextArea.append("La obra esta operativa;"+'\n'+ "desea cancelarlo?");
-                    }
-                    else
-                    {
-                        this.TiempoRestanteObrajTextArea.append("La obra no esta operativa;"+'\n'+ "desea abilitarlo?");
+                    if (obraM.isOperativo() == true) {
+                        this.TiempoRestanteObrajTextArea.append("La obra esta operativa;" + '\n' + "desea cancelarlo?");
+                    } else {
+                        this.TiempoRestanteObrajTextArea.append("La obra no esta operativa;" + '\n' + "desea abilitarlo?");
                     }
 
                 }
             }
         }
-        
-        
+
+
     }//GEN-LAST:event_TiempoRestanteObrajComboBox2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -3472,20 +3404,16 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void TiempoRestanteObrajButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiempoRestanteObrajButton2ActionPerformed
-        String opcion = (String) this.TiempoRestanteObrajComboBox3.getSelectedItem() ;
-        Obra obraActual = (Obra) this.TiempoRestanteObrajComboBox2.getSelectedItem() ;
-        if((opcion != null) && (obraActual != null))
-        {
-            if(opcion.equals("Desabilitado"))
-            {
+        String opcion = (String) this.TiempoRestanteObrajComboBox3.getSelectedItem();
+        Obra obraActual = (Obra) this.TiempoRestanteObrajComboBox2.getSelectedItem();
+        if ((opcion != null) && (obraActual != null)) {
+            if (opcion.equals("Desabilitado")) {
                 try {
                     registroObr.modificarObra(obraActual.getNombreObra(), "false", 5, registroObr);
                 } catch (IOException ex) {
                     Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
-            else
-            {
+            } else {
                 try {
                     registroObr.modificarObra(obraActual.getNombreObra(), "true", 5, registroObr);
                 } catch (IOException ex) {
@@ -3493,12 +3421,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 }
             }
         }
-        
+
     }//GEN-LAST:event_TiempoRestanteObrajButton2ActionPerformed
 
     private void comboBoxRegionesInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxRegionesInformeActionPerformed
         // TODO add your handling code here:
-        String region = (String)this.comboBoxRegionesInforme.getSelectedItem();
+        String region = (String) this.comboBoxRegionesInforme.getSelectedItem();
         if (region == null)
             this.comboBoxObrasInforme.removeAllItems();
         else
@@ -3512,29 +3440,25 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVolverInformeActionPerformed
 
     private void jButtonCrearInformeInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearInformeInformeActionPerformed
-        // TODO add your handling code here:
+        // El informe va a la carpeta "Informe" del mismo proyecto
         Obra obraEscogidaComboBox = (Obra) this.comboBoxObrasInforme.getSelectedItem();
-        
+
         int tipo = obraEscogidaComboBox.getCodigo();
-        
-        
-        switch (tipo){
-            case 1:
-            {
+
+        switch (tipo) {
+            case 1: {
                 ProyectoConstruccion obraEscogida = (ProyectoConstruccion) obraEscogidaComboBox;
                 obraEscogida.crearInforme(this.textoAdicionalCrearInforme.getText());
                 JOptionPane.showMessageDialog(rootPane, "Informe generado");
                 break;
             }
-            case 2:
-            {
+            case 2: {
                 ProyectoRestauracion obraEscogida = (ProyectoRestauracion) obraEscogidaComboBox;
                 obraEscogida.crearInforme(this.textoAdicionalCrearInforme.getText());
                 JOptionPane.showMessageDialog(rootPane, "Informe generado");
                 break;
             }
-            case 3:
-            {
+            case 3: {
                 JOptionPane.showMessageDialog(rootPane, "No Se crean informes en las Obras tipo Mantenimiento");
                 break;
             }
@@ -3555,179 +3479,150 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_GenerarInformeFrameWindowClosing
 
     private void GastosTotalesjComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GastosTotalesjComboBox2ActionPerformed
-        String opcion = (String) this.GastosTotalesjComboBox2.getSelectedItem() ;
-        if(opcion != null)
-        {
+        String opcion = (String) this.GastosTotalesjComboBox2.getSelectedItem();
+        if (opcion != null) {
             this.comboBoxObra.removeAllItems();
-            this.registroObr.llenarComboBoxObras(this.gastosTotalesjComboBox, opcion,false);
-        } 
+            this.registroObr.llenarComboBoxObras(this.gastosTotalesjComboBox, opcion, false);
+        }
     }//GEN-LAST:event_GastosTotalesjComboBox2ActionPerformed
 
     private void gastosTotalesjComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gastosTotalesjComboBoxActionPerformed
         Obra valor = (Obra) this.gastosTotalesjComboBox.getSelectedItem();
         long balance = 0;
-        if(valor != null)
-        {
-            int tipo = this.registroObr.retornarTipoObra(valor.getNombreObra()) ;
-            if(tipo == 1)
-            {
-                balance = this.registroObr.getGastosObra((ProyectoConstruccion)valor) ;
+        if (valor != null) {
+            int tipo = this.registroObr.retornarTipoObra(valor.getNombreObra());
+            if (tipo == 1) {
+                balance = this.registroObr.getGastosObra((ProyectoConstruccion) valor);
             }
-            if(tipo == 2)
-            {
-                balance = this.registroObr.getGastosObra((ProyectoRestauracion)valor) ;
+            if (tipo == 2) {
+                balance = this.registroObr.getGastosObra((ProyectoRestauracion) valor);
             }
-            if(tipo == 3)
-            {
-                balance = this.registroObr.getGastosObra((ServicioMantencion)valor) ;
+            if (tipo == 3) {
+                balance = this.registroObr.getGastosObra((ServicioMantencion) valor);
             }
-            if(balance < 0)
-            {
-                String textoFinal = "El balance general de la obra es "+"\n" + balance +"\n" + " usted esta perdiendo dinero con esta obra";
+            if (balance < 0) {
+                String textoFinal = "El balance general de la obra es " + "\n" + balance + "\n" + " usted esta perdiendo dinero con esta obra";
                 this.GastosTotalesjTextArea.setText(textoFinal);
             }
-            if(balance > 0)
-            {
-                String textoFinal = "El balance general de la obra es"+"\n" + balance;
+            if (balance > 0) {
+                String textoFinal = "El balance general de la obra es" + "\n" + balance;
                 this.GastosTotalesjTextArea.setText(textoFinal);
             }
-            
+
         }
 
-        
+
     }//GEN-LAST:event_gastosTotalesjComboBoxActionPerformed
 
     private void comboBoxObrasInformeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObrasInformeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxObrasInformeActionPerformed
     private void AgregarObrajTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AgregarObrajTextField2KeyTyped
-        char letra = evt.getKeyChar() ;
-        if('0' > letra || letra > '9') evt.consume();
+        char letra = evt.getKeyChar();
+        if ('0' > letra || letra > '9')
+            evt.consume();
     }//GEN-LAST:event_AgregarObrajTextField2KeyTyped
 
     private void FiltrarObrasjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjButtonActionPerformed
         this.GestionObrasFrame.setVisible(false);
         this.FiltrarObrasjFrame.setVisible(true);
         this.FiltrarObrasjTextField.setText("");
-        this.FiltrarObrasjTextArea.setText("") ;
+        this.FiltrarObrasjTextArea.setText("");
         this.FiltrarObrasjFrame.setSize(450, 450);
     }//GEN-LAST:event_FiltrarObrasjButtonActionPerformed
 
     private void FiltrarObrasjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjButton3ActionPerformed
         int comboBoxPresupuestos = (int) this.FiltrarObrasjComboBox.getSelectedIndex();
-        int comboBoxSueldos = (int) this.FiltrarObrasjComboBox2.getSelectedIndex() ;
-        this.FiltrarObrasjTextArea.setText("") ;
-        
-        if((comboBoxPresupuestos == 0) || (comboBoxPresupuestos == 1))
-        {
-            int i ;
-            if(this.FiltrarObrasjTextField.getText().isBlank())
-            {
-                JOptionPane.showMessageDialog(rootPane, "Selecciones un valor para evaluar"+"\n");
-                return ;
+        int comboBoxSueldos = (int) this.FiltrarObrasjComboBox2.getSelectedIndex();
+        this.FiltrarObrasjTextArea.setText("");
+
+        if ((comboBoxPresupuestos == 0) || (comboBoxPresupuestos == 1)) {
+            int i;
+            if (this.FiltrarObrasjTextField.getText().isBlank()) {
+                JOptionPane.showMessageDialog(rootPane, "Selecciones un valor para evaluar" + "\n");
+                return;
             }
-            long parametroPresupuesto = Integer.parseInt(this.FiltrarObrasjTextField.getText()) ;
-            
-            Obra[] obrasFiltradas = this.registroObr.filtrarObrasPresupuesto(parametroPresupuesto, comboBoxPresupuestos) ;
-            
-            if(comboBoxSueldos == 0 || comboBoxSueldos == 1)
-            {
-                long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText()) ;
-                if(this.FiltrarObrasjTextField2.getText().isBlank())
-                {
-                    JOptionPane.showMessageDialog(rootPane, "Selecciones un valor para evaluar"+"\n");
-                    return ;
+            long parametroPresupuesto = Integer.parseInt(this.FiltrarObrasjTextField.getText());
+
+            Obra[] obrasFiltradas = this.registroObr.filtrarObrasPresupuesto(parametroPresupuesto, comboBoxPresupuestos);
+
+            if (comboBoxSueldos == 0 || comboBoxSueldos == 1) {
+                long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText());
+                if (this.FiltrarObrasjTextField2.getText().isBlank()) {
+                    JOptionPane.showMessageDialog(rootPane, "Selecciones un valor para evaluar" + "\n");
+                    return;
                 }
-                this.FiltrarObrasjTextArea.append("El listado es el siguiente:"+"\n"+"\n");
-                for(i = 0; i < obrasFiltradas.length ; i++)
-                {
-                    Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obrasFiltradas[i], comboBoxSueldos, parametroSueldos) ;
-                    this.FiltrarObrasjTextArea.append(i+1+".-"+obrasFiltradas[i].getNombreObra()+"\n"+"\n");
-                    mostrarFiltrado(personasFiltradas, i) ;
+                this.FiltrarObrasjTextArea.append("El listado es el siguiente:" + "\n" + "\n");
+                for (i = 0; i < obrasFiltradas.length; i++) {
+                    Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obrasFiltradas[i], comboBoxSueldos, parametroSueldos);
+                    this.FiltrarObrasjTextArea.append(i + 1 + ".-" + obrasFiltradas[i].getNombreObra() + "\n" + "\n");
+                    mostrarFiltrado(personasFiltradas, i);
                 }
-                return ;
+                return;
             }
-            if(comboBoxSueldos == 2)
-            {
-                for(i = 0; i < obrasFiltradas.length ; i++)
-                {
-                    try
-                    {
-                         this.FiltrarObrasjTextArea.append(i+1+".-"+obrasFiltradas[i].getNombreObra()+"\n"+"\n");
-                        Trabajador empleado = registroTra.filtrarPersonas(obrasFiltradas[i], comboBoxSueldos) ;
-                        this.FiltrarObrasjTextArea.append("\tEl empleado con mayor sueldo de la obra es\n\t"+empleado.getNombre()+" con un sueldo de "+ empleado.getSueldo()+"\n\n") ;
-                    }
-                    catch(Exception e)
-                    {
-                        this.FiltrarObrasjTextArea.append("\tEsta obra no tiene ningun empleado\n\n") ;
+            if (comboBoxSueldos == 2) {
+                for (i = 0; i < obrasFiltradas.length; i++) {
+                    try {
+                        this.FiltrarObrasjTextArea.append(i + 1 + ".-" + obrasFiltradas[i].getNombreObra() + "\n" + "\n");
+                        Trabajador empleado = registroTra.filtrarPersonas(obrasFiltradas[i], comboBoxSueldos);
+                        this.FiltrarObrasjTextArea.append("\tEl empleado con mayor sueldo de la obra es\n\t" + empleado.getNombre() + " con un sueldo de " + empleado.getSueldo() + "\n\n");
+                    } catch (Exception e) {
+                        this.FiltrarObrasjTextArea.append("\tEsta obra no tiene ningun empleado\n\n");
                     }
                 }
-                return ;
-                
+                return;
+
             }
-            if(comboBoxSueldos == 3)
-            {
-                for(i = 0; i < obrasFiltradas.length ; i++)
-                {
-                    try
-                    {
-                         this.FiltrarObrasjTextArea.append(i+1+".-"+obrasFiltradas[i].getNombreObra()+"\n"+"\n");
-                        Trabajador empleado = registroTra.filtrarPersonas(obrasFiltradas[i], comboBoxSueldos) ;
-                        this.FiltrarObrasjTextArea.append("\tEl empleado con menor sueldo de la obra es\n\t"+empleado.getNombre()+" con un sueldo de "+ empleado.getSueldo()+"\n\n") ;
-                    }
-                    catch(Exception e)
-                    {
-                        this.FiltrarObrasjTextArea.append("\tEsta obra no tiene ningun empleado\n\n") ;
+            if (comboBoxSueldos == 3) {
+                for (i = 0; i < obrasFiltradas.length; i++) {
+                    try {
+                        this.FiltrarObrasjTextArea.append(i + 1 + ".-" + obrasFiltradas[i].getNombreObra() + "\n" + "\n");
+                        Trabajador empleado = registroTra.filtrarPersonas(obrasFiltradas[i], comboBoxSueldos);
+                        this.FiltrarObrasjTextArea.append("\tEl empleado con menor sueldo de la obra es\n\t" + empleado.getNombre() + " con un sueldo de " + empleado.getSueldo() + "\n\n");
+                    } catch (Exception e) {
+                        this.FiltrarObrasjTextArea.append("\tEsta obra no tiene ningun empleado\n\n");
                     }
                 }
-                return ;
+                return;
             }
         }
-        if(comboBoxPresupuestos == 2)
-        {
-            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(comboBoxPresupuestos) ;
-            this.FiltrarObrasjTextArea.append("La obra de mayor presupuesto es"+'\n'+obraSeleccionada.getNombreObra()+'\n'+'\n');
-            if(comboBoxSueldos == 0 || comboBoxSueldos == 1)
-            {
-                long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText()) ;
-                Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos, parametroSueldos) ;
-                mostrarFiltrado(personasFiltradas, 0) ;
-                return ;
+        if (comboBoxPresupuestos == 2) {
+            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(comboBoxPresupuestos);
+            this.FiltrarObrasjTextArea.append("La obra de mayor presupuesto es" + '\n' + obraSeleccionada.getNombreObra() + '\n' + '\n');
+            if (comboBoxSueldos == 0 || comboBoxSueldos == 1) {
+                long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText());
+                Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos, parametroSueldos);
+                mostrarFiltrado(personasFiltradas, 0);
+                return;
             }
-            if(comboBoxSueldos == 2)
-            {
-                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
-                this.FiltrarObrasjTextArea.append("El empleado con mayor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
-                return ;
+            if (comboBoxSueldos == 2) {
+                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos);
+                this.FiltrarObrasjTextArea.append("El empleado con mayor sueldo de esta obra es " + empleado.getNombre() + " con un sueldo de " + empleado.getSueldo());
+                return;
             }
-            if(comboBoxSueldos == 3)
-            {
-                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
-                this.FiltrarObrasjTextArea.append("El empleado con menor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
-                return ;
+            if (comboBoxSueldos == 3) {
+                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos);
+                this.FiltrarObrasjTextArea.append("El empleado con menor sueldo de esta obra es " + empleado.getNombre() + " con un sueldo de " + empleado.getSueldo());
+                return;
             }
         }
-        if(comboBoxPresupuestos == 3)
-        {
-            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(comboBoxPresupuestos) ;
-            this.FiltrarObrasjTextArea.append("La obra de menor presupuesto es"+'\n'+obraSeleccionada.getNombreObra()+'\n');
-            if(comboBoxSueldos == 0 || comboBoxSueldos == 1)
-            {
-                long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText()) ;
-                Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos, parametroSueldos) ;
-                mostrarFiltrado(personasFiltradas, 0) ;
-                return ;
+        if (comboBoxPresupuestos == 3) {
+            Obra obraSeleccionada = this.registroObr.filtrarObrasPresupuesto(comboBoxPresupuestos);
+            this.FiltrarObrasjTextArea.append("La obra de menor presupuesto es" + '\n' + obraSeleccionada.getNombreObra() + '\n');
+            if (comboBoxSueldos == 0 || comboBoxSueldos == 1) {
+                long parametroSueldos = Integer.parseInt(this.FiltrarObrasjTextField2.getText());
+                Trabajador[] personasFiltradas = this.registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos, parametroSueldos);
+                mostrarFiltrado(personasFiltradas, 0);
+                return;
             }
-            if(comboBoxSueldos == 2)
-            {
-                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
-                this.FiltrarObrasjTextArea.append("El empleado con mayor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
-                return ;
+            if (comboBoxSueldos == 2) {
+                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos);
+                this.FiltrarObrasjTextArea.append("El empleado con mayor sueldo de esta obra es " + empleado.getNombre() + " con un sueldo de " + empleado.getSueldo());
+                return;
             }
-            if(comboBoxSueldos == 3)
-            {
-                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos) ;
-                this.FiltrarObrasjTextArea.append("El empleado con menor sueldo de esta obra es "+empleado.getNombre()+" con un sueldo de "+empleado.getSueldo()) ;
+            if (comboBoxSueldos == 3) {
+                Trabajador empleado = registroTra.filtrarPersonas(obraSeleccionada, comboBoxSueldos);
+                this.FiltrarObrasjTextArea.append("El empleado con menor sueldo de esta obra es " + empleado.getNombre() + " con un sueldo de " + empleado.getSueldo());
             }
         }
     }//GEN-LAST:event_FiltrarObrasjButton3ActionPerformed
@@ -3739,18 +3634,17 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_FiltrarObrasjButton2ActionPerformed
 
     private void FiltrarObrasjTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FiltrarObrasjTextFieldKeyTyped
-        char letra = evt.getKeyChar() ;
-        if('0' > letra || letra > '9') evt.consume();
+        char letra = evt.getKeyChar();
+        if ('0' > letra || letra > '9')
+            evt.consume();
     }//GEN-LAST:event_FiltrarObrasjTextFieldKeyTyped
 
     private void FiltrarObrasjComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjComboBoxActionPerformed
-        int opcion = this.FiltrarObrasjComboBox.getSelectedIndex() ;
-        if(opcion == 0 || opcion == 1)
-        {
+        int opcion = this.FiltrarObrasjComboBox.getSelectedIndex();
+        if (opcion == 0 || opcion == 1) {
             this.FiltrarObrasjTextField.setVisible(true);
         }
-        if(opcion == 2 || opcion == 3)
-        {
+        if (opcion == 2 || opcion == 3) {
             this.FiltrarObrasjTextField.setVisible(false);
         }
     }//GEN-LAST:event_FiltrarObrasjComboBoxActionPerformed
@@ -3758,18 +3652,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void FiltrarObrasjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FiltrarObrasjTextFieldActionPerformed
-
-    private void generarInformejFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_generarInformejFrameWindowClosing
-        // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
-        } catch (IOException ex) {
-            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.exit(0);
-    }//GEN-LAST:event_generarInformejFrameWindowClosing
 
     private void FiltrarObrasjFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_FiltrarObrasjFrameWindowClosing
         // TODO add your handling code here:
@@ -3796,10 +3678,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }//GEN-LAST:event_GenerarReportejButton2ActionPerformed
 
     private void GenerarReportejButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejButton3ActionPerformed
-        String ruta = this.GenerarReportejTextField1.getText() ;
-        String nombre = this.GenerarReportejTextField2.getText() ;
-        
-        generarReporte(ruta, nombre , this.registroTra, this.registroObr);
+        String ruta = this.GenerarReportejTextField1.getText();
+        String nombre = this.GenerarReportejTextField2.getText();
+
+        generarReporte(ruta, nombre, this.registroTra, this.registroObr);
     }//GEN-LAST:event_GenerarReportejButton3ActionPerformed
 
     private void GenerarReportejTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejTextField1ActionPerformed
@@ -3831,7 +3713,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.exit(0);        
+        System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
     private void OpcionesPrincipalesFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_OpcionesPrincipalesFrameWindowClosing
@@ -3843,11 +3725,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.exit(0);          
+        System.exit(0);
     }//GEN-LAST:event_OpcionesPrincipalesFrameWindowClosing
 
 
-  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AgregarObraFrame;
     private javax.swing.JComboBox<String> AgregarObrajComboBox2;
@@ -3971,7 +3852,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<Obra> gastosTotalesjComboBox;
     private javax.swing.JLabel gastosTotalesjLabel22;
     private javax.swing.JButton generarInformejButton;
-    private javax.swing.JFrame generarInformejFrame;
     private javax.swing.JButton gestionEmpleadosjButton3;
     private javax.swing.JButton jBotonMoverEmpleado;
     private javax.swing.JButton jBotonVolverMoverEmpleados;
@@ -4057,13 +3937,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void mostrarFiltrado(Trabajador[] personasFiltradas, int i) {
-        for(int j = 0 ; j < personasFiltradas.length ; j++)
-        {
-            this.FiltrarObrasjTextArea.append("\t"+(i+1)+"."+(j+1)+" "+personasFiltradas[j].getNombre()+"\n");
-            this.FiltrarObrasjTextArea.append("\t"+"sueldo: "+personasFiltradas[j].getSueldo()+"\n"+"\n") ;
+        for (int j = 0; j < personasFiltradas.length; j++) {
+            this.FiltrarObrasjTextArea.append("\t" + (i + 1) + "." + (j + 1) + " " + personasFiltradas[j].getNombre() + "\n");
+            this.FiltrarObrasjTextArea.append("\t" + "sueldo: " + personasFiltradas[j].getSueldo() + "\n" + "\n");
         }
         this.FiltrarObrasjTextArea.append("\n");
     }
 
 }
-

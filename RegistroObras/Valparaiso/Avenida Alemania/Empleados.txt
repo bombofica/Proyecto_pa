@@ -1,4 +1,4 @@
-Andriu,Informático,1300000,80481905,true,
+Andres Vidal,Informático,1300000,80481905,true,
 Chino Rios,Prevencionista de Riesgos,10000,32134537,true,
 Sebastián Piñera,Ingeniero Civil,700000,83852547,true,
 Gabriel Álvarez Chernobyl,Informático,6546846,6972846,true,
