@@ -16,13 +16,23 @@ import java.util.TreeMap;
 public class ColeccionPorProfesion {
 
     //hashmap(String, treemap) -> treemap (integer,trabajador)
-    private String profecion;
+    private String profecion; // agregar get y set
+
+    public String getProfecion() {
+        return profecion;
+    }
+
+    public void setProfecion(String profecion) {
+        this.profecion = profecion;
+    }
     private TreeMap<Integer, Trabajador> listadoEmpleados;
 
     public ColeccionPorProfesion(String profecion) {
         this.profecion = profecion;
         this.listadoEmpleados = new TreeMap();
     }
+    
+    
 
     public Trabajador getEmpleado(Integer rut) {
         return this.listadoEmpleados.get(rut);

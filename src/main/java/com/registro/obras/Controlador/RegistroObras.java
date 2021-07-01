@@ -15,7 +15,7 @@ public class RegistroObras {
 
     int contadorObras;
 
-    private ArrayList<String> listadoRegiones;
+    private ArrayList<String> listadoRegiones; // encapsular
     private ColeccionNacionalObra coleccionNacionalObra;
     private ColeccionGeneralObra coleccionGeneralObra;
     public ListaProyectoInterfaz listaCompletaInterfaz;
@@ -167,12 +167,6 @@ public class RegistroObras {
 
     }
     
-    public Boolean existenciaObra(String obra) {
-        //System.out.println(obra);        
-        return this.coleccionGeneralObra.existenciaObra(obra);
-
-    }
-
     
 
     /*retorna true si la obra ya existe en el Registro*/
