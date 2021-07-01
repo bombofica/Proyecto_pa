@@ -794,7 +794,6 @@ public class InterfazGrafica extends javax.swing.JFrame {
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        ObraTerminadaFrame.setAlwaysOnTop(true);
         ObraTerminadaFrame.setResizable(false);
         ObraTerminadaFrame.setSize(new java.awt.Dimension(400, 300));
         ObraTerminadaFrame.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -3071,7 +3070,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "ERROR revise sus datos nuevamente");
                 return ;
             }
-            JOptionPane.showMessageDialog(rootPane, "Obra actualizada");
+            //JOptionPane.showMessageDialog(rootPane, "Obra actualizada");
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }

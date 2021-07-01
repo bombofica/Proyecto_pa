@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JTextArea;
 
-public class FechaHoy {
+public class FechaHoy{
     
     //Variables de instancia
     private Date fecha;
