@@ -103,7 +103,7 @@ public class WriteDataBase {
 
             for (int indexj = 0; indexj < pepillo.length; indexj++) {
 
-                WriteFile.addExistenciaDirectorioObra(pepillo[indexj]);
+                addExistenciaDirectorioObra(pepillo[indexj]);
 
                 try (FileWriter Escritor = new FileWriter("RegistroObras//" + pepillo[indexj].getNombreLugar() + "//" + pepillo[indexj].getNombreObra() + "//Empleados.txt")) {
 
@@ -165,7 +165,7 @@ public class WriteDataBase {
             if (ficheros[x].exists()) {
                 if (ficheros[x].isDirectory()) {
                     //System.out.println("El Archivo/Directorio No se ha eliminado");
-                    WriteFile.deleteDirectorio(ficheros[x]);
+                    deleteDirectorio(ficheros[x]);
                 }
 
                 if (!ficheros[x].delete()) {
@@ -182,7 +182,7 @@ public class WriteDataBase {
     public static void eliminarDefinitivo(File directorio) {
 
         if (directorio.exists()) {
-            WriteFile.deleteDirectorio(directorio);
+            deleteDirectorio(directorio);
         }
 
         if (directorio.exists()) {
