@@ -1,5 +1,4 @@
 package com.registro.obras.Controlador;
-import com.registro.obras.Vista.WriteFile;
 import com.registro.obras.Modelo.datoIlegibleExceptions;
 import com.registro.obras.Modelo.datoRepetidoException;
 import com.registro.obras.Modelo.*;
