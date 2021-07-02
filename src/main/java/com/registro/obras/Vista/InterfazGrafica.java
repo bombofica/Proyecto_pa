@@ -10,7 +10,7 @@ import com.registro.obras.Modelo.datoIlegibleExceptions;
 import com.registro.obras.Modelo.datoRepetidoException;
 import com.registro.obras.Modelo.*;
 import com.registro.obras.Controlador.*;
-import static com.registro.obras.Vista.WriteFile.generarReporte;
+import static com.registro.obras.Controlador.WriteDataBase.generarReporte;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -2353,8 +2353,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2532,8 +2532,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "ERROR el empleado ya existe") ;
             return ;
         }
-        WriteFile.imprimirTodasLasPersonas(registroTra);
+        WriteDataBase.imprimirTodasLasPersonas(registroTra);
         JOptionPane.showMessageDialog(rootPane, "Empleado añadido");
+        this.registroTra.agregarEspecialista(trabajador);
+       
+        // JOptionPane.showMessageDialog(rootPane, "Empleado añadido");
     }//GEN-LAST:event_anadirEmpleadobtnActionPerformed
 
     private void jTextRutSDVKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextRutSDVKeyTyped
@@ -2614,8 +2617,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void OpcionesPrincipalesFrameWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_OpcionesPrincipalesFrameWindowClosed
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2626,8 +2629,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2638,8 +2641,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2650,8 +2653,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2662,8 +2665,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2674,8 +2677,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2686,8 +2689,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2698,8 +2701,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2710,8 +2713,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2721,8 +2724,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void GestionEmpleadosFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_GestionEmpleadosFrameWindowClosing
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2734,8 +2737,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2746,8 +2749,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2758,8 +2761,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2770,8 +2773,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2782,8 +2785,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2794,8 +2797,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2952,8 +2955,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         if (obraActual != null && personaActual != null) {
             registroTra.despedirEmpleadoRegistro(obraActual, (Trabajador) personaActual);
             try {
-                WriteFile.escribirObras(',', registroObr);
-                WriteFile.imprimirTodasLasPersonas(registroTra);
+                WriteDataBase.escribirObras(',', registroObr);
+                WriteDataBase.imprimirTodasLasPersonas(registroTra);
             } catch (IOException ex) {
                 Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -2969,11 +2972,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
         if (empleado != null && obraActual != null) {
             registroTra.eliminarEmpleado(obraActual, empleado);
             try {
-                WriteFile.escribirObras(',', registroObr);
+                WriteDataBase.escribirObras(',', registroObr);
             } catch (IOException ex) {
                 Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
             }
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         }
     }//GEN-LAST:event_eliminarEmpleadojButtonActionPerformed
 
@@ -3201,8 +3204,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3513,8 +3516,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3700,8 +3703,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3735,8 +3738,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3751,8 +3754,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3763,8 +3766,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            WriteFile.escribirObras(',', this.registroObr);
-            WriteFile.imprimirTodasLasPersonas(registroTra);
+            WriteDataBase.escribirObras(',', this.registroObr);
+            WriteDataBase.imprimirTodasLasPersonas(registroTra);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }

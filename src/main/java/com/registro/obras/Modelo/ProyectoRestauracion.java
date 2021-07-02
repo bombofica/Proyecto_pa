@@ -89,7 +89,7 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
         try {
             FileWriter escritor = new FileWriter("Informes//Informe "+this.getNombreObra()+".doc");
             escritor.write("Nombre Obra: "+this.getNombreObra()+'\n'+
-                    "Fase: "+this.getFase()+'\n'+
+                    "Fase: "+this.getFaseActual()+'\n'+
                     "Región: "+ this.getNombreLugar()+'\n'+
                     "Tiempo Restante: "+ this.getTiempoRestante()+'\n'+
                     "Presupuesto: $"+ this.getPresupuesto()+'\n'+
