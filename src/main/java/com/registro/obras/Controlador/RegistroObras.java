@@ -223,6 +223,7 @@ public class RegistroObras {
                         break;
                 }
             }
+            
             if (!this.coleccionGeneralObra.agregarObra(obraAgregar)) {
                 return false;
             }
@@ -293,8 +294,8 @@ public class RegistroObras {
                     this.coleccionNacionalObra.agregarObra(remplazo);
                     this.coleccionGeneralObra.agregarObra(remplazo);
                     remplazo.cambiarNombre();
-                    WriteFile.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
-                    WriteFile.escribirObras(',', registroActual);
+                    WriteDataBase.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
+                    WriteDataBase.escribirObras(',', registroActual);
 
                     return true;
                 }
@@ -312,8 +313,8 @@ public class RegistroObras {
 
                     this.coleccionNacionalObra.obtenerColeccionRegion(lugar).agregarObra(remplazo);
 
-                    WriteFile.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
-                    WriteFile.escribirObras(',', registroActual);
+                    WriteDataBase.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
+                    WriteDataBase.escribirObras(',', registroActual);
                     return true;
                 }
                 case 3: //Cambiar tiempo restante y cambiar el interes
@@ -405,15 +406,15 @@ public class RegistroObras {
                     }
                     this.coleccionNacionalObra.agregarObra(remplazo);
                     this.coleccionGeneralObra.agregarObra(remplazo);
-                    WriteFile.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
-                    WriteFile.escribirObras(',', registroActual);
+                    WriteDataBase.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
+                    WriteDataBase.escribirObras(',', registroActual);
                     return true;
                 }
 
             }
             /*Imprime en la base de datos para actualizar la informacion*/
-            WriteFile.eliminarDefinitivo(new File("RegistroObras//" + remplazo.getNombreLugar() + "//" + remplazo.getNombreObra()));
-            WriteFile.escribirObras(',', registroActual);
+            WriteDataBase.eliminarDefinitivo(new File("RegistroObras//" + remplazo.getNombreLugar() + "//" + remplazo.getNombreObra()));
+            WriteDataBase.escribirObras(',', registroActual);
             return true;
         }
         return false;
