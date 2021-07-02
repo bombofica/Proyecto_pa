@@ -13,7 +13,8 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     private long presupuesto ;
     private String fechaEntrega ;
     private int fase ;
-    private ArrayList<String> fasesConstruccion; // encapsular
+    private ListaDeFasesNombrePro listaDeFases;
+    //private ArrayList<String> fasesConstruccion; // encapsular
     
     //private PoderInforme informes;
 
@@ -24,7 +25,8 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
         this.presupuesto = presupuesto ;
         this.fechaEntrega = tiempoAsignado ;
         this.fase = fase;
-        this.fasesConstruccion = new ArrayList();
+        this.listaDeFases = new ListaDeFasesNombrePro();
+        //this.fasesConstruccion = new ArrayList();
         llenarArrayFases() ;
     }
     
@@ -46,7 +48,7 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     }
 
     public String getFaseActual(){
-        return this.fasesConstruccion.get(fase) ;
+        return this.listaDeFases.retornarFasei(fase) ;
     }
     public int getFase() {
         return fase ;
@@ -130,12 +132,13 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
     }
 
     private void llenarArrayFases() {
-        this.fasesConstruccion.add("Cierre del área de espacio público") ;
-        this.fasesConstruccion.add("Terreno y cimentación") ;
-        this.fasesConstruccion.add("Estructura de la construcción") ;
-        this.fasesConstruccion.add("Instalaciones de la construcción") ;
-        this.fasesConstruccion.add("Aislamiento e impermeabilización") ;
-        this.fasesConstruccion.add("Acabados y cierres") ;
+        
+        this.listaDeFases.agregarNombreFase("Cierre del área de espacio público") ;
+        this.listaDeFases.agregarNombreFase("Terreno y cimentación") ;
+        this.listaDeFases.agregarNombreFase("Estructura de la construcción") ;
+        this.listaDeFases.agregarNombreFase("Instalaciones de la construcción") ;
+        this.listaDeFases.agregarNombreFase("Aislamiento e impermeabilización") ;
+        this.listaDeFases.agregarNombreFase("Acabados y cierres") ;
 
     }
 

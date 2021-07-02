@@ -15,20 +15,21 @@ public class RegistroObras {
 
     int contadorObras;
 
-    private ArrayList<String> listadoRegiones; // encapsular
+    //private ArrayList<String> listadoRegiones; // encapsular
+    private ListaRegionesNombre listaDeRegiones;
     private ColeccionNacionalObra coleccionNacionalObra;
     private ColeccionGeneralObra coleccionGeneralObra;
     public ListaProyectoInterfaz listaCompletaInterfaz;
 
     public RegistroObras() {
-        this.listadoRegiones = new ArrayList();
+        this.listaDeRegiones = new ListaRegionesNombre();
         this.listaCompletaInterfaz = new ListaProyectoInterfaz();
         this.coleccionNacionalObra = new ColeccionNacionalObra();
         this.coleccionGeneralObra = new ColeccionGeneralObra();
         llenarArray();
 
-        for (int i = 0; i < listadoRegiones.size(); i++) {
-            this.coleccionNacionalObra.agregarColeccionRegional(listadoRegiones.get(i));
+        for (int i = 0; i < listaDeRegiones.size(); i++) {
+            this.coleccionNacionalObra.agregarColeccionRegional(listaDeRegiones.retornarRegioni(i));
         }
     }
 
@@ -126,8 +127,8 @@ public class RegistroObras {
         comboBoxRegiones.removeAllItems();
         String regionActual;
         comboBoxRegiones.addItem("Todas las regiones");
-        for (int i = 0; i < this.listadoRegiones.size(); i++) {
-            regionActual = this.listadoRegiones.get(i);
+        for (int i = 0; i < this.listaDeRegiones.size(); i++) {
+            regionActual = this.listaDeRegiones.retornarRegioni(i);
 
             comboBoxRegiones.addItem(regionActual);
         }
@@ -288,7 +289,7 @@ public class RegistroObras {
                 }
                 case 2: //Cambiar region
                 {
-                    if (!this.listadoRegiones.contains(nuevoDato)) {
+                    if (!this.listaDeRegiones.contains(nuevoDato)) {
                         return false;
                     }
                     this.coleccionGeneralObra.eliminarObra(remplazo);
@@ -424,28 +425,28 @@ public class RegistroObras {
 
 // eliminar    
     private void llenarArray() {
-        this.listadoRegiones.add("Tarapaca");
-        this.listadoRegiones.add("Antofagasta");
-        this.listadoRegiones.add("Atacama");
-        this.listadoRegiones.add("Coquimbo");
-        this.listadoRegiones.add("Valparaiso");
-        this.listadoRegiones.add("O'higgins");
-        this.listadoRegiones.add("Maule");
-        this.listadoRegiones.add("Biobio");
-        this.listadoRegiones.add("Araucania");
-        this.listadoRegiones.add("Los Lagos");
-        this.listadoRegiones.add("Aysen");
-        this.listadoRegiones.add("Magallanes");
-        this.listadoRegiones.add("Metropolitana");
-        this.listadoRegiones.add("Los Rios");
-        this.listadoRegiones.add("Arica y Parinacota");
-        this.listadoRegiones.add("Ñuble");
+        this.listaDeRegiones.agregarNombre("Tarapaca");
+        this.listaDeRegiones.agregarNombre("Antofagasta");
+        this.listaDeRegiones.agregarNombre("Atacama");
+        this.listaDeRegiones.agregarNombre("Coquimbo");
+        this.listaDeRegiones.agregarNombre("Valparaiso");
+        this.listaDeRegiones.agregarNombre("O'higgins");
+        this.listaDeRegiones.agregarNombre("Maule");
+        this.listaDeRegiones.agregarNombre("Biobio");
+        this.listaDeRegiones.agregarNombre("Araucania");
+        this.listaDeRegiones.agregarNombre("Los Lagos");
+        this.listaDeRegiones.agregarNombre("Aysen");
+        this.listaDeRegiones.agregarNombre("Magallanes");
+        this.listaDeRegiones.agregarNombre("Metropolitana");
+        this.listaDeRegiones.agregarNombre("Los Rios");
+        this.listaDeRegiones.agregarNombre("Arica y Parinacota");
+        this.listaDeRegiones.agregarNombre("Ñuble");
     }
 
     // verifica si existe la region que ha sido ingresada por el usuario
     boolean existenciaRegion(String nombre) {
-        for (int i = 0; i < this.listadoRegiones.size(); i++) {
-            if (nombre.equals(this.listadoRegiones.get(i))) {
+        for (int i = 0; i < this.listaDeRegiones.size(); i++) {
+            if (nombre.equals(this.listaDeRegiones.retornarRegioni(i))) {
                 return true;
             }
         }

@@ -5,11 +5,6 @@ import com.registro.obras.Modelo.*;
 import java.util.HashMap;
 import java.util.Map;
 
-
-/**
- *
- * @author Benjamín
- */
 public class ColeccionNacionalObra {
     
     private HashMap <String, ColeccionRegionalObra> coleccionNacional;

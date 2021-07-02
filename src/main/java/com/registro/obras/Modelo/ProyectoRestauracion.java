@@ -21,9 +21,8 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
     private long presupuesto ;
     private String tiempoRestante ;
     private int fase ;
-    int xdddd;
-    private ArrayList<String> fasesRestauracion; // encapsular
-    //PoderInforme informes;
+    private ListaDeFasesNombrePro listaDeFases;
+
     
     public ProyectoRestauracion(String nombreObra, String nombreRegion, String tiempoAsignado, long presupuesto, int fase)
     {
@@ -31,7 +30,8 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
         this.presupuesto = presupuesto ;
         this.tiempoRestante = tiempoAsignado ;
         this.fase = fase;
-        this.fasesRestauracion = new ArrayList();
+        this.listaDeFases = new ListaDeFasesNombrePro();
+        //this.fasesRestauracion = new ArrayList();
         llenarArrayFases() ;
     }
     public long getPresupuesto() {
@@ -50,7 +50,7 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
         this.tiempoRestante = tiempoRestante;
     }
     public String getFaseActual(){
-        return this.fasesRestauracion.get(fase) ;
+        return this.listaDeFases.retornarFasei(fase) ;
     }
     public int getFase() {
         return fase ;
@@ -116,12 +116,12 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
     
 
     private void llenarArrayFases(){
-        this.fasesRestauracion.add("Analisis de la documentacion") ;
-        this.fasesRestauracion.add("Determinar el grado de intervencion") ;
-        this.fasesRestauracion.add("Consolidacion") ;
-        this.fasesRestauracion.add("Limpieza general") ;
-        this.fasesRestauracion.add("Reconstruccion") ;
-        this.fasesRestauracion.add("Acabados y cierres") ;
+        this.listaDeFases.agregarNombreFase("Analisis de la documentacion") ;
+        this.listaDeFases.agregarNombreFase("Determinar el grado de intervencion") ;
+        this.listaDeFases.agregarNombreFase("Consolidacion") ;
+        this.listaDeFases.agregarNombreFase("Limpieza general") ;
+        this.listaDeFases.agregarNombreFase("Reconstruccion") ;
+        this.listaDeFases.agregarNombreFase("Acabados y cierres") ;
     }
     
     

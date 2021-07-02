@@ -9,10 +9,7 @@ import com.registro.obras.Modelo.*;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 
-/**
- *
- * @author Benjamín
- */
+
 public class ListaProyectoInterfaz {
 
     public ArrayList<ProyectoReportable> listaCompletaInterfaz;
