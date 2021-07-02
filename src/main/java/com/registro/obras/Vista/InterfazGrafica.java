@@ -2382,23 +2382,36 @@ public class InterfazGrafica extends javax.swing.JFrame {
         switch (this.AgregarObrajComboBox2.getSelectedIndex()) {
             case 1: {
                 ProyectoConstruccion nuevaObra = new ProyectoConstruccion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto, 0);
-                if (!this.registroObr.agregarObra(nuevaObra)) {
-                    JOptionPane.showMessageDialog(rootPane, "ERROR verifique la estructura de la fecha y recuerde que no puede repetir nombre de obras ");
-                    return;
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Obra agregada a la aplicacion");
+                try 
+                {
+                    this.registroObr.agregarObra(nuevaObra) ;                   
+                } 
+                catch (datoIlegibleExceptions ex)
+                {
+                    //Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(rootPane, "ERROR verifique la estructura de la fecha y recuerde que no puede repetir nombre de obras");
                 }
-
+                catch (datoRepetidoException ex)
+                {
+                    JOptionPane.showMessageDialog(rootPane, "el qlo weon XDDDD");
+                }
                 break;
             }
             case 2: {
 
                 ProyectoRestauracion nuevaObra = new ProyectoRestauracion(nombreObra, region, tiempoAsignadoInteresAnual, presupuesto, 0);
-                if (!this.registroObr.agregarObra(nuevaObra)) {
+                try 
+                {
+                    this.registroObr.agregarObra(nuevaObra) ;                   
+                } 
+                catch (datoIlegibleExceptions ex)
+                {
                     JOptionPane.showMessageDialog(rootPane, "ERROR verifique la estructura de la fecha y recuerde que no puede repetir nombre de obras");
-                    return;
-                } else {
-                    JOptionPane.showMessageDialog(rootPane, "Obra agregada a la aplicacion");
+
+                }
+                catch (datoRepetidoException ex)
+                {
+                    JOptionPane.showMessageDialog(rootPane, "ERROR verifique la estructura de la fecha y recuerde que no puede repetir nombre de obras");
                 }
 
                 break;

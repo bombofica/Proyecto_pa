@@ -23,7 +23,6 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
     private int fase ;
     private ListaDeFasesNombrePro listaDeFases;
 
-    
     public ProyectoRestauracion(String nombreObra, String nombreRegion, String tiempoAsignado, long presupuesto, int fase)
     {
         super(nombreObra, nombreRegion, 2) ;
@@ -83,7 +82,8 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
         return this.presupuesto;
     }
     
-       public void crearInforme(String opcional)
+    @Override
+    public void crearInforme(String opcional)
     {
         try {
             FileWriter escritor = new FileWriter("Informes//Informe "+this.getNombreObra()+".doc");
@@ -99,20 +99,6 @@ public class ProyectoRestauracion extends Obra implements ProyectoReportable{
         }   
     }
     
-    public void crearGrafico()
-    {
-        
-    }
-    
-    public int calcularFase()
-    {
-        return 0;
-    }
-    
-    public double calcularPresupuestoGastadoMensual()
-    {
-        return 0;
-    }
     
 
     private void llenarArrayFases(){

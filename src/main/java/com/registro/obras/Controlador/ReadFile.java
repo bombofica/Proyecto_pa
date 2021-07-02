@@ -138,7 +138,7 @@ public class ReadFile {
        Y esta carpeta posee un archivo de texto de nombre "Empleados.txt"
 
     */
-    public static void traerObras (char separador, int num, String direccion,RegistroTrabajadores registroTrabajadores, RegistroObras registroObras){
+    public static void traerObras (char separador, int num, String direccion,RegistroTrabajadores registroTrabajadores, RegistroObras registroObras) throws datoIlegibleExceptions, datoRepetidoException{
         
         /* Se crean las variables correspondientes*/
 
