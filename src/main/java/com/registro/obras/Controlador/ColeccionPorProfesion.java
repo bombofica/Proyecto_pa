@@ -65,7 +65,7 @@ public class ColeccionPorProfesion {
     }
 
     boolean existenciaEmpleado(Trabajador empleado) {
-        if (this.listadoEmpleados.containsKey(empleado.getRut())) {
+        if(this.listadoEmpleados.containsKey(empleado.getRut())) {
             return true;
         }
         return false;

@@ -46,13 +46,7 @@ public class ColeccionGeneralObra {
         return this.registro.containsKey(obra) ;
     }
 
-    public boolean agregarObra(Obra obraAgregar) { //Listo
-        if(this.registro.containsKey(obraAgregar.getNombreObra()))
-        {
-            System.out.println("lel");
-            return false;
-        }
-            
+    public boolean agregarObra(Obra obraAgregar) { //Listo            
         if (obraAgregar != null) {
             this.listaCompleta.add(obraAgregar);
             this.registro.put(obraAgregar.getNombreObra(), obraAgregar);

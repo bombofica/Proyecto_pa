@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.registro.obras.Controlador;
+package com.registro.obras.Modelo;
 
 import javax.swing.JOptionPane;
 import javax.swing.JRootPane;
@@ -16,6 +16,6 @@ public class datoIlegibleExceptions extends Exception{
     
     public datoIlegibleExceptions()
     {
-        super("ERROR se a generado una excepcion por un dato inesperado") ;
+        super("ERROR benja weon") ;
     }
 }

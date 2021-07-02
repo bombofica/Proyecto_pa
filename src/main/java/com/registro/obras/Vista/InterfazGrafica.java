@@ -5,6 +5,9 @@
  */
 package com.registro.obras.Vista;
 
+import com.registro.obras.Controlador.ProyectoReportable;
+import com.registro.obras.Modelo.datoIlegibleExceptions;
+import com.registro.obras.Modelo.datoRepetidoException;
 import com.registro.obras.Modelo.*;
 import com.registro.obras.Controlador.*;
 import static com.registro.obras.Controlador.WriteDataBase.generarReporte;
@@ -590,6 +593,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         mostrarObraTextArea.setColumns(20);
         mostrarObraTextArea.setRows(5);
+        mostrarObraTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                mostrarObraTextAreaKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(mostrarObraTextArea);
 
         jLabel18.setText("Informacion de la Obra");
@@ -2081,6 +2089,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
         FiltrarObrasjLabel2.setText("Sueldo Empleados");
 
         FiltrarObrasjComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Menor que", "Mayor que", "Maximo", "Minimo" }));
+        FiltrarObrasjComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltrarObrasjComboBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout FiltrarObrasjFrameLayout = new javax.swing.GroupLayout(FiltrarObrasjFrame.getContentPane());
         FiltrarObrasjFrame.getContentPane().setLayout(FiltrarObrasjFrameLayout);
@@ -2393,7 +2406,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 }
                 catch (datoRepetidoException ex)
                 {
-                    JOptionPane.showMessageDialog(rootPane, "el qlo weon XDDDD");
+                    JOptionPane.showMessageDialog(rootPane, "ERROR la obra ya a sido ingresada anteriormente");
                 }
                 break;
             }
@@ -2514,8 +2527,15 @@ public class InterfazGrafica extends javax.swing.JFrame {
         int rut = Integer.parseInt(this.jTextRutSDV.getText());
         Trabajador trabajador = new Trabajador(nombreEmpleado, especializacion, (int) salario, rut, false, "");
 
-        this.registroTra.agregarEspecialista(trabajador);
+        if(!this.registroTra.agregarEspecialista(trabajador)) 
+        {
+            JOptionPane.showMessageDialog(rootPane, "ERROR el empleado ya existe") ;
+            return ;
+        }
         WriteDataBase.imprimirTodasLasPersonas(registroTra);
+        JOptionPane.showMessageDialog(rootPane, "Empleado añadido");
+        this.registroTra.agregarEspecialista(trabajador);
+       
         // JOptionPane.showMessageDialog(rootPane, "Empleado añadido");
     }//GEN-LAST:event_anadirEmpleadobtnActionPerformed
 
@@ -3038,12 +3058,25 @@ public class InterfazGrafica extends javax.swing.JFrame {
         String nuevoDato = this.cambiarDatojTextField1.getText();
         try {
             if (!this.registroObr.modificarObra(obraActual.getNombreObra(), nuevoDato, opcion + 1, registroObr)) {
-                JOptionPane.showMessageDialog(rootPane, "ERROR revise sus datos nuevamente");
+                
                 return;
             }
-            //JOptionPane.showMessageDialog(rootPane, "Obra actualizada");
-        } catch (IOException ex) {
+        } 
+        catch (IOException ex) 
+        {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch(datoRepetidoException ex)
+        {
+            JOptionPane.showMessageDialog(rootPane, "ERROR El nombre de la obra ya existe");
+        }
+        catch(datoIlegibleExceptions ex)
+        {
+            JOptionPane.showMessageDialog(rootPane, "ERROR los datos ingresados no cumplen con la estructura de la aplicacion");
+        }
+        catch(NumberFormatException ex)
+        {
+            JOptionPane.showMessageDialog(rootPane, "ERROR ingrese valores numericos");
         }
 
         if (obraActual != null) {
@@ -3419,7 +3452,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private void TiempoRestanteObrajButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TiempoRestanteObrajButton2ActionPerformed
         String opcion = (String) this.TiempoRestanteObrajComboBox3.getSelectedItem();
         Obra obraActual = (Obra) this.TiempoRestanteObrajComboBox2.getSelectedItem();
-        if ((opcion != null) && (obraActual != null)) {
+        /*if ((opcion != null) && (obraActual != null)) {
             if (opcion.equals("Desabilitado")) {
                 try {
                     registroObr.modificarObra(obraActual.getNombreObra(), "false", 5, registroObr);
@@ -3433,7 +3466,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        }
+        }*/
 
     }//GEN-LAST:event_TiempoRestanteObrajButton2ActionPerformed
 
@@ -3740,6 +3773,20 @@ public class InterfazGrafica extends javax.swing.JFrame {
         }
         System.exit(0);
     }//GEN-LAST:event_OpcionesPrincipalesFrameWindowClosing
+
+    private void mostrarObraTextAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mostrarObraTextAreaKeyPressed
+        
+    }//GEN-LAST:event_mostrarObraTextAreaKeyPressed
+
+    private void FiltrarObrasjComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltrarObrasjComboBox2ActionPerformed
+        int opcion = this.FiltrarObrasjComboBox2.getSelectedIndex();
+        if (opcion == 0 || opcion == 1) {
+            this.FiltrarObrasjTextField2.setVisible(true);
+        }
+        if (opcion == 2 || opcion == 3) {
+            this.FiltrarObrasjTextField2.setVisible(false);
+        }
+    }//GEN-LAST:event_FiltrarObrasjComboBox2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

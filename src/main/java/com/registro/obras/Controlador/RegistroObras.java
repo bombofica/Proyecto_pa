@@ -1,5 +1,8 @@
 package com.registro.obras.Controlador;
 
+import com.registro.obras.Vista.WriteFile;
+import com.registro.obras.Modelo.datoIlegibleExceptions;
+import com.registro.obras.Modelo.datoRepetidoException;
 import com.registro.obras.Modelo.*;
 import java.io.File;
 import java.io.IOException;
@@ -234,9 +237,8 @@ public class RegistroObras {
         }
         else
         {
-            throw new datoRepetidoException() ;    
+            throw new datoRepetidoException() ;
         }
-
     }
 
     /*Filtra un conjunto de obras, estas obras tienen que estar dentro de cierto rango*/
@@ -268,14 +270,13 @@ public class RegistroObras {
         return -1;
     }
 
-    public boolean modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException //Listo
+    public boolean modificarObra(String nombreObra, String nuevoDato, int opcion, RegistroObras registroActual) throws IOException, datoRepetidoException, datoIlegibleExceptions, NumberFormatException//Listo
     {
         //en el archivo se elimina la obra anterior y se vuelve a crear esta pero con el dato cambiado
 
         //nombreObra es el nombre actual de la obra a editar
         //nuevoDato es el dato a editar que puedeser de cualquier atributo dentro del objeto Obra
         //opcion guardaria la hipotetica opcion a modificar por el usuario seleccionada en el menu
-        System.out.println(nombreObra);
         if (existenciaObra(nombreObra)) {
 
             String lugar = this.coleccionGeneralObra.retornarObra(nombreObra).getNombreLugar();//this.registro.get(nombreObra).getNombreLugar();
@@ -284,7 +285,7 @@ public class RegistroObras {
                 case 1: //Cambiar nombre
                 {
                     if (this.existenciaObra(nuevoDato)) {
-                        return false;
+                        throw new datoRepetidoException();
                     }
                     this.coleccionGeneralObra.eliminarObra(remplazo);
                     this.coleccionNacionalObra.eliminarObra(remplazo);
@@ -301,7 +302,7 @@ public class RegistroObras {
                 case 2: //Cambiar region
                 {
                     if (!this.listaDeRegiones.contains(nuevoDato)) {
-                        return false;
+                        throw new datoIlegibleExceptions();
                     }
                     this.coleccionGeneralObra.eliminarObra(remplazo);
                     this.coleccionNacionalObra.eliminarObra(remplazo);
@@ -318,14 +319,21 @@ public class RegistroObras {
                 }
                 case 3: //Cambiar tiempo restante y cambiar el interes
                 {
-                    //remplazo.setTiempoParaTerminarObra(nuevoDato) ;
                     int tipoObra = retornarTipoObra(nombreObra);
                     switch (tipoObra) {
                         case 1: {
+                            if(!FechaHoy.verificarEstructura(((ProyectoConstruccion)(remplazo)).getTiempoRestante().toCharArray()))
+                            {
+                                throw new datoIlegibleExceptions();
+                            }
                             ((ProyectoConstruccion) (remplazo)).setTiempoRestante(nuevoDato);
                             break;
                         }
                         case 2: {
+                            if(!FechaHoy.verificarEstructura(((ProyectoRestauracion)(remplazo)).getTiempoRestante().toCharArray()))
+                            {
+                                throw new datoIlegibleExceptions();
+                            }
                             ((ProyectoRestauracion) (remplazo)).setTiempoRestante(nuevoDato);
                             break;
                         }
@@ -334,8 +342,7 @@ public class RegistroObras {
                                 double nuevoInteres = Double.parseDouble(nuevoDato);
                                 ((ServicioMantencion) (remplazo)).setInteresAnual(nuevoInteres);
                             } catch (NumberFormatException e) {
-                                System.out.println(e.getMessage());
-                                //ventana de error
+                                throw new NumberFormatException() ;
                             }
 
                         }
@@ -353,9 +360,8 @@ public class RegistroObras {
                                 ((ProyectoConstruccion) (remplazo)).setPresupuesto(nuevoPresupuesto);
                                 break;
                             } catch (NumberFormatException e) {
-                                //ventana de error
+                                throw new NumberFormatException() ;
                             }
-
                         }
                         case 2: {
                             try {
@@ -363,10 +369,8 @@ public class RegistroObras {
                                 ((ProyectoRestauracion) (remplazo)).setPresupuesto(nuevoPresupuesto);
                                 break;
                             } catch (NumberFormatException e) {
-                                return false;
-                                //ventana de error
+                                throw new NumberFormatException() ;
                             }
-
                         }
                         case 3: {
                             try {
@@ -374,21 +378,21 @@ public class RegistroObras {
                                 ((ServicioMantencion) (remplazo)).setMantenimientoMonetarioAnual(nuevoPresupuesto);
                                 break;
                             } catch (NumberFormatException e) {
-                                return false;
-                                //ventana de error
+                                throw new NumberFormatException() ;
                             }
-
                         }
-
                     }
                     break;
                 }
                 case 5: {
-                    if (nuevoDato.equals("false")) {
+                    if (nuevoDato.equals("false")){
                         ((ServicioMantencion) (remplazo)).setOperativo(false);
-                    } else {
+                        break;
+                    } 
+                    if (nuevoDato.equals("true")){
                         ((ServicioMantencion) (remplazo)).setOperativo(true);
                     }
+                    break;
                 }
                 case 6: {
                     this.coleccionGeneralObra.eliminarObra(remplazo);
@@ -455,7 +459,7 @@ public class RegistroObras {
     }
 
     // verifica si existe la region que ha sido ingresada por el usuario
-    boolean existenciaRegion(String nombre) {
+    public boolean existenciaRegion(String nombre) {
         for (int i = 0; i < this.listaDeRegiones.size(); i++) {
             if (nombre.equals(this.listaDeRegiones.retornarRegioni(i))) {
                 return true;
@@ -464,7 +468,7 @@ public class RegistroObras {
         return false;
     }
 
-    long numeroObras() {
+    public long numeroObras() {
         return this.coleccionGeneralObra.numeroObras();
     }
 
