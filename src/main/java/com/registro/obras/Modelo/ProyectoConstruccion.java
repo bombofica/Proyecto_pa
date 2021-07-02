@@ -100,34 +100,6 @@ public class ProyectoConstruccion extends Obra implements ProyectoReportable{
         }   
     }
     
-    @Override
-    public void crearGrafico()
-    {
-        // no disponible aún
-    }
-    
-    @Override
-    public int calcularFase()
-    {
-        return 0;
-    }
-    
-    @Override
-    public double calcularPresupuestoGastadoMensual()
-    {
-        return 0;
-    }
-    public void informe() // editar (Importante)
-    {
-        crearInforme("");
-        crearGrafico();
-        calcularFase();
-        calcularPresupuestoGastadoMensual();
-    }
-    
-    public void crearInforme(){
-        
-    }
 
     private void llenarArrayFases() {
         this.fasesConstruccion.add("Cierre del área de espacio público") ;

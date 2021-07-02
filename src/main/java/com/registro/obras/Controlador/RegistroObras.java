@@ -189,16 +189,26 @@ public class RegistroObras {
     }
 
     /* Agrega una obra al registroObras*/
-    public boolean agregarObra(Obra obraAgregar) { //Listo        
+    public boolean agregarObra(Obra obraAgregar) throws datoIlegibleExceptions, datoRepetidoException{  //Listo     j   
 
-        if (obraAgregar != null && !existenciaObra(obraAgregar.getNombreObra())) {
-            if (obraAgregar.getCodigo() != 3) {
-                switch (obraAgregar.getCodigo()) {
+        if (obraAgregar != null && !existenciaObra(obraAgregar.getNombreObra())) 
+        {
+            if (obraAgregar.getCodigo() != 3) 
+            {
+                switch (obraAgregar.getCodigo()) 
+                {
                     case 1:
-                        if (FechaHoy.verificarEstructura(((ProyectoConstruccion) obraAgregar).getTiempoRestante().toCharArray())) {
-                            this.listaCompletaInterfaz.agregarObra((ProyectoConstruccion) obraAgregar);
-                        } else {
-                            return false;
+                        if (FechaHoy.verificarEstructura(((ProyectoConstruccion) obraAgregar).getTiempoRestante().toCharArray())) 
+                        {
+                            if(!this.coleccionGeneralObra.agregarObra(obraAgregar))
+                            {
+                                throw new datoRepetidoException() ;
+                            }
+                            //this.listaCompletaInterfaz.agregarObra((ProyectoConstruccion) obraAgregar);
+                        } 
+                        else 
+                        {
+                            throw new datoIlegibleExceptions();
                         }
 
                         break;
@@ -207,7 +217,7 @@ public class RegistroObras {
                         if (FechaHoy.verificarEstructura(((ProyectoRestauracion) obraAgregar).getTiempoRestante().toCharArray())) {
                             this.listaCompletaInterfaz.agregarObra((ProyectoRestauracion) obraAgregar);
                         } else {
-                            return false;
+                            throw new datoIlegibleExceptions();
                         }
 
                         break;

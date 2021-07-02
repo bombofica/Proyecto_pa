@@ -15,7 +15,7 @@ import java.io.* ;
 
 
 public class main{
-    public static void main(String params[]) throws IOException
+    public static void main(String params[]) throws IOException, datoIlegibleExceptions, datoRepetidoException
     {
 
         //ReadFile.leerArchivo("RegistroObras//RegistroObras.txt");
