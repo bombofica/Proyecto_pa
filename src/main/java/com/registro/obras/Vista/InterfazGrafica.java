@@ -10,7 +10,6 @@ import com.registro.obras.Modelo.datoIlegibleExceptions;
 import com.registro.obras.Modelo.datoRepetidoException;
 import com.registro.obras.Modelo.*;
 import com.registro.obras.Controlador.*;
-import static com.registro.obras.Controlador.WriteDataBase.generarReporte;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -3727,7 +3726,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         String ruta = this.GenerarReportejTextField1.getText();
         String nombre = this.GenerarReportejTextField2.getText();
 
-        generarReporte(ruta, nombre, this.registroTra, this.registroObr);
+        WriteDataBase.generarReporte(ruta, nombre, this.registroTra, this.registroObr);
     }//GEN-LAST:event_GenerarReportejButton3ActionPerformed
 
     private void GenerarReportejTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejTextField1ActionPerformed

@@ -1,4 +1,4 @@
-package com.registro.obras.Vista;
+package com.registro.obras.Controlador;
 
 //import java.io.FileReader;
 import com.registro.obras.Controlador.*;
