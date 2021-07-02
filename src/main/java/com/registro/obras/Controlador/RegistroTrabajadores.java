@@ -8,31 +8,33 @@ import javax.swing.JTextArea;
 public class RegistroTrabajadores {
     
     //Variables de instancia
-    private String[] especializaciones;
+    //private String[] especializaciones;
+    private ListaEspecialidades especialidades;
     private ListaTrabajadores listadoTrabajadores ; //encapsulacion del ArrayList que contiene todos los trabajadores de la plataforma
-    private ColeccionTrabajadores coleccionTrabajadores; //HashMap que contiene los trabajadores filtrados por profecion
+    private ColeccionTrabajadores coleccionTrabajadores; //HashMap que contiene los trabajadores filtrados por profesion
 
     //constructor
     public RegistroTrabajadores() {
 
+        this.especialidades = new ListaEspecialidades();
         this.listadoTrabajadores = new ListaTrabajadores() ;
         this.coleccionTrabajadores = new ColeccionTrabajadores() ;
         
         //listado con todas las especializaciones
-        this.especializaciones = new String[10];
-        this.especializaciones[0] = new String("Ingeniero Civil");
-        this.especializaciones[1] = new String("Arquitecto");
-        this.especializaciones[2] = new String("Topografo");
-        this.especializaciones[3] = new String("Ingeniero Ambiental");
-        this.especializaciones[4] = new String("Prevencionista de Riesgos");
-        this.especializaciones[5] = new String("Obrero");
-        this.especializaciones[6] = new String("Ingeniero Constructor");
-        this.especializaciones[7] = new String("Proyectista");
-        this.especializaciones[8] = new String("Ingeniero Agrónomo");
-        this.especializaciones[9] = new String("Informático");
+
+        this.especialidades.agregarEspecialidad("Ingeniero Civil");
+        this.especialidades.agregarEspecialidad("Arquitecto");
+        this.especialidades.agregarEspecialidad("Topografo");
+        this.especialidades.agregarEspecialidad("Ingeniero Ambiental");
+        this.especialidades.agregarEspecialidad("Prevencionista de Riesgos");
+        this.especialidades.agregarEspecialidad("Obrero");
+        this.especialidades.agregarEspecialidad("Ingeniero Constructor");
+        this.especialidades.agregarEspecialidad("Proyectista");
+        this.especialidades.agregarEspecialidad("Ingeniero Agrónomo");
+        this.especialidades.agregarEspecialidad("Informático");
 
         for (int i = 0; i <= 9; i++) {
-            this.coleccionTrabajadores.agregarColeccionPorProfesion(this.especializaciones[i]);
+            this.coleccionTrabajadores.agregarColeccionPorProfesion(this.especialidades.retornarEspecialidadi(i));
         }
     }
 
@@ -41,7 +43,7 @@ public class RegistroTrabajadores {
         comboBox.removeAllItems();
         for (int i = 0; i <= 9; i++) {
 
-            comboBox.addItem(this.especializaciones[i]);
+            comboBox.addItem(this.especialidades.retornarEspecialidadi(i));
         }
     }
 

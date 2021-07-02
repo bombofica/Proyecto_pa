@@ -9,14 +9,11 @@ import com.registro.obras.Modelo.Trabajador;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- *
- * @author Ceseo
- */
+
 public class ColeccionPorProfesion {
 
     //hashmap(String, treemap) -> treemap (integer,trabajador)
-    private String profecion; // agregar get y set
+    private String profecion;
 
     public String getProfecion() {
         return profecion;
