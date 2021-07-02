@@ -201,11 +201,7 @@ public class RegistroObras {
                     case 1:
                         if (FechaHoy.verificarEstructura(((ProyectoConstruccion) obraAgregar).getTiempoRestante().toCharArray())) 
                         {
-                            if(!this.coleccionGeneralObra.agregarObra(obraAgregar))
-                            {
-                                throw new datoRepetidoException() ;
-                            }
-                            //this.listaCompletaInterfaz.agregarObra((ProyectoConstruccion) obraAgregar);
+                            this.listaCompletaInterfaz.agregarObra((ProyectoConstruccion) obraAgregar);
                         } 
                         else 
                         {
@@ -224,6 +220,7 @@ public class RegistroObras {
                         break;
                 }
             }
+            
             if (!this.coleccionGeneralObra.agregarObra(obraAgregar)) {
                 return false;
             }
@@ -235,7 +232,11 @@ public class RegistroObras {
             this.contadorObras++;
             return true;
         }
-        return false;
+        else
+        {
+            throw new datoRepetidoException() ;    
+        }
+
     }
 
     /*Filtra un conjunto de obras, estas obras tienen que estar dentro de cierto rango*/
@@ -292,8 +293,8 @@ public class RegistroObras {
                     this.coleccionNacionalObra.agregarObra(remplazo);
                     this.coleccionGeneralObra.agregarObra(remplazo);
                     remplazo.cambiarNombre();
-                    WriteFile.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
-                    WriteFile.escribirObras(',', registroActual);
+                    WriteDataBase.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
+                    WriteDataBase.escribirObras(',', registroActual);
 
                     return true;
                 }
@@ -311,8 +312,8 @@ public class RegistroObras {
 
                     this.coleccionNacionalObra.obtenerColeccionRegion(lugar).agregarObra(remplazo);
 
-                    WriteFile.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
-                    WriteFile.escribirObras(',', registroActual);
+                    WriteDataBase.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
+                    WriteDataBase.escribirObras(',', registroActual);
                     return true;
                 }
                 case 3: //Cambiar tiempo restante y cambiar el interes
@@ -401,15 +402,15 @@ public class RegistroObras {
                     }
                     this.coleccionNacionalObra.agregarObra(remplazo);
                     this.coleccionGeneralObra.agregarObra(remplazo);
-                    WriteFile.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
-                    WriteFile.escribirObras(',', registroActual);
+                    WriteDataBase.eliminarDefinitivo(new File("RegistroObras//" + lugar + "//" + nombreObra));
+                    WriteDataBase.escribirObras(',', registroActual);
                     return true;
                 }
 
             }
             /*Imprime en la base de datos para actualizar la informacion*/
-            WriteFile.eliminarDefinitivo(new File("RegistroObras//" + remplazo.getNombreLugar() + "//" + remplazo.getNombreObra()));
-            WriteFile.escribirObras(',', registroActual);
+            WriteDataBase.eliminarDefinitivo(new File("RegistroObras//" + remplazo.getNombreLugar() + "//" + remplazo.getNombreObra()));
+            WriteDataBase.escribirObras(',', registroActual);
             return true;
         }
         return false;

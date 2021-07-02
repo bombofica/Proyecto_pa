@@ -181,6 +181,7 @@ public class ReadFile {
                 
                 */
                 if (caracter == '\n' || c == -1) {
+                    System.out.println(valores[0]+" "+ valores[1]+" "+valores[2]+" " + valores[3]+" "+valores[4]+" "+valores[5]);                       // nombre_lugar(2)
  
                     int valor = Integer.parseInt(valores[0]);
                     System.out.println(valores[0]+" "+ valores[1]+" "+valores[2]+" " + valores[3]+" "+valores[4]+" "+valores[5]);                       // nombre_lugar(2)
@@ -225,7 +226,7 @@ public class ReadFile {
         
         int i ;
         for(i = 0; i<regiones.length;i++){
-            WriteFile.addExistenciaDirectorioRegion(regiones[i]);
+            WriteDataBase.addExistenciaDirectorioRegion(regiones[i]);
         }
     }
 

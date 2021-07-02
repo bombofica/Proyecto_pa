@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
 
-public class WriteFile {
+public class WriteDataBase {
 
     // Este método solo se creó para probar el funcionamiento de "FileWriter" 
     public static void escribirFichero(int valor) throws IOException {
