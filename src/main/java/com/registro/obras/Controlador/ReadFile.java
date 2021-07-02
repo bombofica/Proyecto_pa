@@ -1,4 +1,7 @@
 package com.registro.obras.Controlador;
+import com.registro.obras.Vista.WriteFile;
+import com.registro.obras.Modelo.datoIlegibleExceptions;
+import com.registro.obras.Modelo.datoRepetidoException;
 import com.registro.obras.Modelo.*;
 import java.io.BufferedReader;
 import java.io.*;
@@ -51,7 +54,7 @@ public class ReadFile {
        NombrePersona,Labor,Sueldo,Rut,Estado(Trabajando o no),
     */
 
-    public static void tomarContenidosPersonas(char separador, int num, String direccion, RegistroTrabajadores registroTrabajadores, Obra currentObra) throws IOException {
+    public static void tomarContenidosPersonas(char separador, int num, String direccion, RegistroTrabajadores registroTrabajadores, Obra currentObra) throws IOException, datoRepetidoException, datoIlegibleExceptions {
         String[] valores = new String[num];// para almacenar los datos que se encuentran en una linea
         Trabajador currentPersona;
         int cont = 0;
@@ -103,7 +106,7 @@ public class ReadFile {
                                 Integer.parseInt(valores[3]), Boolean.parseBoolean(valores[4]),
                                 //currentObra.getNombreObra());                                
                         currentObra.toString());
-                        System.out.println(currentPersona.getNombre()+" "+currentObra.getNombreObra());
+                        //System.out.println(currentPersona.getNombre()+" "+currentObra.getNombreObra());
                                 currentObra.agregarPersona(currentPersona);
                     }
                     else

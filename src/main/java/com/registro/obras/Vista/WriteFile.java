@@ -1,6 +1,7 @@
-package com.registro.obras.Controlador;
+package com.registro.obras.Vista;
 
 //import java.io.FileReader;
+import com.registro.obras.Controlador.*;
 import com.registro.obras.Modelo.*;
 import java.io.FileWriter;
 import java.io.IOException;

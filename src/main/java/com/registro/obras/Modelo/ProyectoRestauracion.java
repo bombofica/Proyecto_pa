@@ -5,6 +5,7 @@
  */
 package com.registro.obras.Modelo;
 
+import com.registro.obras.Controlador.ProyectoReportable;
 import com.registro.obras.Controlador.*;
 import java.io.FileWriter;
 import java.io.IOException;

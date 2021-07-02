@@ -7,6 +7,8 @@
 
 
 package com.registro.obras;
+import com.registro.obras.Modelo.datoIlegibleExceptions;
+import com.registro.obras.Modelo.datoRepetidoException;
 import com.registro.obras.Vista.*;
 import com.registro.obras.Controlador.*;
 import com.registro.obras.Modelo.ProyectoConstruccion;
