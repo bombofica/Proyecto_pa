@@ -86,19 +86,14 @@ public class RegistroTrabajadores {
     }
 
     //Metodos privados
-    public boolean agregarEspecialista(Trabajador trabajador) {
-        if (trabajador == null) {
-            return false;
-        }
-        if(!this.coleccionTrabajadores.existenciaEmpleado(trabajador)){
+    public boolean agregarEspecialista(Trabajador trabajador){
+        if(trabajador != null && !this.coleccionTrabajadores.existenciaEmpleado(trabajador)){
             this.coleccionTrabajadores.agregarEspecialista(trabajador);
             this.listadoTrabajadores.agregarTrabajador(trabajador) ;
-            return true ;
-
+            return true;
         }
+        else return false;
         
-
-        return false ;
     }
 
     public boolean modificarEspecialistaNombre(Trabajador especialista, String nuevoNombre) {
