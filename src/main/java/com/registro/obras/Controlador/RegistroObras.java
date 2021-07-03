@@ -22,6 +22,12 @@ public class RegistroObras {
     private ColeccionNacionalObra coleccionNacionalObra;
     private ColeccionGeneralObra coleccionGeneralObra;
     public ListaProyectoInterfaz listaCompletaInterfaz;
+    public ListaImprimible formatoDeSalida;
+
+    public ListaImprimible getFormatoDeSalida() {
+        return formatoDeSalida;
+    }
+
 
     public RegistroObras() {
         this.listaDeRegiones = new ListaRegionesNombre();
@@ -469,6 +475,14 @@ public class RegistroObras {
 
     public long numeroObras() {
         return this.coleccionGeneralObra.numeroObras();
+    }
+    
+    public void setFormatoDeSalida(ListaImprimible tipo){
+        this.formatoDeSalida = tipo;
+    }
+    
+    public void imprimir(String ruta, String nombre){
+        this.formatoDeSalida.imprimirDatos(this, ruta, nombre);
     }
 
 }

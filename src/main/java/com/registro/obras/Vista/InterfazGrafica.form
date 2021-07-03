@@ -2824,16 +2824,26 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="GenerarReportejTextField1" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="GenerarReportejTextField2" min="-2" pref="115" max="-2" attributes="0"/>
-                          <EmptySpace pref="194" max="32767" attributes="0"/>
-                          <Component id="GenerarReportejButton3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="GenerarReportejButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="GenerarReportejTextField2" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
                               <Component id="GenerarReportejLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="GenerarReportejLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="GenerarReportejButton2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="GenerarReporteBotonGeneral" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="GenerarReporteBotonServicio" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="GenerarReporteBotonTrabajando" max="32767" attributes="0"/>
+                                      <Component id="GenerarReporteBotonProyecto" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -2851,12 +2861,19 @@
                   <Component id="GenerarReportejTextField1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="GenerarReportejLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Component id="GenerarReportejTextField2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="GenerarReportejTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="GenerarReportejButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="GenerarReporteBotonGeneral" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="GenerarReporteBotonTrabajando" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="167" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="GenerarReporteBotonServicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="GenerarReporteBotonProyecto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="GenerarReportejButton2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -2880,12 +2897,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerarReportejTextField1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="GenerarReportejButton3">
+        <Component class="javax.swing.JButton" name="GenerarReporteBotonServicio">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Generar"/>
+            <Property name="text" type="java.lang.String" value="Crear en formato solo servicios"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerarReportejButton3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerarReporteBotonServicioActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="GenerarReportejTextField2">
@@ -2899,6 +2916,30 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Nombre del archivo"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="GenerarReporteBotonGeneral">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Crear en formato General"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerarReporteBotonGeneralActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="GenerarReporteBotonTrabajando">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Crear en formato trabajando"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerarReporteBotonTrabajandoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="GenerarReporteBotonProyecto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Crear en formato solo Proyectos"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerarReporteBotonProyectoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
