@@ -225,7 +225,7 @@ public class WriteDataBase {
 
     /*Este metodo crea un archivo de extension ".txt" dode se imprimen los nombres de las Instancias 
     de tipo Obra con los trabajadores correspondientes*/
-    public static boolean generarReporte(String ruta, String nombre, RegistroTrabajadores registroTra, RegistroObras registroObr) {
+/*    public static boolean generarReporte(String ruta, String nombre, RegistroTrabajadores registroTra, RegistroObras registroObr) {
         ruta = ruta.concat("\\" + nombre + ".txt");
         try (FileWriter Escritor = new FileWriter(ruta)) {
             // Trabajador empleado;
@@ -261,5 +261,5 @@ public class WriteDataBase {
             return false;
         }
         return true;
-    }
+    }*/
 }

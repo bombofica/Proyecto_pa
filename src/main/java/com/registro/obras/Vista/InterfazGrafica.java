@@ -264,10 +264,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
         GenerarReportejFrame = new javax.swing.JFrame();
         GenerarReportejButton2 = new javax.swing.JButton();
         GenerarReportejTextField1 = new javax.swing.JTextField();
-        GenerarReportejButton3 = new javax.swing.JButton();
+        GenerarReporteBotonServicio = new javax.swing.JButton();
         GenerarReportejTextField2 = new javax.swing.JTextField();
         GenerarReportejLabel2 = new javax.swing.JLabel();
         GenerarReportejLabel = new javax.swing.JLabel();
+        GenerarReporteBotonGeneral = new javax.swing.JButton();
+        GenerarReporteBotonTrabajando = new javax.swing.JButton();
+        GenerarReporteBotonProyecto = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         NombreProyecto = new javax.swing.JLabel();
         Autores = new javax.swing.JLabel();
@@ -2166,16 +2169,37 @@ public class InterfazGrafica extends javax.swing.JFrame {
                 }
             });
 
-            GenerarReportejButton3.setText("Generar");
-            GenerarReportejButton3.addActionListener(new java.awt.event.ActionListener() {
+            GenerarReporteBotonServicio.setText("Crear en formato solo servicios");
+            GenerarReporteBotonServicio.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    GenerarReportejButton3ActionPerformed(evt);
+                    GenerarReporteBotonServicioActionPerformed(evt);
                 }
             });
 
             GenerarReportejLabel2.setText("Ruta destino");
 
             GenerarReportejLabel.setText("Nombre del archivo");
+
+            GenerarReporteBotonGeneral.setText("Crear en formato General");
+            GenerarReporteBotonGeneral.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    GenerarReporteBotonGeneralActionPerformed(evt);
+                }
+            });
+
+            GenerarReporteBotonTrabajando.setText("Crear en formato trabajando");
+            GenerarReporteBotonTrabajando.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    GenerarReporteBotonTrabajandoActionPerformed(evt);
+                }
+            });
+
+            GenerarReporteBotonProyecto.setText("Crear en formato solo Proyectos");
+            GenerarReporteBotonProyecto.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    GenerarReporteBotonProyectoActionPerformed(evt);
+                }
+            });
 
             javax.swing.GroupLayout GenerarReportejFrameLayout = new javax.swing.GroupLayout(GenerarReportejFrame.getContentPane());
             GenerarReportejFrame.getContentPane().setLayout(GenerarReportejFrameLayout);
@@ -2186,14 +2210,21 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addGroup(GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(GenerarReportejTextField1)
                         .addGroup(GenerarReportejFrameLayout.createSequentialGroup()
-                            .addComponent(GenerarReportejTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
-                            .addComponent(GenerarReportejButton3))
-                        .addGroup(GenerarReportejFrameLayout.createSequentialGroup()
                             .addGroup(GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(GenerarReportejButton2)
+                                .addComponent(GenerarReportejTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(GenerarReportejLabel2)
-                                .addComponent(GenerarReportejLabel))
+                                .addComponent(GenerarReportejLabel)
+                                .addGroup(GenerarReportejFrameLayout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(GenerarReportejButton2))
+                                .addGroup(GenerarReportejFrameLayout.createSequentialGroup()
+                                    .addGroup(GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(GenerarReporteBotonGeneral, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(GenerarReporteBotonServicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(26, 26, 26)
+                                    .addGroup(GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(GenerarReporteBotonTrabajando, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(GenerarReporteBotonProyecto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGap(0, 0, Short.MAX_VALUE)))
                     .addContainerGap())
             );
@@ -2206,11 +2237,17 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addComponent(GenerarReportejTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(GenerarReportejLabel)
-                    .addGap(4, 4, 4)
+                    .addGap(5, 5, 5)
+                    .addComponent(GenerarReportejTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                     .addGroup(GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(GenerarReportejTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(GenerarReportejButton3))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                        .addComponent(GenerarReporteBotonGeneral)
+                        .addComponent(GenerarReporteBotonTrabajando))
+                    .addGap(18, 18, 18)
+                    .addGroup(GenerarReportejFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(GenerarReporteBotonServicio)
+                        .addComponent(GenerarReporteBotonProyecto))
+                    .addGap(65, 65, 65)
                     .addComponent(GenerarReportejButton2)
                     .addContainerGap())
             );
@@ -3722,12 +3759,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
         this.GestionEmpleadosFrame.setSize(450, 450);
     }//GEN-LAST:event_GenerarReportejButton2ActionPerformed
 
-    private void GenerarReportejButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejButton3ActionPerformed
+    private void GenerarReporteBotonServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReporteBotonServicioActionPerformed
         String ruta = this.GenerarReportejTextField1.getText();
         String nombre = this.GenerarReportejTextField2.getText();
-
-        WriteDataBase.generarReporte(ruta, nombre, this.registroTra, this.registroObr);
-    }//GEN-LAST:event_GenerarReportejButton3ActionPerformed
+        this.registroObr.setFormatoDeSalida(new FormatoSoloServicio());
+        this.registroObr.imprimir(ruta, nombre);
+        //WriteDataBase.generarReporte(ruta, nombre, this.registroTra, this.registroObr);
+    }//GEN-LAST:event_GenerarReporteBotonServicioActionPerformed
 
     private void GenerarReportejTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportejTextField1ActionPerformed
         // TODO add your handling code here:
@@ -3787,6 +3825,32 @@ public class InterfazGrafica extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_FiltrarObrasjComboBox2ActionPerformed
 
+    private void GenerarReporteBotonGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReporteBotonGeneralActionPerformed
+        // TODO add your handling code here:
+        String ruta = this.GenerarReportejTextField1.getText();
+        String nombre = this.GenerarReportejTextField2.getText();
+        
+
+        this.registroObr.setFormatoDeSalida(new FormatoGeneral());
+        this.registroObr.imprimir(ruta.replaceAll("/", "//"), nombre);
+    }//GEN-LAST:event_GenerarReporteBotonGeneralActionPerformed
+
+    private void GenerarReporteBotonTrabajandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReporteBotonTrabajandoActionPerformed
+        // TODO add your handling code here:
+        String ruta = this.GenerarReportejTextField1.getText();
+        String nombre = this.GenerarReportejTextField2.getText();
+        this.registroObr.setFormatoDeSalida(new FormatoTrabajando());
+        this.registroObr.imprimir(ruta, nombre);
+    }//GEN-LAST:event_GenerarReporteBotonTrabajandoActionPerformed
+
+    private void GenerarReporteBotonProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReporteBotonProyectoActionPerformed
+        // TODO add your handling code here:
+        String ruta = this.GenerarReportejTextField1.getText();
+        String nombre = this.GenerarReportejTextField2.getText();
+        this.registroObr.setFormatoDeSalida(new FormatoSoloProyecto());
+        this.registroObr.imprimir(ruta, nombre);
+    }//GEN-LAST:event_GenerarReporteBotonProyectoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame AgregarObraFrame;
@@ -3821,9 +3885,12 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> GastosTotalesjComboBox2;
     private javax.swing.JTextArea GastosTotalesjTextArea;
     private javax.swing.JFrame GenerarInformeFrame;
+    private javax.swing.JButton GenerarReporteBotonGeneral;
+    private javax.swing.JButton GenerarReporteBotonProyecto;
+    private javax.swing.JButton GenerarReporteBotonServicio;
+    private javax.swing.JButton GenerarReporteBotonTrabajando;
     private javax.swing.JButton GenerarReportejButton;
     private javax.swing.JButton GenerarReportejButton2;
-    private javax.swing.JButton GenerarReportejButton3;
     private javax.swing.JFrame GenerarReportejFrame;
     private javax.swing.JLabel GenerarReportejLabel;
     private javax.swing.JLabel GenerarReportejLabel2;

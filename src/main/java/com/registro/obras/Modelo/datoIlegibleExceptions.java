@@ -16,6 +16,6 @@ public class datoIlegibleExceptions extends Exception{
     
     public datoIlegibleExceptions()
     {
-        super("ERROR benja weon") ;
+        super("ERROR, el dato no se puede trabajar") ;
     }
 }
