@@ -14,12 +14,12 @@ public class FechaHoy{
     //Variables de instancia
     private Date fecha;
     private SimpleDateFormat formato;
-    private ArrayList<Integer> meses;
+    private int[] meses;
 
     //Constructor
     public FechaHoy() {
         
-        meses = new ArrayList();
+        meses = new int[12];
         llenarMeses() ;
         this.fecha = new Date();
         this.formato = new SimpleDateFormat("dd-MM-yyyy") ;
@@ -154,7 +154,7 @@ public class FechaHoy{
         }
         int i ;
         //se cuentan los dias que faltan para terminar el mes
-        for(i = diaHoy ; i < meses.get(mesHoy) ; i++)
+        for(i = diaHoy ; i < meses.length ; i++)
         {
             contadorDias++;
         }
@@ -198,18 +198,19 @@ public class FechaHoy{
     }
     private void llenarMeses() {
         //Los mese del año
-        this.meses.add(31) ;
-        this.meses.add(28) ;
-        this.meses.add(31) ;
-        this.meses.add(30) ;
-        this.meses.add(31) ;
-        this.meses.add(30) ;
-        this.meses.add(31) ;
-        this.meses.add(31) ;
-        this.meses.add(30) ;
-        this.meses.add(31) ;
-        this.meses.add(30) ;
-        this.meses.add(31) ;
+        this.meses[0] = 31 ;
+        this.meses[1] = 28 ;
+        this.meses[2] = 31 ;
+        this.meses[3] = 30 ;
+        this.meses[4] = 31 ;
+        this.meses[5] = 30 ;
+        this.meses[6] = 31 ;
+        this.meses[7] = 31 ;
+        this.meses[8] = 30 ;
+        this.meses[9] = 31 ;
+        this.meses[10] = 30 ;
+        this.meses[11] = 31 ;
+
     }
 
     
