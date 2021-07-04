@@ -30,7 +30,6 @@ import javax.swing.JTextArea;
  */
 public class InterfazGrafica extends javax.swing.JFrame {
 
-    boolean flag;
     RegistroObras registroObr;
 
     RegistroTrabajadores registroTra;

@@ -35,10 +35,12 @@ public class ListaProyectoInterfaz {
         return false;
     }
 
-    public void agregarObra(ProyectoRestauracion obraAgregar) {
+    public boolean agregarObra(ProyectoRestauracion obraAgregar) {
         if (obraAgregar != null) {
             this.listaCompletaInterfaz.add(obraAgregar);
+            return true;
         }
+        return false;
     }
 
     public void eliminarObra(ProyectoReportable proyecto) {
