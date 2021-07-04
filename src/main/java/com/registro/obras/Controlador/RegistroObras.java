@@ -17,7 +17,6 @@ public class RegistroObras {
 
     int contadorObras;
 
-    //private ArrayList<String> listadoRegiones; // encapsular
     private ListaRegionesNombre listaDeRegiones;
     private ColeccionNacionalObra coleccionNacionalObra;
     private ColeccionGeneralObra coleccionGeneralObra;

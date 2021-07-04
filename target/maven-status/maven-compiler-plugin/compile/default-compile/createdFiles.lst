@@ -120,6 +120,7 @@ com\registro\obras\Vista\InterfazGrafica$79.class
 com\registro\obras\Vista\InterfazGrafica$7.class
 com\registro\obras\Controlador\RegistroTrabajadores.class
 com\registro\obras\Vista\InterfazGrafica$84.class
+com\registro\obras\Modelo\ListadoEmpleadosObra.class
 com\registro\obras\Vista\InterfazGrafica$107.class
 com\registro\obras\Vista\InterfazGrafica$74.class
 com\registro\obras\Controlador\ColeccionRegionalObra.class
