@@ -8,7 +8,7 @@ package com.registro.obras.Controlador;
 import java.util.ArrayList;
 
 /**
- *
+ *asd bvc
  * @author Benjamín
  */
 public class ListaRegionesNombre {
